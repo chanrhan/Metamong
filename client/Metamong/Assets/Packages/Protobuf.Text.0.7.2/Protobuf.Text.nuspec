@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Protobuf.Text</id>
+    <version>0.7.2</version>
+    <authors>Kerry Jiang and other contributors</authors>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/SciSharp/protobuf.Text</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/44989469?s=200&amp;v=4</iconUrl>
+    <description>Text format support for google's protobuf C# library</description>
+    <releaseNotes>Fixed the formatting issue for value types</releaseNotes>
+    <copyright>Apache 2.0</copyright>
+    <tags>C#,protobuf,text,text format</tags>
+    <repository type="git" url="https://github.com/SciSharp/protobuf.Text" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Google.Protobuf" version="3.21.12" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Google.Protobuf" version="3.21.12" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

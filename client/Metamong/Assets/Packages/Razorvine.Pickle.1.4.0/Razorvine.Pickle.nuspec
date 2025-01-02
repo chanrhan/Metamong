@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Razorvine.Pickle</id>
+    <version>1.4.0</version>
+    <authors>Irmen de Jong</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/irmen/pickle</projectUrl>
+    <description>A feature complete pickle protocol implementation (Python's builtin serialization mechanism)</description>
+    <releaseNotes>Stand alone pickle library.</releaseNotes>
+    <copyright>Copyright Irmen de Jong</copyright>
+    <tags>python serialization pickle</tags>
+    <repository type="git" url="https://github.com/irmen/pickle.git" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Memory" version="4.5.5" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

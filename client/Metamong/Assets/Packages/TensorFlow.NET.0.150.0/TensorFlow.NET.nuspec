@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>TensorFlow.NET</id>
+    <version>0.150.0</version>
+    <authors>Haiping Chen, Eli Belash, Yaohui Liu, Meinrad Recheis</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>http://scisharpstack.org/</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/44989469?s=200&amp;v=4</iconUrl>
+    <description>Google's TensorFlow full binding in .NET Standard.
+Building, training and infering deep learning models.
+https://tensorflownet.readthedocs.io</description>
+    <releaseNotes>tf.net 0.150.x and above are based on tensorflow native 2.15.0
+		* Support BERT model.
+		
+		tf.net 0.110.x and above are based on tensorflow native 2.11.0
+		* Support RNN, LSTM model.
+		* Support Transformer model.
+		* Added IMDB dataset.
+
+		tf.net 0.100.x and above are based on tensorflow native 2.10.0
+
+		* Eager Mode is added finally.
+		* tf.keras is partially working.
+		* tf.data is added.
+		* Autograph works partially.
+		* Improve memory usage.
+
+		TensorFlow .NET v0.3x is focused on making more Keras API works.
+		Keras API is a separate package released as TensorFlow.Keras.
+
+		tf.net 0.4x.x aligns with TensorFlow v2.4.1 native library.
+		tf.net 0.6x.x aligns with TensorFlow v2.6.x native library.
+		tf.net 0.7x.x aligns with TensorFlow v2.7.x native library.
+		tf.net 0.10x.x aligns with TensorFlow v2.10.x native library.
+		tf.net 0.11x.x aligns with TensorFlow v2.11.x native library.
+		tf.net 0.15x.x aligns with TensorFlow v2.15.x native library.</releaseNotes>
+    <copyright>Apache 2.0, Haiping Chen since 2018</copyright>
+    <tags>TensorFlow, SciSharp, Machine Learning, TensorFlow.NET, TF.NET, AI</tags>
+    <repository type="git" url="https://github.com/SciSharp/TensorFlow.NET" />
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="MethodBoundaryAspect.Fody" version="2.0.149" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="OneOf" version="3.0.263" exclude="Build,Analyzers" />
+        <dependency id="Protobuf.Text" version="0.7.2" exclude="Build,Analyzers" />
+        <dependency id="Razorvine.Pickle" version="1.4.0" exclude="Build,Analyzers" />
+        <dependency id="Serilog.Sinks.Console" version="4.1.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="MethodBoundaryAspect.Fody" version="2.0.149" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="OneOf" version="3.0.263" exclude="Build,Analyzers" />
+        <dependency id="Protobuf.Text" version="0.7.2" exclude="Build,Analyzers" />
+        <dependency id="Razorvine.Pickle" version="1.4.0" exclude="Build,Analyzers" />
+        <dependency id="Serilog.Sinks.Console" version="4.1.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
