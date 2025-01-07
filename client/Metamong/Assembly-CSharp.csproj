@@ -68,113 +68,32 @@
     <Compile Include="Assets/Scripts/MotionMapping/Test.cs" />
     <Compile Include="Assets/Scripts/MotionMapping/CustomCsprojPostprocessor.cs" />
     <Compile Include="Assets/Scripts/MotionMapping/Tensorflow/Tensorflow.cs" />
+    <Compile Include="Assets/Scripts/MotionMapping/python/PythonTest.cs" />
     <Compile Include="Assets/Scripts/MotionMapping/Word2VecModel.cs" />
     <Compile Include="Assets/Scripts/MotionMapping/MotionMapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.StandardTrainers.xml" />
-    <None Include="Assets/Packages/System.Collections.Immutable.8.0.0/LICENSE.TXT" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/Packages/Newtonsoft.Json.13.0.3/lib/netstandard2.0/Newtonsoft.Json.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.DataView.4.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/runtimes/win-x86/native/LdaNative.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/Mono.Cecil.Pdb.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Data.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/FodyHelpers.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/Mono.Cecil.dll" />
-    <None Include="Assets/Packages/OneOf.3.0.263/lib/netstandard2.0/OneOf.dll" />
-    <None Include="Assets/Packages/Word2vec.Tools.2.1.0/lib/netstandard2.0/Word2vec.Tools.dll" />
-    <None Include="Assets/Packages/System.Collections.Immutable.8.0.0/lib/netstandard2.0/System.Collections.Immutable.dll" />
-    <None Include="Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
-    <None Include="Assets/Packages/System.Collections.Immutable.8.0.0/lib/netstandard2.0/System.Collections.Immutable.xml" />
-    <None Include="Assets/Packages/System.Threading.Channels.8.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Transforms.dll" />
-    <None Include="Assets/Packages/System.CodeDom.8.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/lib/netstandard2.1/Microsoft.Bcl.Numerics.xml" />
-    <None Include="Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.CpuMath.4.0.0/lib/netstandard2.0/Microsoft.ML.CpuMath.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/Mono.Cecil.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Core.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
-    <None Include="Assets/Packages/Serilog.Sinks.Console.4.1.0/lib/netstandard2.0/Serilog.Sinks.Console.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.PCA.xml" />
-    <None Include="Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/LICENSE.TXT" />
-    <None Include="Assets/Packages/System.Threading.Channels.8.0.0/lib/netstandard2.1/System.Threading.Channels.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Core.xml" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/Mono.Cecil.Rocks.dll" />
-    <None Include="Assets/Packages/System.Threading.Channels.8.0.0/LICENSE.TXT" />
     <None Include="Assets/Packages/Microsoft.NETCore.Targets.1.1.0/ThirdPartyNotices.txt" />
-    <None Include="Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/useSharedDesignerContext.txt" />
-    <None Include="Assets/Packages/TensorFlow.NET.0.150.0/lib/netstandard2.0/Tensorflow.Binding.xml" />
-    <None Include="Assets/Packages/System.CodeDom.8.0.0/lib/netstandard2.0/System.CodeDom.xml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.KMeansClustering.xml" />
-    <None Include="Assets/Packages/Serilog.Sinks.Console.4.1.0/lib/netstandard2.0/Serilog.Sinks.Console.xml" />
-    <None Include="Assets/Packages/System.Numerics.Tensors.8.0.0/useSharedDesignerContext.txt" />
-    <None Include="Assets/Packages/Serilog.2.10.0/lib/netstandard2.1/Serilog.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/runtimes/win-x64/native/LdaNative.dll" />
-    <None Include="Assets/Packages/Newtonsoft.Json.13.0.3/lib/netstandard2.0/Newtonsoft.Json.xml" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/Fody.dll" />
-    <None Include="Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/useSharedDesignerContext.txt" />
-    <None Include="Assets/Packages/Protobuf.Text.0.7.2/lib/netstandard2.0/Protobuf.Text.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/FodyIsolated.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
-    <None Include="Assets/Packages/System.Collections.Immutable.8.0.0/useSharedDesignerContext.txt" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/Fody.dll" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
-    <None Include="Assets/Packages/Google.Protobuf.3.21.12/lib/netstandard2.0/Google.Protobuf.xml" />
-    <None Include="Assets/Packages/System.Numerics.Tensors.8.0.0/lib/netstandard2.0/System.Numerics.Tensors.xml" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/lib/netstandard2.1/Microsoft.Bcl.Numerics.dll" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
-    <None Include="Assets/Packages/Microsoft.ML.DataView.4.0.0/lib/netstandard2.0/Microsoft.ML.DataView.xml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-    <None Include="Assets/Packages/System.CodeDom.8.0.0/useSharedDesignerContext.txt" />
-    <None Include="Assets/Packages/Microsoft.ML.CpuMath.4.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/FodyIsolated.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/Mono.Cecil.Rocks.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/FodyCommon.dll" />
-    <None Include="Assets/Packages/System.Threading.Channels.8.0.0/lib/netstandard2.1/System.Threading.Channels.xml" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/Packages/TensorFlow.NET.0.150.0/lib/netstandard2.0/Tensorflow.Binding.dll" />
-    <None Include="Assets/Packages/Razorvine.Pickle.1.4.0/lib/netstandard2.0/Razorvine.Pickle.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Data.xml" />
-    <None Include="Assets/Packages/System.CodeDom.8.0.0/LICENSE.TXT" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.PCA.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Transforms.xml" />
-    <None Include="Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/FodyCommon.dll" />
-    <None Include="Assets/Packages/System.Numerics.Tensors.8.0.0/THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets/Packages/MethodBoundaryAspect.Fody.2.0.149/weaver/MethodBoundaryAspect.Fody.dll" />
-    <None Include="Assets/Packages/System.Collections.Immutable.8.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/System.Numerics.Tensors.8.0.0/lib/netstandard2.0/System.Numerics.Tensors.dll" />
-    <None Include="Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/LICENSE.TXT" />
-    <None Include="Assets/Packages/Google.Protobuf.3.21.12/lib/netstandard2.0/Google.Protobuf.dll" />
-    <None Include="Assets/Packages/Microsoft.ML.DataView.4.0.0/lib/netstandard2.0/Microsoft.ML.DataView.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/Packages/System.CodeDom.8.0.0/lib/netstandard2.0/System.CodeDom.dll" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets/Packages/Fody.6.7.0/netclassictask/FodyHelpers.dll" />
-    <None Include="Assets/Packages/Fody.6.7.0/netstandardtask/Mono.Cecil.Pdb.dll" />
     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
-    <None Include="Assets/Packages/Serilog.2.10.0/lib/netstandard2.1/Serilog.xml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
-    <None Include="Assets/Packages/Fody.6.7.0/License.txt" />
-    <None Include="Assets/Packages/System.Numerics.Tensors.8.0.0/LICENSE.TXT" />
-    <None Include="Assets/Packages/Microsoft.ML.CpuMath.4.0.0/lib/netstandard2.0/Microsoft.ML.CpuMath.xml" />
-    <None Include="Assets/Packages/Microsoft.ML.4.0.0/THIRD-PARTY-NOTICES.TXT" />
-    <None Include="Assets/Packages/MethodBoundaryAspect.Fody.2.0.149/lib/netstandard2.1/MethodBoundaryAspect.dll" />
-    <None Include="Assets/Packages/System.Threading.Channels.8.0.0/useSharedDesignerContext.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
     <None Include="Assets/Packages/Microsoft.NETCore.Targets.1.1.0/dotnet_library_license.txt" />
   </ItemGroup>
@@ -511,136 +430,12 @@
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.55f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets/Packages/Newtonsoft.Json.13.0.3/lib/netstandard2.0/Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>Assets/Packages/Fody.6.7.0/netclassictask/Mono.Cecil.Pdb.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.Data">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Data.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FodyHelpers">
-      <HintPath>Assets/Packages/Fody.6.7.0/netstandardtask/FodyHelpers.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Assets/Packages/Fody.6.7.0/netstandardtask/Mono.Cecil.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="OneOf">
-      <HintPath>Assets/Packages/OneOf.3.0.263/lib/netstandard2.0/OneOf.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Assets/Packages/System.Collections.Immutable.8.0.0/lib/netstandard2.0/System.Collections.Immutable.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library/PackageCache/com.unity.testtools.codecoverage@1.2.6/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.ML.Transforms">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Transforms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.CpuMath">
-      <HintPath>Assets/Packages/Microsoft.ML.CpuMath.4.0.0/lib/netstandard2.0/Microsoft.ML.CpuMath.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.Core">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Serilog.Sinks.Console">
-      <HintPath>Assets/Packages/Serilog.Sinks.Console.4.1.0/lib/netstandard2.0/Serilog.Sinks.Console.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Threading.Channels">
-      <HintPath>Assets/Packages/System.Threading.Channels.8.0.0/lib/netstandard2.1/System.Threading.Channels.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>Assets/Packages/Fody.6.7.0/netclassictask/Mono.Cecil.Rocks.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Serilog">
-      <HintPath>Assets/Packages/Serilog.2.10.0/lib/netstandard2.1/Serilog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Fody">
-      <HintPath>Assets/Packages/Fody.6.7.0/netclassictask/Fody.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Protobuf.Text">
-      <HintPath>Assets/Packages/Protobuf.Text.0.7.2/lib/netstandard2.0/Protobuf.Text.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FodyIsolated">
-      <HintPath>Assets/Packages/Fody.6.7.0/netstandardtask/FodyIsolated.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.StandardTrainers">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.KMeansClustering">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.Numerics">
-      <HintPath>Assets/Packages/Microsoft.Bcl.Numerics.8.0.0/lib/netstandard2.1/Microsoft.Bcl.Numerics.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="FodyCommon">
-      <HintPath>Assets/Packages/Fody.6.7.0/netclassictask/FodyCommon.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tensorflow.Binding">
-      <HintPath>Assets/Packages/TensorFlow.NET.0.150.0/lib/netstandard2.0/Tensorflow.Binding.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Razorvine.Pickle">
-      <HintPath>Assets/Packages/Razorvine.Pickle.1.4.0/lib/netstandard2.0/Razorvine.Pickle.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.PCA">
-      <HintPath>Assets/Packages/Microsoft.ML.4.0.0/lib/netstandard2.0/Microsoft.ML.PCA.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MethodBoundaryAspect.Fody">
-      <HintPath>Assets/Packages/MethodBoundaryAspect.Fody.2.0.149/weaver/MethodBoundaryAspect.Fody.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Numerics.Tensors">
-      <HintPath>Assets/Packages/System.Numerics.Tensors.8.0.0/lib/netstandard2.0/System.Numerics.Tensors.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Assets/Packages/Google.Protobuf.3.21.12/lib/netstandard2.0/Google.Protobuf.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.ML.DataView">
-      <HintPath>Assets/Packages/Microsoft.ML.DataView.4.0.0/lib/netstandard2.0/Microsoft.ML.DataView.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MethodBoundaryAspect">
-      <HintPath>Assets/Packages/MethodBoundaryAspect.Fody.2.0.149/lib/netstandard2.1/MethodBoundaryAspect.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Word2vec.Tools">
-      <HintPath>Assets/Packages/Word2vec.Tools.2.1.0/lib/netstandard2.0/Word2vec.Tools.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">

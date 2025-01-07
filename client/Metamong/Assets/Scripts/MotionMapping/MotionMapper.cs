@@ -8,10 +8,10 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
-using Tensorflow;
+// using Tensorflow;
 using Unity.VisualScripting.Dependencies.Sqlite;
-using Word2vec;
-using Word2vec.Tools;
+// using Word2vec;
+// using Word2vec.Tools;
 using System.Data.Odbc;
 
 public class MotionMapper : MonoBehaviour
