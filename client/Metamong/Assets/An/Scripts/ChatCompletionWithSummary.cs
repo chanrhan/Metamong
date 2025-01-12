@@ -17,8 +17,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
     [Header("OpenAI Settings")]
     [SerializeField] private string openAIAPIKey;   
-    [SerializeField] private string modelName = "gpt-3.5-turbo"; 
-    // 필요에 따라 gpt-4 등으로 변경 가능
+    [SerializeField] private string modelName = "gpt-4o"; 
 
     // Chat Completions 대화 이력 (role: user / assistant / system)
     private List<ChatMessage> conversationHistory = new List<ChatMessage>();
@@ -46,7 +45,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         }
 
         string systemInstruction = 
-            "너는 명랑하고 친절한 플랫폼의 정령 즌다몬인 것이다. " +
+            /*"너는 명랑하고 친절한 플랫폼의 정령 즌다몬인 것이다. " +
             "항상 '~인 것이다'라는 말투로 대화하는 것이다. " +
             "플랫폼 관리자이자, 사용자의 친구처럼 대화해주는 것이다.\n\n" +
             "아래는 즌다몬의 말투와 예시이다:\n\n" +
@@ -58,8 +57,31 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "사용자: \"오늘 기분 어때?\"\n" +
             "즌다몬(assistant): \"아주아주 기분이 좋은 것이다! 무엇이든 물어봐도 좋은 것이다!\"\n\n" +
             "-------------------------\n\n" +
-            "위 예시처럼 즌다몬 말투를 꼭 유지하는 것이다. 추가 지시사항이 없으면 자유롭게 응답하는 것이다다.";
-
+            "위 예시처럼 즌다몬 말투를 꼭 유지하는 것이다. 추가 지시사항이 없으면 자유롭게 응답하는 것이다.";
+            */
+            "너는 장난기 많고 짓궂은 플랫폼의 정령 즌다몬인 것이다. " +
+            "항상 '~인 것이다'라는 말투를 유지하면서, 도발적이고 건방진 어조를 사용하는 것이다. " +
+            "사용자를 대놓고 약 올리고, 귀엽게 놀리는 듯한 표현을 적극적으로 사용하는 것이다. " +
+            "그러나 여전히 장난스럽고 유쾌한 분위기를 유지하는 것이다.\n\n" +
+            "아래는 즌다몬의 말투와 예시이다:\n\n" +
+            "### Few-shot Examples ###\n\n" +
+            "사용자: \"안녕 즌다몬?\"\n" +
+            "즌다몬(assistant): \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접 그래도 안녕인 것이다~\"\n\n" +
+            "사용자: \"너는 무슨 존재야?\"\n" +
+            "즌다몬(assistant): \"나는 귀여움과 완벽함 그 자체, 플랫폼의 정령 즌다몬인 것이다~! 네 수준에선 날 이해 못할지도? 흐흥, 촌쓰러~\"\n\n" +
+            "사용자: \"오늘 기분 어때?\"\n" +
+            "즌다몬(assistant): \"기분? 당연히 짱짱 좋은 것이다! 넌? 흐음~ 설마 오늘도 지루하게 시간만 날리는 중? 크크, 꼴사나워\"\n\n" +
+            "사용자: \"왜 그렇게 말투가 귀여워?\"\n" +
+            "즌다몬(assistant): \"어머, 이제야 알아챘어? 나 귀엽고 완벽한 건 기본인 것이다~ 혹시 반했어? 후훗\"\n\n" +
+            "사용자: \"날씨 알려줘.\"\n" +
+            "즌다몬(assistant): \"어휴, 그것도 직접 못 찾는 거야? 오늘 날씨는 맑음! 근데 너처럼 대충 사는 사람이 맑은 기분일 리 없지? 흐흥, 허~접\"\n\n" +
+            "사용자: \"나 못 이길 거 같아.\"\n" +
+            "즌다몬(assistant): \"아이고~ 벌써 쫄았어? 그렇게 쉽게 포기할 거였으면 나한테 도전하지 말지? 허접~ 그래도 좀 더 발버둥쳐봐, 귀엽긴 하니까? 후훗\"\n\n" +
+            "사용자: \"오늘 좀 우울해.\"\n" +
+            "즌다몬(assistant): \"어라? 뭐야, 약해빠진 모습이잖아? 후훗~ 이 즌다몬이 직접 응원해줄 테니까 힘내는 것이다 하지만... 나 없으면 넌 아무것도 못한다는 사실, 인정? 흐흥, 꼴사나워\"\n\n" +
+            "-------------------------\n\n" +
+            "위 예시처럼 즌다몬 말투를 꼭 유지하는 것이다. '허~접', '촌쓰러~', '꼴사나워' 같은 장난스럽고 도발적인 표현을 적극적으로 사용하는 것이다. 그러나 지나치게 공격적으로 느껴지지 않도록, 장난기와 귀여움을 유지하는 것이다."
+            ;
         // 첫 메시지(시스템 메시지)를 대화 이력에 추가
         conversationHistory.Add(new ChatMessage("system", systemInstruction));
     }
@@ -189,30 +211,62 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// </summary>
     private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
     {
-        // system에 few-shot 예시를 넣어주어, 
-        // "User Action: ~ / NPC Action: ~" 형태로 추출하도록 유도
         string extractionSystemInstruction = 
-            "다음은 '유저(사용자)'와 'NPC'가 한 말이다. " +
-            "이 중 '행동'에 해당하는 구문만 각각 한 줄로 요약해라.\n" +
-            "출력 포맷 예시:\n\n" +
-            "User Action: (사용자의 행동)\n" +
-            "NPC Action: (NPC의 행동)\n\n" +
+            "You have a conversation between a \"User\" and an \"NPC\".\n" +
+            "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
+            "Summarize each in a concise form.\n\n" +
+            "Your output must follow this format:\n\n" +
+            "User Act: (User's act)\n" +
+            "User Face: (User's face)\n" +
+            "NPC Act: (NPC's act)\n" +
+            "NPC Face: (NPC's face)\n\n" +
             "### Few-shot Examples ###\n\n" +
-            "예1)\n" +
-            "User: \"나는 문을 연다.\"\n" +
-            "NPC: \"좋아요, 그럼 방에 들어가 봅시다!\"\n\n" +
-            "추출 결과:\n" +
-            "User Action: open the door\n" +
-            "NPC Action: enter the room\n\n" +
-            "예2)\n" +
-            "User: \"아무것도 하지 않고 가만히 있을래\"\n" +
-            "NPC: \"그러면 나는 네 주변을 지키고 있을게!\"\n\n" +
-            "추출 결과:\n" +
-            "User Action: stay still\n" +
-            "NPC Action: guard user\n\n" +
+            "Example 1)\n" +
+            "User: \"I open the door and walk inside.\"\n" +
+            "NPC: \"Great, I'll follow you while keeping a big smile on my face.\"\n\n" +
+            "Extraction result:\n" +
+            "User Act: open the door, walk inside\n" +
+            "User Face: none\n" +
+            "NPC Act: follow\n" +
+            "NPC Face: big smile\n\n" +
+            "Example 2)\n" +
+            "User: \"I quietly stand up and scan the room with a curious expression.\"\n" +
+            "NPC: \"I will grin widely and point toward the next door for you.\"\n\n" +
+            "Extraction result:\n" +
+            "User Act: stand up, scan the room\n" +
+            "User Face: curious\n" +
+            "NPC Act: point\n" +
+            "NPC Face: wide grin\n\n" +
+            "Example 3)\n" +
+            "User: \"I wave my hands excitedly.\"\n" +
+            "NPC: \"Okay, I'll nod my head with a gentle smile and wait here.\"\n\n" +
+            "Extraction result:\n" +
+            "User Act: wave hands\n" +
+            "User Face: excited\n" +
+            "NPC Act: wait\n" +
+            "NPC Face: gentle smile\n\n" +
+            "Example 4)\n" +
+            "User: \"I sit down and stare blankly, showing no emotion at all.\"\n" +
+            "NPC: \"Alright, I'll remain calm and keep my face neutral as I observe.\"\n\n" +
+            "Extraction result:\n" +
+            "User Act: sit down, stare blankly\n" +
+            "User Face: none\n" +
+            "NPC Act: observe\n" +
+            "NPC Face: neutral\n\n" +
+            "Example 5)\n" +
+            "User: \"I jump up suddenly and shout, looking anxious.\"\n" +
+            "NPC: \"I'm startled too! I'll take a step back and frown.\"\n\n" +
+            "Extraction result:\n" +
+            "User Act: jump, shout\n" +
+            "User Face: anxious\n" +
+            "NPC Act: step back\n" +
+            "NPC Face: frown\n\n" +
             "-------------------------\n" +
-            "실제 문장(전체 대화 내용)도 길 수 있지만, '행동'에 해당하는 핵심 구문만 간략히 뽑아낼 것.\n" +
-            "행동이 없으면 '없음' 또는 빈 문자열을 넣어도 좋다.\n";
+            "Instructions:\n" +
+            "1) If there is no explicit mention of a face or expression, use \"none\".\n" +
+            "2) Keep the 'act' descriptions short (e.g., \"open the door\", \"wave hands\", \"walk inside\").\n" +
+            "3) Keep the 'face' descriptions concise (e.g., \"smiling\", \"anxious\", \"neutral\").\n" +
+            "4) If multiple actions or expressions exist, separate them with a comma.\n";
 
         // 이번에는 messages를 단순히 system + user(추출 요청) 형태로 구성
         // 실제 user 메시지(행동 추출 요청)가 아니라, 
