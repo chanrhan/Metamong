@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    //이동관련
     [SerializeField] private float moveSpeed = 10.0f;
     private float speedLimit = 15.0f;
     [SerializeField] private float jumpForce = 10.0f;
@@ -25,29 +28,50 @@ public class PlayerController : MonoBehaviour
         myAnim = GetComponentInChildren<Animator>();
     }
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         TryTalking();
         if (!isTyping)
         {
             MovePosition();
+            CharacterRotate();
             TryJump();
         }
     }
 
+    //이동 메서드
     private void MovePosition()
     {
         Vector3 nowVel = new Vector3(myRigid.velocity.x, 0, myRigid.velocity.z);
-        if (nowVel.magnitude < speedLimit)
+        if (nowVel.sqrMagnitude < speedLimit * speedLimit)
         {
             Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
-            myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);            
+            myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);
+        }
+        SetWalkingAnim();
+    }
+
+    //걷기 애니메이션 출력 함수
+    private void SetWalkingAnim()
+    {
+        if (myRigid.velocity.sqrMagnitude < 1.0f)
+        {
+            myAnim.SetBool("isWalking", false);
+        }
+        else
+        {
+            myAnim.SetBool("isWalking", true);
+            Debug.Log("Walking");
         }
     }
+
+    private void CharacterRotate()
+    {
+        Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z).normalized;
+        if (moveVec != Vector3.zero)
+            transform.forward = moveVec;
+    }
+
 
     private void TryJump()
     {
