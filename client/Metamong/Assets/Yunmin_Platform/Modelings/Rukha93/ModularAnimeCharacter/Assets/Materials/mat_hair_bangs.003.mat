@@ -22,6 +22,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_hair_bangs.003
   m_Shader: {fileID: -6465566751694194690, guid: 7e0b5bad5c3d5464fa13085f40bcdbdb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _ENVIRONMENTREFLECTIONS_OFF
@@ -34,6 +36,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -143,8 +146,8 @@ Material:
     - _BlackTone: {r: 0.20379585, g: 0.18903527, b: 0.22641507, a: 0}
     - _Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
     - _Color_A: {r: 1, g: 1, b: 1, a: 0}
-    - _Color_A_1: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
-    - _Color_A_2: {r: 0.31132078, g: 0.27414072, b: 0.26286048, a: 1}
+    - _Color_A_1: {r: 0.06132078, g: 0.30549264, b: 1, a: 1}
+    - _Color_A_2: {r: 0.8, g: 0.7490196, b: 0.5254902, a: 1}
     - _Color_B: {r: 0.42938215, g: 0.5660378, b: 0.36578855, a: 0}
     - _Color_B_1: {r: 0, g: 0, b: 0, a: 1}
     - _Color_B_2: {r: 0, g: 0, b: 0, a: 1}
