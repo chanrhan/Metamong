@@ -1,34 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq.Expressions;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
     //이동관련
     [SerializeField] private float moveSpeed = 10.0f;
-    private float speedLimit = 15.0f;
+    [SerializeField] private float speedLimit = 10.0f;
     [SerializeField] private float jumpForce = 10.0f;
     private bool isOnGround = true;
     private Rigidbody myRigid;
+    private Collider myCollider;
     
     //애니메이션 관련
     private Animator myAnim;
-    private bool isTalkingNow = false;
+    //private bool isTalkingNow = false;
     private bool isTyping = false;
 
     private void Awake()
     {
         myRigid = GetComponent<Rigidbody>();
+        myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
     }
 
-    void Update()
+    private void FixedUpdate()
+    {
+        CheckOnGround();
+    }
+
+    private void Update()
     {
         TryTalking();
         if (!isTyping)
@@ -42,19 +42,21 @@ public class PlayerController : MonoBehaviour
     //이동 메서드
     private void MovePosition()
     {
-        Vector3 nowVel = new Vector3(myRigid.velocity.x, 0, myRigid.velocity.z);
-        if (nowVel.sqrMagnitude < speedLimit * speedLimit)
+        float nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
+        if (nowVel < speedLimit * speedLimit)
         {
             Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
             myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);
+            nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
         }
-        SetWalkingAnim();
+
+        SetWalkingAnim(nowVel);
     }
 
     //걷기 애니메이션 출력 함수
-    private void SetWalkingAnim()
+    private void SetWalkingAnim(float speedSqure)
     {
-        if (myRigid.velocity.sqrMagnitude < 1.0f)
+        if (speedSqure < 1.0f)
         {
             myAnim.SetBool("isWalking", false);
         }
@@ -65,38 +67,38 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //캐릭터 회전 메서드
     private void CharacterRotate()
     {
-        Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z).normalized;
-        if (moveVec != Vector3.zero)
+        Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z);
+        if (moveVec.sqrMagnitude > 0.1f)
             transform.forward = moveVec;
     }
 
-
+    //점프 시도 함수
     private void TryJump()
     {
-        if (isOnGround)
+        if (Input.GetButtonDown("Jump") && isOnGround)
         {
-            if (Input.GetButtonDown("Jump"))
-            {
-                Jump();
-            }
+            Jump();
         }
     }
+
+    //캐릭터 점프 함수
     private void Jump()
     {
         myRigid.AddForce(Vector3.up* jumpForce, ForceMode.Impulse);
         isOnGround = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //캐릭터가 땅에 닿는지 체크
+    private void CheckOnGround()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnGround = true;
-        }
+        //isOnGround =  Physics.Raycast(myCollider.bounds.center, Vector3.down, 1.05f);
+        isOnGround = Physics.BoxCast(myCollider.bounds.center, Vector3.one * 0.2f, Vector3.down, Quaternion.identity, 1.05f);
     }
 
+    //대화하기 기능 시도 함수
     private void TryTalking()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -109,6 +111,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //대화 기능 함수
     private void StartTalking()
     {
         myAnim.SetBool("isTalking", true);
