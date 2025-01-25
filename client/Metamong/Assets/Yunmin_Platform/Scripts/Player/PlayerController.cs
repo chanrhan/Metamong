@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
             CharacterRotate();
             TryJump();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ChatManager.Instance.InputChat("안녕 너무 반가와!!");
+        }
     }
 
     //이동 메서드
