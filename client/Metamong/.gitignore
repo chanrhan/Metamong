@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# macOS-windows cooperation issue: CRLF 
+# 2025 02 03 by chan
+core.autocrlf = input
+core.eol = lf 
