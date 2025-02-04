@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    //일반 정보 관련
+    private string playerName = "Me";
+
+
     //이동관련
     [SerializeField] private float moveSpeed = 10.0f;
     [SerializeField] private float speedLimit = 10.0f;
@@ -11,6 +15,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody myRigid;
     private Collider myCollider;
     
+    //대화 관련
+    private float speekRange = 3.0f;
+
     //애니메이션 관련
     private Animator myAnim;
     //private bool isTalkingNow = false;
@@ -37,9 +44,9 @@ public class PlayerController : MonoBehaviour
             CharacterRotate();
             TryJump();
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            ChatManager.Instance.InputChat("안녕 너무 반가와!!");
+            SendMessageToOthers();
         }
     }
 
@@ -112,6 +119,19 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.T))
         {
             StopTalking();
+        }
+    }
+
+    private void SendMessageToOthers() 
+    {
+        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //128 = Conversable 레이어(2^7)
+
+        foreach (RaycastHit hit in hitPlayers)
+        {
+            if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+            {
+                Debug.Log("상대에게 챗을 보냈습니다.");
+            }
         }
     }
 

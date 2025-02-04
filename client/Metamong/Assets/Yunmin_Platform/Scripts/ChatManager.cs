@@ -50,9 +50,9 @@ public class ChatManager : MonoBehaviour
 
 
     //채팅창에 텍스트를 입력하는 함수
-    public void InputChat(string chatText)
+    public void InputChat(string playerName, string chatText)
     {
 
-        chatLogBox.DisplayChat($"[{DateTime.Now}]{chatText}");
+        chatLogBox.DisplayChat($"[{playerName}] : {chatText}");
     }
 }
