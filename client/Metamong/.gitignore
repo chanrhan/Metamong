@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# macOS 관련
+.DS_Store
+._*
+
+# Windows 관련
+Thumbs.db
+desktop.ini
