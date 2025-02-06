@@ -72,8 +72,8 @@ crashlytics-build.properties
 **/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # macOS 관련
-.DS_Store
-._*
+**/.DS_Store
+**/._*
 
 # Windows 관련
 **/Thumbs.db
