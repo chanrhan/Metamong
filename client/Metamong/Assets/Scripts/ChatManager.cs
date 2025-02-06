@@ -6,7 +6,7 @@ using System;
 
 public class ChatManager : MonoBehaviour
 {
-    #region ½Ì±ÛÅæ ±¸Çö ºÎºĞ with Awake()
+    #region ì‹±ê¸€í†¤ êµ¬í˜„ ë¶€ë¶„ with Awake()
     private static ChatManager instance;
     public static ChatManager Instance
     {
@@ -20,7 +20,6 @@ public class ChatManager : MonoBehaviour
                     instance = new GameObject("ChatManager").AddComponent<ChatManager>();
                 }
             }
-
             return instance;
         }
     }
@@ -44,15 +43,17 @@ public class ChatManager : MonoBehaviour
         {
             chatLogBox = FindFirstObjectByType<ChatLogBox>();
             if(chatLogBox == null)
-                throw new System.Exception("ChatLogBox¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+                throw new System.Exception("ChatLogBoxë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
     }
 
-
-    //Ã¤ÆÃÃ¢¿¡ ÅØ½ºÆ®¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+    /// <summary>
+    /// ì±„íŒ…ì°½ì˜ ì±„íŒ…ë¡œê·¸ì— ì£¼ì–´ì§„ í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
+    /// </summary>
+    /// <param name="playerName">ì±„íŒ…ì„ ì œê³µí•œ í”Œë ˆì´ì–´ì˜ ì´ë¦„</param>
+    /// <param name="chatText">ì±„íŒ… ë‚´ìš©</param>
     public void InputChat(string playerName, string chatText)
     {
-
         chatLogBox.DisplayChat($"[{playerName}] : {chatText}");
     }
 }

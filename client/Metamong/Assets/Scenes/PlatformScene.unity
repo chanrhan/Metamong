@@ -12652,7 +12652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 61127943}
   posOffset: {x: 0, y: 5.148695, z: -3}
-  rotOffset: {x: 36.762, y: 0, z: 0}
 --- !u!1 &2028840991
 GameObject:
   m_ObjectHideFlags: 0
