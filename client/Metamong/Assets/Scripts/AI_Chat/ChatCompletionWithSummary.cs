@@ -1,6 +1,6 @@
 ///extractedActionsText.text이 행동 추출한 문장(user와 npc 섞여있음) 4개로 잘라서 쓰셔야 해요
 ///NPC의 응답은 responseText.text 변수
-///시간 없으면 이 두 변수만 잘 맛있게 가져가셔서 요리하세얌
+///private이니 get 함수를 만드셔서 접근하셔야합다다
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +17,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
     [SerializeField] private TMP_InputField inputField; // 입력 받는 영역역
     [SerializeField] private TMP_Text responseText; // 응답 결과
     [SerializeField] private TMP_Text extractedActionsText; // 행동 추출 결과
+
 
 
     [Header("OpenAI Settings")]
@@ -126,11 +127,9 @@ public class ChatCompletionWithSummary : MonoBehaviour
     }
 
     /// <summary>
-    /// 1) ChatCompletion 요청
-    /// 2) 응답 처리
-    /// 3) 토큰이 너무 많다면 Summarize 요약
-    /// 순서로 실행합니데
+    /// API 요청을 순차적으로 처리하기 위한 코루틴
     /// </summary>
+    /// <param name="userInput">사용자 입력</param>
     private IEnumerator RequestChatCompletionAndMaybeSummarize(string userInput)
     {
         // 먼저 현재 대화 이력으로 ChatCompletion API를 호출
@@ -150,8 +149,9 @@ public class ChatCompletionWithSummary : MonoBehaviour
     }
 
     /// <summary>
-    /// Chat Completions API를 사용해 대화 이력에 대한 답변을 받아온다.
+    /// Chat Completions API를 사용해 대화 이력에 대한 답변을 받아오는 함수
     /// </summary>
+    /// <param name="userInput">마찬가지로 사용자 입력</param>
     private IEnumerator RequestChatCompletion(string userInput)
     {
         // 1) 요청 바디 구성
@@ -220,8 +220,10 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
     /// <summary>
     /// userInput(유저 문장) + assistantOutput(NPC 문장)에서
-    /// "행동 문장"을 추출하기 위해 또다른 ChatCompletion 요청을 수행
+    /// "행동, 표정 문장"을 추출하기 위해 또다른 ChatCompletion 요청을 수행하는 함수
     /// </summary>
+    /// <param name="userInput">유저 입력</param>
+    /// <param name="npcOutput">NPC 문장(답변)</param>
     private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
     {
         //few-shot을 주긴 했는데 실제 응답과 차이가 꽤 있음.(응답은 한국어인데 지시는 영어로 하는 중)
@@ -358,8 +360,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
 
     /// <summary>
-    /// 토큰 절약을 위해, 이미 누적된 긴 대화를 요약하는 로직.
-    /// - 기존 대화 전체를 system 입장에서 짧게 요약한 뒤,
+    /// 토큰 절약을 위해, 이미 누적된 긴 대화를 요약하는 함수.
+    /// - 기존 대화 전체를 system(NPC) 입장에서 짧게 요약한 뒤,
     /// - conversationHistory를 새로 갱신하여 전체 길이를 줄임
     /// </summary>
     private IEnumerator SummarizeConversation()
