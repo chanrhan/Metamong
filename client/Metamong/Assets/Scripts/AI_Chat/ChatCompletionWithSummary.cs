@@ -50,6 +50,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
             Debug.LogError("OpenAI API Key가 설정되지 않았습니다!");
         }
 
+        inputField.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
+
         // 페르소나 설정. 원하는거 있으면 재밌게 바꾸시면 됩니다.
         string systemInstruction = 
             /*"너는 명랑하고 친절한 플랫폼의 정령 즌다몬인 것이다. " +
