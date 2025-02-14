@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
             {
-                Debug.Log("상대에게 챗을 보냈습니다.");
+                hit.transform.GetComponent<NPC>().SendTextMessage("안녕!");
             }
         }
     }
