@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 213846320}
   - component: {fileID: 213846319}
   - component: {fileID: 213846318}
+  - component: {fileID: 213846322}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -780,6 +781,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!114 &213846322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213846317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -1372625422
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.060000002
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: dea81c6562f8aad47882ff175d8ed168, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &345063442
 GameObject:
   m_ObjectHideFlags: 0
@@ -8148,6 +8180,8 @@ GameObject:
   - component: {fileID: 6954668529405053191}
   - component: {fileID: 8080610072112542332}
   - component: {fileID: 8080610072112542333}
+  - component: {fileID: 8080610072112542335}
+  - component: {fileID: 8080610072112542334}
   m_Layer: 6
   m_Name: BasicNPC
   m_TagString: OtherPlayer
@@ -13631,6 +13665,41 @@ MonoBehaviour:
   talkIndex: 0
   talkSpeedSecond: 1
   speekRange: 5
+--- !u!195 &8080610072112542334
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886006359597184424}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.18
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.7
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
+--- !u!114 &8080610072112542335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886006359597184424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b0a4835e93a8947a232834bb0997d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTree: {fileID: 11400000, guid: 4db4265181d481f43b67404730883028, type: 2}
 --- !u!4 &8102156880623119732
 Transform:
   m_ObjectHideFlags: 0
