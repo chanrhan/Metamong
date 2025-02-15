@@ -35,8 +35,8 @@ public class LoginHandler : MonoBehaviour
     }
 
     private void Login(bool isHost){
-        GameManager.Instance.MyPlayerInfo.username = usernameInput.text;
-        GameManager.Instance.MyPlayerInfo.isHost = isHost;
+        ClientManager.Instance.ClientInfo.username = usernameInput.text;
+        ClientManager.Instance.ClientInfo.isHost = isHost;
 
         ushort port;
         if(ushort.TryParse(portInput.text, out port)){

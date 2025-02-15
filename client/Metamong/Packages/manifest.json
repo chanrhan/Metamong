@@ -3,6 +3,7 @@
     "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.unity.collab-proxy": "2.6.0",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.multiplayer.tools": "1.1.1",
     "com.unity.netcode.gameobjects": "1.11.0",
     "com.unity.services.relay": "1.1.1",
     "com.unity.shadergraph": "14.0.11",

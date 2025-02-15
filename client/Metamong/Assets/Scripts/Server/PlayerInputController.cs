@@ -3,36 +3,23 @@ using UnityEngine;
 
 public class PlayerInputController : NetworkBehaviour
 {
-    public static PlayerInputController Instance {get; private set;}
+    private Rigidbody rigid;
 
-    [SerializeField]
-    private float speed = 1;
-
-    private Transform myPlayerTransform;
-
-    public Transform MyPlayerTransform{
-        get{ return myPlayerTransform;}
-        set{
-            Debug.Log(value);
-            myPlayerTransform = value;
+    void Start()
+    {
+        rigid = GetComponent<Rigidbody>();       
+        Debug.Log($"IsOwner: {IsOwner}");
+        if(IsOwner){
+            GetComponent<MeshRenderer>().material.color = Color.red;
         }
     }
 
-     private void Awake() {
+    private void Update() {
         
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+        if(!IsOwner){
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
-
-    private void FixedUpdate() {
         Vector3 movePos = Vector3.zero;
         
         if(Input.GetKey(KeyCode.W)){
@@ -49,21 +36,11 @@ public class PlayerInputController : NetworkBehaviour
         }
 
         if(movePos != Vector3.zero){
-            if(IsServer || IsHost){
-                MovePlayerPosition(movePos);
-            }else{
-                SendTransformServerRpc(movePos); 
-            }
+            Debug.Log(movePos);
+            // rigid.velocity = movePos * 10 * Time.deltaTime;
+            rigid.MovePosition(rigid.position + movePos * 10 * Time.deltaTime);
         }
     }
 
-    [ServerRpc]
-    public void SendTransformServerRpc(Vector3 vector){
-        MovePlayerPosition(vector);
-    }
-
-    public void MovePlayerPosition(Vector3 vector){
-        // Debug.Log($"Send Transform: {vector}");
-        MyPlayerTransform.Translate(vector * 0.01f * speed, Space.World);
-    }
+    
 }

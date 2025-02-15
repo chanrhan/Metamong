@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class ClientManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static ClientManager Instance { get; private set; }
 
     [SerializeField]
-    private MyPlayerInfo myPlayerInfo;
+    private ClientInfo clientInfo = new ClientInfo();
 
-    public MyPlayerInfo MyPlayerInfo{get{ return myPlayerInfo;} set{myPlayerInfo = value;}}
+    public ClientInfo ClientInfo{get{ return clientInfo;} set{clientInfo = value;}}
 
     private void Awake() {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            MyPlayerInfo = new MyPlayerInfo();
         }
         else
         {
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void OnLoadInGameScene(Scene scene, LoadSceneMode mode){
         if(scene.name.Equals("InGame")){
-            if(MyPlayerInfo.isHost){
+            if(ClientInfo.isHost){
                 CustomNetworkManager.Instance.JoinHost();
             }else{
                 CustomNetworkManager.Instance.JoinClient();
