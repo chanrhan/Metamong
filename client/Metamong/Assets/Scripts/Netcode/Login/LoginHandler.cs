@@ -6,10 +6,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// 로그인 핸들러
+/// </summary>
 public class LoginHandler : MonoBehaviour
 {
     [SerializeField]
-    private string LoadedSceneName = "InGame";
+    private string LoadedSceneName = "InGame"; // 인게임 씬 이름 
 
     private TMP_InputField usernameInput;
     private TMP_InputField portInput;
@@ -34,15 +37,22 @@ public class LoginHandler : MonoBehaviour
         });
     }
 
+    /// <summary>
+    /// 로그인하는 함수
+    /// 클라이언트 정보에 username과 호스트 여부를 등록 
+    /// </summary>
+    /// <param name="isHost">호스트 여부</param>
     private void Login(bool isHost){
         ClientManager.Instance.ClientInfo.username = usernameInput.text;
         ClientManager.Instance.ClientInfo.isHost = isHost;
 
+        // 포트 설정 
         ushort port;
         if(ushort.TryParse(portInput.text, out port)){
             CustomNetworkManager.Instance.SetPort(port);
         }
 
+        // 인게임 씬으로 로드 
         SceneManager.LoadScene(LoadedSceneName);
     }
 }

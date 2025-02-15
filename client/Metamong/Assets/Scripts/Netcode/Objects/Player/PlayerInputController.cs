@@ -8,8 +8,7 @@ public class PlayerInputController : NetworkBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();       
-        Debug.Log($"IsOwner: {IsOwner}");
-        if(IsOwner){
+        if(IsOwner){ // 자신의 플레이어는 빨간색으로 알기 쉽게 표시 
             GetComponent<MeshRenderer>().material.color = Color.red;
         }
     }
@@ -36,10 +35,16 @@ public class PlayerInputController : NetworkBehaviour
         }
 
         if(movePos != Vector3.zero){
-            Debug.Log(movePos);
-            // rigid.velocity = movePos * 10 * Time.deltaTime;
-            rigid.MovePosition(rigid.position + movePos * 10 * Time.deltaTime);
+            Move(movePos);
         }
+    }
+
+    /// <summary>
+    /// Rigidbody를 통해서 플레이어를 이동시키는 함수
+    /// </summary>
+    /// <param name="vector">이동시킬 벡터 값</param>
+    private void Move(Vector3 vector){
+        rigid.MovePosition(rigid.position + vector * 10 * Time.deltaTime);
     }
 
     
