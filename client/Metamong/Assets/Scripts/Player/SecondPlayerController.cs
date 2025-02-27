@@ -63,7 +63,7 @@ public class SecondPlayerController : MonoBehaviour
     /// 주변 플레이어에게 자신의 대화 텍스트를 전달하는 메서드. STT와 같은 대화 텍스트 입력 기능이 구현되면 수정할 예정
     /// 주변의 플레이어는 Conversable 레이어와 "Player"태그를 가지고 있어야 한다.
     /// </summary>
-    private void SendMessageToOthers()
+    public void SendMessageToOthers()
     {
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable ���̾�(2^7)
         foreach(RaycastHit hit in hitPlayers)
