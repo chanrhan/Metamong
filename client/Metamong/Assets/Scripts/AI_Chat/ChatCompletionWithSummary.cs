@@ -14,11 +14,11 @@ using System.Linq;
 public class ChatCompletionWithSummary : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private TMP_InputField inputField; // 입력 받는 영역역
+    [SerializeField] private TMP_InputField inputField; // 입력 받는 영역
     [SerializeField] private TMP_Text responseText; // 응답 결과
     [SerializeField] private TMP_Text extractedActionsText; // 행동 추출 결과
 
-
+    public static event Action<string> OnActionTextUpdated;
 
     [Header("OpenAI Settings")]
     [SerializeField] private string openAIAPIKey; // 사용자 환경 변수로 가져오는데 없을 경우 수동으로 넣으세요
@@ -229,7 +229,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
     private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
     {
         //few-shot을 주긴 했는데 실제 응답과 차이가 꽤 있음.(응답은 한국어인데 지시는 영어로 하는 중)
-        string extractionSystemInstruction = 
+        /*string extractionSystemInstruction =
+        
             "You have a conversation between a \"User\" and an \"NPC\".\n" +
             "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
             "Summarize each in a descriptive form.\n\n" +
@@ -279,6 +280,64 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "User Face: The eyebrows lift slightly at the center, mouth corners turned downward, eyes slightly damp.\n" +
             "NPC Act: place hand on shoulder\n" +
             "NPC Face: The mouth forms a gentle smile, eyebrows relaxed, eyes slightly softened for comfort.\n\n" +
+            "-------------------------\n" +
+            "Instructions:\n" +
+            "1) If there is no explicit mention of a face or expression, use \"none\".\n" +
+            "2) Keep the 'act' descriptions short (e.g., \"open the door\", \"wave hands\", \"walk inside\").\n" +
+            "3) Provide detailed 'face' descriptions using specific facial features as illustrated in the examples above.\n" +
+            "4) If multiple actions or expressions exist, separate them with a comma.\n" +
+            "5) Always respond in English, even if the input is in Korean.\n";*/
+
+        string extractionSystemInstruction = 
+            "You have a conversation between a \"User\" and an \"NPC\".\n" +
+            "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
+            "Summarize each in a descriptive form.\n\n" +
+            "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
+            "(User's act)\n" +
+            "(User's face)\n" +
+            "(NPC's act)\n" +
+            "(NPC's face)\n\n" +
+            "### Few-shot Examples ###\n\n" +
+            "Example 1)\n" +
+            "User: \"I walk forward steadily, arms swinging naturally.\"\n" +
+            "NPC: \"I'll follow closely with a friendly smile.\"\n\n" +
+            "Extraction result:\n" +
+            "walk forward\n" +
+            "none\n" +
+            "follow closely\n" +
+            "The corners of the mouth lift upward, cheeks slightly raised, eyes narrowing slightly, conveying warmth.\n\n" +
+            "Example 2)\n" +
+            "User: \"I run towards the exit with a determined expression.\"\n" +
+            "NPC: \"I'll sprint alongside you, looking serious.\"\n\n" +
+            "Extraction result:\n" +
+            "run towards the exit\n" +
+            "The eyebrows draw together and lower, mouth slightly tense, eyes focused.\n" +
+            "sprint\n" +
+            "The eyebrows are furrowed, lips pressed tightly, and eyes narrowed slightly, emphasizing focus.\n\n" +
+            "Example 3)\n" +
+            "User: \"I jump up suddenly and raise my hands, smiling widely.\"\n" +
+            "NPC: \"I'll clap my hands and laugh cheerfully.\"\n\n" +
+            "Extraction result:\n" +
+            "jump up, raise hands\n" +
+            "The mouth opens broadly in a smile, cheeks lifted, eyes slightly narrowed.\n" +
+            "clap hands\n" +
+            "The mouth opens in a laugh, cheeks lifted, eyes sparkling with joy.\n\n" +
+            "Example 4)\n" +
+            "User: \"I stand still, crossing my arms and frowning slightly.\"\n" +
+            "NPC: \"I'll nod my head slowly with a neutral expression.\"\n\n" +
+            "Extraction result:\n" +
+            "stand still, cross arms\n" +
+            "The eyebrows lower slightly, lips pressed together in a mild frown.\n" +
+            "nod head slowly\n" +
+            "The face remains relaxed with no visible tension, eyes calm and neutral.\n\n" +
+            "Example 5)\n" +
+            "User: \"I lower my gaze and sigh deeply, looking sad.\"\n" +
+            "NPC: \"I'll place a hand on your shoulder and offer a comforting smile.\"\n\n" +
+            "Extraction result:\n" +
+            "lower gaze, sigh deeply\n" +
+            "The eyebrows lift slightly at the center, mouth corners turned downward, eyes slightly damp.\n" +
+            "place hand on shoulder\n" +
+            "The mouth forms a gentle smile, eyebrows relaxed, eyes slightly softened for comfort.\n\n" +
             "-------------------------\n" +
             "Instructions:\n" +
             "1) If there is no explicit mention of a face or expression, use \"none\".\n" +
@@ -336,6 +395,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     if (extractedActionsText != null)
                     {
                         extractedActionsText.text = extractionResult;
+                        OnActionTextUpdated?.Invoke(extractedActionsText.text);
                         //Debug.Log(extractedActionsText.text);
                     }
 
