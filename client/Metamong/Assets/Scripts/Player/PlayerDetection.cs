@@ -16,29 +16,17 @@ public class PlayerDetection : ActionNode
         else
         {
             RaycastHit[] hits = Physics.SphereCastAll(context.transform.position, 2.0f, Vector3.up, 0.0f, 64);
-
             for (int idx = 0; idx < hits.Length; idx++)
             {
                 if (hits[idx].transform.gameObject == context.npc.detectedPlayer)
                 {
                     Debug.Log("플레이어 근처에 있음");
+                    context.animator.SetBool("isWalking", false);
                     return State.Success;
                 }
             }
             context.npc.EndConversation();
             return State.Failure;
         }
-        /*RaycastHit[] hits = Physics.SphereCastAll(context.transform.position, 2.0f, Vector3.up, 0.0f, 64);
-
-        for (int idx = 0; idx < hits.Length; idx++)
-        {
-            if (hits[idx].transform.CompareTag("Player"))
-            {
-                context.npc.detectedPlayer = hits[idx].transform.gameObject;
-                return State.Success;
-            }
-        }
-        return State Failure.
-        */
     }
 }

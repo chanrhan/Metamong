@@ -20,14 +20,14 @@ namespace TheKiwiCoder {
         public CapsuleCollider capsuleCollider;
         public CharacterController characterController;
         // Add other game specific systems here
-        public NPC npc;
+        public NpcAI npc;
 
         public static Context CreateFromGameObject(GameObject gameObject) {
             // Fetch all commonly used components
             Context context = new Context();
             context.gameObject = gameObject;
             context.transform = gameObject.transform;
-            context.animator = gameObject.GetComponent<Animator>();
+            context.animator = gameObject.GetComponentInChildren<Animator>();
             context.physics = gameObject.GetComponent<Rigidbody>();
             context.agent = gameObject.GetComponent<NavMeshAgent>();
             context.sphereCollider = gameObject.GetComponent<SphereCollider>();
@@ -36,7 +36,7 @@ namespace TheKiwiCoder {
             context.characterController = gameObject.GetComponent<CharacterController>();
             
             // Add whatever else you need here...
-            context.npc = gameObject.GetComponent<NPC>();
+            context.npc = gameObject.GetComponent<NpcAI>();
 
             return context;
         }

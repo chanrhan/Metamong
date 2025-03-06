@@ -9,9 +9,11 @@ namespace TheKiwiCoder {
 
         protected override void OnStart() {
             startTime = Time.time;
+            Debug.Log("대기시작");
         }
 
         protected override void OnStop() {
+            Debug.Log("대기종료");
         }
 
         protected override State OnUpdate() {

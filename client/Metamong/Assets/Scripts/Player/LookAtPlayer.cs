@@ -14,6 +14,7 @@ public class LookAtPlayer : ActionNode
     }
 
     protected override State OnUpdate() {
+        if (context.npc.detectedPlayer == null) return State.Failure;
         Quaternion dest 
             = Quaternion.LookRotation(new Vector3(
                 context.npc.detectedPlayer.transform.position.x - context.transform.position.x,
@@ -21,11 +22,12 @@ public class LookAtPlayer : ActionNode
                 context.npc.detectedPlayer.transform.position.z - context.transform.position.z)
             );
 
-        while (Quaternion.Angle(context.transform.rotation, dest) > 0.05f)
+        if (Quaternion.Angle(context.transform.rotation, dest) > 0.05f)
         {
             context.transform.rotation = Quaternion.Lerp(context.transform.rotation, dest, 0.1f);
             return State.Running;
         }
+
         return State.Success;
     }
 }

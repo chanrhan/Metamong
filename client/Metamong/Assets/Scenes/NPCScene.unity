@@ -8180,6 +8180,7 @@ GameObject:
   - component: {fileID: 6954668529405053191}
   - component: {fileID: 8080610072112542332}
   - component: {fileID: 8080610072112542333}
+  - component: {fileID: 8080610072112542336}
   - component: {fileID: 8080610072112542335}
   - component: {fileID: 8080610072112542334}
   m_Layer: 6
@@ -11549,7 +11550,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3568514041156784676, guid: 56441cb18168b544796af181003b87f5, type: 3}
       propertyPath: moveSpeed
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6681487101489864553, guid: 56441cb18168b544796af181003b87f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12644,7 +12645,7 @@ Animator:
   m_GameObject: {fileID: 498770635912028951}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b18c6692e57fd7a4784f8c8c77d4310c, type: 3}
-  m_Controller: {fileID: 9100000, guid: df16ed9aba8b80249b0d09e42e6517b0, type: 2}
+  m_Controller: {fileID: 9100000, guid: bc0150be8c7165c40bb0cecf61e17098, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12779,7 +12780,7 @@ SkinnedMeshRenderer:
   - {fileID: 1261097961475723114}
   - {fileID: 5989667102036426700}
   m_BlendShapeWeights:
-  - 35
+  - 100
   - 0
   - 0
   - 0
@@ -13670,7 +13671,9 @@ MonoBehaviour:
   talkSpeedSecond: 1
   speekRange: 3
   isGeneratingAnswer: 0
+  isMessageListened: 0
   detectedPlayer: {fileID: 0}
+  answerText: 
 --- !u!195 &8080610072112542334
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13700,12 +13703,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886006359597184424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9b0a4835e93a8947a232834bb0997d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myTree: {fileID: 11400000, guid: 7a935a3708184994bae73f47048577f7, type: 2}
+--- !u!114 &8080610072112542336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886006359597184424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0f3bdce7968e048afdeb39dda60a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dailyAnimList:
+  - Yawn
+  - BreakingDance
 --- !u!4 &8102156880623119732
 Transform:
   m_ObjectHideFlags: 0
