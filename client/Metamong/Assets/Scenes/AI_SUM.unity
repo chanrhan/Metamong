@@ -622,6 +622,8 @@ GameObject:
   - component: {fileID: 739702350}
   - component: {fileID: 739702351}
   - component: {fileID: 739702352}
+  - component: {fileID: 739702353}
+  - component: {fileID: 739702354}
   m_Layer: 0
   m_Name: MotionMapper
   m_TagString: Untagged
@@ -651,7 +653,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739702348}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e523b6d6ced69f43afea26d4684b173, type: 3}
   m_Name: 
@@ -671,6 +673,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textarea: {fileID: 1022930945}
   text: []
+--- !u!114 &739702353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739702348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbd29bac4b87454499ad685169dee39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textarea: {fileID: 1022930945}
+--- !u!114 &739702354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739702348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28709463f781e34f9b89632d7e7bb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,11 @@
 using System;
-
+using UnityEngine;
 /// <summary>
 /// 텍스트 임베딩 모델을 모듈화하기 위해 만든 추상 클래스
 /// 다른 임베딩 모델을 사용할 것이라면, 해당 추상 클래스를 상속받아 만들면 된다 (ex. MLNET.cs)
 /// </summary>
-public abstract class TextEmbedding{
+public abstract class TextEmbedding : MonoBehaviour
+{
     /// <summary>
     /// <para>
     /// 문자열 text1, text2의 유사도를 비교
