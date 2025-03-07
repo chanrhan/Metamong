@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Unity.Sentis;           // Sentis 관련 API
+using Unity.Sentis; // Sentis 관련 API
 
 public class SBERTEmbedding : TextEmbedding
 {
@@ -48,45 +48,52 @@ public class SBERTEmbedding : TextEmbedding
         int length = tokenIds.Length;
 
         // "input_ids" 텐서 생성 (2D 텐서: [1, length])
-        Tensor<float> inputIdsTensor = new Tensor<float>(new TensorShape(1, length),
+        Tensor<float> inputIdsTensor = new Tensor<float>(
+            new TensorShape(1, length),
             tokenIds.Select(id => (float)id).ToArray());
         Debug.Log("Input IDs Tensor Shape: " + inputIdsTensor.shape.ToString());
 
         // "attention_mask" 텐서 생성 (2D 텐서: [1, length])
-        Tensor<float> attentionMaskTensor = new Tensor<float>(new TensorShape(1, length),
+        Tensor<float> attentionMaskTensor = new Tensor<float>(
+            new TensorShape(1, length),
             attentionMask.Select(val => (float)val).ToArray());
         Debug.Log("Attention Mask Tensor Shape: " + attentionMaskTensor.shape.ToString());
 
-        // 각 입력 텐서를 개별적으로 설정합니다.
+        // 각 입력 텐서를 설정하고 모델 실행 시작
         worker.SetInput("input_ids", inputIdsTensor);
         worker.SetInput("attention_mask", attentionMaskTensor);
         worker.Schedule();
 
-        // 출력 텐서 획득; 출력 이름은 모델 메타데이터에 따라 결정됩니다.
+        // 출력 텐서를 PeekOutput으로 참조 (worker가 소유하므로 Dispose 불필요)
         Tensor<float> outputTensor = worker.PeekOutput() as Tensor<float>;
-        Debug.Log("Output Tensor Shape: " + outputTensor.shape.ToString());
+        Debug.Log("Output Tensor Shape (PeekOutput): " + outputTensor.shape.ToString());
+
+        // 출력 텐서의 데이터가 준비될 때까지 비동기 readback 요청 (blocking 방식)
+        outputTensor.ReadbackRequest();
+        Tensor<float> clonedOutput = outputTensor.ReadbackAndClone();
+        Debug.Log("Cloned Output Tensor Shape: " + clonedOutput.shape.ToString());
 
         // TensorShape의 rank 속성을 사용하여 출력 텐서의 차원 수를 확인합니다.
-        int rank = outputTensor.shape.rank;
-        Debug.Log("Output Tensor Rank: " + rank);
+        int rank = clonedOutput.shape.rank;
+        Debug.Log("Cloned Output Tensor Rank: " + rank);
 
         float[] embedding;
         if (rank == 3)
         {
-            int hiddenSize = outputTensor.shape[2];
+            int hiddenSize = clonedOutput.shape[2];
             embedding = new float[hiddenSize];
             for (int i = 0; i < hiddenSize; i++)
             {
-                embedding[i] = outputTensor[0, 0, i];
+                embedding[i] = clonedOutput[0, 0, i];
             }
         }
         else if (rank == 2)
         {
-            int hiddenSize = outputTensor.shape[1];
+            int hiddenSize = clonedOutput.shape[1];
             embedding = new float[hiddenSize];
             for (int i = 0; i < hiddenSize; i++)
             {
-                embedding[i] = outputTensor[0, i];
+                embedding[i] = clonedOutput[0, i];
             }
         }
         else
@@ -95,12 +102,15 @@ public class SBERTEmbedding : TextEmbedding
             embedding = new float[0];
         }
 
+        // 입력 텐서는 사용 후 Dispose합니다.
         inputIdsTensor.Dispose();
         attentionMaskTensor.Dispose();
-        outputTensor.Dispose();
+        // clonedOutput는 우리가 복사한 텐서이므로 Dispose하여 메모리를 해제합니다.
+        clonedOutput.Dispose();
 
         return embedding;
     }
+
     private void OnDestroy()
     {
         worker?.Dispose();
