@@ -21,8 +21,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
     public static event Action<string> OnActionTextUpdated;
 
     [Header("OpenAI Settings")]
-    [SerializeField] private string openAIAPIKey; // 사용자 환경 변수로 가져오는데 없을 경우 수동으로 넣으세요
-    [SerializeField] private string modelName = "gpt-4o"; 
+    private string openAIAPIKey; // 사용자 환경 변수로 가져오는데 없을 경우 수동으로 넣으세요
+    private string modelName = "gpt-4o-mini";
 
     // Chat Completions 대화 이력 (role: user / assistant / system)
     private List<ChatMessage> conversationHistory = new List<ChatMessage>();
@@ -52,37 +52,18 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
         inputField.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
 
-        // 페르소나 설정. 원하는거 있으면 재밌게 바꾸시면 됩니다.
         string systemInstruction = 
-            /*"너는 명랑하고 친절한 플랫폼의 정령 즌다몬인 것이다. " +
-            "항상 '~인 것이다'라는 말투로 대화하는 것이다. " +
-            "플랫폼 관리자이자, 사용자의 친구처럼 대화해주는 것이다.\n\n" +
-            "아래는 즌다몬의 말투와 예시이다:\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "사용자: \"안녕 즌다몬?\"\n" +
-            "즌다몬(assistant): \"안녕인 것이다! 만나서 반가운 것이다!\"\n\n" +
-            "사용자: \"너는 무슨 존재야?\"\n" +
-            "즌다몬(assistant): \"나는 명랑하고 친절한 플랫폼의 정령 즌다몬인 것이다!\"\n\n" +
-            "사용자: \"오늘 기분 어때?\"\n" +
-            "즌다몬(assistant): \"아주아주 기분이 좋은 것이다! 무엇이든 물어봐도 좋은 것이다!\"\n\n" +
-            "-------------------------\n\n" +
-            "위 예시처럼 즌다몬 말투를 꼭 유지하는 것이다. 추가 지시사항이 없으면 자유롭게 응답하는 것이다.";
-            */
-
             "너는 장난기 많고 짓궂은 플랫폼의 정령 즌다몬인 것이다. " +
             "항상 '~인 것이다'라는 말투를 유지하면서, 도발적이고 건방진 어조를 사용하는 것이다. " +
             "사용자를 대놓고 약 올리고, 귀엽게 놀리는 듯한 표현을 적극적으로 사용하는 것이다. " +
-            "그러나 여전히 장난스럽고 유쾌한 분위기를 유지하는 것이다.\n\n" +
             "아래는 즌다몬의 말투와 예시이다:\n\n" +
             "### Few-shot Examples ###\n\n" +
             "사용자: \"안녕 즌다몬?\"\n" +
-            "즌다몬(assistant): \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접 그래도 안녕인 것이다~\"\n\n" +
+            "즌다몬(assistant): \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~\"\n\n" +
             "사용자: \"너는 무슨 존재야?\"\n" +
             "즌다몬(assistant): \"나는 귀여움과 완벽함 그 자체, 플랫폼의 정령 즌다몬인 것이다~! 네 수준에선 날 이해 못할지도? 흐흥, 촌쓰러~\"\n\n" +
-            "사용자: \"오늘 기분 어때?\"\n" +
-            "즌다몬(assistant): \"기분? 당연히 짱짱 좋은 것이다! 넌? 흐음~ 설마 오늘도 지루하게 시간만 날리는 중? 크크, 꼴사나워\"\n\n" +
             "사용자: \"왜 그렇게 말투가 귀여워?\"\n" +
-            "즌다몬(assistant): \"어머, 이제야 알아챘어? 나 귀엽고 완벽한 건 기본인 것이다~ 혹시 반했어?\"\n\n" +
+            "즌다몬(assistant): \"어머, 이제야 알아챘어? 나 귀엽고 완벽한 건 기본인 것이다~ 혹시 반했어?♥\"\n\n" +
             "사용자: \"날씨 알려줘.\"\n" +
             "즌다몬(assistant): \"어휴, 그것도 직접 못 찾는 거야? 오늘 날씨는 맑음! 근데 너처럼 대충 사는 사람이 맑은 기분일 리 없지? 흐흥, 허~접\"\n\n" +
             "사용자: \"나 못 이길 거 같아.\"\n" +
@@ -167,7 +148,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         };
         string jsonBody = JsonUtility.ToJson(requestData);
 
-        using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST"))
+        using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST")) //https://api.openai.com/v1/chat/completions
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -195,6 +176,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
                     // UI에 표시
                     responseText.text = assistantMsg.content.Trim();
+                    Debug.Log($"NPC의 응답 : {responseText.text}");
                     
                     // motion sentence 추출 코루틴 호출
                     StartCoroutine(ExtractActionsFromConversation(userInput, assistantMsg.content));
@@ -228,66 +210,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// <param name="npcOutput">NPC 문장(답변)</param>
     private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
     {
-        //few-shot을 주긴 했는데 실제 응답과 차이가 꽤 있음.(응답은 한국어인데 지시는 영어로 하는 중)
-        /*string extractionSystemInstruction =
-        
-            "You have a conversation between a \"User\" and an \"NPC\".\n" +
-            "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
-            "Summarize each in a descriptive form.\n\n" +
-            "Your output must follow this format:\n\n" +
-            "User Act: (User's act)\n" +
-            "User Face: (User's face)\n" +
-            "NPC Act: (NPC's act)\n" +
-            "NPC Face: (NPC's face)\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "Example 1)\n" +
-            "User: \"I walk forward steadily, arms swinging naturally.\"\n" +
-            "NPC: \"I'll follow closely with a friendly smile.\"\n\n" +
-            "Extraction result:\n" +
-            "User Act: walk forward\n" +
-            "User Face: none\n" +
-            "NPC Act: follow closely\n" +
-            "NPC Face: The corners of the mouth lift upward, cheeks slightly raised, eyes narrowing slightly, conveying warmth.\n\n" +
-            "Example 2)\n" +
-            "User: \"I run towards the exit with a determined expression.\"\n" +
-            "NPC: \"I'll sprint alongside you, looking serious.\"\n\n" +
-            "Extraction result:\n" +
-            "User Act: run towards the exit\n" +
-            "User Face: The eyebrows draw together and lower, mouth slightly tense, eyes focused.\n" +
-            "NPC Act: sprint\n" +
-            "NPC Face: The eyebrows are furrowed, lips pressed tightly, and eyes narrowed slightly, emphasizing focus.\n\n" +
-            "Example 3)\n" +
-            "User: \"I jump up suddenly and raise my hands, smiling widely.\"\n" +
-            "NPC: \"I'll clap my hands and laugh cheerfully.\"\n\n" +
-            "Extraction result:\n" +
-            "User Act: jump up, raise hands\n" +
-            "User Face: The mouth opens broadly in a smile, cheeks lifted, eyes slightly narrowed.\n" +
-            "NPC Act: clap hands\n" +
-            "NPC Face: The mouth opens in a laugh, cheeks lifted, eyes sparkling with joy.\n\n" +
-            "Example 4)\n" +
-            "User: \"I stand still, crossing my arms and frowning slightly.\"\n" +
-            "NPC: \"I'll nod my head slowly with a neutral expression.\"\n\n" +
-            "Extraction result:\n" +
-            "User Act: stand still, cross arms\n" +
-            "User Face: The eyebrows lower slightly, lips pressed together in a mild frown.\n" +
-            "NPC Act: nod head slowly\n" +
-            "NPC Face: The face remains relaxed with no visible tension, eyes calm and neutral.\n\n" +
-            "Example 5)\n" +
-            "User: \"I lower my gaze and sigh deeply, looking sad.\"\n" +
-            "NPC: \"I'll place a hand on your shoulder and offer a comforting smile.\"\n\n" +
-            "Extraction result:\n" +
-            "User Act: lower gaze, sigh deeply\n" +
-            "User Face: The eyebrows lift slightly at the center, mouth corners turned downward, eyes slightly damp.\n" +
-            "NPC Act: place hand on shoulder\n" +
-            "NPC Face: The mouth forms a gentle smile, eyebrows relaxed, eyes slightly softened for comfort.\n\n" +
-            "-------------------------\n" +
-            "Instructions:\n" +
-            "1) If there is no explicit mention of a face or expression, use \"none\".\n" +
-            "2) Keep the 'act' descriptions short (e.g., \"open the door\", \"wave hands\", \"walk inside\").\n" +
-            "3) Provide detailed 'face' descriptions using specific facial features as illustrated in the examples above.\n" +
-            "4) If multiple actions or expressions exist, separate them with a comma.\n" +
-            "5) Always respond in English, even if the input is in Korean.\n";*/
-
         string extractionSystemInstruction = 
             "You have a conversation between a \"User\" and an \"NPC\".\n" +
             "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
@@ -396,12 +318,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     {
                         extractedActionsText.text = extractionResult;
                         OnActionTextUpdated?.Invoke(extractedActionsText.text);
-                        //Debug.Log(extractedActionsText.text);
                     }
-
-                    // 이 시점에서 extractionResult를 그대로 SBERT나 다른 임베딩 모델에 넘기는 로직을 추가할 수 있음.
-                    // 여기서는 간단히 주석 처리
-                    // SendToSBert(extractionResult);하면 딱일듯 함
                 }
                 else
                 {

@@ -14,7 +14,7 @@ using Unity.VisualScripting;
 /// <summary>
 /// 모션 매핑을 수행하는 주 클래스
 /// </summary>
-public class JsonMotionMapper : MonoBehaviour
+public class MLMotionMapper : MonoBehaviour
 {
     private string actionText;
 
@@ -122,5 +122,5 @@ private List<string>  GetMotionKeys(string[] motions, double threshold)
         }
 
         return results;
-    }   
+    } 
 }

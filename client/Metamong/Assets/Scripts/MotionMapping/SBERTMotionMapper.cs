@@ -7,6 +7,10 @@ using UnityEngine;
 public class SBERTMotionMapper : MonoBehaviour
 {
     private string actionText;
+    private string UserAct;
+    private string UserFace;
+    private string NPCAct;
+    private string NPCFace;
 
     // ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
     void OnEnable()
@@ -28,22 +32,19 @@ public class SBERTMotionMapper : MonoBehaviour
     private void UpdateActionText(string newText)
     {
         actionText = newText;
-        float threshold = 0.4f;
         string[] motionText = actionText.Split('\n');
 
         // 모션 키 리스트 추출
-        List<string> motionKeys = GetMotionKeys(motionText, threshold);
+        GetMotionKeys(motionText);
 
         // 모션 라벨 (순서대로: UserAct, UserFace, NPCAct, NPCFace)
         string[] motionLabels = new string[] { "UserAct", "UserFace", "NPCAct", "NPCFace" };
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < motionKeys.Count; i++)
-        {
-            string key = string.IsNullOrEmpty(motionKeys[i]) ? "No match" : motionKeys[i];
-            sb.AppendLine($"{motionLabels[i], -10}: {key}");
-            Debug.Log($"{motionLabels[i], -10}: {key}");
-        }
+        sb.AppendLine($"{motionLabels[0], -10}: {UserAct}");
+        sb.AppendLine($"{motionLabels[1], -10}: {UserFace}");
+        sb.AppendLine($"{motionLabels[2], -10}: {NPCAct}");
+        sb.AppendLine($"{motionLabels[3], -10}: {NPCFace}");
         textarea.SetText(sb.ToString());
     }
 
@@ -59,16 +60,8 @@ public class SBERTMotionMapper : MonoBehaviour
     // 사용할 SBERT 임베딩 모델 (SBERTEmbedding 컴포넌트)
     private SBERTEmbedding sbertEmbedding;
 
-    // JSON 파일 경로 (절대 경로 예: Application.dataPath 기준)
-    private static string ACTMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/ActMotion.json";
-    private static string FACEMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/FaceMotion.json";
-
     void Awake()
     {
-        // JSON 파일에서 모션 사전 읽어오기
-        actMotionList = JsonFileReader.Read(ACTMOTION_FILE_PATH);
-        faceMotionList = JsonFileReader.Read(FACEMOTION_FILE_PATH);
-
         // SBERTEmbedding 컴포넌트를 같은 GameObject에서 찾기
         sbertEmbedding = GetComponent<SBERTEmbedding>();
         if (sbertEmbedding == null)
@@ -85,33 +78,13 @@ public class SBERTMotionMapper : MonoBehaviour
     /// <param name="motions">사용자 입력 모션 텍스트 배열</param>
     /// <param name="threshold">유사도 스레시홀드 값 (예: 0.4)</param>
     /// <returns>각 입력에 대한 결과 모션 키 리스트</returns>
-    private List<string> GetMotionKeys(string[] motions, double threshold)
+    private void GetMotionKeys(string[] motions)
     {
-        List<string> results = new List<string>();
+        UserAct = sbertEmbedding.CompareWordText(motions[0], true);
+        UserFace = sbertEmbedding.CompareWordText(motions[1], false);
+        NPCAct = sbertEmbedding.CompareWordText(motions[2], true);
+        NPCFace = sbertEmbedding.CompareWordText(motions[3], false);
 
-        for (int idx = 0; idx < motions.Length; idx++)
-        {
-            string inputText = motions[idx];
-            // Act 모션: 인덱스 0 (UserAct)와 2 (NPCAct)
-            // Face 모션: 인덱스 1 (UserFace)와 3 (NPCFace)
-            Dictionary<string, string> dict = (idx == 0 || idx == 2) ? actMotionList : faceMotionList;
-
-            double bestScore = -1.0;
-            string bestMotionKey = string.Empty;
-
-            // 사전의 각 항목과 입력 텍스트 간 유사도 계산
-            foreach (KeyValuePair<string, string> kvp in dict)
-            {
-                double score = sbertEmbedding.CompareWordText(inputText, kvp.Key);
-                if (score > bestScore)
-                {
-                    bestScore = score;
-                    bestMotionKey = kvp.Value;
-                }
-            }
-            results.Add(bestScore >= threshold ? bestMotionKey : string.Empty);
-        }
-
-        return results;
+        return;
     }
 }
