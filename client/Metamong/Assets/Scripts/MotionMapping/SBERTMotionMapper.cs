@@ -53,10 +53,6 @@ public class SBERTMotionMapper : MonoBehaviour
     /// </summary>
     [SerializeField] private TextMeshProUGUI textarea;
 
-    // 모션 JSON 파일로부터 읽어온 사전 (키: 모션 설명, 값: 모션 키)
-    private Dictionary<string, string> actMotionList;
-    private Dictionary<string, string> faceMotionList;
-
     // 사용할 SBERT 임베딩 모델 (SBERTEmbedding 컴포넌트)
     private SBERTEmbedding sbertEmbedding;
 
@@ -76,8 +72,6 @@ public class SBERTMotionMapper : MonoBehaviour
     /// motions 배열 순서: 0 - UserAct, 1 - UserFace, 2 - NPCAct, 3 - NPCFace
     /// </summary>
     /// <param name="motions">사용자 입력 모션 텍스트 배열</param>
-    /// <param name="threshold">유사도 스레시홀드 값 (예: 0.4)</param>
-    /// <returns>각 입력에 대한 결과 모션 키 리스트</returns>
     private void GetMotionKeys(string[] motions)
     {
         UserAct = sbertEmbedding.CompareWordText(motions[0], true);

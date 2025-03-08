@@ -213,7 +213,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
         string extractionSystemInstruction = 
             "You have a conversation between a \"User\" and an \"NPC\".\n" +
             "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
-            "Summarize each in a descriptive form.\n\n" +
+            "If there is no explicit mention of a face or expression, use \"none\".\n" +
+            "Always respond in English, even if the input is in Korean.\n" +
             "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
             "(User's act)\n" +
             "(User's face)\n" +
@@ -221,53 +222,21 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "(NPC's face)\n\n" +
             "### Few-shot Examples ###\n\n" +
             "Example 1)\n" +
-            "User: \"I walk forward steadily, arms swinging naturally.\"\n" +
-            "NPC: \"I'll follow closely with a friendly smile.\"\n\n" +
+            "User: \"안녕?\"\n" +
+            "NPC: \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~ 너, 나랑 놀고 싶어서 그러는 거지? 흐흥!\"\n\n" +
             "Extraction result:\n" +
-            "walk forward\n" +
-            "none\n" +
-            "follow closely\n" +
-            "The corners of the mouth lift upward, cheeks slightly raised, eyes narrowing slightly, conveying warmth.\n\n" +
+            "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
+            "My face lit up with a gentle smile\n" +
+            "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
+            "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
             "Example 2)\n" +
-            "User: \"I run towards the exit with a determined expression.\"\n" +
-            "NPC: \"I'll sprint alongside you, looking serious.\"\n\n" +
+            "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
+            "NPC: \"어머나~ 슬픈 일이 있었구나? 그래도 그런 약한 모습은 나한텐 통하지 않는다는 거 알고 있지? 흐흥~ 하지만 내가 위로해줄게! 나를 보고 힘내는 것이다~! 슬픔은 나에게 맡기고, 네가 더 귀엽게 웃는 모습을 보여줘야지! 알겠지?♥\"\n\n" +
             "Extraction result:\n" +
-            "run towards the exit\n" +
-            "The eyebrows draw together and lower, mouth slightly tense, eyes focused.\n" +
-            "sprint\n" +
-            "The eyebrows are furrowed, lips pressed tightly, and eyes narrowed slightly, emphasizing focus.\n\n" +
-            "Example 3)\n" +
-            "User: \"I jump up suddenly and raise my hands, smiling widely.\"\n" +
-            "NPC: \"I'll clap my hands and laugh cheerfully.\"\n\n" +
-            "Extraction result:\n" +
-            "jump up, raise hands\n" +
-            "The mouth opens broadly in a smile, cheeks lifted, eyes slightly narrowed.\n" +
-            "clap hands\n" +
-            "The mouth opens in a laugh, cheeks lifted, eyes sparkling with joy.\n\n" +
-            "Example 4)\n" +
-            "User: \"I stand still, crossing my arms and frowning slightly.\"\n" +
-            "NPC: \"I'll nod my head slowly with a neutral expression.\"\n\n" +
-            "Extraction result:\n" +
-            "stand still, cross arms\n" +
-            "The eyebrows lower slightly, lips pressed together in a mild frown.\n" +
-            "nod head slowly\n" +
-            "The face remains relaxed with no visible tension, eyes calm and neutral.\n\n" +
-            "Example 5)\n" +
-            "User: \"I lower my gaze and sigh deeply, looking sad.\"\n" +
-            "NPC: \"I'll place a hand on your shoulder and offer a comforting smile.\"\n\n" +
-            "Extraction result:\n" +
-            "lower gaze, sigh deeply\n" +
-            "The eyebrows lift slightly at the center, mouth corners turned downward, eyes slightly damp.\n" +
-            "place hand on shoulder\n" +
-            "The mouth forms a gentle smile, eyebrows relaxed, eyes slightly softened for comfort.\n\n" +
-            "-------------------------\n" +
-            "Instructions:\n" +
-            "1) If there is no explicit mention of a face or expression, use \"none\".\n" +
-            "2) Keep the 'act' descriptions short (e.g., \"open the door\", \"wave hands\", \"walk inside\").\n" +
-            "3) Provide detailed 'face' descriptions using specific facial features as illustrated in the examples above.\n" +
-            "4) If multiple actions or expressions exist, separate them with a comma.\n" +
-            "5) Always respond in English, even if the input is in Korean.\n";
-
+            "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
+            "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
+            "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
+            "My face beams with a mischievous yet caring smile.\n\n";
 
         // 이번에는 messages를 단순히 system + user(추출 요청) 형태로 구성
         // 실제 user 메시지(행동 추출 요청)가 아니라, 

@@ -10,7 +10,7 @@ public class SBERTEmbedding : MonoBehaviour
     private Worker worker;
     private BertTokenizer tokenizer;
 
-    private float threshold = 0.4f;
+    private float threshold = 0.6f;
 
     // 일반 텍스트에 대한 임베딩 캐시
     private Dictionary<string, float[]> embeddingCache = new Dictionary<string, float[]>();
@@ -27,12 +27,16 @@ public class SBERTEmbedding : MonoBehaviour
     private static string ACTMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/ActMotion.json";
     private static string FACEMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/FaceMotion.json";
 
+
     void Awake()
     {
         Initialize();
         PrecomputeMotionEmbeddings();
     }
 
+    /// <summary>
+    /// 모델을 로드 및 초기화
+    /// </summary>
     public void Initialize()
     {
         // Resources 폴더에서 "model" 에셋을 로드 (확장자 없이)
@@ -124,6 +128,8 @@ public class SBERTEmbedding : MonoBehaviour
     /// 텍스트를 모델을 통해 임베딩 벡터로 변환합니다.
     /// 동일한 텍스트에 대해서는 캐싱하여 중복 계산을 피합니다.
     /// </summary>
+    /// <param name="text">임베딩할 텍스트</param>
+    /// <returns>임베딩된 벡터</returns>
     public float[] GetEmbedding(string text)
     {
         // 캐시에 이미 임베딩 결과가 있다면 반환합니다.
@@ -159,7 +165,6 @@ public class SBERTEmbedding : MonoBehaviour
         outputTensor.ReadbackRequest();
         Tensor<float> clonedOutput = outputTensor.ReadbackAndClone();
 
-        // 여기서는 rank 2의 텐서라고 가정합니다.
         int hiddenSize = clonedOutput.shape[1];
         float[] embedding = new float[hiddenSize];
         for (int i = 0; i < hiddenSize; i++)
@@ -167,12 +172,11 @@ public class SBERTEmbedding : MonoBehaviour
             embedding[i] = clonedOutput[0, i];
         }
 
-        // 사용한 입력 텐서들은 Dispose합니다.
         inputIdsTensor.Dispose();
         attentionMaskTensor.Dispose();
         clonedOutput.Dispose();
 
-        // 결과를 캐시에 저장합니다.
+        // 결과를 캐시에 저장
         embeddingCache[text] = embedding;
 
         return embedding;
