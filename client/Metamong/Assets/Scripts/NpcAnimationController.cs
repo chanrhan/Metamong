@@ -27,7 +27,8 @@ public class NpcAnimationController : MonoBehaviour
     {
         myAgent.ResetPath();
         myAnimator.SetBool("isWalking", false);
-        myAnimator.SetTrigger("StopTrigger");
+        myAnimator.StopPlayback();
+        //myAnimator.SetTrigger("StopTrigger");
     }
 
     /// <summary>

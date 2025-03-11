@@ -133,12 +133,15 @@ public class NpcAI : MonoBehaviour, IListenable
     {
         float timer = 0.0f;
         Debug.Log("대화생성 중");
-        while(timer < 5.0f)
+        myAnimationController.MyAnimator.SetBool("isThinking", true);
+        myAnimationController.MyAnimator.Play("ThinkingStart", 0);
+        while (timer < 5.0f)
         {
             timer += Time.deltaTime;
             yield return null;
         }
         Debug.Log("대화생성 종료");
+        myAnimationController.MyAnimator.SetBool("isThinking", false);
         isGeneratingAnswer = false;
         answerText = talkTextArray[talkIndex];
         talkIndex = (talkIndex + 1) % talkTextArray.Length;
@@ -166,6 +169,7 @@ public class NpcAI : MonoBehaviour, IListenable
 
         if(randomNumber == 0) //랜덤 위치 이동
         {
+            myAnimationController.StopAllMovement();
             myAnimationController.MyAgent.SetDestination(new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, Random.Range(-10.0f, 10.0f)));
             while (myAnimationController.MyAgent.pathPending){ yield return null; }
 
@@ -176,7 +180,13 @@ public class NpcAI : MonoBehaviour, IListenable
         else if (randomNumber == 1) //랜덤 애니메이션 재생
         {
             myAnimationController.PlayRandomAnimation(0);
-            yield return new WaitForSeconds(myAnimationController.MyAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            Debug.Log($"{myAnimationController.MyAnimator.GetCurrentAnimatorClipInfo(0).Length} / {myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).length}");
+
+            while (myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98)
+            {
+
+                yield return null;
+            } 
         }
 
         yield return new WaitForSeconds(3.0f);
@@ -191,6 +201,7 @@ public class NpcAI : MonoBehaviour, IListenable
         myAnimationController.StopAllMovement();
         if (dailyActionCoroutine != null)
         {
+            Debug.Log("StopDailyCoroutine");
             StopCoroutine(dailyActionCoroutine);
             dailyActionCoroutine = null;
         }

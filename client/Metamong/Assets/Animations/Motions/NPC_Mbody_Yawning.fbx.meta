@@ -46,13 +46,13 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -106,7 +106,16 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 0ac4d76424891eb44a9ad93e68bea7f0
+  - ac333edc8881ba74c83478f371f9faf8
+  - ed120739c0e23be46a44c615dcd8c334
+  - 1301de725611ed64ab60cacdc14bc613
+  - cad77b680a1224b44aeedfd931d167ee
+  - d8645453623cf554ead9eb09d91121f8
+  - 6a5026f4e5d4dff4f8b937b25951767a
+  - 2b048de42b8bf3c49877ad0488e3908e
+  - dc4d976b2b1b9cc49a22add431f849ca
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

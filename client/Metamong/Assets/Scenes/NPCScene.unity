@@ -13723,7 +13723,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dailyAnimList:
   - Yawn
-  - BreakingDance
+  - Arm_Stretching
+  - HappyDance
+  - FeelGood
+  - Backflip
+  - Dancing_Running_Man
+  - HappySpinning
+  - Pressed
+  - SnakeDance
 --- !u!4 &8102156880623119732
 Transform:
   m_ObjectHideFlags: 0
