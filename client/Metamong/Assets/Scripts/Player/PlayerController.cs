@@ -89,7 +89,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z);
         if (moveVec.sqrMagnitude > 0.1f)
+        {
             transform.forward = moveVec;
+        }
     }
 
     /// <summary>
@@ -142,14 +144,18 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SendMessageToOthers() 
     {
-        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //128 = Conversable 레이어(2^7)
+        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
 
         foreach (RaycastHit hit in hitPlayers)
         {
-            if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+            if(ChatManager.Instance != null)
             {
-                Debug.Log("상대에게 챗을 보냈습니다.");
+                if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+                {
+                    hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, "안녕!");
+                }
             }
+
         }
     }
 
