@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     //일반 정보 관련
-    private string playerName = "Me";       //플레이어의 이름
+    //private string playerName = "Me";       //플레이어의 이름
 
     //이동관련
     [SerializeField] private float moveSpeed = 10.0f;       //플레이어 이동속도
@@ -159,6 +159,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SendMessageToOthers(string message) 
+    {
+        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
+        foreach (RaycastHit hit in hitPlayers)
+        {
+            if(ChatManager.Instance != null)
+            {
+                if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+                {
+                    hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
+                }
+            }
+
+        }
+    }
+
     /// <summary>
     /// 플레이어의 대화중 애니메이션을 출력하는 함수.
     /// </summary>
@@ -194,6 +210,12 @@ public class PlayerController : MonoBehaviour
     {
         myAnim.Play(expressionName, 2);
     }
+    public void MakeMotion(string motionName)
+    {
+        myAnim.Play(motionName, 0);
+    }
+
+
 
     /// <summary>
     /// 표정 키워드 InputField를 작성중인지 채크하는 함수. 추후 AI가 생성한 키워드를 입력으로 넣을 수 있을 때 되면 삭제 예정.

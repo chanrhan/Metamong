@@ -9,8 +9,6 @@ public class NpcAnimationController : MonoBehaviour
     private NavMeshAgent myAgent;
     [SerializeField]
     private List<string> dailyAnimList = new List<string>();
-    private Coroutine myDailyActionCoroutine;
-
     public Animator MyAnimator { get => myAnimator; }
     public NavMeshAgent MyAgent { get => myAgent; }
 
@@ -27,8 +25,8 @@ public class NpcAnimationController : MonoBehaviour
     {
         myAgent.ResetPath();
         myAnimator.SetBool("isWalking", false);
-        myAnimator.StopPlayback();
-        //myAnimator.SetTrigger("StopTrigger");
+        //myAnimator.StopPlayback();
+        myAnimator.SetTrigger("StopTrigger");
     }
 
     /// <summary>

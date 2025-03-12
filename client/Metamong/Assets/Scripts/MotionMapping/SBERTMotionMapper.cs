@@ -11,7 +11,14 @@ public class SBERTMotionMapper : MonoBehaviour
     private string UserFace;
     private string NPCAct;
     private string NPCFace;
+    private PlayerController PlayerController;
+    private NpcAI NpcAI;
 
+    private void Start()
+    {
+        PlayerController = FindObjectOfType<PlayerController>();
+        NpcAI = FindObjectOfType<NpcAI>();
+    }
     // ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
     void OnEnable()
     {
@@ -39,13 +46,19 @@ public class SBERTMotionMapper : MonoBehaviour
 
         // 모션 라벨 (순서대로: UserAct, UserFace, NPCAct, NPCFace)
         string[] motionLabels = new string[] { "UserAct", "UserFace", "NPCAct", "NPCFace" };
-
+        Debug.Log($"ㅋㅋㅋㅋㅋㅋㅋㅋㅋ{UserAct} {UserFace} {NPCAct} {NPCFace}"); 
+                
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine($"{motionLabels[0], -10}: {UserAct}");
-        sb.AppendLine($"{motionLabels[1], -10}: {UserFace}");
-        sb.AppendLine($"{motionLabels[2], -10}: {NPCAct}");
-        sb.AppendLine($"{motionLabels[3], -10}: {NPCFace}");
-        textarea.SetText(sb.ToString());
+        PlayerController.MakeMotion(UserAct);
+        PlayerController.MakeFace(UserFace);
+        NpcAI.MakeMotion(NPCAct);
+        NpcAI.MakeFace(NPCFace);
+
+        // sb.AppendLine($"{motionLabels[0], -10}: {UserAct}");
+        // sb.AppendLine($"{motionLabels[1], -10}: {UserFace}");
+        // sb.AppendLine($"{motionLabels[2], -10}: {NPCAct}");
+        // sb.AppendLine($"{motionLabels[3], -10}: {NPCFace}");
+        // textarea.SetText(sb.ToString());
     }
 
     /// <summary>

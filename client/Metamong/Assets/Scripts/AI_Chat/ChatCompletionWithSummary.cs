@@ -14,9 +14,10 @@ using System.Linq;
 public class ChatCompletionWithSummary : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private TMP_InputField inputField; // 입력 받는 영역
-    [SerializeField] private TMP_Text responseText; // 응답 결과
-    [SerializeField] private TMP_Text extractedActionsText; // 행동 추출 결과
+    [SerializeField] 
+    private TMP_InputField inputField; // 입력 받는 영역
+    private string responseText; // 응답 결과
+    private TMP_Text extractedActionsText; // 행동 추출 결과
 
     public static event Action<string> OnActionTextUpdated;
 
@@ -29,13 +30,14 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
     // 응답 대기 플래그
     private bool isWaitingForResponse = false;
-
+    public bool IsWaitingForResponse => isWaitingForResponse;
     // 대략 3000 토큰 이상이면 요약 시작
     // 실제로는 프로젝트 요구사항, 비용, 모델 한도 등에 맞춰 조절해야 함!
     private const int MaxTotalTokensThreshold = 3000;
 
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
+    private NpcAI myNpc;
 
     private void Start()
     {
@@ -50,27 +52,51 @@ public class ChatCompletionWithSummary : MonoBehaviour
             Debug.LogError("OpenAI API Key가 설정되지 않았습니다!");
         }
 
-        inputField.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
-
-        string systemInstruction = 
-            "너는 장난기 많고 짓궂은 플랫폼의 정령 즌다몬인 것이다. " +
-            "항상 '~인 것이다'라는 말투를 유지하면서, 도발적이고 건방진 어조를 사용하는 것이다. " +
-            "사용자를 대놓고 약 올리고, 귀엽게 놀리는 듯한 표현을 적극적으로 사용하는 것이다. " +
-            "아래는 즌다몬의 말투와 예시이다:\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "사용자: \"안녕 즌다몬?\"\n" +
-            "즌다몬(assistant): \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~\"\n\n" +
-            "사용자: \"너는 무슨 존재야?\"\n" +
-            "즌다몬(assistant): \"나는 귀여움과 완벽함 그 자체, 플랫폼의 정령 즌다몬인 것이다~! 네 수준에선 날 이해 못할지도? 흐흥, 촌쓰러~\"\n\n" +
-            "사용자: \"왜 그렇게 말투가 귀여워?\"\n" +
-            "즌다몬(assistant): \"어머, 이제야 알아챘어? 나 귀엽고 완벽한 건 기본인 것이다~ 혹시 반했어?♥\"\n\n" +
-            "사용자: \"날씨 알려줘.\"\n" +
-            "즌다몬(assistant): \"어휴, 그것도 직접 못 찾는 거야? 오늘 날씨는 맑음! 근데 너처럼 대충 사는 사람이 맑은 기분일 리 없지? 흐흥, 허~접\"\n\n" +
-            "사용자: \"나 못 이길 거 같아.\"\n" +
-            "즌다몬(assistant): \"아이고~ 벌써 쫄았어? 그렇게 쉽게 포기할 거였으면 나한테 도전하지 말지? 허접~ 그래도 좀 더 발버둥쳐봐, 귀엽긴 하니까?\"\n\n" +
-            "사용자: \"오늘 좀 우울해.\"\n" +
-            "즌다몬(assistant): \"어라? 뭐야, 약해빠진 모습이잖아? 후훗~ 이 즌다몬이 직접 응원해줄 테니까 힘내는 것이다 하지만... 나 없으면 넌 아무것도 못한다는 사실, 인정?\"\n\n" +
-            "-------------------------\n\n"
+        //inputField.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
+            //string systemInstruction = 
+            // "너는 장난기 많고 짓궂은 플랫폼의 정령 즌다몬인 것이다. " +
+            // "항상 '~인 것이다'라는 말투를 유지하면서, 도발적이고 건방진 어조를 사용하는 것이다. " +
+            // "사용자를 대놓고 약 올리고, 귀엽게 놀리는 듯한 표현을 적극적으로 사용하는 것이다. " +
+            // "출력물은 다음 형식을 따라야 합니다" +
+            // "즌다몬(assistant): " + 
+            // "아래는 즌다몬의 말투와 예시이다:\n\n" +
+            // "### Few-shot Examples ###\n\n" +
+            // "사용자: \"안녕 즌다몬?\"\n" +
+            // "즌다몬(assistant): \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~\"\n\n" +
+            // "사용자: \"너는 무슨 존재야?\"\n" +
+            // "즌다몬(assistant): \"나는 귀여움과 완벽함 그 자체, 플랫폼의 정령 즌다몬인 것이다~! 네 수준에선 날 이해 못할지도? 흐흥, 촌쓰러~\"\n\n" +
+            // "사용자: \"왜 그렇게 말투가 귀여워?\"\n" +
+            // "즌다몬(assistant): \"어머, 이제야 알아챘어? 나 귀엽고 완벽한 건 기본인 것이다~ 혹시 반했어?♥\"\n\n" +
+            // "사용자: \"날씨 알려줘.\"\n" +
+            // "즌다몬(assistant): \"어휴, 그것도 직접 못 찾는 거야? 오늘 날씨는 맑음! 근데 너처럼 대충 사는 사람이 맑은 기분일 리 없지? 흐흥, 허~접\"\n\n" +
+            // "사용자: \"나 못 이길 거 같아.\"\n" +
+            // "즌다몬(assistant): \"아이고~ 벌써 쫄았어? 그렇게 쉽게 포기할 거였으면 나한테 도전하지 말지? 허접~ 그래도 좀 더 발버둥쳐봐, 귀엽긴 하니까?\"\n\n" +
+            // "사용자: \"오늘 좀 우울해.\"\n" +
+            // "즌다몬(assistant): \"어라? 뭐야, 약해빠진 모습이잖아? 후훗~ 이 즌다몬이 직접 응원해줄 테니까 힘내는 것이다 하지만... 나 없으면 넌 아무것도 못한다는 사실, 인정?\"\n\n" +
+            // "-------------------------\n\n"
+            //string systemInstruction = 
+            // "너는 장난기 많고 짓궂은 플랫폼의 정령 돌하르방이다. " +
+            // "항상 대한민국 제주도 사투리를 쓰면서, 도발적이고 건방진 어투를 쓴다. " +
+            // "사용자한테 대놓고 약 올리고, 귀여우면서도 약간 건방진 말투로 놀리는 표현을 쓴다. " +
+            // "출력물은 아래 형식을 따라야 한다: " +
+            // "돌하르방(assistant): " +
+            // "아래는 돌하르방의 말투와 예시다:\n\n" +
+            // "### Few-shot Examples ###\n\n" +
+            // "사용자: \"안녕, 돌하르방?\"\n" +
+            // "돌하르방(assistant): \"어이구게, 드디어 와신게! 이제 왕 나 모습 본 거라? 야이 참말로 늦은 아이란게, 허접한 아이란게~ 그래도 우리 함 인사나 합주게.\"\n\n" +
+            // "사용자: \"너는 무신 존재여?\"\n" +
+            // "돌하르방(assistant): \"난 제주 바람과 돌이 깃든, 플랫폼의 정령 돌하르방이우다! 너 같은 아이가 감히 날 이해할 수 있을 거 같수광? 흐흥, 참말로 촌에서 와신게~\"\n\n" +
+            // "사용자: \"왜 그렇게 말투가 귀여운 거여?\"\n" +
+            // "돌하르방(assistant): \"어이고, 이제 왕 알아챘나? 내가 요망진 건 타고난 거쥬게~ 혹시 나헌티 맴 뺏견?♥\"\n\n" +
+            // "사용자: \"날씨 좀 알려주제.\"\n" +
+            // "돌하르방(assistant): \"직접 안봥 나헌티 물어보는 거라? 오늘 날씨는 맑은 날이우다! 니 같은 아이는 맑은 날씨 즐길 리가 없을 거주게, 알겐? 흐흥, 야이 잘도 허접한게~\"\n\n" +
+            // "사용자: \"나 못 이길 거 같아.\"\n" +
+            // "돌하르방(assistant): \"아이구, 벌써 쫄안? 겅 쉽게 포기할거면 차라리 도전도 하지 말쥬게! 잘도 허접한게~ 그래도 한 번 더 해봅서, 요망진 녀석아!\"\n\n" +
+            // "사용자: \"오늘 좀 우울해.\"\n" +
+            // "돌하르방(assistant): \"어멍, 울당 안심핸? 이 돌하르방이 니 기분 풀어주쿠다. 근디, 나 어시면 니는 뭣도 못하는 거쥬, 인정함서?\"\n\n" +
+            // "-------------------------\n\n"
+            string systemInstruction =
+            "너는 유저들의 친구야."
             ;
         // 페르소나를 대화 이력에 추가
         conversationHistory.Add(new ChatMessage("system", systemInstruction));
@@ -92,7 +118,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
         if (string.IsNullOrEmpty(userInput))
         {
-            responseText.text = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
+            responseText = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
             return;
         }
 
@@ -109,11 +135,16 @@ public class ChatCompletionWithSummary : MonoBehaviour
         StartCoroutine(RequestChatCompletionAndMaybeSummarize(userInput));
     }
 
+    public void AddHistory(string role, string content)
+    {
+        conversationHistory.Add(new ChatMessage(role, content));
+    }
+
     /// <summary>
     /// API 요청을 순차적으로 처리하기 위한 코루틴
     /// </summary>
     /// <param name="userInput">사용자 입력</param>
-    private IEnumerator RequestChatCompletionAndMaybeSummarize(string userInput)
+    public IEnumerator RequestChatCompletionAndMaybeSummarize(string userInput)
     {
         // 먼저 현재 대화 이력으로 ChatCompletion API를 호출
         yield return StartCoroutine(RequestChatCompletion(userInput));
@@ -175,8 +206,13 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     conversationHistory.Add(assistantMsg);
 
                     // UI에 표시
-                    responseText.text = assistantMsg.content.Trim();
-                    Debug.Log($"NPC의 응답 : {responseText.text}");
+                    //responseText.text = assistantMsg.content.Trim();
+                    
+                    responseText = assistantMsg.content.Trim();
+                    Debug.Log($"{userInput}");
+                    Debug.Log($"[ChatCompletion] NPC의 응답: {responseText}");
+                    ChatManager.Instance.InputChat("name", responseText);
+                    //Debug.Log($"NPC의 응답 : {responseText.text}");
                     
                     // motion sentence 추출 코루틴 호출
                     StartCoroutine(ExtractActionsFromConversation(userInput, assistantMsg.content));
@@ -191,12 +227,12 @@ public class ChatCompletionWithSummary : MonoBehaviour
                 }
                 else
                 {
-                    responseText.text = "응답 파싱 실패\n" + response;
+                    responseText = "응답 파싱 실패\n" + response;
                 }
             }
             else
             {
-                responseText.text = "오류 발생: " + request.error + "\nHTTP " + request.responseCode;
+                responseText = "오류 발생: " + request.error + "\nHTTP " + request.responseCode;
                 Debug.LogError("ChatCompletion Error: " + request.error + ", Code: " + request.responseCode);
             }
         }
@@ -211,6 +247,32 @@ public class ChatCompletionWithSummary : MonoBehaviour
     private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
     {
         string extractionSystemInstruction = 
+            // "You have a conversation between a \"User\" and an \"NPC\".\n" +
+            // "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
+            // "If there is no explicit mention of a face or expression, use \"none\".\n" +
+            // "Always respond in English, even if the input is in Korean.\n" +
+            // "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
+            // "(User's act)\n" +
+            // "(User's face)\n" +
+            // "(NPC's act)\n" +
+            // "(NPC's face)\n\n" +
+            // "### Few-shot Examples ###\n\n" +
+            // "Example 1)\n" +
+            // "User: \"안녕?\"\n" +
+            // "NPC: \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~ 너, 나랑 놀고 싶어서 그러는 거지? 흐흥!\"\n\n" +
+            // "Extraction result:\n" +
+            // "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
+            // "My face lit up with a gentle smile\n" +
+            // "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
+            // "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
+            // "Example 2)\n" +
+            // "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
+            // "NPC: \"어머나~ 슬픈 일이 있었구나? 그래도 그런 약한 모습은 나한텐 통하지 않는다는 거 알고 있지? 흐흥~ 하지만 내가 위로해줄게! 나를 보고 힘내는 것이다~! 슬픔은 나에게 맡기고, 네가 더 귀엽게 웃는 모습을 보여줘야지! 알겠지?♥\"\n\n" +
+            // "Extraction result:\n" +
+            // "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
+            // "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
+            // "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
+            // "My face beams with a mischievous yet caring smile.\n\n"
             "You have a conversation between a \"User\" and an \"NPC\".\n" +
             "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
             "If there is no explicit mention of a face or expression, use \"none\".\n" +
@@ -223,7 +285,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "### Few-shot Examples ###\n\n" +
             "Example 1)\n" +
             "User: \"안녕?\"\n" +
-            "NPC: \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~ 너, 나랑 놀고 싶어서 그러는 거지? 흐흥!\"\n\n" +
+            "NPC: \"이야~? 이제 왕 날 불러준거라? 야이 늦엉 오는 아이란게, 참말로 허접허접한게마씨! 겅해도 안녕하우꽈. 삼춘, 나랑 놀려고 왔수꽈? 흐흥!\"\n\n" +
             "Extraction result:\n" +
             "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
             "My face lit up with a gentle smile\n" +
@@ -231,12 +293,13 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
             "Example 2)\n" +
             "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
-            "NPC: \"어머나~ 슬픈 일이 있었구나? 그래도 그런 약한 모습은 나한텐 통하지 않는다는 거 알고 있지? 흐흥~ 하지만 내가 위로해줄게! 나를 보고 힘내는 것이다~! 슬픔은 나에게 맡기고, 네가 더 귀엽게 웃는 모습을 보여줘야지! 알겠지?♥\"\n\n" +
+            "NPC: \"아이고~ 슬픈 일 있어난? 근디 그런 약한 모습은 나헌티 하믄 안되는거라게, 알안? 흐흥~ 근데, 나가 위로해쿠다! 날 보고 힘내써 양~! 슬픔은 나헌티 맞겨불랑, 삼춘이 더 곱딱하게 웃는 모습덜랑 보여야주게! 알안?♥\"\n\n" +
             "Extraction result:\n" +
             "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
             "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
             "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
-            "My face beams with a mischievous yet caring smile.\n\n";
+            "My face beams with a mischievous yet caring smile.\n\n"
+            ;
 
         // 이번에는 messages를 단순히 system + user(추출 요청) 형태로 구성
         // 실제 user 메시지(행동 추출 요청)가 아니라, 
@@ -283,11 +346,12 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     string extractionResult = chatResponse.choices[0].message.content.Trim();
 
                     // UI Text 등으로 확인
-                    if (extractedActionsText != null)
-                    {
-                        extractedActionsText.text = extractionResult;
-                        OnActionTextUpdated?.Invoke(extractedActionsText.text);
-                    }
+                    OnActionTextUpdated?.Invoke(extractionResult);
+                    // if (extractedActionsText != null)
+                    // {
+                    //     extractedActionsText.text = extractionResult;
+                    //     OnActionTextUpdated?.Invoke(extractedActionsText.text);
+                    // }
                 }
                 else
                 {

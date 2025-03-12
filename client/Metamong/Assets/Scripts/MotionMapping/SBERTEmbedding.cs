@@ -10,7 +10,7 @@ public class SBERTEmbedding : MonoBehaviour
     private Worker worker;
     private BertTokenizer tokenizer;
 
-    private float threshold = 0.6f;
+    private float threshold = 0.0f;
 
     // 일반 텍스트에 대한 임베딩 캐시
     private Dictionary<string, float[]> embeddingCache = new Dictionary<string, float[]>();

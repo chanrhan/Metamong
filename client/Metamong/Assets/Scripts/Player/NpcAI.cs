@@ -8,6 +8,8 @@ public class NpcAI : MonoBehaviour, IListenable
     private string npcName = "BasicNPC";
     private NpcAnimationController myAnimationController;
     private Coroutine dailyActionCoroutine;
+    private  ChatCompletionWithSummary chatCompletionWithSummary;
+    private string inputmessage;
     public string NpcName
     {
         get => npcName;
@@ -27,7 +29,7 @@ public class NpcAI : MonoBehaviour, IListenable
 
     //대화 관련
     public float speekRange = 5.0f;         //다른 플레이어에게 채팅 전달 범위
-    public bool isGeneratingAnswer = false;
+    public bool isGeneratingAnswer = true;
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
     public string answerText;
@@ -36,6 +38,7 @@ public class NpcAI : MonoBehaviour, IListenable
     {
         myAnimationController = GetComponent<NpcAnimationController>();
         talkTextArray[0] = $"안녕 난{npcName}(이)라고 해.";
+        chatCompletionWithSummary = FindObjectOfType<ChatCompletionWithSummary>();
     }
 
     private void Update()
@@ -68,7 +71,7 @@ public class NpcAI : MonoBehaviour, IListenable
         {
             if (hit.transform.CompareTag("Player") && ChatManager.Instance != null)
             {
-                ChatManager.Instance.InputChat(npcName, answerText);
+            //    ChatManager.Instance.InputChat(npcName, answerText);
             }
         }
         isMessageListened = false;
@@ -121,7 +124,7 @@ public class NpcAI : MonoBehaviour, IListenable
         detectedPlayer = partnerObj;
         isMessageListened = true;
         isGeneratingAnswer = true;
-        StartCoroutine(GeneratingAnswerCoroutine());
+        StartCoroutine(GeneratingAnswerCoroutine(message));
         Debug.Log("플레이어 메세지를 들음 : " + message);
     }
 
@@ -145,6 +148,29 @@ public class NpcAI : MonoBehaviour, IListenable
         isGeneratingAnswer = false;
         answerText = talkTextArray[talkIndex];
         talkIndex = (talkIndex + 1) % talkTextArray.Length;
+
+        SendMessageToOthers();
+    }
+
+    public IEnumerator GeneratingAnswerCoroutine(string msg)
+    {
+        Debug.Log("대화생성 시작");
+        //myAnimationController.MyAnimator.SetBool("isThinking", true);
+        //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
+
+        chatCompletionWithSummary.AddHistory("user", msg);
+        StartCoroutine(chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg));
+
+        while(chatCompletionWithSummary.IsWaitingForResponse){
+            Debug.Log("대화 생성 중");
+            yield return null;
+        }
+
+        Debug.Log("대화생성 종료");
+        //myAnimationController.MyAnimator.SetBool("isThinking", false);
+        isGeneratingAnswer = false;
+        //answerText = talkTextArray[talkIndex];
+        //talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
         SendMessageToOthers();
     }
@@ -205,5 +231,14 @@ public class NpcAI : MonoBehaviour, IListenable
             StopCoroutine(dailyActionCoroutine);
             dailyActionCoroutine = null;
         }
+    }
+    public void MakeFace(string face)
+    {
+        myAnimationController.MyAnimator.Play(face, 2);
+    }
+    public void MakeMotion(string motion)
+    {
+        //myAnimationController.MyAnimator.SetTrigger("StopTrigger");
+        myAnimationController.MyAnimator.Play(motion, 0);
     }
 }

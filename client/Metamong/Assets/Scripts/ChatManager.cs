@@ -33,8 +33,7 @@ public class ChatManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     #endregion
-    [SerializeField]
-    private TMP_Text chatTextField;
+
     private ChatLogBox chatLogBox;
 
     private void OnEnable()
