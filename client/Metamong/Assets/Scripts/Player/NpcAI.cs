@@ -196,7 +196,7 @@ public class NpcAI : MonoBehaviour, IListenable
         if(randomNumber == 0) //랜덤 위치 이동
         {
             myAnimationController.StopAllMovement();
-            myAnimationController.MyAgent.SetDestination(new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, Random.Range(-10.0f, 10.0f)));
+            myAnimationController.MyAgent.SetDestination(new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f)));
             while (myAnimationController.MyAgent.pathPending){ yield return null; }
 
             myAnimationController.MyAnimator.SetBool("isWalking", true);
