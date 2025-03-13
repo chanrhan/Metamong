@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +8,31 @@ public class ClientManager : MonoBehaviour
 {
 
     [SerializeField]
-
     public ClientInfo ClientInfo;
 
     public static ClientManager Instance { get; private set; }
 
+    private GameObject myPlayerObject;
+    private NetworkObject playerNetworkObject;
+
+    public GameObject MyPlayerObject{
+        get{
+            return myPlayerObject;
+        }
+        set{
+            myPlayerObject = value;
+            playerNetworkObject = value.GetComponent<NetworkObject>();
+        }
+    }
+
+    public NetworkObject PlayerNetworkObject{
+        get{
+            return playerNetworkObject;
+        }
+        private set{
+            playerNetworkObject = value;
+        }
+    }
 
     private void Awake() {
         if (Instance == null)

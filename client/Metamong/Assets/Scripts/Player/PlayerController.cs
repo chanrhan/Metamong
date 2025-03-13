@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,21 +24,21 @@ public class PlayerController : NetworkBehaviour, IListenable
     //private bool isTalkingNow = false;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
 
+
     private void Awake()
     {
         // Debug.Log("Awake: " + OwnerClientId + ", IsOwner" + IsOwner);
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
-
-        
     }
 
     void Start()
     {
         if(IsOwner){
-            Debug.Log("I am Owner : " + OwnerClientId);
+            // Debug.Log("I am Owner : " + OwnerClientId);
             CameraController.Instance.SetTargetPlayer(gameObject);
+            ClientManager.Instance.MyPlayerObject = gameObject;
         }
     }
 
@@ -48,10 +49,10 @@ public class PlayerController : NetworkBehaviour, IListenable
 
     private void Update()
     {
-        Debug.Log("Update: " + OwnerClientId + ", IsOwner" + IsOwner);
+        // Debug.Log("Update: " + OwnerClientId + ", IsOwner" + IsOwner);
         // 자신의 플레이어(소유자)가 아니라면 조작 안됨 
         if(!IsOwner){
-            Debug.Log(IsOwner);
+            // Debug.Log(IsOwner);
             return;
         }
 
@@ -165,17 +166,23 @@ public class PlayerController : NetworkBehaviour, IListenable
     {
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
 
+        List<ulong> targetIds = new List<ulong>();
         foreach (RaycastHit hit in hitPlayers)
         {
-            if(ChatManager.Instance != null)
-            {
-                if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
-                {
-                    hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, "안녕!");
-                }
+            // if(ChatManager.Instance != null)
+            // {
+            //     if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+            //     {
+            //         hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, "안녕!");
+            //     }
+            // }
+            NetworkObject networkObject = hit.transform.GetComponent<NetworkObject>();
+            if(networkObject){
+                targetIds.Add(networkObject.OwnerClientId);
             }
-
         }
+        string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
+        PacketSendHandler.Talk(msg, targetIds.ToArray());
     }
 
     public void SendMessageToOthers(string message) 

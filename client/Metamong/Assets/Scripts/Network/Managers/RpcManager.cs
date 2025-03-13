@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -20,41 +21,40 @@ public class RpcManager : NetworkBehaviour
         }
     }
 
-    public void SendPacketToAll(Packet packet){
-        SendPacketToAllServerRpc(packet, new ServerRpcParams());
+    public void SendPacketTo(Packet packet, ulong targetId){
+        SendPacketTo(packet, new ulong[]{targetId});
     }
 
-    public void SendPacketTo(Packet packet, ulong[] targetIds){
+    public void SendPacketTo(Packet packet, ulong[] targetIds = default){
+        if(packet.commandCode == ECommandCode.None){
+            throw new NoCommandCodeInPacketException("No Command Code In Packet!");
+        }
+
         SendPacketServerRpc(packet, targetIds, new ServerRpcParams());
     }
 
-    public void SendPacketTo(Packet packet, ulong targetId){
-        SendPacketServerRpc(packet, new ulong[]{
-            targetId
-        }, new ServerRpcParams());
-    }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void SendPacketToAllServerRpc(Packet packet, ServerRpcParams serverRpcParams){
-        ReceivePacketClientRpc(packet, new ClientRpcParams());
-    }
+    // [ServerRpc(RequireOwnership = false)]
+    // private void SendPacketToAllServerRpc(Packet packet, ServerRpcParams serverRpcParams){
+    //     ReceivePacketClientRpc(packet, new ClientRpcParams());
+    // }
 
     [ServerRpc(RequireOwnership = false)]
     private void SendPacketServerRpc(Packet packet, ulong[] targetIds,  ServerRpcParams serverRpcParams){
-        ReceivePacketClientRpc(packet, new ClientRpcParams{
-            Send = new ClientRpcSendParams{
+        ClientRpcParams clientRpcParams = new ClientRpcParams();
+        if(targetIds != null){
+            clientRpcParams.Send = new ClientRpcSendParams{
                 TargetClientIds = targetIds
-            }
-        });
+            };
+        }
+        ReceivePacketClientRpc(packet, clientRpcParams);
     }
 
     [ClientRpc]
     private void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams){
         Debug.Log($"Receive '{packet}', by " + ClientManager.Instance.ClientInfo.clientId);
 
-        string name = packet.clientInfo.username;
-        string msg = packet.msg;
-        ChatManager.Instance.InputChat(name, msg);
+        PacketReceiveHandler.DecodePacket(packet);
     }
 
 }
