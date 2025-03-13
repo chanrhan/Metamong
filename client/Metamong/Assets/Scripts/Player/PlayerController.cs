@@ -1,7 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour, IListenable
 {
     //일반 정보 관련
     //private string playerName = "Me";       //플레이어의 이름
@@ -24,9 +25,20 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // Debug.Log("Awake: " + OwnerClientId + ", IsOwner" + IsOwner);
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
+
+        
+    }
+
+    void Start()
+    {
+        if(IsOwner){
+            Debug.Log("I am Owner : " + OwnerClientId);
+            CameraController.Instance.SetTargetPlayer(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -36,6 +48,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Update: " + OwnerClientId + ", IsOwner" + IsOwner);
+        // 자신의 플레이어(소유자)가 아니라면 조작 안됨 
+        if(!IsOwner){
+            Debug.Log(IsOwner);
+            return;
+        }
+
         TryTalking();
         if (!isTyping)
         {
@@ -225,4 +244,15 @@ public class PlayerController : MonoBehaviour
     {
         isTyping = flag;
     }
+
+    public void ListenMessage(GameObject partnerObj, string message)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    void IListenable.SendMessageToOthers()
+    {
+        SendMessageToOthers();
+    }
+
 }

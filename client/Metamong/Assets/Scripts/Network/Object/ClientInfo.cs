@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ClientInfo : MonoBehaviour
+[Serializable]
+public struct ClientInfo : INetworkSerializable
 {
-    // Start is called before the first frame update
-    void Start()
+    public ulong clientId;
+    public string username;
+    public bool isHost;
+
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
     {
-        
+        serializer.SerializeValue(ref clientId);
+        serializer.SerializeValue(ref username);
+        serializer.SerializeValue(ref username);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override string ToString(){
+        return $"<clientId: {clientId}, username: {username}, isHost: {isHost}>";
     }
 }

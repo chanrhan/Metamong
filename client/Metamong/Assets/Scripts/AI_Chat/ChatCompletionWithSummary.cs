@@ -14,8 +14,8 @@ using System.Linq;
 public class ChatCompletionWithSummary : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] 
-    private TMP_InputField inputField; // 입력 받는 영역
+    // [SerializeField] 
+    // private TMP_InputField inputField; // 입력 받는 영역
     private string responseText; // 응답 결과
     private TMP_Text extractedActionsText; // 행동 추출 결과
 
@@ -105,35 +105,35 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// <summary>
     /// [UI] 버튼 클릭 시 호출될 함수
     /// </summary>
-    public void OnSendButtonClicked()
-    {
-        if (isWaitingForResponse)
-        {
-            Debug.Log("[ChatCompletion] 이미 다른 응답을 기다리는 중입니다.");
-            return;
-        }
-        // 변수 하나 더 만들어서 입력 값 저장
-        // 입력 필드를 초기화 하기 위해서 이렇게 씀
-        string userInput = inputField.text;
+    // public void OnSendButtonClicked()
+    // {
+    //     if (isWaitingForResponse)
+    //     {
+    //         Debug.Log("[ChatCompletion] 이미 다른 응답을 기다리는 중입니다.");
+    //         return;
+    //     }
+    //     // 변수 하나 더 만들어서 입력 값 저장
+    //     // 입력 필드를 초기화 하기 위해서 이렇게 씀
+    //     string userInput = inputField.text;
 
-        if (string.IsNullOrEmpty(userInput))
-        {
-            responseText = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
-            return;
-        }
+    //     if (string.IsNullOrEmpty(userInput))
+    //     {
+    //         responseText = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
+    //         return;
+    //     }
 
-        // 사용자 입력 필드 초기화 & 포커스 이동
-        inputField.text = "";
-        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+    //     // 사용자 입력 필드 초기화 & 포커스 이동
+    //     inputField.text = "";
+    //     EventSystem.current.SetSelectedGameObject(inputField.gameObject);
 
-        // 대화 이력에 사용자 메시지 추가
-        conversationHistory.Add(new ChatMessage("user", userInput));
+    //     // 대화 이력에 사용자 메시지 추가
+    //     conversationHistory.Add(new ChatMessage("user", userInput));
 
-        // 전송~응답
-        isWaitingForResponse = true;
-        // 쓰레드 머시기 만들어서 발사~
-        StartCoroutine(RequestChatCompletionAndMaybeSummarize(userInput));
-    }
+    //     // 전송~응답
+    //     isWaitingForResponse = true;
+    //     // 쓰레드 머시기 만들어서 발사~
+    //     StartCoroutine(RequestChatCompletionAndMaybeSummarize(userInput));
+    // }
 
     public void AddHistory(string role, string content)
     {
