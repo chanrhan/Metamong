@@ -8,10 +8,6 @@ using UnityEngine;
 /// </summary>
 public class ClientNetworkTransform : NetworkTransform
 {
-    /// <summary>
-    /// 서버 권한 해제
-    /// </summary>
-    /// <returns></returns>
     protected override bool OnIsServerAuthoritative()
     {
         return false;

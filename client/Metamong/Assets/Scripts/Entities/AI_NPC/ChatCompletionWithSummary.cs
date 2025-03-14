@@ -151,10 +151,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// <param name="userInput">사용자 입력</param>
     public IEnumerator RequestChatCompletionAndMaybeSummarize(string userInput)
     {
-        Debug.Log("111");
         // 먼저 현재 대화 이력으로 ChatCompletion API를 호출
         yield return StartCoroutine(RequestChatCompletion(userInput));
-        Debug.Log("222");
 
         // 응답을 받은 뒤, 토큰 사용량이 너무 많으면 요약 시도
         if (lastTotalTokensUsed > MaxTotalTokensThreshold)
@@ -175,7 +173,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// <param name="userInput">마찬가지로 사용자 입력</param>
     private IEnumerator RequestChatCompletion(string userInput)
     {
-        Debug.Log("AAA");
         // 1) 요청 바디 구성
         // temperature은 얼마나 독창적? 창의적으로 답변을 받을지 정도임. 0이면 완전 완하는 답만, 1이면 완전 창의적으로 답함 
         ChatRequest requestData = new ChatRequest

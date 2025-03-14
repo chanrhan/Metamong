@@ -8,6 +8,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+// 로그인 핸들러
+// 로그인 관련 정보들을 저장한다.
+/// </summary>
 public class LoginHandler : MonoBehaviour
 {
     [SerializeField]
@@ -19,6 +23,7 @@ public class LoginHandler : MonoBehaviour
     private Button btnClient;
     private Button btnHost;
 
+    // Random Usernames
     private List<string> randomUsernameList = new List<string>{
         "Koryong",
         "EEEE",
@@ -64,6 +69,11 @@ public class LoginHandler : MonoBehaviour
         usernameInput.text = randomUsernameList[randomInt];
     }
 
+    /// <summary>
+    /// 자신의 컴퓨터가 현재 연결되어 있는 로컬 IP 주소를 반환 
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="Exception">IP 주소를 못 찾으면 예외 처리</exception>
     public string GetLocalIPAddress()
     {
         foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
@@ -95,14 +105,18 @@ public class LoginHandler : MonoBehaviour
 
         // 포트 설정 
         ushort port;
-        string ipAddress = "";
+        string ipAddress;
+
         if(isHost){
             ipAddress = GetLocalIPAddress();
         }else{
             ipAddress = ipInput.text;
         }
+
         if(ushort.TryParse(portInput.text, out port)){
             CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
+        }else{
+            throw new Exception("No Port") ;
         }
 
         // 인게임 씬으로 로드 

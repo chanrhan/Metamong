@@ -4,6 +4,9 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 클라이언트 정보를 관리하는 관리자
+/// </summary>
 public class ClientManager : MonoBehaviour
 {
 

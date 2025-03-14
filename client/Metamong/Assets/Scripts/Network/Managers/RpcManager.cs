@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+/// <summary>
+/// RPC (Remote Procedure Call) 원격 프로시저 호출 매니저.
+/// Netcode 통신 관련해서 종단 기능을 담당한다.
+/// </summary>
 public class RpcManager : NetworkBehaviour
 {
     public static RpcManager Instance { get; private set; }
 
     private void Awake() {
-        // Debug.Log("Awake RpcManager: " + OwnerClientId);
         if (Instance == null)
         {
             Instance = this;
@@ -21,17 +24,12 @@ public class RpcManager : NetworkBehaviour
         }
     }
 
-    [Obsolete]
-    public void SendPacketTo(Packet packet, ulong clientId){
-        SendPacketTo(packet, new ulong[]{clientId});
-    }
-
-    [Obsolete]
-    public void SendPacketTo(Packet packet, ulong[] targetIds = default){
-        
-    }
-
-    public void SendPacketTo(Packet packet, NetworkTarget[] targets){
+    /// <summary>
+    /// 클라이언트(또는 호스트)에서 서버로 패킷을 보내는 함수
+    /// </summary>
+    /// <param name="packet">보낼 데이터</param>
+    /// <param name="targets">수신받을 네트워크 객체들</param>
+    public void SendPacketTo(Packet packet, NetworkTarget[] targets = null){
         PacketSendWrapper sendWrapper = new PacketSendWrapper{
             packet = packet,
             networkTargets = targets
@@ -39,18 +37,12 @@ public class RpcManager : NetworkBehaviour
         SendPacket(sendWrapper);
     }
 
-    
     private void SendPacket(PacketSendWrapper packetSendWrapper){
         if(packetSendWrapper.packet.packetType == EPacketType.None){
             throw new NoCommandCodeInPacketException("A Packet doesn't have its own packet type!");
         }
         SendPacketServerRpc(packetSendWrapper, new ServerRpcParams());
     }
-
-    // [ServerRpc(RequireOwnership = false)]
-    // private void SendPacketToAllServerRpc(Packet packet, ServerRpcParams serverRpcParams){
-    //     ReceivePacketClientRpc(packet, new ClientRpcParams());
-    // }
 
     [ServerRpc(RequireOwnership = false)]
     private void SendPacketServerRpc(PacketSendWrapper packetSendWrapper, ServerRpcParams serverRpcParams){
@@ -61,10 +53,12 @@ public class RpcManager : NetworkBehaviour
         ServerPacketReceiveHandler.DecodePacket(packetSendWrapper);
     }
 
+    /// <summary>
+    /// 서버에서 클라이언트로 패킷을 전송하는 함수
+    /// </summary>
+    /// <param name="packet"></param>
     [ClientRpc]
-    public void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams){
-        Debug.Log($"Receive '{packet}', by " + ClientManager.Instance.ClientInfo.clientId);
-
+    public void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams = default){
         PacketReceiveHandler.DecodePacket(packet);
     }
 

@@ -2017,10 +2017,10 @@ GameObject:
   - component: {fileID: 2087415712440016775}
   - component: {fileID: 2367958859518695971}
   - component: {fileID: 5431632980206884326}
+  - component: {fileID: -3467976579344336881}
   - component: {fileID: 1940564328847510853}
   - component: {fileID: 9199000185213451224}
   - component: {fileID: 8126531817748675801}
-  - component: {fileID: -3467976579344336881}
   - component: {fileID: 9119664383364838322}
   - component: {fileID: 5081610154288509185}
   - component: {fileID: 5095382934083476293}
@@ -2097,6 +2097,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-3467976579344336881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232820536256093580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2863424488
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &1940564328847510853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,10 +2130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8debaf58983c59448f10cc9a1b0f775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speekRange: 3
   npcName: "NPC_\uBBA4\uD14C\uB9AC\uC628"
   talkIndex: 0
   talkSpeedSecond: 1
-  speekRange: 3
   isGeneratingAnswer: 0
   isMessageListened: 0
   detectedPlayer: {fileID: 0}
@@ -2161,27 +2182,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
---- !u!114 &-3467976579344336881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232820536256093580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3537037543
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &9119664383364838322
 MonoBehaviour:
   m_ObjectHideFlags: 0

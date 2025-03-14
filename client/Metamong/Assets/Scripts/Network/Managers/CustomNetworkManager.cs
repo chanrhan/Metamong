@@ -5,6 +5,9 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using System.Linq;
 
+/// <summary>
+/// Netcode 통신의 중추.
+/// </summary>
 public class CustomNetworkManager : NetworkManager
 {
     public static CustomNetworkManager Instance { get; private set; }
@@ -37,7 +40,11 @@ public class CustomNetworkManager : NetworkManager
         Debug.Log($"Client [{clientId}] Disconnected!");
     }
 
-
+    /// <summary>
+    /// 접속할 IP 주소와 Port를 설정하는 함수
+    /// </summary>
+    /// <param name="ipAddress">접속한 IP 주소</param>
+    /// <param name="port">접속할 Port</param>
     public void SetUnityTransport(string ipAddress, ushort port){
         UnityTransport unityTransport = GetComponent<UnityTransport>();
         unityTransport.ConnectionData.Address = ipAddress;
@@ -57,13 +64,27 @@ public class CustomNetworkManager : NetworkManager
         StartClient();
     }
 
-    public NetworkObject GetNetworkObjectByClientId(ulong id){
-        if(ConnectedClients.TryGetValue(id, out var client)){
-            return client.PlayerObject;
+    /// <summary>
+    /// Netcode에서 부여한 클라이언트 Id로 해당 NetworkObject를 찾는 함수
+    /// </summary>
+    /// <param name="clientId">찾기 위해 사용할 클라이언트 ID</param>
+    /// <param name="networkObject">탐색 성공 시 반환될 NetworkObject</param>
+    /// <returns></returns>
+    public bool TryGetNetworkObjectByClientId(ulong clientId, out NetworkObject networkObject){
+        if(ConnectedClients.TryGetValue(clientId, out var client)){
+            networkObject = client.PlayerObject;
+            return true;
         }
-        return null;
+        networkObject = null;
+        return false;
     }
 
+    /// <summary>
+    /// Netcode에서 부여한 NetworkObject ID로 해당 NetworkObject를 찾는 함수
+    /// </summary>
+    /// <param name="networkObjectId">찾기 위해 사용할 NetworkObject ID</param>
+    /// <param name="networkObject">탐색 성공 시 반환될 NetworkObject</param>
+    /// <returns></returns>
     public bool TryGetNetworkObjectById(ulong networkObjectId, out NetworkObject networkObject){
         return SpawnManager.SpawnedObjects.TryGetValue(networkObjectId, out networkObject);
     }

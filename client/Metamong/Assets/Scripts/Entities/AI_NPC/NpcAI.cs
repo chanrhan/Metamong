@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class NpcAI : NetworkBehaviour, IListenable
+public class NpcAI : NetworkCharacter
 {
     //NpcAI 관련 컴포넌트 및 변수
     [SerializeField]
@@ -29,8 +29,7 @@ public class NpcAI : NetworkBehaviour, IListenable
     private int talkIndex = 0;              //talkTextArray의 현재 출력된 텍스트를 가리키는 인덱스
     public float talkSpeedSecond = 1.0f;    //talkTextIndex 증가 속도.
 
-    //대화 관련
-    public float speekRange = 5.0f;         //다른 플레이어에게 채팅 전달 범위
+    
     public bool isGeneratingAnswer = true;
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
@@ -70,26 +69,16 @@ public class NpcAI : NetworkBehaviour, IListenable
     /// 주변 플레이어에게 자신의 대화 텍스트를 전달하는 메서드. STT와 같은 대화 텍스트 입력 기능이 구현되면 수정할 예정
     /// 주변의 플레이어는 Conversable 레이어와 "Player"태그를 가지고 있어야 한다.
     /// </summary>
-    public void SendMessageToOthers()
+    public override void SendMessageToOthers()
     {
-        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable Layer(2^7)
-        
-        List<NetworkTarget> targets = new List<NetworkTarget>();
-        foreach (RaycastHit hit in hitPlayers)
-        {
-            if (hit.transform.CompareTag("Player") && hit.transform.TryGetComponent(out IListenable i))
-            {
-            //    ChatManager.Instance.InputChat(npcName, answerText);
-                NetworkObject no = hit.transform.GetComponent<NetworkObject>();
-                if(no){
-                    targets.Add(no.ToNetworkTarget());
-                }
-            }
+        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+            string msg = chatCompletionWithSummary.ResponseText;
+            ServerPacketReceiveHandler.TalkByNPC(msg, targets);
+            isMessageListened = false;
         }
-        isMessageListened = false;
-        string msg = chatCompletionWithSummary.ResponseText;
-        ServerPacketReceiveHandler.TalkByNPC(msg, targets.ToArray());
     }
+
+   
 
     private void DetectPlayer()
     {
@@ -130,7 +119,7 @@ public class NpcAI : NetworkBehaviour, IListenable
     /// NPC에게 메세지를 전달하는 메서드. 외부에서 사용하도록 설계함.
     /// </summary>
     /// <param name="message">NPC에게 전달할 메세지</param>
-    public void ListenMessage(GameObject partnerObj, string message)
+    public override void ListenMessage(GameObject partnerObj, string message)
     {
         if (isMessageListened) return;
         
@@ -256,4 +245,5 @@ public class NpcAI : NetworkBehaviour, IListenable
         //myAnimationController.MyAnimator.SetTrigger("StopTrigger");
         myAnimationController.MyAnimator.Play(motion, 0);
     }
+
 }

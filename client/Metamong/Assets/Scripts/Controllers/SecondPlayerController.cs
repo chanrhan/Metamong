@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Obsolete]
 public class SecondPlayerController : MonoBehaviour
 {
     //일반 정보
@@ -21,6 +23,7 @@ public class SecondPlayerController : MonoBehaviour
         "진짜 개웃기네",
         "어어엌크크크크크크",
     };
+
     [SerializeField]
     private int talkIndex = 0;              //talkTextArray의 현재 출력된 텍스트를 가리키는 인덱스
     public float talkSpeedSecond = 1.0f;    //talkTextIndex 증가 속도.

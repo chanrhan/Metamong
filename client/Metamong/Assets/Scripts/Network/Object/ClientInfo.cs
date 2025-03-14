@@ -5,6 +5,9 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// 클라이언트 정보
+/// </summary>
 [Serializable]
 public struct ClientInfo : INetworkSerializable
 {

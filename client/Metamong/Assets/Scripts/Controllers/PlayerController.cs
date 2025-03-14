@@ -3,11 +3,8 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : NetworkBehaviour, IListenable
+public class PlayerController : NetworkCharacter
 {
-    //일반 정보 관련
-    //private string playerName = "Me";       //플레이어의 이름
-
     //이동관련
     [SerializeField] private float moveSpeed = 10.0f;       //플레이어 이동속도
     [SerializeField] private float speedLimit = 10.0f;      //플레이어 최대 이동속도
@@ -16,18 +13,13 @@ public class PlayerController : NetworkBehaviour, IListenable
     private Rigidbody myRigid;      
     private Collider myCollider;
 
-    //대화 관련
-    private float speekRange = 3.0f;    //다른 플레이어에게 채팅 전달 범위
-
     //애니메이션 관련
     private Animator myAnim;
-    //private bool isTalkingNow = false;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
 
 
     private void Awake()
     {
-        // Debug.Log("Awake: " + OwnerClientId + ", IsOwner" + IsOwner);
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
@@ -36,7 +28,7 @@ public class PlayerController : NetworkBehaviour, IListenable
     void Start()
     {
         if(IsOwner){
-            // Debug.Log("I am Owner : " + OwnerClientId);
+            // 카메라 및 플레이어 오브젝트 설정
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
         }
@@ -56,7 +48,6 @@ public class PlayerController : NetworkBehaviour, IListenable
 
     private void Update()
     {
-        // Debug.Log("Update: " + OwnerClientId + ", IsOwner" + IsOwner);
         // 자신의 플레이어(소유자)가 아니라면 조작 안됨 
         if(!IsOwner){
             return;
@@ -68,6 +59,8 @@ public class PlayerController : NetworkBehaviour, IListenable
             CharacterRotate();
             
         }
+
+        // 테스트용 
         if (Input.GetKeyDown(KeyCode.G))
         {
             SendMessageToOthers();
@@ -168,53 +161,19 @@ public class PlayerController : NetworkBehaviour, IListenable
     /// 플레이어의 주변 플레이어에게 채팅을 보내는 함수. 
     /// 채팅을 전달받은 플레이어는 OtherPlayer 태그, Conversable 레이어로 설정해야함.
     /// </summary>
-    private void SendMessageToOthers() 
+    public override void SendMessageToOthers() 
     {
-        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
-
-        List<NetworkTarget> targets = new List<NetworkTarget>();
-
-        foreach (RaycastHit hit in hitPlayers)
-        {
-            if(ChatManager.Instance != null)
-            {
-                if (hit.transform.TryGetComponent(out IListenable i))
-                {
-                    // hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
-                    NetworkObject no = hit.transform.GetComponent<NetworkObject>();
-                    if(no){
-                        targets.Add(no.ToNetworkTarget());
-                        Debug.Log("Talk To : " + no.ToNetworkTarget().networkObjectId);
-                    }
-                }
-            }
+        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+            string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
+            PacketSendHandler.Chat(msg, targets);
         }
-        
-        string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
-        PacketSendHandler.Talk(msg, targets.ToArray());
     }
 
     public void SendMessageToOthers(string message) 
     {
-        RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
-        List<NetworkTarget> targets = new List<NetworkTarget>();
-
-        foreach (RaycastHit hit in hitPlayers)
-        {
-            if(ChatManager.Instance != null)
-            {
-                if (hit.transform.TryGetComponent(out IListenable i))
-                {
-                    // hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
-                    NetworkObject no = hit.transform.GetComponent<NetworkObject>();
-                    if(no){
-                        targets.Add(no.ToNetworkTarget());
-                        Debug.Log("Talk To : " + no.ToNetworkTarget().networkObjectId);
-                    }
-                }
-            }
+        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+            PacketSendHandler.Chat(message, targets);
         }
-        PacketSendHandler.Talk(message, targets.ToArray());
     }
 
     /// <summary>
@@ -268,14 +227,9 @@ public class PlayerController : NetworkBehaviour, IListenable
         isTyping = flag;
     }
 
-    public void ListenMessage(GameObject partnerObj, string message)
+    public override void ListenMessage(GameObject partnerObj, string message)
     {
         throw new System.NotImplementedException();
-    }
-
-    void IListenable.SendMessageToOthers()
-    {
-        SendMessageToOthers();
     }
 
 }
