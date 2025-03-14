@@ -202,7 +202,7 @@ public class PlayerController : NetworkBehaviour, IListenable
         {
             if(ChatManager.Instance != null)
             {
-                if (hit.rigidbody.CompareTag("OtherPlayer") && hit.transform.TryGetComponent(out IListenable i))
+                if (hit.transform.TryGetComponent(out IListenable i))
                 {
                     // hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
                     NetworkObject no = hit.transform.GetComponent<NetworkObject>();
