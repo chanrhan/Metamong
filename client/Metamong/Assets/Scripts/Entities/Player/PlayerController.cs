@@ -40,7 +40,7 @@ public class PlayerController : NetworkCharacter
             return;
         }
         CheckOnGround();
-        if(!isTyping){
+        if(!ChatManager.Instance.isTyping){
             MovePosition();
             TryJump();
         }
@@ -54,17 +54,18 @@ public class PlayerController : NetworkCharacter
         }
 
         TryTalking();
-        if (!isTyping)
+        if (!ChatManager.Instance.isTyping)
         {
             CharacterRotate();
             
+            // 테스트용 
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                SendMessageToOthers();
+            }
         }
 
-        // 테스트용 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SendMessageToOthers();
-        }
+        
     }
 
     /// <summary>

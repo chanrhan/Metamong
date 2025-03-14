@@ -35,6 +35,9 @@ public class ChatManager : MonoBehaviour
     #endregion
 
     private ChatLogBox chatLogBox;
+    private ChatInputBox chatInputBox;
+
+    public bool isTyping = false;
 
     private void OnEnable()
     {
@@ -43,6 +46,10 @@ public class ChatManager : MonoBehaviour
             chatLogBox = FindFirstObjectByType<ChatLogBox>();
             if(chatLogBox == null)
                 throw new System.Exception("ChatLogBox를 찾을 수 없습니다.");
+
+            chatInputBox = FindFirstObjectByType<ChatInputBox>();
+            if(chatInputBox == null)
+                throw new System.Exception("ChatInputBox를 찾을 수 없습니다.");
         }
     }
 

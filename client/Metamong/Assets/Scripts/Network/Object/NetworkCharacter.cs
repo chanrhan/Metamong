@@ -14,7 +14,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
         List<NetworkTarget> targets = new List<NetworkTarget>();
         foreach (RaycastHit hit in hitPlayers)
         {
-            if (hit.transform.CompareTag("Player") && hit.transform.TryGetComponent(out IListenable i))
+            if (hit.transform.TryGetComponent(out IListenable i))
             {
                 NetworkObject no = hit.transform.GetComponent<NetworkObject>();
                 if(no){

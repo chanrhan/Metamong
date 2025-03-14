@@ -17,6 +17,7 @@ public class ClientManager : MonoBehaviour
 
     private GameObject myPlayerObject;
     private NetworkObject playerNetworkObject;
+    private PlayerController playerController;
 
     public GameObject MyPlayerObject{
         get{
@@ -25,16 +26,16 @@ public class ClientManager : MonoBehaviour
         set{
             myPlayerObject = value;
             playerNetworkObject = value.GetComponent<NetworkObject>();
+            playerController = value.GetComponent<PlayerController>();
         }
     }
 
     public NetworkObject PlayerNetworkObject{
-        get{
-            return playerNetworkObject;
-        }
-        private set{
-            playerNetworkObject = value;
-        }
+        get => playerNetworkObject;
+    }
+
+    public PlayerController PlayerController{
+        get => playerController;
     }
 
     private void Awake() {

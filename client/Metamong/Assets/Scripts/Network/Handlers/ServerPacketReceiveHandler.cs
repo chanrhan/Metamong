@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -61,6 +62,7 @@ public class ServerPacketReceiveHandler : PacketHandler
                 TargetClientIds = packetSendWrapper.GetClientIds()
             };
         }
+        Debug.Log("Chat To " + packetSendWrapper.networkTargets[0].networkObjectId);
 
         // 클라이언트에게 메세지 전송
         RpcManager.Instance.ReceivePacketClientRpc(packetSendWrapper.packet, clientRpcParams);
@@ -69,7 +71,9 @@ public class ServerPacketReceiveHandler : PacketHandler
         if(packetSendWrapper.networkTargets != null && packetSendWrapper.HasNonClient()){
             ulong senderClientId = packetSendWrapper.packet.senderId;
 
+            Debug.Log(111);
             if(CustomNetworkManager.Instance.TryGetNetworkObjectByClientId(senderClientId, out NetworkObject senderObject)){
+                Debug.Log(222);
                 // 클라이언트가 아닌 네트워크 대상 객체의 ID 들을 가져옴
                 ulong[] networkObjectIds = packetSendWrapper.GetNonClientNetworkObjectIds();
                 string msg = packetSendWrapper.packet.message;

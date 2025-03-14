@@ -1,22 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChatInputBox : MonoBehaviour
+public class ChatInputBox : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    [SerializeField]
-    private InputField myField;
-    public PlayerController playerController;
+    private InputField chatInputField;
 
     private void Awake(){
-        myField = GetComponent<InputField>();
-        playerController = FindObjectOfType<PlayerController>();
+        chatInputField = GetComponent<InputField>();
     }
 
-    public void EnterMessage(){
-        string message = myField.text;
-        playerController.SendMessageToOthers(message);
-        //myField.text = "";
+    public void OnEnter(){
+        string message = chatInputField.text;
+        ClientManager.Instance.PlayerController?.SendMessageToOthers(message);
+        chatInputField.text = "";
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        // Debug.Log("Deselect");
+        ChatManager.Instance.isTyping = false;
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        // Debug.Log("Select");
+        ChatManager.Instance.isTyping = true;
     }
 }

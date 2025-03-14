@@ -38,6 +38,7 @@ public class RpcManager : NetworkBehaviour
     }
 
     private void SendPacket(PacketSendWrapper packetSendWrapper){
+        Debug.Log("Send Packet");
         if(packetSendWrapper.packet.packetType == EPacketType.None){
             throw new NoCommandCodeInPacketException("A Packet doesn't have its own packet type!");
         }
@@ -59,6 +60,7 @@ public class RpcManager : NetworkBehaviour
     /// <param name="packet"></param>
     [ClientRpc]
     public void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams = default){
+        Debug.Log("Receive Packet");
         PacketReceiveHandler.DecodePacket(packet);
     }
 

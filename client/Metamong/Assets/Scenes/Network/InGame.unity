@@ -3612,7 +3612,7 @@ GameObject:
   - component: {fileID: 1211902857}
   - component: {fileID: 1211902858}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: Inp_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3695,7 +3695,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1211902858}
         m_TargetAssemblyTypeName: ChatInputBox, Assembly-CSharp
-        m_MethodName: EnterMessage
+        m_MethodName: OnEnter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3811,7 +3811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myField: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!1 &1282608130
 GameObject:
   m_ObjectHideFlags: 0
@@ -6215,7 +6214,7 @@ GameObject:
   - component: {fileID: 1775638684}
   - component: {fileID: 1775638683}
   m_Layer: 5
-  m_Name: TalkBox
+  m_Name: ChatlogArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
