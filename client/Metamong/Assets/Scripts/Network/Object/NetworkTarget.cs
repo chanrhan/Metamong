@@ -15,4 +15,8 @@ public class NetworkTarget : INetworkSerializable
         serializer.SerializeValue(ref clientId);
         serializer.SerializeValue(ref isClient);
     }
+
+    public override string ToString(){
+        return "clientId: " + clientId + ", networkObjectId: " + networkObjectId;
+    }
 }
