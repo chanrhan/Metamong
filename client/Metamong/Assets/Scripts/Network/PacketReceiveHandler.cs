@@ -5,14 +5,14 @@ using UnityEngine;
 public class PacketReceiveHandler 
 {
     public static void DecodePacket(Packet packet){
-        switch(packet.commandCode){
+        switch(packet.packetType){
             case EPacketType.Talk:
-                Talk(packet);
+                ReceiveMessage(packet);
                 break;
         }
     }
 
-    private static void Talk(Packet packet){
+    private static void ReceiveMessage(Packet packet){
         ClientInfo clientInfo = packet.clientInfo;
         ChatManager.Instance.InputChat(clientInfo.username, packet.msg);
     }

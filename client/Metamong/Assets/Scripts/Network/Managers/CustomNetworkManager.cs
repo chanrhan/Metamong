@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
+using System.Linq;
 
 public class CustomNetworkManager : NetworkManager
 {
     public static CustomNetworkManager Instance { get; private set; }
-
-    [SerializeField]
-    private Dictionary<ulong, ClientInfo> userList = new Dictionary<ulong, ClientInfo>();
 
     private void Awake() {
         if (Instance == null)
@@ -44,6 +42,7 @@ public class CustomNetworkManager : NetworkManager
         UnityTransport unityTransport = GetComponent<UnityTransport>();
         unityTransport.ConnectionData.Address = ipAddress;
         unityTransport.ConnectionData.Port = port;
+        
     }
 
     public void JoinHost()
@@ -65,9 +64,10 @@ public class CustomNetworkManager : NetworkManager
         return null;
     }
 
-    public bool GetClientInfo(ulong id, out ClientInfo clientInfo){
-        return userList.TryGetValue(id, out clientInfo);
+    public bool TryGetNetworkObjectById(ulong networkObjectId, out NetworkObject networkObject){
+        return SpawnManager.SpawnedObjects.TryGetValue(networkObjectId, out networkObject);
     }
+
 
     public void Disconnect(){
         Shutdown();

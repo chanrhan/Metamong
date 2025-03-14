@@ -5,7 +5,7 @@ using UnityEngine;
 
 public struct Packet : INetworkSerializable
 {
-    public EPacketType commandCode;
+    public EPacketType packetType;
     public ulong senderId;
     // public ulong[] targetIds;
     public string msg;
@@ -13,7 +13,7 @@ public struct Packet : INetworkSerializable
 
     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
     {
-        serializer.SerializeValue(ref commandCode);
+        serializer.SerializeValue(ref packetType);
         serializer.SerializeValue(ref senderId);
         // serializer.SerializeValue(ref targetIds);
         serializer.SerializeValue(ref msg);

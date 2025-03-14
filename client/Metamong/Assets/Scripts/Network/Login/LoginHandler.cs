@@ -62,8 +62,6 @@ public class LoginHandler : MonoBehaviour
     {
         int randomInt = UnityEngine.Random.Range(0, randomUsernameList.Count);
         usernameInput.text = randomUsernameList[randomInt];
-
-        ipInput.text = GetLocalIPAddress();
     }
 
     public string GetLocalIPAddress()
@@ -97,7 +95,12 @@ public class LoginHandler : MonoBehaviour
 
         // 포트 설정 
         ushort port;
-        string ipAddress = ipInput.text;
+        string ipAddress = "";
+        if(isHost){
+            ipAddress = GetLocalIPAddress();
+        }else{
+            ipAddress = ipInput.text;
+        }
         if(ushort.TryParse(portInput.text, out port)){
             CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
         }

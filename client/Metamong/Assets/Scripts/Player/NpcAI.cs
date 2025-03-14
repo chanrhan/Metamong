@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class NpcAI : MonoBehaviour, IListenable
@@ -67,14 +69,22 @@ public class NpcAI : MonoBehaviour, IListenable
     public void SendMessageToOthers()
     {
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable Layer(2^7)
+        
+        List<NetworkTarget> targets = new List<NetworkTarget>();
         foreach (RaycastHit hit in hitPlayers)
         {
-            if (hit.transform.CompareTag("Player") && ChatManager.Instance != null)
+            if (hit.transform.CompareTag("Player") && hit.transform.TryGetComponent(out IListenable i))
             {
             //    ChatManager.Instance.InputChat(npcName, answerText);
+                NetworkObject no = hit.transform.GetComponent<NetworkObject>();
+                if(no){
+                    targets.Add(no.ToNetworkTarget());
+                }
             }
         }
         isMessageListened = false;
+        string msg = chatCompletionWithSummary.ResponseText;
+        PacketSendHandler.TalkByNPC(msg, targets.ToArray());
     }
 
     private void DetectPlayer()
@@ -236,6 +246,7 @@ public class NpcAI : MonoBehaviour, IListenable
     {
         myAnimationController.MyAnimator.Play(face, 2);
     }
+
     public void MakeMotion(string motion)
     {
         //myAnimationController.MyAnimator.SetTrigger("StopTrigger");

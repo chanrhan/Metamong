@@ -17,6 +17,11 @@ public class ChatCompletionWithSummary : MonoBehaviour
     // [SerializeField] 
     // private TMP_InputField inputField; // 입력 받는 영역
     private string responseText; // 응답 결과
+    public string ResponseText{
+        get{
+            return responseText;
+        }
+    }
     private TMP_Text extractedActionsText; // 행동 추출 결과
 
     public static event Action<string> OnActionTextUpdated;

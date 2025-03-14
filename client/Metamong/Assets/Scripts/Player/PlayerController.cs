@@ -172,39 +172,47 @@ public class PlayerController : NetworkBehaviour, IListenable
     {
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
 
-        List<ulong> targetIds = new List<ulong>();
+        List<NetworkTarget> targets = new List<NetworkTarget>();
+
         foreach (RaycastHit hit in hitPlayers)
         {
-            // if(ChatManager.Instance != null)
-            // {
-            //     if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
-            //     {
-            //         hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, "안녕!");
-            //     }
-            // }
-            NetworkObject networkObject = hit.transform.GetComponent<NetworkObject>();
-            if(networkObject){
-                targetIds.Add(networkObject.OwnerClientId);
+            if(ChatManager.Instance != null)
+            {
+                if (hit.rigidbody.CompareTag("OtherPlayer") && hit.transform.TryGetComponent(out IListenable i))
+                {
+                    // hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
+                    NetworkObject no = hit.transform.GetComponent<NetworkObject>();
+                    if(no){
+                        targets.Add(no.ToNetworkTarget());
+                    }
+                }
             }
         }
+        
         string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
-        PacketSendHandler.Talk(msg, targetIds.ToArray());
+        PacketSendHandler.Talk(msg, targets.ToArray());
     }
 
     public void SendMessageToOthers(string message) 
     {
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable 레이어(2^7)
+        List<NetworkTarget> targets = new List<NetworkTarget>();
+
         foreach (RaycastHit hit in hitPlayers)
         {
             if(ChatManager.Instance != null)
             {
-                if (hit.rigidbody.CompareTag("OtherPlayer") && ChatManager.Instance != null)
+                if (hit.rigidbody.CompareTag("OtherPlayer") && hit.transform.TryGetComponent(out IListenable i))
                 {
-                    hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
+                    // hit.transform.GetComponent<IListenable>().ListenMessage(gameObject, message);
+                    NetworkObject no = hit.transform.GetComponent<NetworkObject>();
+                    if(no){
+                        targets.Add(no.ToNetworkTarget());
+                    }
                 }
             }
-
         }
+        PacketSendHandler.Talk(message, targets.ToArray());
     }
 
     /// <summary>

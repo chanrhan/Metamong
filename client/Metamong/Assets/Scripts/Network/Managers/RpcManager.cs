@@ -21,16 +21,30 @@ public class RpcManager : NetworkBehaviour
         }
     }
 
-    public void SendPacketTo(Packet packet, ulong targetId){
-        SendPacketTo(packet, new ulong[]{targetId});
+    [Obsolete]
+    public void SendPacketTo(Packet packet, ulong clientId){
+        SendPacketTo(packet, new ulong[]{clientId});
     }
 
+    [Obsolete]
     public void SendPacketTo(Packet packet, ulong[] targetIds = default){
-        if(packet.commandCode == EPacketType.None){
-            throw new NoCommandCodeInPacketException("No Command Code In Packet!");
-        }
+        
+    }
 
-        SendPacketServerRpc(packet, targetIds, new ServerRpcParams());
+    public void SendPacketTo(Packet packet, NetworkTarget[] targets){
+        PacketSendWrapper sendWrapper = new PacketSendWrapper{
+            packet = packet,
+            networkTargets = targets
+        };
+        SendPacket(sendWrapper);
+    }
+
+    
+    private void SendPacket(PacketSendWrapper packetSendWrapper){
+        if(packetSendWrapper.packet.packetType == EPacketType.None){
+            throw new NoCommandCodeInPacketException("A Packet doesn't have its own packet type!");
+        }
+        SendPacketServerRpc(packetSendWrapper, new ServerRpcParams());
     }
 
 
@@ -40,14 +54,24 @@ public class RpcManager : NetworkBehaviour
     // }
 
     [ServerRpc(RequireOwnership = false)]
-    private void SendPacketServerRpc(Packet packet, ulong[] targetIds,  ServerRpcParams serverRpcParams){
+    private void SendPacketServerRpc(PacketSendWrapper packetSendWrapper, ServerRpcParams serverRpcParams){
+        if(!IsServer){ // 혹시 모를 예외 방지 (서버에서만 실행되게, 근데 어차피 서버에서만 될거임)
+            return;
+        }
+
         ClientRpcParams clientRpcParams = new ClientRpcParams();
-        if(targetIds != null){
+        if(packetSendWrapper.networkTargets != null){
             clientRpcParams.Send = new ClientRpcSendParams{
-                TargetClientIds = targetIds
+                TargetClientIds = packetSendWrapper.GetClientIds()
             };
         }
-        ReceivePacketClientRpc(packet, clientRpcParams);
+
+        ReceivePacketClientRpc(packetSendWrapper.packet, clientRpcParams);
+
+        // if(packetSendWrapper.networkTargets != null && packetSendWrapper.HasNonClient()){
+        //     ulong[] networkObjectIds = packetSendWrapper.GetNonClientNetworkObjectIds();
+
+        // }
     }
 
     [ClientRpc]
