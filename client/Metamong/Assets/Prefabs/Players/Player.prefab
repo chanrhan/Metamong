@@ -5576,7 +5576,7 @@ GameObject:
   - component: {fileID: 4510288850521058030}
   - component: {fileID: 933711270880248809}
   - component: {fileID: 3568514041156784676}
-  - component: {fileID: 2645645339424772600}
+  - component: {fileID: 4479669847779389281}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5726,10 +5726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e50dd2be653414ab40ed23f00eb450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 80
-  speedLimit: 10
+  moveSpeed: 200
+  speedLimit: 200
   jumpForce: 50
---- !u!114 &2645645339424772600
+--- !u!114 &4479669847779389281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

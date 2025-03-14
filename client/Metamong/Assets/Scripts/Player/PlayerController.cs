@@ -44,7 +44,14 @@ public class PlayerController : NetworkBehaviour, IListenable
 
     private void FixedUpdate()
     {
+        if(!IsOwner){
+            return;
+        }
         CheckOnGround();
+        if(!isTyping){
+            MovePosition();
+            TryJump();
+        }
     }
 
     private void Update()
@@ -52,16 +59,14 @@ public class PlayerController : NetworkBehaviour, IListenable
         // Debug.Log("Update: " + OwnerClientId + ", IsOwner" + IsOwner);
         // 자신의 플레이어(소유자)가 아니라면 조작 안됨 
         if(!IsOwner){
-            // Debug.Log(IsOwner);
             return;
         }
 
         TryTalking();
         if (!isTyping)
         {
-            MovePosition();
             CharacterRotate();
-            TryJump();
+            
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -79,6 +84,7 @@ public class PlayerController : NetworkBehaviour, IListenable
         {
             Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
             myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);
+            // myRigid.MovePosition(myRigid.position + moveVec * moveSpeed * Time.deltaTime);
             nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
         }
 

@@ -20,11 +20,23 @@ public class LoginHandler : MonoBehaviour
     private Button btnHost;
 
     private List<string> randomUsernameList = new List<string>{
-        "AAA",
-        "BBB",
-        "CCC",
-        "DDD",
-        "HotGay"
+        "Koryong",
+        "EEEE",
+        "GOGO",
+        "HeLlOwOrLd",
+        "HotGay",
+        "gayRoll",
+        "ILOVEJANG",
+        "WHIP",
+        "OPENAI",
+        "FuxkingApple",
+        "GoodGood",
+        "RunningAppeach",
+        "DuksuPasta",
+        "Suppman",
+        "WELCOME",
+        "IDIOT",
+        "SLAVES",
     };
 
     private void Awake() {
