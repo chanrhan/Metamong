@@ -34,7 +34,9 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private void UpdateCameraPos()
     {
-        transform.position = targetPlayer.transform.position + posOffset;
+        if(targetPlayer != null){
+            transform.position = targetPlayer.transform.position + posOffset;
+        }
     }
 
     public void SetTargetPlayer(GameObject gameObject){

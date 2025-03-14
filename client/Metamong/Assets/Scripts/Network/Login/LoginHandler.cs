@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,15 +13,25 @@ public class LoginHandler : MonoBehaviour
     [SerializeField]
     private string LoadedSceneName = "InGame"; // 인게임 씬 이름 
 
-    private TMP_InputField usernameInput;
+    private TMP_InputField ipInput;
     private TMP_InputField portInput;
+    private TMP_InputField usernameInput;
     private Button btnClient;
     private Button btnHost;
 
+    private List<string> randomUsernameList = new List<string>{
+        "AAA",
+        "BBB",
+        "CCC",
+        "DDD",
+        "HotGay"
+    };
+
     private void Awake() {
         TMP_InputField[] inputs = GetComponentsInChildren<TMP_InputField>();
-        portInput = inputs[0];
-        usernameInput = inputs[1];
+        ipInput = inputs[0];
+        portInput = inputs[1];
+        usernameInput = inputs[2];
 
         Button[] buttons = GetComponentsInChildren<Button>();
         btnClient = buttons[0];
@@ -33,6 +46,34 @@ public class LoginHandler : MonoBehaviour
         });
     }
 
+    void Start()
+    {
+        int randomInt = UnityEngine.Random.Range(0, randomUsernameList.Count);
+        usernameInput.text = randomUsernameList[randomInt];
+
+        ipInput.text = GetLocalIPAddress();
+    }
+
+    public string GetLocalIPAddress()
+    {
+        foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+        {
+            if (ni.OperationalStatus == OperationalStatus.Up &&
+                (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || 
+                 ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet))
+            {
+                foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return ip.Address.ToString();
+                    }
+                }
+            }
+        }
+        throw new Exception("No Network Available");
+    }
+
     /// <summary>
     /// 로그인하는 함수
     /// 클라이언트 정보에 username과 호스트 여부를 등록 
@@ -44,8 +85,9 @@ public class LoginHandler : MonoBehaviour
 
         // 포트 설정 
         ushort port;
+        string ipAddress = ipInput.text;
         if(ushort.TryParse(portInput.text, out port)){
-            CustomNetworkManager.Instance.SetPort(port);
+            CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
         }
 
         // 인게임 씬으로 로드 

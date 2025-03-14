@@ -6,7 +6,7 @@ public class PacketSendHandler
 {
     public static void Talk(string msg, ulong[] targetIds = default){
         Packet packet = new Packet{
-            commandCode = ECommandCode.Talk,
+            commandCode = EPacketType.Talk,
             msg = msg,
             clientInfo = ClientManager.Instance.ClientInfo
         };

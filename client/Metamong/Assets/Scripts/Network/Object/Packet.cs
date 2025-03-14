@@ -5,7 +5,7 @@ using UnityEngine;
 
 public struct Packet : INetworkSerializable
 {
-    public ECommandCode commandCode;
+    public EPacketType commandCode;
     public ulong senderId;
     // public ulong[] targetIds;
     public string msg;

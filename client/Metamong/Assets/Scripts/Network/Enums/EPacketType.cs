@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ECommandCode 
+public enum EPacketType 
 {
     None,
     Instantiate,
@@ -10,5 +10,6 @@ public enum ECommandCode
     Talk,
     Speak,
     Sound,
-    Animation
+    Animation,
+    Disconnect
 }

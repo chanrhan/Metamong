@@ -12,13 +12,13 @@ public class CustomNetworkManager : NetworkManager
     private Dictionary<ulong, ClientInfo> userList = new Dictionary<ulong, ClientInfo>();
 
     private void Awake() {
-        
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
             OnClientConnectedCallback += OnClientJoined;
+            OnClientDisconnectCallback += OnClientDisconnected;
         }
         else
         {
@@ -32,22 +32,29 @@ public class CustomNetworkManager : NetworkManager
     /// </summary>
     /// <param name="clientId"></param>
     private void OnClientJoined(ulong clientId){
-        Debug.Log($"Client [{clientId}] Joined!");
+        Debug.Log($"Client [{clientId}] Connected!");
     }
 
-    public void SetPort(ushort port){
-        GetComponent<UnityTransport>().ConnectionData.Port = port;
+    private void OnClientDisconnected(ulong clientId){
+        Debug.Log($"Client [{clientId}] Disconnected!");
+    }
+
+
+    public void SetUnityTransport(string ipAddress, ushort port){
+        UnityTransport unityTransport = GetComponent<UnityTransport>();
+        unityTransport.ConnectionData.Address = ipAddress;
+        unityTransport.ConnectionData.Port = port;
     }
 
     public void JoinHost()
     {
-        Debug.Log($"Welcome {ClientManager.Instance.ClientInfo.username}");
+        Debug.Log($"Welcome Host {ClientManager.Instance.ClientInfo.username}");
         StartHost();
     }
 
     public void JoinClient()
     {
-        Debug.Log($"Welcome {ClientManager.Instance.ClientInfo.username}");
+        Debug.Log($"Welcome Client {ClientManager.Instance.ClientInfo.username}");
         StartClient();
     }
 
@@ -60,5 +67,9 @@ public class CustomNetworkManager : NetworkManager
 
     public bool GetClientInfo(ulong id, out ClientInfo clientInfo){
         return userList.TryGetValue(id, out clientInfo);
+    }
+
+    public void Disconnect(){
+        Shutdown();
     }
 }

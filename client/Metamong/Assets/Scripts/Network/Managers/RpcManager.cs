@@ -26,7 +26,7 @@ public class RpcManager : NetworkBehaviour
     }
 
     public void SendPacketTo(Packet packet, ulong[] targetIds = default){
-        if(packet.commandCode == ECommandCode.None){
+        if(packet.commandCode == EPacketType.None){
             throw new NoCommandCodeInPacketException("No Command Code In Packet!");
         }
 

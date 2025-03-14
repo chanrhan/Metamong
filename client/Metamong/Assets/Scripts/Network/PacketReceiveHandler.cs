@@ -6,7 +6,7 @@ public class PacketReceiveHandler
 {
     public static void DecodePacket(Packet packet){
         switch(packet.commandCode){
-            case ECommandCode.Talk:
+            case EPacketType.Talk:
                 Talk(packet);
                 break;
         }
