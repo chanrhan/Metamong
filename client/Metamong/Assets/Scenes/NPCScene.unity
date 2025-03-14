@@ -3066,7 +3066,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1053476280}
   m_HandleRect: {fileID: 1053476279}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12916,7 +12916,7 @@ SkinnedMeshRenderer:
   - {fileID: 1261097961475723114}
   - {fileID: 5989667102036426700}
   m_BlendShapeWeights:
-  - 100
+  - 0
   - 0
   - 0
   - 0
