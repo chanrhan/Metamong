@@ -47,7 +47,6 @@ public class RpcManager : NetworkBehaviour
         SendPacketServerRpc(packetSendWrapper, new ServerRpcParams());
     }
 
-
     // [ServerRpc(RequireOwnership = false)]
     // private void SendPacketToAllServerRpc(Packet packet, ServerRpcParams serverRpcParams){
     //     ReceivePacketClientRpc(packet, new ClientRpcParams());
@@ -59,23 +58,11 @@ public class RpcManager : NetworkBehaviour
             return;
         }
 
-        ClientRpcParams clientRpcParams = new ClientRpcParams();
-        if(packetSendWrapper.networkTargets != null){
-            clientRpcParams.Send = new ClientRpcSendParams{
-                TargetClientIds = packetSendWrapper.GetClientIds()
-            };
-        }
-
-        ReceivePacketClientRpc(packetSendWrapper.packet, clientRpcParams);
-
-        // if(packetSendWrapper.networkTargets != null && packetSendWrapper.HasNonClient()){
-        //     ulong[] networkObjectIds = packetSendWrapper.GetNonClientNetworkObjectIds();
-
-        // }
+        ServerPacketReceiveHandler.DecodePacket(packetSendWrapper);
     }
 
     [ClientRpc]
-    private void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams){
+    public void ReceivePacketClientRpc(Packet packet, ClientRpcParams clientRpcParams){
         Debug.Log($"Receive '{packet}', by " + ClientManager.Instance.ClientInfo.clientId);
 
         PacketReceiveHandler.DecodePacket(packet);

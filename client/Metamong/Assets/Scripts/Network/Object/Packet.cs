@@ -8,7 +8,7 @@ public struct Packet : INetworkSerializable
     public EPacketType packetType;
     public ulong senderId;
     // public ulong[] targetIds;
-    public string msg;
+    public string message;
     public ClientInfo clientInfo;
 
     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
@@ -16,7 +16,7 @@ public struct Packet : INetworkSerializable
         serializer.SerializeValue(ref packetType);
         serializer.SerializeValue(ref senderId);
         // serializer.SerializeValue(ref targetIds);
-        serializer.SerializeValue(ref msg);
+        serializer.SerializeValue(ref message);
         serializer.SerializeValue(ref clientInfo);
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class NpcAI : MonoBehaviour, IListenable
+public class NpcAI : NetworkBehaviour, IListenable
 {
     //NpcAI 관련 컴포넌트 및 변수
     [SerializeField]
@@ -45,6 +45,10 @@ public class NpcAI : MonoBehaviour, IListenable
 
     private void Update()
     {
+        if(!IsServer){
+            return;
+        }
+
         if(detectedPlayer == null)
         {
             //일상 애니메이션 파트
@@ -84,7 +88,7 @@ public class NpcAI : MonoBehaviour, IListenable
         }
         isMessageListened = false;
         string msg = chatCompletionWithSummary.ResponseText;
-        PacketSendHandler.TalkByNPC(msg, targets.ToArray());
+        ServerPacketReceiveHandler.TalkByNPC(msg, targets.ToArray());
     }
 
     private void DetectPlayer()
@@ -142,25 +146,25 @@ public class NpcAI : MonoBehaviour, IListenable
     /// 대답을 생성하는 코루틴. 5초간 대기 후 대답을 생성함. 그 후 SendMessageToOthers()를 호출함.
     /// </summary>
     /// <returns></returns>
-    public IEnumerator GeneratingAnswerCoroutine()
-    {
-        float timer = 0.0f;
-        Debug.Log("대화생성 중");
-        myAnimationController.MyAnimator.SetBool("isThinking", true);
-        myAnimationController.MyAnimator.Play("ThinkingStart", 0);
-        while (timer < 5.0f)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        Debug.Log("대화생성 종료");
-        myAnimationController.MyAnimator.SetBool("isThinking", false);
-        isGeneratingAnswer = false;
-        answerText = talkTextArray[talkIndex];
-        talkIndex = (talkIndex + 1) % talkTextArray.Length;
+    // public IEnumerator GeneratingAnswerCoroutine()
+    // {
+    //     float timer = 0.0f;
+    //     Debug.Log("대화생성 중");
+    //     myAnimationController.MyAnimator.SetBool("isThinking", true);
+    //     myAnimationController.MyAnimator.Play("ThinkingStart", 0);
+    //     while (timer < 5.0f)
+    //     {
+    //         timer += Time.deltaTime;
+    //         yield return null;
+    //     }
+    //     Debug.Log("대화생성 종료");
+    //     myAnimationController.MyAnimator.SetBool("isThinking", false);
+    //     isGeneratingAnswer = false;
+    //     answerText = talkTextArray[talkIndex];
+    //     talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
-        SendMessageToOthers();
-    }
+    //     SendMessageToOthers();
+    // }
 
     public IEnumerator GeneratingAnswerCoroutine(string msg)
     {
@@ -169,12 +173,12 @@ public class NpcAI : MonoBehaviour, IListenable
         //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
 
         chatCompletionWithSummary.AddHistory("user", msg);
-        StartCoroutine(chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg));
+        yield return StartCoroutine(chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg));
 
-        while(chatCompletionWithSummary.IsWaitingForResponse){
-            Debug.Log("대화 생성 중");
-            yield return null;
-        }
+        // while(chatCompletionWithSummary.IsWaitingForResponse){
+        //     Debug.Log("대화 생성 중");
+        //     yield return null;
+        // }
 
         Debug.Log("대화생성 종료");
         //myAnimationController.MyAnimator.SetBool("isThinking", false);

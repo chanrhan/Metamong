@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IListenable
 {
-    public void ListenMessage(GameObject partnerObj, string message);
+    public void ListenMessage(GameObject senderObj, string message);
     public void SendMessageToOthers();
 }

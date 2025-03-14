@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PacketReceiveHandler 
+public class PacketReceiveHandler : PacketHandler
 {
     public static void DecodePacket(Packet packet){
         switch(packet.packetType){
@@ -14,6 +14,6 @@ public class PacketReceiveHandler
 
     private static void ReceiveMessage(Packet packet){
         ClientInfo clientInfo = packet.clientInfo;
-        ChatManager.Instance.InputChat(clientInfo.username, packet.msg);
+        ChatManager.Instance.InputChat(clientInfo.username, packet.message);
     }
 }
