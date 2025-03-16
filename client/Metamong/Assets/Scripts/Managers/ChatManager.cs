@@ -4,35 +4,35 @@ using TMPro;
 using System.Text;
 using System;
 
-public class ChatManager : MonoBehaviour
+public class ChatManager : MonobehaviourSingleton<ChatManager>
 {
-    #region 싱글톤 구현 부분 with Awake()
-    private static ChatManager instance;
-    public static ChatManager Instance
-    {
-        get
-        {
-            if (!instance)
-            {
-                instance = FindObjectOfType<ChatManager>();
-                if (!instance)
-                {
-                    instance = new GameObject("ChatManager").AddComponent<ChatManager>();
-                }
-            }
-            return instance;
-        }
-    }
+    // #region 싱글톤 구현 부분 with Awake()
+    // private static ChatManager instance;
+    // public static ChatManager Instance
+    // {
+    //     get
+    //     {
+    //         if (!instance)
+    //         {
+    //             instance = FindObjectOfType<ChatManager>();
+    //             if (!instance)
+    //             {
+    //                 instance = new GameObject("ChatManager").AddComponent<ChatManager>();
+    //             }
+    //         }
+    //         return instance;
+    //     }
+    // }
 
-    private void Awake()
-    {
-        if (instance == null) instance = this;
-        else
-            Destroy(gameObject);
+    // private void Awake()
+    // {
+    //     if (instance == null) instance = this;
+    //     else
+    //         Destroy(gameObject);
         
-        DontDestroyOnLoad(gameObject);
-    }
-    #endregion
+    //     DontDestroyOnLoad(gameObject);
+    // }
+    // #endregion
 
     private ChatLogBox chatLogBox;
     private ChatInputBox chatInputBox;

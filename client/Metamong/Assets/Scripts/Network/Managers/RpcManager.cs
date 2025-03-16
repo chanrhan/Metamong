@@ -8,21 +8,21 @@ using UnityEngine;
 /// RPC (Remote Procedure Call) 원격 프로시저 호출 매니저.
 /// Netcode 통신 관련해서 종단 기능을 담당한다.
 /// </summary>
-public class RpcManager : NetworkBehaviour
+public class RpcManager : NetworkBehaviourSingleton<RpcManager>
 {
-    public static RpcManager Instance { get; private set; }
+    // public static RpcManager Instance { get; private set; }
 
-    private void Awake() {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    // private void Awake() {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     /// <summary>
     /// 클라이언트(또는 호스트)에서 서버로 패킷을 보내는 함수

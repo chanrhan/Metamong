@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class MonobehaviourSingleton<T> : MonoBehaviour where T : Component
+public class NetworkBehaviourSingleton<T> : NetworkBehaviour where T : Component
 {
     private static T instance;
 
@@ -13,7 +14,6 @@ public class MonobehaviourSingleton<T> : MonoBehaviour where T : Component
     {
         if (instance == null)
         {
-            // Debug.Log("Awake: " + gameObject.name);
             instance = this as T;
             DontDestroyOnLoad(gameObject);
         } else if (instance != this as T)

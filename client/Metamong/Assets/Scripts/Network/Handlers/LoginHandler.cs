@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +15,7 @@ using UnityEngine.UI;
 /// </summary>
 public class LoginHandler : MonoBehaviour
 {
-    [SerializeField]
-    private string LoadedSceneName = "InGame"; // 인게임 씬 이름 
+    
 
     private TMP_InputField ipInput;
     private TMP_InputField portInput;
@@ -67,6 +67,8 @@ public class LoginHandler : MonoBehaviour
     {
         int randomInt = UnityEngine.Random.Range(0, randomUsernameList.Count);
         usernameInput.text = randomUsernameList[randomInt];
+
+        
     }
 
     /// <summary>
@@ -119,7 +121,6 @@ public class LoginHandler : MonoBehaviour
             throw new Exception("No Port") ;
         }
 
-        // 인게임 씬으로 로드 
-        SceneManager.LoadScene(LoadedSceneName);
+        VivoxManager.Instance.LoginVivox();
     }
 }

@@ -98,7 +98,7 @@ public class PlayerController : NetworkCharacter
         else
         {
             myAnim.SetBool("isWalking", true);
-            Debug.Log("Walking");
+            // Debug.Log("Walking");
         }
     }
 

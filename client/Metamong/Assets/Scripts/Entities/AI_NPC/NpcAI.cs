@@ -53,7 +53,7 @@ public class NpcAI : NetworkCharacter
             //일상 애니메이션 파트
             if(dailyActionCoroutine == null)
             {
-                Debug.Log("새 일상 코루틴 시작");
+                // Debug.Log("새 일상 코루틴 시작");
                 dailyActionCoroutine = StartCoroutine(StartDailyActionCoroutine());
             }
         }
@@ -87,7 +87,7 @@ public class NpcAI : NetworkCharacter
         {
             if (hits[idx].transform.gameObject == detectedPlayer)
             {
-                Debug.Log("플레이어 근처에 있음");
+                // Debug.Log("플레이어 근처에 있음");
                 return;
             }
         }
@@ -209,7 +209,7 @@ public class NpcAI : NetworkCharacter
         else if (randomNumber == 1) //랜덤 애니메이션 재생
         {
             myAnimationController.PlayRandomAnimation(0);
-            Debug.Log($"{myAnimationController.MyAnimator.GetCurrentAnimatorClipInfo(0).Length} / {myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).length}");
+            // Debug.Log($"{myAnimationController.MyAnimator.GetCurrentAnimatorClipInfo(0).Length} / {myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).length}");
 
             while (myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98)
             {
