@@ -7,6 +7,7 @@ using Unity.Services.Authentication;
 using System.Threading.Tasks;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 {
@@ -18,32 +19,41 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     private Channel3DSetting channel3DSetting;
     [SerializeField]
     private float positionUpdateRate = 0.5f;
+    [SerializeField]
+    private Image progressBar;
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
+    private HashSet<VivoxParticipant> speakingParticipants = new HashSet<VivoxParticipant>();
+    
 
     public HashSet<VivoxParticipant> JoinedParticipants{
         get => joinedParticipants;
     }
 
-    public VivoxParticipant[] ActiveParticipants{
-        get => joinedParticipants.Where(participant=>participant.SpeechDetected).ToArray();
-    }
-
-    void Update()
-    {
+    public VivoxParticipant[] SpeakingParticipants{
+        get => joinedParticipants.Where(participant=>participant.AudioEnergy > 0).ToArray();
         
     }
 
+    public void SetLoginProgress(int amount){
+        progressBar.fillAmount = (float) amount / 100;
+    }
+
     public async void LoginVivox(){
+        SetLoginProgress(10);
         await UnityServices.InitializeAsync();
+        SetLoginProgress(30);
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        SetLoginProgress(50);
         await VivoxService.Instance.InitializeAsync();
+        SetLoginProgress(70);
 
         Debug.Log("초기화 완료");
 
         BindSessionEvents();
 
         await LoginAsync();
+        SetLoginProgress(98);
 
         Debug.Log("로그인 완료");
 
@@ -52,7 +62,8 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 
     private async Task LoginAsync(){
         LoginOptions options = new LoginOptions();
-        options.DisplayName = Guid.NewGuid().ToString();
+        // options.DisplayName = Guid.NewGuid().ToString();
+        options.DisplayName = ClientManager.Instance.ClientInfo.username;
 
         await VivoxService.Instance.LoginAsync(options);
     }
@@ -61,7 +72,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 
     private void BindSessionEvents(){
         VivoxService.Instance.ParticipantAddedToChannel += OnParticipantAdded;
-        VivoxService.Instance.ParticipantAddedToChannel += OnParticipantRemoved;
+        VivoxService.Instance.ParticipantRemovedFromChannel += OnParticipantRemoved;
 
         VivoxService.Instance.ChannelMessageReceived += OnChannelMessageReceived;
     }
@@ -89,6 +100,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 
     private void OnParticipantAdded(VivoxParticipant participant){
         Debug.Log("Vivox Participant Added : " + participant.DisplayName);
+        participant.SetLocalVolume(100);
         joinedParticipants.Add(participant);
     }
 

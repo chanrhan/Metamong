@@ -1,9 +1,11 @@
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[Serializable]
 public class VivoxSpeakerUI : MonoBehaviour
 {
     [SerializeField]
@@ -11,28 +13,21 @@ public class VivoxSpeakerUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI volumeTMP;
 
-    private MeshRenderer meshRenderer;
-
-    void Awake()
-    {
-        meshRenderer = GetComponent<MeshRenderer>();
-    }
-
     public string SpeakerName{
         get => speakerNameTMP.text;
         set => speakerNameTMP.text = value;
     }
 
-    public int SpeakerVolume{
-        get => int.Parse(volumeTMP.text);
-        set => volumeTMP.text = value.ToString();
+    public double SpeakerVolume{
+        get => double.Parse(volumeTMP.text);
+        set => volumeTMP.text = (value * 100).ToString("F1");
     }
 
     public void DisplayOn(){
-        meshRenderer.enabled = true;
+        gameObject.SetActive(true);
     }
 
     public void DisplayOff(){
-        meshRenderer.enabled = false;
+        gameObject.SetActive(false);
     }
 }

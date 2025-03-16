@@ -6,26 +6,33 @@ using UnityEngine;
 
 public class Voice3DChannelUI : MonoBehaviour
 {
-    private VivoxSpeakerUI[] vivoxSpeakers;
+    [SerializeField]
+    private VivoxSpeakerUI[] vivoxSpeakerUIs;
+    private bool hasParticipant = false;
     
     void Awake()
     {
-        vivoxSpeakers = GetComponentsInChildren<VivoxSpeakerUI>();           
+        vivoxSpeakerUIs = GetComponentsInChildren<VivoxSpeakerUI>();           
+        foreach(VivoxSpeakerUI vivoxSpeakerUI in vivoxSpeakerUIs){
+            vivoxSpeakerUI.DisplayOff();
+        }
     }
 
-    public void UpdateParticipantsVoiceUI(){
-        VivoxParticipant[] activeSpeakers = VivoxManager.Instance.ActiveParticipants;
-
-        for(int i=0;i<vivoxSpeakers.Count();++i){
-            VivoxParticipant participant = activeSpeakers?[i];
-            Debug.Log("Speaker: " + participant.DisplayName);
-            if(participant != null){
-                vivoxSpeakers[i].DisplayOn();
-                vivoxSpeakers[i].SpeakerName = participant.DisplayName;
-                vivoxSpeakers[i].SpeakerVolume = participant.LocalVolume;
+    public void UpdateUI(){
+        int i=0;
+        foreach(VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants){
+            if(participant.AudioEnergy > 0){
+                vivoxSpeakerUIs[i].DisplayOn();
+                vivoxSpeakerUIs[i].SpeakerName = participant.DisplayName;
+                vivoxSpeakerUIs[i].SpeakerVolume = participant.AudioEnergy;
             }else{
-                vivoxSpeakers[i].DisplayOff();
+                vivoxSpeakerUIs[i].DisplayOff();
             }
+            ++i;
+        }
+
+        for(;i<vivoxSpeakerUIs.Count();++i){
+            vivoxSpeakerUIs[i].DisplayOff();
         }
     }
 }

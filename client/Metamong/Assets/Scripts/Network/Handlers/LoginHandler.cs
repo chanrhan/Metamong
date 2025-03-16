@@ -23,6 +23,8 @@ public class LoginHandler : MonoBehaviour
     private Button btnClient;
     private Button btnHost;
 
+    
+
     // Random Usernames
     private List<string> randomUsernameList = new List<string>{
         "Koryong",
@@ -67,8 +69,6 @@ public class LoginHandler : MonoBehaviour
     {
         int randomInt = UnityEngine.Random.Range(0, randomUsernameList.Count);
         usernameInput.text = randomUsernameList[randomInt];
-
-        
     }
 
     /// <summary>
@@ -95,6 +95,8 @@ public class LoginHandler : MonoBehaviour
         }
         throw new Exception("No Network Available");
     }
+
+    
 
     /// <summary>
     /// 로그인하는 함수
