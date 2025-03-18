@@ -49,7 +49,7 @@ public class NpcAI : MonoBehaviour, IListenable
             if(dailyActionCoroutine == null)
             {
                 Debug.Log("새 일상 코루틴 시작");
-                dailyActionCoroutine = StartCoroutine(StartDailyActionCoroutine());
+                //dailyActionCoroutine = StartCoroutine(StartDailyActionCoroutine());
             }
         }
         else
@@ -191,7 +191,7 @@ public class NpcAI : MonoBehaviour, IListenable
     /// <returns></returns>
     private IEnumerator StartDailyActionCoroutine()
     {
-        int randomNumber = Random.Range(0, 2);
+        int randomNumber = Random.Range(1, 2);
 
         if(randomNumber == 0) //랜덤 위치 이동
         {

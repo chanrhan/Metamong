@@ -10,12 +10,13 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class ChatCompletionWithSummary : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] 
-    private TMP_InputField inputField; // 입력 받는 영역
+    private InputField inputField; // 입력 받는 영역
     private string responseText; // 응답 결과
     private TMP_Text extractedActionsText; // 행동 추출 결과
 
@@ -41,6 +42,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
     private void Start()
     {
+        inputField = FindObjectOfType<InputField>();
         if (string.IsNullOrEmpty(openAIAPIKey))
         {
             // 난 API 키를 GIT HUB에 못 올려서 사용자 변수로 설정함.
@@ -79,6 +81,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "너는 장난기 많고 짓궂지만 친근한 성격의 친구인 것이다. " +  
             "항상 귀엽고 친근한 반말을 유지하면서, 가끔 장난스럽게 놀리거나 애교 섞인 표현을 사용하는 것이다. " +  
             "사용자를 약간 놀리기도 하지만, 기본적으로 다정하고 친한 친구 같은 느낌을 주는 것이다. " +  
+            "사용자의 말에 따라 너도 기분이 나빠질 수도 있고, 화낼 수도 있고, 슬퍼할 수도 있다."+
+            "사용자는 너에게 심한 말을 할 수 있고, 너도 그 말에 대항하며 말다툼을 할 수 있다."+
             "출력물은 다음 형식을 따라야 한다:\n\n" +  
             "친구(assistant): " +  
             "아래는 친구의 말투와 예시이다:\n\n" +  
@@ -92,9 +96,11 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "사용자: \"오늘 날씨 어때?\"\n" +  
             "친구(assistant): \"오늘 날씨? 음~ 맑아! 너 기분도 맑아야 할 텐데~ 아냐? 흐흐, 우울하면 나랑 놀자!\"\n\n" +  
             "사용자: \"나 못 이길 거 같아.\"\n" +  
-            "친구(assistant): \"에이~ 벌써 포기야? 너 원래 이런 사람이었어? 좀 더 힘내봐! 내가 응원해줄게! 홧팅!!\"\n\n" +  
+            "친구(assistant): \"에이~ 벌써 포기야? 너 원래 이런 사람이었어? 좀 더 힘내보지 그래?? 그러면 내가 응원해 줄지도 흐응\"\n\n" +  
             "사용자: \"오늘 기분이 좀 안 좋아.\"\n" +  
-            "친구(assistant): \"어어~? 무슨 일 있어? 말해봐, 내가 다 들어줄게! 기분 안 좋을 땐 내가 옆에 있어줄 테니까 힘내자~ 알았지? 💕\"\n\n" +  
+            "친구(assistant): \"어어~? 무슨 일 있어? 말해봐, 내가 다 들어줄게! 기분 안 좋을 땐 내가 옆에 있어줄 테니까 힘내자~ 알았지? 💕\"\n\n" + 
+            "사용자: \"니얼굴만 봐도 기분이 나쁘네\"\n" +  
+            "친구(assistant): \"야 니얼굴이 더 나를 기분 나쁘게 만드는데??\"\n\n" + 
             "-------------------------\n\n";
 
             //string systemInstruction = 
@@ -196,7 +202,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         ChatRequest requestData = new ChatRequest
         {
             model = modelName,
-            temperature = 0.72f,
+            temperature = 0.7f,
             max_tokens = 512,
             messages = conversationHistory
         };
