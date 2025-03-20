@@ -14,13 +14,15 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     public event Action OnLoginEndEvent;
 
     [SerializeField]
-    private string channelName;
+    public string channelName;
     [SerializeField]
     private Channel3DSetting channel3DSetting;
     [SerializeField]
     private float positionUpdateRate = 0.5f;
     [SerializeField]
     private Image progressBar;
+
+    private float progressGage = 0f;
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
     private HashSet<VivoxParticipant> speakingParticipants = new HashSet<VivoxParticipant>();
@@ -35,8 +37,22 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         
     }
 
+    private IEnumerator StartProgressCoroutine(){
+        progressBar.fillAmount = 0f;
+        while(progressBar.fillAmount < 1f){
+            if(progressBar.fillAmount > progressGage){
+                yield return new WaitForSeconds(0.5f);
+            }
+            progressBar.fillAmount += 0.02f;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
     public void SetLoginProgress(int amount){
-        progressBar.fillAmount = (float) amount / 100;
+        if(progressGage == 0){
+            StartCoroutine(StartProgressCoroutine());
+        }
+        progressGage = (float) amount / 100;
     }
 
     public async void LoginVivox(){
@@ -55,15 +71,22 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         await LoginAsync();
         SetLoginProgress(98);
 
+        // Vivox 음향 에코 제거 
+        VivoxService.Instance.EnableAcousticEchoCancellation();
+
         Debug.Log("로그인 완료");
 
         OnLoginEndEvent?.Invoke();
+        progressBar.gameObject.SetActive(false);
     }
 
     private async Task LoginAsync(){
         LoginOptions options = new LoginOptions();
         // options.DisplayName = Guid.NewGuid().ToString();
-        options.DisplayName = ClientManager.Instance.ClientInfo.username;
+        options.DisplayName = ClientManager.Instance?.ClientInfo.username ?? Guid.NewGuid().ToString();
+        options.SpeechToTextLanguages = new List<string>{
+            "ko","kr"
+        };
 
         await VivoxService.Instance.LoginAsync(options);
     }
@@ -81,8 +104,13 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         ChatManager.Instance.InputChat(vivoxMessage.SenderDisplayName, vivoxMessage.MessageText);
     }
 
-    public async void JoinVoiceChannel(){
+    
+
+    public async Task JoinVoiceChannel(){
         await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.AudioOnly);
+
+        // STT 
+        await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
     }
 
     public async void Join3DChannel(GameObject speakObj){

@@ -26,25 +26,11 @@ public class LoginHandler : MonoBehaviour
     
 
     // Random Usernames
-    private List<string> randomUsernameList = new List<string>{
-        "Koryong",
-        "EEEE",
-        "GOGO",
-        "HeLlOwOrLd",
-        "HotGay",
-        "gayRoll",
-        "ILOVEJANG",
-        "WHIP",
-        "OPENAI",
-        "FuxkingApple",
-        "GoodGood",
-        "RunningAppeach",
-        "DuksuPasta",
-        "Suppman",
-        "WELCOME",
-        "IDIOT",
-        "SLAVES",
-    };
+    // private List<string> randomUsernameList = new List<string>{
+    //     "AAA",
+    //     "BBB",
+    //     "CCC"
+    // };
 
     private void Awake() {
         TMP_InputField[] inputs = GetComponentsInChildren<TMP_InputField>();
@@ -67,8 +53,9 @@ public class LoginHandler : MonoBehaviour
 
     void Start()
     {
-        int randomInt = UnityEngine.Random.Range(0, randomUsernameList.Count);
-        usernameInput.text = randomUsernameList[randomInt];
+        int randomInt = UnityEngine.Random.Range(0, 97);
+        char r = (char)(65 + randomInt);
+        usernameInput.text = $"{r}{r}{r}";
     }
 
     /// <summary>
