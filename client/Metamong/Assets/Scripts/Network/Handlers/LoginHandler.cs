@@ -22,7 +22,7 @@ public class LoginHandler : MonoBehaviour
     private TMP_InputField usernameInput;
     private Button btnClient;
     private Button btnHost;
-
+    private TMP_InputField joinCodeInput;
     
 
     // Random Usernames
@@ -34,9 +34,10 @@ public class LoginHandler : MonoBehaviour
 
     private void Awake() {
         TMP_InputField[] inputs = GetComponentsInChildren<TMP_InputField>();
-        ipInput = inputs[0];
-        portInput = inputs[1];
-        usernameInput = inputs[2];
+        joinCodeInput = inputs[0];
+        // ipInput = inputs[0];
+        // portInput = inputs[1];
+        usernameInput = inputs[1];
 
         Button[] buttons = GetComponentsInChildren<Button>();
         btnClient = buttons[0];
@@ -95,21 +96,27 @@ public class LoginHandler : MonoBehaviour
         ClientManager.Instance.ClientInfo.isHost = isHost;
 
         // 포트 설정 
-        ushort port;
-        string ipAddress;
+        // ushort port;
+        // string ipAddress;
 
-        if(isHost){
-            ipAddress = GetLocalIPAddress();
-        }else{
-            ipAddress = ipInput.text;
-        }
+        // if(isHost){
+        //     ipAddress = GetLocalIPAddress();
+        // }else{
+        //     ipAddress = ipInput.text;
+        // }
 
-        if(ushort.TryParse(portInput.text, out port)){
-            CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
-        }else{
-            throw new Exception("No Port") ;
-        }
+        // if(ushort.TryParse(portInput.text, out port)){
+        //     CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
+        // }else{
+        //     throw new Exception("No Port") ;
+        // }
 
-        VivoxManager.Instance.LoginVivox();
+        ClientManager.Instance.JoinCode = joinCodeInput.text;
+
+        AuthenticationManager.Instance.Login();
+
+        // VivoxManager.Instance.InitializeVivox();
     }
+
+    
 }

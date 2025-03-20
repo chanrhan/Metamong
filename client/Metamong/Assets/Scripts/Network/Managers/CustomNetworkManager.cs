@@ -55,13 +55,17 @@ public class CustomNetworkManager : NetworkManager
     public void JoinHost()
     {
         Debug.Log($"Welcome Host {ClientManager.Instance.ClientInfo.username}");
-        StartHost();
+        RelayManager.Instance.CreateRelay();
     }
 
     public void JoinClient()
     {
+        string joinCode = ClientManager.Instance.JoinCode;
+        if(joinCode == null){
+            throw new System.Exception("No Join Code!");
+        }
         Debug.Log($"Welcome Client {ClientManager.Instance.ClientInfo.username}");
-        StartClient();
+        RelayManager.Instance.JoinRelay(joinCode);
     }
 
     /// <summary>

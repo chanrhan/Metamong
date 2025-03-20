@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Network/Login.unity
     guid: 675794155e87d4c08a2502a73ac25218
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Network/InGame.unity
     guid: 51842b3f4a4534b6bbadb26d10801595
   - enabled: 0
     path: Assets/Scenes/Vivox/VivoxInGame.unity
     guid: f601761dc36814c5492ba51c06ec9483
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Vivox/VivoxLogin.unity
     guid: b7edfa07ab47e46448876e970701cdd4
   m_configObjects: {}

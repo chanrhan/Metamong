@@ -19,10 +19,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     private Channel3DSetting channel3DSetting;
     [SerializeField]
     private float positionUpdateRate = 0.5f;
-    [SerializeField]
-    private Image progressBar;
-
-    private float progressGage = 0f;
+    
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
     private HashSet<VivoxParticipant> speakingParticipants = new HashSet<VivoxParticipant>();
@@ -37,47 +34,25 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         
     }
 
-    private IEnumerator StartProgressCoroutine(){
-        progressBar.fillAmount = 0f;
-        while(progressBar.fillAmount < 1f){
-            if(progressBar.fillAmount > progressGage){
-                yield return new WaitForSeconds(0.5f);
-            }
-            progressBar.fillAmount += 0.02f;
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
-
-    public void SetLoginProgress(int amount){
-        if(progressGage == 0){
-            StartCoroutine(StartProgressCoroutine());
-        }
-        progressGage = (float) amount / 100;
-    }
-
-    public async void LoginVivox(){
-        SetLoginProgress(10);
-        await UnityServices.InitializeAsync();
-        SetLoginProgress(30);
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        SetLoginProgress(50);
+    public async Task InitializeVivox(){
         await VivoxService.Instance.InitializeAsync();
-        SetLoginProgress(70);
+        AuthenticationManager.Instance.SetLoginProgress(50);
 
         Debug.Log("초기화 완료");
 
         BindSessionEvents();
 
         await LoginAsync();
-        SetLoginProgress(98);
+        AuthenticationManager.Instance.SetLoginProgress(70);
 
-        // Vivox 음향 에코 제거 
+        
+
+        // Vivox 음향 에코 제거 (잡음 제거)
         VivoxService.Instance.EnableAcousticEchoCancellation();
 
         Debug.Log("로그인 완료");
 
         OnLoginEndEvent?.Invoke();
-        progressBar.gameObject.SetActive(false);
     }
 
     private async Task LoginAsync(){
@@ -110,7 +85,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.AudioOnly);
 
         // STT 
-        await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
+        // await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
     }
 
     public async void Join3DChannel(GameObject speakObj){

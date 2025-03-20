@@ -13,6 +13,8 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
     [SerializeField]
     public ClientInfo ClientInfo;
 
+    public string JoinCode;
+
 
     private GameObject myPlayerObject;
     private NetworkObject playerNetworkObject;

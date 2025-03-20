@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,15 @@ public class GameSceneManager : MonobehaviourSingleton<GameSceneManager>
     [SerializeField]
     private string inGameSceneName = "InGame"; // 인게임 씬 이름 
 
+    public Action OnLoginEnd;
+
     void Start()
     {
         SceneManager.sceneLoaded += OnLoadInGameScene;       
+    }
 
-        VivoxManager.Instance.OnLoginEndEvent += ()=>{
-            SceneManager.LoadScene(inGameSceneName);
-        };
+    public void LoadInGameScene(){
+        SceneManager.LoadScene(inGameSceneName);
     }
 
     /// <summary>
