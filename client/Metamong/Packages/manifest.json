@@ -8,6 +8,7 @@
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.sentis": "2.1.2",
     "com.unity.services.authentication": "2.0.0",
+    "com.unity.services.relay": "1.2.0",
     "com.unity.services.vivox": "16.5.4",
     "com.unity.shadergraph": "14.0.11",
     "com.unity.textmeshpro": "3.0.9",
