@@ -19,6 +19,18 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     private Channel3DSetting channel3DSetting;
     [SerializeField]
     private float positionUpdateRate = 0.5f;
+
+    [Header("Vivox Configuration Options")]
+    [SerializeField]
+    private bool enableAdvancedAutoLevels = true;
+    [SerializeField]
+    private bool enableDtx = true;
+    [SerializeField]
+    private VivoxLogLevel logLevel = VivoxLogLevel.Debug;
+    [SerializeField]
+    // [Range(0, int.MaxValue)]
+    // private int upstreamJitterFrameCount;
+
     
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
@@ -35,7 +47,12 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     }
 
     public async Task InitializeVivox(){
-        await VivoxService.Instance.InitializeAsync();
+        await VivoxService.Instance.InitializeAsync(new VivoxConfigurationOptions{
+            EnableAdvancedAutoLevels = enableAdvancedAutoLevels,
+            LogLevel = logLevel,
+            EnableDtx = enableDtx,
+            // UpstreamJitterFrameCount = upstreamJitterFrameCount
+        });
         AuthenticationManager.Instance.SetLoginProgress(50);
 
         Debug.Log("초기화 완료");
@@ -46,9 +63,8 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         AuthenticationManager.Instance.SetLoginProgress(70);
 
         
-
-        // Vivox 음향 에코 제거 (잡음 제거)
-        VivoxService.Instance.EnableAcousticEchoCancellation();
+        SetVoiceProperties();
+        
 
         Debug.Log("로그인 완료");
 
@@ -64,6 +80,13 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         };
 
         await VivoxService.Instance.LoginAsync(options);
+    }
+
+    private void SetVoiceProperties(){
+        // Vivox 음향 에코 제거 
+        VivoxService.Instance.EnableAcousticEchoCancellation();
+
+        VivoxService.Instance.EnableAutoVoiceActivityDetectionAsync();
     }
 
     
