@@ -942,6 +942,9 @@ MonoBehaviour:
     audioFadeIntensityByDistance: 1
     audioFadeModel: 1
   positionUpdateRate: 0.5
+  enableAdvancedAutoLevels: 1
+  enableDtx: 1
+  logLevel: 3
 --- !u!4 &368814931
 Transform:
   m_ObjectHideFlags: 0

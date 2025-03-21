@@ -21,13 +21,13 @@ public class Voice3DChannelUI : MonoBehaviour
     public void UpdateUI(){
         int i=0;
         foreach(VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants){
-            if(participant.AudioEnergy > 0){
-                vivoxSpeakerUIs[i].DisplayOn();
-                vivoxSpeakerUIs[i].SpeakerName = participant.DisplayName;
-                vivoxSpeakerUIs[i].SpeakerVolume = participant.AudioEnergy;
-            }else{
-                vivoxSpeakerUIs[i].DisplayOff();
-            }
+            // Debug.Log("AudioEnergy: "+participant.AudioEnergy);
+            vivoxSpeakerUIs[i].DisplayOn();
+            vivoxSpeakerUIs[i].SpeakerName = participant.DisplayName;
+            vivoxSpeakerUIs[i].SetVolume(participant.AudioEnergy);
+            // else{
+            //     vivoxSpeakerUIs[i].DisplayOff();
+            // }
             ++i;
         }
 

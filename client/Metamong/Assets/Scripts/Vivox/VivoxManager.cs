@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using Unity.Services.Vivox.AudioTaps;
 
 public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 {
@@ -49,7 +50,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     public async Task InitializeVivox(){
         await VivoxService.Instance.InitializeAsync(new VivoxConfigurationOptions{
             EnableAdvancedAutoLevels = enableAdvancedAutoLevels,
-            LogLevel = logLevel,
+            // LogLevel = logLevel,
             EnableDtx = enableDtx,
             // UpstreamJitterFrameCount = upstreamJitterFrameCount
         });
@@ -82,14 +83,16 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         await VivoxService.Instance.LoginAsync(options);
     }
 
-    private void SetVoiceProperties(){
+    private async void SetVoiceProperties(){
         // Vivox 음향 에코 제거 
         VivoxService.Instance.EnableAcousticEchoCancellation();
 
-        VivoxService.Instance.EnableAutoVoiceActivityDetectionAsync();
+        await VivoxService.Instance.EnableAutoVoiceActivityDetectionAsync();
     }
 
-    
+    private void SetAutoVad(){
+        
+    }
 
     private void BindSessionEvents(){
         VivoxService.Instance.ParticipantAddedToChannel += OnParticipantAdded;
@@ -105,10 +108,10 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     
 
     public async Task JoinVoiceChannel(){
-        await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.AudioOnly);
+        await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
 
         // STT 
-        // await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
+        await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
     }
 
     public async void Join3DChannel(GameObject speakObj){

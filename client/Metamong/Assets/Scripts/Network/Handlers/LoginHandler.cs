@@ -54,7 +54,7 @@ public class LoginHandler : MonoBehaviour
 
     void Start()
     {
-        int randomInt = UnityEngine.Random.Range(0, 97);
+        int randomInt = UnityEngine.Random.Range(0, 30);
         char r = (char)(65 + randomInt);
         usernameInput.text = $"{r}{r}{r}";
     }

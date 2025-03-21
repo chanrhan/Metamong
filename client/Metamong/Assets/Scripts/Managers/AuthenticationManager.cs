@@ -22,11 +22,11 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
             if(progressBar == null){
                 yield break;
             }
-            if(progressBar.fillAmount > progressGage){
-                yield return new WaitForSeconds(0.5f);
+            if(progressBar.fillAmount >= progressGage){
+                yield return new WaitForSeconds(0.1f);
             }
-            progressBar.fillAmount += 0.02f;
-            yield return new WaitForSeconds(0.02f);
+            progressBar.fillAmount += 0.01f;
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -62,7 +62,7 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
         // Vivox
         await VivoxManager.Instance.InitializeVivox();
 
-        SetLoginProgress(95);
+        SetLoginProgress(90);
 
         // CustomNetworkManager.Instance.Join();
 

@@ -8,7 +8,7 @@ public class UIManager : MonobehaviourSingleton<UIManager>
 {
     [SerializeField]
     private Voice3DChannelUI voice3DChannelUI;
-    private float voice3DChannelUIUpdateInterval = 0.5f;
+    private float voice3DChannelUIUpdateInterval = 0.1f;
 
     void Start()
     {

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public class VivoxSpeakerUI : MonoBehaviour
@@ -11,17 +12,21 @@ public class VivoxSpeakerUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI speakerNameTMP;
     [SerializeField]
-    private TextMeshProUGUI volumeTMP;
+    private Image onMicImg;
 
     public string SpeakerName{
         get => speakerNameTMP.text;
         set => speakerNameTMP.text = value;
     }
 
-    public double SpeakerVolume{
-        get => double.Parse(volumeTMP.text);
-        set => volumeTMP.text = (value * 100).ToString("F1");
+    public void SetVolume(double audioEnergy){
+        if(audioEnergy > 0){
+            onMicImg.gameObject.SetActive(true);
+        }else{
+            onMicImg.gameObject.SetActive(false);
+        }
     }
+
 
     public void DisplayOn(){
         gameObject.SetActive(true);
