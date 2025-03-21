@@ -44,7 +44,6 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 
     public VivoxParticipant[] SpeakingParticipants{
         get => joinedParticipants.Where(participant=>participant.AudioEnergy > 0).ToArray();
-        
     }
 
     public async Task InitializeVivox(){

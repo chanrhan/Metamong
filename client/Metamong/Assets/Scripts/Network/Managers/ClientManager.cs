@@ -30,10 +30,10 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
             playerController = value.GetComponent<PlayerController>();
 
             // Join 3D Channel
-            VivoxManager.Instance.Join3DChannel(value);
+            // VivoxManager.Instance.Join3DChannel(value);
 
             // Join Voice Channel
-            // VivoxManager.Instance.JoinVoiceChannel();
+            VivoxManager.Instance.JoinVoiceChannel();
         }
     }
 
