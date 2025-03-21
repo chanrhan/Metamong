@@ -29,7 +29,11 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
             playerNetworkObject = value.GetComponent<NetworkObject>();
             playerController = value.GetComponent<PlayerController>();
 
-            VivoxManager.Instance.JoinVoiceChannel();
+            // Join 3D Channel
+            VivoxManager.Instance.Join3DChannel(value);
+
+            // Join Voice Channel
+            // VivoxManager.Instance.JoinVoiceChannel();
         }
     }
 

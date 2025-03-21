@@ -13,7 +13,6 @@ namespace Unity.Services.Vivox.AudioTaps
 {
     public class VivoxTest : MonobehaviourSingleton<VivoxTest>
     {
-
         [Header("STT Test")]
         [SerializeField]
         private Button testLoginButton;
