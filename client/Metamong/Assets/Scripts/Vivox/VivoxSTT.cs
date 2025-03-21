@@ -29,12 +29,18 @@ public class VivoxSTT : MonobehaviourSingleton<VivoxSTT>
     void Start()
     {
         if(testLoginButton){
-            // testLoginButton.onClick.AddListener(VivoxManager.Instance.InitializeVivox);
+            testLoginButton.onClick.AddListener(Login);
+            
         }
         if(doSomethingButton){
             doSomethingButton.onClick.AddListener(Do);
         }
         VivoxManager.Instance.OnLoginEndEvent += Init;
+    }
+
+    private void Login(){
+        _ = AuthenticationManager.Instance.Authenticate();
+        _ = VivoxManager.Instance.InitializeVivox();
     }
 
     private async void Init()

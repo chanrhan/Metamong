@@ -17,7 +17,7 @@ public class RelayManager : MonobehaviourSingleton<RelayManager>
     [SerializeField]
     private int m_MaxConnections = 4;
 
-    public async void CreateRelay(){
+    public async Task CreateRelay(){
         try{
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(m_MaxConnections);
 
@@ -36,7 +36,7 @@ public class RelayManager : MonobehaviourSingleton<RelayManager>
 
     }
 
-    public async void JoinRelay(string joinCode){
+    public async Task JoinRelay(string joinCode){
         try{
             Debug.Log("Joining Relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);

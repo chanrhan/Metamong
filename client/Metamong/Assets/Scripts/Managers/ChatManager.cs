@@ -37,7 +37,7 @@ public class ChatManager : MonobehaviourSingleton<ChatManager>
     private ChatLogBox chatLogBox;
     private ChatInputBox chatInputBox;
 
-    public bool isTyping = false;
+    public bool IsTyping = false;
 
     private void OnEnable()
     {

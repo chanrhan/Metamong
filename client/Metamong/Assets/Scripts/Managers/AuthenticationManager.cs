@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
@@ -18,6 +19,9 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
     private IEnumerator StartProgressCoroutine(){
         progressBar.fillAmount = 0f;
         while(progressBar.fillAmount < 1f){
+            if(progressBar == null){
+                yield break;
+            }
             if(progressBar.fillAmount > progressGage){
                 yield return new WaitForSeconds(0.5f);
             }
@@ -34,7 +38,7 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
     }
 
 
-    public async void Login(){
+    public async Task Authenticate(){
         SetLoginProgress(10);
         await UnityServices.InitializeAsync();
 
@@ -43,16 +47,22 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
         AuthenticationService.Instance.SignedIn += ()=>{
             Debug.Log("Signed In: " + AuthenticationService.Instance.PlayerId);
         };
+
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
         SetLoginProgress(30);
+    }
 
-        // Relay
+
+    public async void Login(){
+        await Authenticate();
 
         // Vivox
         await VivoxManager.Instance.InitializeVivox();
 
         SetLoginProgress(95);
+
+        // CustomNetworkManager.Instance.Join();
 
         // Scene Load
         GameSceneManager.Instance.LoadInGameScene();

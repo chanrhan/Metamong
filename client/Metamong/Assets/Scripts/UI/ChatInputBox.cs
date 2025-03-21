@@ -22,12 +22,12 @@ public class ChatInputBox : MonoBehaviour, ISelectHandler, IDeselectHandler
     public void OnDeselect(BaseEventData eventData)
     {
         // Debug.Log("Deselect");
-        ChatManager.Instance.isTyping = false;
+        ChatManager.Instance.IsTyping = false;
     }
 
     public void OnSelect(BaseEventData eventData)
     {
         // Debug.Log("Select");
-        ChatManager.Instance.isTyping = true;
+        ChatManager.Instance.IsTyping = true;
     }
 }

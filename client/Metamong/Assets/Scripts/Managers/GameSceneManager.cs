@@ -11,8 +11,9 @@ public class GameSceneManager : MonobehaviourSingleton<GameSceneManager>
 
     public Action OnLoginEnd;
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
         SceneManager.sceneLoaded += OnLoadInGameScene;       
     }
 
@@ -27,12 +28,7 @@ public class GameSceneManager : MonobehaviourSingleton<GameSceneManager>
     /// <param name="mode"></param>
     private void OnLoadInGameScene(Scene scene, LoadSceneMode mode){
         if(scene.name.Equals(inGameSceneName)){
-            if(ClientManager.Instance.ClientInfo.isHost){
-                CustomNetworkManager.Instance.JoinHost();
-            }else{
-                CustomNetworkManager.Instance.JoinClient();
-            }
-            // VivoxManager.Instance.JoinVoiceChannel();
+            CustomNetworkManager.Instance.Join();
 
             SceneManager.sceneLoaded -= OnLoadInGameScene;
         }

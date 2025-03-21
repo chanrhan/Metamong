@@ -40,7 +40,7 @@ public class PlayerController : NetworkCharacter
             return;
         }
         CheckOnGround();
-        if(!ChatManager.Instance.isTyping){
+        if(!ChatManager.Instance.IsTyping){
             MovePosition();
             TryJump();
         }
@@ -54,7 +54,7 @@ public class PlayerController : NetworkCharacter
         }
 
         TryTalking();
-        if (!ChatManager.Instance.isTyping)
+        if (!ChatManager.Instance.IsTyping)
         {
             CharacterRotate();
             

@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using System.Linq;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Netcode 통신의 중추.
@@ -29,7 +30,6 @@ public class CustomNetworkManager : NetworkManager
 
     /// <summary>
     /// 클라이언트 접속 시, 콜백되는 함수 
-    /// 클라이언트에 ClientId를 갱신하고, 서버에 자신의 ClinetInfo 등록 
     /// </summary>
     /// <param name="clientId"></param>
     private void OnClientJoined(ulong clientId){
@@ -48,24 +48,31 @@ public class CustomNetworkManager : NetworkManager
     public void SetUnityTransport(string ipAddress, ushort port){
         UnityTransport unityTransport = GetComponent<UnityTransport>();
         unityTransport.ConnectionData.Address = ipAddress;
-        unityTransport.ConnectionData.Port = port;
-        
+        unityTransport.ConnectionData.Port = port;   
     }
 
-    public void JoinHost()
+    public async void Join(){
+        if(ClientManager.Instance.ClientInfo.isHost){
+            await JoinHost();
+        }else{
+            await JoinClient();
+        }
+    }
+
+    public async Task JoinHost()
     {
         Debug.Log($"Welcome Host {ClientManager.Instance.ClientInfo.username}");
-        RelayManager.Instance.CreateRelay();
+        await RelayManager.Instance.CreateRelay();
     }
 
-    public void JoinClient()
+    public async Task JoinClient()
     {
         string joinCode = ClientManager.Instance.JoinCode;
         if(joinCode == null){
             throw new System.Exception("No Join Code!");
         }
         Debug.Log($"Welcome Client {ClientManager.Instance.ClientInfo.username}");
-        RelayManager.Instance.JoinRelay(joinCode);
+        await RelayManager.Instance.JoinRelay(joinCode);
     }
 
     /// <summary>

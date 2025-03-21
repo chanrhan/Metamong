@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class ClientManager : MonobehaviourSingleton<ClientManager>
 {
 
-    [SerializeField]
+    // [SerializeField]
     public ClientInfo ClientInfo;
 
     public string JoinCode;
