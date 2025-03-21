@@ -39,8 +39,12 @@ public class VivoxSTT : MonobehaviourSingleton<VivoxSTT>
     }
 
     private void Login(){
-        _ = AuthenticationManager.Instance.Authenticate();
-        _ = VivoxManager.Instance.InitializeVivox();
+        LoginAsync();
+    }
+
+    private async void LoginAsync(){
+        await AuthenticationManager.Instance.Authenticate();
+        await VivoxManager.Instance.InitializeVivox();
     }
 
     private async void Init()

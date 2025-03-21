@@ -32,7 +32,9 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
 
     public void SetLoginProgress(int amount){
         if(progressGage == 0){
-            StartCoroutine(StartProgressCoroutine());
+            if(progressBar){
+                StartCoroutine(StartProgressCoroutine());
+            }
         }
         progressGage = (float) amount / 100;
     }
