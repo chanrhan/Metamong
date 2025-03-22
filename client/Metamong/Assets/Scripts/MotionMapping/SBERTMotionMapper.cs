@@ -46,7 +46,7 @@ public class SBERTMotionMapper : MonoBehaviour
 
         // 모션 라벨 (순서대로: UserAct, UserFace, NPCAct, NPCFace)
         string[] motionLabels = new string[] { "UserAct", "UserFace", "NPCAct", "NPCFace" };
-        Debug.Log($"ㅋㅋㅋㅋㅋㅋㅋㅋㅋ{UserAct} {UserFace} {NPCAct} {NPCFace}"); 
+        Debug.Log($"키워드 : {UserAct} {UserFace} / {NPCAct} {NPCFace}"); 
                 
         StringBuilder sb = new StringBuilder();
         PlayerController.MakeMotion(UserAct);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class NpcAnimationController : MonoBehaviour
 {
@@ -36,5 +37,9 @@ public class NpcAnimationController : MonoBehaviour
     public void PlayRandomAnimation(int layer)
     {
         myAnimator.Play(dailyAnimList[Random.Range(0, dailyAnimList.Count)], 0);
+    }
+
+    public void PlayAnimation(Text name){
+        myAnimator.Play(name.text, 0);
     }
 }
