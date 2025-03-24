@@ -1,3 +1,4 @@
+using LLMUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -34,12 +35,16 @@ public class NpcAI : NetworkCharacter
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
     public string answerText;
+    private LLM llm;
+    private LLMCharacter llmCharacter;
 
     private void Awake()
     {
         myAnimationController = GetComponent<NpcAnimationController>();
         talkTextArray[0] = $"안녕 난{npcName}(이)라고 해.";
         chatCompletionWithSummary = FindObjectOfType<ChatCompletionWithSummary>();
+
+
     }
 
     private void Update()
