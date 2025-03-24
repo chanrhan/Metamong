@@ -10,7 +10,7 @@ public class NpcAI : NetworkCharacter
     private string npcName = "BasicNPC";
     private NpcAnimationController myAnimationController;
     private Coroutine dailyActionCoroutine;
-    private  ChatCompletionWithSummary chatCompletionWithSummary;
+    private ChatCompletionWithSummary chatCompletionWithSummary;
     private string inputmessage;
     public string NpcName
     {

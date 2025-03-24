@@ -43,6 +43,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
     private NpcAI myNpc;
+    private ActionExtractor actionExtractor;
 
     private void Start()
     {
@@ -220,7 +221,8 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     //Debug.Log($"NPC의 응답 : {responseText.text}");
                     
                     // motion sentence 추출 코루틴 호출
-                    StartCoroutine(ExtractActionsFromConversation(userInput, assistantMsg.content));
+                    //StartCoroutine(actionExtractor.ExtractActions(responseText));
+                    actionExtractor.ExtractActions(responseText);
 
                     // 사용된 토큰 수 갱신
                     // (ChatUsage.total_tokens에 전체 토큰 수가 들어옴)
@@ -249,131 +251,131 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// </summary>
     /// <param name="userInput">유저 입력</param>
     /// <param name="npcOutput">NPC 문장(답변)</param>
-    private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
-    {
-        string extractionSystemInstruction = 
-            // "You have a conversation between a \"User\" and an \"NPC\".\n" +
-            // "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
-            // "If there is no explicit mention of a face or expression, use \"none\".\n" +
-            // "Always respond in English, even if the input is in Korean.\n" +
-            // "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
-            // "(User's act)\n" +
-            // "(User's face)\n" +
-            // "(NPC's act)\n" +
-            // "(NPC's face)\n\n" +
-            // "### Few-shot Examples ###\n\n" +
-            // "Example 1)\n" +
-            // "User: \"안녕?\"\n" +
-            // "NPC: \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~ 너, 나랑 놀고 싶어서 그러는 거지? 흐흥!\"\n\n" +
-            // "Extraction result:\n" +
-            // "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
-            // "My face lit up with a gentle smile\n" +
-            // "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
-            // "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
-            // "Example 2)\n" +
-            // "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
-            // "NPC: \"어머나~ 슬픈 일이 있었구나? 그래도 그런 약한 모습은 나한텐 통하지 않는다는 거 알고 있지? 흐흥~ 하지만 내가 위로해줄게! 나를 보고 힘내는 것이다~! 슬픔은 나에게 맡기고, 네가 더 귀엽게 웃는 모습을 보여줘야지! 알겠지?♥\"\n\n" +
-            // "Extraction result:\n" +
-            // "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
-            // "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
-            // "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
-            // "My face beams with a mischievous yet caring smile.\n\n"
-            "You have a conversation between a \"User\" and an \"NPC\".\n" +
-            "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
-            "If there is no explicit mention of a face or expression, use \"none\".\n" +
-            "Always respond in English, even if the input is in Korean.\n" +
-            "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
-            "(User's act)\n" +
-            "(User's face)\n" +
-            "(NPC's act)\n" +
-            "(NPC's face)\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "Example 1)\n" +
-            "User: \"안녕?\"\n" +
-            "NPC: \"이야~? 이제 왕 날 불러준거라? 야이 늦엉 오는 아이란게, 참말로 허접허접한게마씨! 겅해도 안녕하우꽈. 삼춘, 나랑 놀려고 왔수꽈? 흐흥!\"\n\n" +
-            "Extraction result:\n" +
-            "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
-            "My face lit up with a gentle smile\n" +
-            "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
-            "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
-            "Example 2)\n" +
-            "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
-            "NPC: \"아이고~ 슬픈 일 있어난? 근디 그런 약한 모습은 나헌티 하믄 안되는거라게, 알안? 흐흥~ 근데, 나가 위로해쿠다! 날 보고 힘내써 양~! 슬픔은 나헌티 맞겨불랑, 삼춘이 더 곱딱하게 웃는 모습덜랑 보여야주게! 알안?♥\"\n\n" +
-            "Extraction result:\n" +
-            "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
-            "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
-            "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
-            "My face beams with a mischievous yet caring smile.\n\n"
-            ;
+    // private IEnumerator ExtractActionsFromConversation(string userInput, string npcOutput)
+    // {
+    //     string extractionSystemInstruction = 
+    //         // "You have a conversation between a \"User\" and an \"NPC\".\n" +
+    //         // "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
+    //         // "If there is no explicit mention of a face or expression, use \"none\".\n" +
+    //         // "Always respond in English, even if the input is in Korean.\n" +
+    //         // "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
+    //         // "(User's act)\n" +
+    //         // "(User's face)\n" +
+    //         // "(NPC's act)\n" +
+    //         // "(NPC's face)\n\n" +
+    //         // "### Few-shot Examples ###\n\n" +
+    //         // "Example 1)\n" +
+    //         // "User: \"안녕?\"\n" +
+    //         // "NPC: \"오야~? 이제야 날 불러준 거야? 이 늦장부리는 허~접♥ 그래도 안녕인 것이다~ 너, 나랑 놀고 싶어서 그러는 거지? 흐흥!\"\n\n" +
+    //         // "Extraction result:\n" +
+    //         // "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
+    //         // "My face lit up with a gentle smile\n" +
+    //         // "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
+    //         // "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
+    //         // "Example 2)\n" +
+    //         // "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
+    //         // "NPC: \"어머나~ 슬픈 일이 있었구나? 그래도 그런 약한 모습은 나한텐 통하지 않는다는 거 알고 있지? 흐흥~ 하지만 내가 위로해줄게! 나를 보고 힘내는 것이다~! 슬픔은 나에게 맡기고, 네가 더 귀엽게 웃는 모습을 보여줘야지! 알겠지?♥\"\n\n" +
+    //         // "Extraction result:\n" +
+    //         // "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
+    //         // "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
+    //         // "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
+    //         // "My face beams with a mischievous yet caring smile.\n\n"
+    //         "You have a conversation between a \"User\" and an \"NPC\".\n" +
+    //         "From their lines, extract two types of information: \"act\" (physical or actionable movement) and \"face\" (facial expression or emotional display).\n" +
+    //         "If there is no explicit mention of a face or expression, use \"none\".\n" +
+    //         "Always respond in English, even if the input is in Korean.\n" +
+    //         "Your output must follow this format (each piece of information is separated by a newline):\n\n" +
+    //         "(User's act)\n" +
+    //         "(User's face)\n" +
+    //         "(NPC's act)\n" +
+    //         "(NPC's face)\n\n" +
+    //         "### Few-shot Examples ###\n\n" +
+    //         "Example 1)\n" +
+    //         "User: \"안녕?\"\n" +
+    //         "NPC: \"이야~? 이제 왕 날 불러준거라? 야이 늦엉 오는 아이란게, 참말로 허접허접한게마씨! 겅해도 안녕하우꽈. 삼춘, 나랑 놀려고 왔수꽈? 흐흥!\"\n\n" +
+    //         "Extraction result:\n" +
+    //         "I offered a cheerful wave, moving slightly closer as if to share a warm hello.\n" +
+    //         "My face lit up with a gentle smile\n" +
+    //         "I flicked my hand in a dramatic, teasing gesture as I sauntered forward with a hint of playful reproach.\n" +
+    //         "A mischievous smirk curved my lips, my eyes sparkling with cheeky disdain.\n\n" +
+    //         "Example 2)\n" +
+    //         "User: \"오늘 슬픈 일이 있었어 위로해줘\"\n" +
+    //         "NPC: \"아이고~ 슬픈 일 있어난? 근디 그런 약한 모습은 나헌티 하믄 안되는거라게, 알안? 흐흥~ 근데, 나가 위로해쿠다! 날 보고 힘내써 양~! 슬픔은 나헌티 맞겨불랑, 삼춘이 더 곱딱하게 웃는 모습덜랑 보여야주게! 알안?♥\"\n\n" +
+    //         "Extraction result:\n" +
+    //         "I sat quietly in a corner, my posture heavy with unspoken sorrow.\n" +
+    //         "My face wore a deep frown, eyes glistening with unshed tears, reflecting a palpable sadness.\n" +
+    //         "I stride forward with a playful swagger, confidently reaching out to pull you into a warm, reassuring embrace while giving you a light, teasing tap on the shoulder.\n" +
+    //         "My face beams with a mischievous yet caring smile.\n\n"
+    //         ;
 
-        // 이번에는 messages를 단순히 system + user(추출 요청) 형태로 구성
-        // 실제 user 메시지(행동 추출 요청)가 아니라, 
-        // "system"으로 명령하고, "user"에 실제 대화 내용을 삽입하는 패턴임
-        // 즉 매번 extractionSystemInstruction을 추가하는 형태. 이래야 양식에 맞춰 그나마 잘 뽑음
-        var extractionMessages = new List<ChatMessage>();
-        extractionMessages.Add(new ChatMessage("system", extractionSystemInstruction));
+    //     // 이번에는 messages를 단순히 system + user(추출 요청) 형태로 구성
+    //     // 실제 user 메시지(행동 추출 요청)가 아니라, 
+    //     // "system"으로 명령하고, "user"에 실제 대화 내용을 삽입하는 패턴임
+    //     // 즉 매번 extractionSystemInstruction을 추가하는 형태. 이래야 양식에 맞춰 그나마 잘 뽑음
+    //     var extractionMessages = new List<ChatMessage>();
+    //     extractionMessages.Add(new ChatMessage("system", extractionSystemInstruction));
 
-        // user 메시지: "User: ~\nNPC: ~"
-        // 실제 예시를 하나의 문자열로 만들고, "행동만 뽑아 달라"는 의도로 보냄
-        string combinedText = $"User: {userInput}\nNPC: {npcOutput}";
-        extractionMessages.Add(new ChatMessage("user", combinedText));
+    //     // user 메시지: "User: ~\nNPC: ~"
+    //     // 실제 예시를 하나의 문자열로 만들고, "행동만 뽑아 달라"는 의도로 보냄
+    //     string combinedText = $"User: {userInput}\nNPC: {npcOutput}";
+    //     extractionMessages.Add(new ChatMessage("user", combinedText));
 
-        ChatRequest extractionRequest = new ChatRequest
-        {
-            model = modelName,
-            temperature = 0.0f,   // 가능한 정확히
-            max_tokens = 200,
-            messages = extractionMessages
-        };
-        string jsonBody = JsonUtility.ToJson(extractionRequest);
+    //     ChatRequest extractionRequest = new ChatRequest
+    //     {
+    //         model = modelName,
+    //         temperature = 0.0f,   // 가능한 정확히
+    //         max_tokens = 200,
+    //         messages = extractionMessages
+    //     };
+    //     string jsonBody = JsonUtility.ToJson(extractionRequest);
 
-        using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST"))
-        {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
+    //     using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST"))
+    //     {
+    //         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
+    //         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+    //         request.downloadHandler = new DownloadHandlerBuffer();
 
-            request.SetRequestHeader("Content-Type", "application/json");
-            request.SetRequestHeader("Authorization", "Bearer " + openAIAPIKey);
+    //         request.SetRequestHeader("Content-Type", "application/json");
+    //         request.SetRequestHeader("Authorization", "Bearer " + openAIAPIKey);
 
-            yield return request.SendWebRequest();
+    //         yield return request.SendWebRequest();
 
-            isWaitingForResponse = false; // 추출까지 끝내야 대화 전체 프로세스 종료
+    //         isWaitingForResponse = false; // 추출까지 끝내야 대화 전체 프로세스 종료
 
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string response = request.downloadHandler.text;
-                ChatResponse chatResponse = JsonUtility.FromJson<ChatResponse>(response);
+    //         if (request.result == UnityWebRequest.Result.Success)
+    //         {
+    //             string response = request.downloadHandler.text;
+    //             ChatResponse chatResponse = JsonUtility.FromJson<ChatResponse>(response);
 
-                if (chatResponse != null && chatResponse.choices != null && chatResponse.choices.Count > 0)
-                {
-                    // 추출된 결과
-                    string extractionResult = chatResponse.choices[0].message.content.Trim();
+    //             if (chatResponse != null && chatResponse.choices != null && chatResponse.choices.Count > 0)
+    //             {
+    //                 // 추출된 결과
+    //                 string extractionResult = chatResponse.choices[0].message.content.Trim();
 
-                    // UI Text 등으로 확인
-                    OnActionTextUpdated?.Invoke(extractionResult);
-                    // if (extractedActionsText != null)
-                    // {
-                    //     extractedActionsText.text = extractionResult;
-                    //     OnActionTextUpdated?.Invoke(extractedActionsText.text);
-                    // }
-                }
-                else
-                {
-                    if (extractedActionsText != null)
-                        extractedActionsText.text = "행동 추출 실패\n" + response;
-                }
-            }
-            else
-            {
-                if (extractedActionsText != null)
-                {
-                    extractedActionsText.text = "추출 요청 에러: " + request.error 
-                                                + "\nHTTP " + request.responseCode;
-                }
-            }
-        }
-    }
+    //                 // UI Text 등으로 확인
+    //                 OnActionTextUpdated?.Invoke(extractionResult);
+    //                 // if (extractedActionsText != null)
+    //                 // {
+    //                 //     extractedActionsText.text = extractionResult;
+    //                 //     OnActionTextUpdated?.Invoke(extractedActionsText.text);
+    //                 // }
+    //             }
+    //             else
+    //             {
+    //                 if (extractedActionsText != null)
+    //                     extractedActionsText.text = "행동 추출 실패\n" + response;
+    //             }
+    //         }
+    //         else
+    //         {
+    //             if (extractedActionsText != null)
+    //             {
+    //                 extractedActionsText.text = "추출 요청 에러: " + request.error 
+    //                                             + "\nHTTP " + request.responseCode;
+    //             }
+    //         }
+    //     }
+    //}
 
 
     /// <summary>
