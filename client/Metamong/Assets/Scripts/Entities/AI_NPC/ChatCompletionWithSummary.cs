@@ -43,7 +43,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
     private NpcAI myNpc;
-    private ActionExtractor actionExtractor;
 
     private void Start()
     {
@@ -219,10 +218,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     Debug.Log($"[ChatCompletion] NPC의 응답: {responseText}");
                     // ChatManager.Instance.InputChat("name", responseText);
                     //Debug.Log($"NPC의 응답 : {responseText.text}");
-                    
-                    // motion sentence 추출 코루틴 호출
-                    //StartCoroutine(actionExtractor.ExtractActions(responseText));
-                    actionExtractor.ExtractActions(responseText);
+                
 
                     // 사용된 토큰 수 갱신
                     // (ChatUsage.total_tokens에 전체 토큰 수가 들어옴)

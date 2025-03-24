@@ -35,8 +35,8 @@ public class NpcAI : NetworkCharacter
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
     public string answerText;
-    private LLM llm;
-    private LLMCharacter llmCharacter;
+    //private LLM llm;
+    //private LLMCharacter llmCharacter;
 
     private void Awake()
     {
