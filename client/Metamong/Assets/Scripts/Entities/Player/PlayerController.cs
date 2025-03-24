@@ -37,8 +37,6 @@ public class PlayerController : NetworkCharacter
 
         gameObject.SetActive(false);
         llm = gameObject.GetComponent<LLM>();
-        Debug.Log(Application.streamingAssetsPath);
-        
         llm.SetModel("llama-3.2-3b-instruct-q4_k_m.gguf");
         llm.numThreads = -1;
         llm.numGPULayers = 10;
