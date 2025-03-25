@@ -28,21 +28,23 @@ public class PlayerController : NetworkCharacter
 
     public static event Action<string> OnActionTextUpdated;
 
-
     private void Awake()
     {
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
+        llm = gameObject.GetComponent<LLM>();
+        llmCharacter = gameObject.GetComponent<LLMCharacter>();
+    }
 
-        gameObject.SetActive(false);
+    private void Start()
+    {
         if(IsOwner){
-            llm = gameObject.GetComponent<LLM>();
+            gameObject.SetActive(false);    
             llm.SetModel("llama-3.2-3b-instruct-q4_k_m.gguf");
             llm.numThreads = -1;
             llm.numGPULayers = 10;
 
-            llmCharacter = gameObject.GetComponent<LLMCharacter>();
             llmCharacter.llm = llm;
             llmCharacter.SetPrompt(
             "You are an AI assistant that converts a user's spoken input (provided as Korean text) into a single, concise English sentence describing both the emotional state and corresponding physical actions (facial expressions and body movements). The output should only include the English sentence that conveys the mood and motion.\n\n" +
@@ -62,16 +64,13 @@ public class PlayerController : NetworkCharacter
             "Output (English): \"The person looks slightly irritated, with their eyebrows furrowed, rubbing their stomach in discomfort.\"\n\n" +
             "Now, process the input and generate a response based on the input."
             );
-            gameObject.SetActive(true);
-        }
-    }
 
-    void Start()
-    {
-        if(IsOwner){
             // 카메라 및 플레이어 오브젝트 설정
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
+
+            gameObject.SetActive(true);
+
         }
     }
 
