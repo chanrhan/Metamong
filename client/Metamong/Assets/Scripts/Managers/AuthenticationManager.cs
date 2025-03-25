@@ -15,7 +15,6 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
 
     private float progressGage = 0f;
 
-
     private IEnumerator StartProgressCoroutine(){
         progressBar.fillAmount = 0f;
         while(progressBar.fillAmount < 1f){

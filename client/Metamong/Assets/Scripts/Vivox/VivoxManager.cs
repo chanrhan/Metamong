@@ -28,11 +28,6 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     private bool enableDtx = true;
     [SerializeField]
     private VivoxLogLevel logLevel = VivoxLogLevel.Debug;
-    [SerializeField]
-    // [Range(0, int.MaxValue)]
-    // private int upstreamJitterFrameCount;
-
-    
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
     private HashSet<VivoxParticipant> speakingParticipants = new HashSet<VivoxParticipant>();
@@ -49,7 +44,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     public async Task InitializeVivox(){
         await VivoxService.Instance.InitializeAsync(new VivoxConfigurationOptions{
             EnableAdvancedAutoLevels = enableAdvancedAutoLevels,
-            // LogLevel = logLevel,
+            LogLevel = logLevel,
             EnableDtx = enableDtx,
             // UpstreamJitterFrameCount = upstreamJitterFrameCount
         });

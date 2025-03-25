@@ -8,7 +8,6 @@ public class Voice3DChannelUI : MonoBehaviour
 {
     [SerializeField]
     private VivoxSpeakerUI[] vivoxSpeakerUIs;
-    private bool hasParticipant = false;
     
     void Awake()
     {

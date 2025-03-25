@@ -216,6 +216,7 @@ public class PlayerController : NetworkCharacter
             PacketSendHandler.Chat(message, targets);
             string response = await llmCharacter.Chat(message, HandleReply, ReplyCompleted, false);
             Debug.Log("Response: " + response);
+            Debug.Log(llmCharacter.llm);
 
             OnActionTextUpdated?.Invoke(response);
         }

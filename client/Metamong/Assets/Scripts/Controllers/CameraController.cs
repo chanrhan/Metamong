@@ -41,7 +41,6 @@ public class CameraController : MonoBehaviour
 
     public void SetTargetPlayer(GameObject gameObject){
         targetPlayer = gameObject;
-        Debug.Log("Set Player: " + targetPlayer);
     }
 
 }

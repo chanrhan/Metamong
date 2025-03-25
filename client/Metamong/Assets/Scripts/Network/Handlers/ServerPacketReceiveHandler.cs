@@ -71,9 +71,7 @@ public class ServerPacketReceiveHandler : PacketHandler
         if(packetSendWrapper.networkTargets != null && packetSendWrapper.HasNonClient()){
             ulong senderClientId = packetSendWrapper.packet.senderId;
 
-            Debug.Log(111);
             if(CustomNetworkManager.Instance.TryGetNetworkObjectByClientId(senderClientId, out NetworkObject senderObject)){
-                Debug.Log(222);
                 // 클라이언트가 아닌 네트워크 대상 객체의 ID 들을 가져옴
                 ulong[] networkObjectIds = packetSendWrapper.GetNonClientNetworkObjectIds();
                 string msg = packetSendWrapper.packet.message;

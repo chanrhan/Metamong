@@ -18,18 +18,6 @@ public class NpcAI : NetworkCharacter
         get => npcName;
     }
 
-    //otherPlayer의 대화텍스트 관련 변수들. STT가 구현되어 채팅의 입력이 구현되면 삭제 예정
-    private string[] talkTextArray =
-    {
-        "안녕 난 NPC야",
-        "오늘 정말 날씨가 레알 좋은것 같아.",
-        "흣~챠!",
-        "오늘은 뭔가 재미난게 없을까나",
-    };
-    [SerializeField]
-    private int talkIndex = 0;              //talkTextArray의 현재 출력된 텍스트를 가리키는 인덱스
-    public float talkSpeedSecond = 1.0f;    //talkTextIndex 증가 속도.
-
     
     public bool isGeneratingAnswer = true;
     public bool isMessageListened = false;
@@ -41,7 +29,6 @@ public class NpcAI : NetworkCharacter
     private void Awake()
     {
         myAnimationController = GetComponent<NpcAnimationController>();
-        talkTextArray[0] = $"안녕 난{npcName}(이)라고 해.";
         chatCompletionWithSummary = FindObjectOfType<ChatCompletionWithSummary>();
 
 
@@ -133,7 +120,6 @@ public class NpcAI : NetworkCharacter
         isMessageListened = true;
         isGeneratingAnswer = true;
         StartCoroutine(GeneratingAnswerCoroutine(message));
-        Debug.Log("플레이어 메세지를 들음 : " + message);
     }
 
     /// <summary>
@@ -141,28 +127,9 @@ public class NpcAI : NetworkCharacter
     /// </summary>
     /// <returns></returns>
     // public IEnumerator GeneratingAnswerCoroutine()
-    // {
-    //     float timer = 0.0f;
-    //     Debug.Log("대화생성 중");
-    //     myAnimationController.MyAnimator.SetBool("isThinking", true);
-    //     myAnimationController.MyAnimator.Play("ThinkingStart", 0);
-    //     while (timer < 5.0f)
-    //     {
-    //         timer += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //     Debug.Log("대화생성 종료");
-    //     myAnimationController.MyAnimator.SetBool("isThinking", false);
-    //     isGeneratingAnswer = false;
-    //     answerText = talkTextArray[talkIndex];
-    //     talkIndex = (talkIndex + 1) % talkTextArray.Length;
-
-    //     SendMessageToOthers();
-    // }
 
     public IEnumerator GeneratingAnswerCoroutine(string msg)
     {
-        Debug.Log("대화생성 시작");
         //myAnimationController.MyAnimator.SetBool("isThinking", true);
         //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
 
@@ -174,7 +141,6 @@ public class NpcAI : NetworkCharacter
         //     yield return null;
         // }
 
-        Debug.Log("대화생성 종료");
         //myAnimationController.MyAnimator.SetBool("isThinking", false);
         isGeneratingAnswer = false;
         //answerText = talkTextArray[talkIndex];
@@ -214,7 +180,6 @@ public class NpcAI : NetworkCharacter
         else if (randomNumber == 1) //랜덤 애니메이션 재생
         {
             myAnimationController.PlayRandomAnimation(0);
-            // Debug.Log($"{myAnimationController.MyAnimator.GetCurrentAnimatorClipInfo(0).Length} / {myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).length}");
 
             while (myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98)
             {
@@ -235,7 +200,6 @@ public class NpcAI : NetworkCharacter
         myAnimationController.StopAllMovement();
         if (dailyActionCoroutine != null)
         {
-            Debug.Log("StopDailyCoroutine");
             StopCoroutine(dailyActionCoroutine);
             dailyActionCoroutine = null;
         }

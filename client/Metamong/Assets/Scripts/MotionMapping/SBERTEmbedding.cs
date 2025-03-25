@@ -74,7 +74,6 @@ public class SBERTEmbedding : MonoBehaviour
                 actMotionEmbeddings[sentence] = GetEmbedding(sentence);
             }
         }
-        Debug.Log("Precomputed ActMotion embeddings: " + actMotionEmbeddings.Count);
 
         // 각 FaceMotion 문장에 대해 임베딩을 계산하여 캐시에 저장합니다.
         foreach (var kvp in faceMotionList)
@@ -85,7 +84,6 @@ public class SBERTEmbedding : MonoBehaviour
                 faceMotionEmbeddings[sentence] = GetEmbedding(sentence);
             }
         }
-        Debug.Log("Precomputed FaceMotion embeddings: " + faceMotionEmbeddings.Count);
     }
 
     /// <summary>

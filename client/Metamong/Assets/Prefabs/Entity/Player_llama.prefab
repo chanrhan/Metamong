@@ -5828,7 +5828,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   contextSize: 8192
   batchSize: 512
-  model: llama-3.2-1b-instruct-q4_k_m.gguf
+  model: llama-3.2-3b-instruct-q4_k_m.gguf
   chatTemplate: llama3 chat
   lora: 
   loraWeights: 
@@ -5841,7 +5841,7 @@ MonoBehaviour:
   minContextLength: 0
   maxContextLength: 131072
   embeddingsOnly: 0
-  embeddingLength: 2048
+  embeddingLength: 3072
 --- !u!114 &8054223255517657241
 MonoBehaviour:
   m_ObjectHideFlags: 0

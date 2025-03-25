@@ -24,7 +24,7 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
         get{
             return myPlayerObject;
         }
-        set{
+         set{
             myPlayerObject = value;
             playerNetworkObject = value.GetComponent<NetworkObject>();
             playerController = value.GetComponent<PlayerController>();
@@ -33,8 +33,12 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
             // VivoxManager.Instance.Join3DChannel(value);
 
             // Join Voice Channel
-            VivoxManager.Instance.JoinVoiceChannel();
+            JoinVoiceChannel();
         }
+    }
+
+    private async void JoinVoiceChannel(){
+        await VivoxManager.Instance.JoinVoiceChannel();
     }
 
     public NetworkObject PlayerNetworkObject{

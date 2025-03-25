@@ -6,7 +6,6 @@ using UnityEngine;
 public class MonobehaviourSingleton<T> : MonoBehaviour where T : Component
 {
     private static T instance;
-
     public static T Instance { get => instance; }
 
     protected virtual void Awake()

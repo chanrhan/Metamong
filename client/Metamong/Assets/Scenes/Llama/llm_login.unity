@@ -944,7 +944,7 @@ MonoBehaviour:
   positionUpdateRate: 0.5
   enableAdvancedAutoLevels: 1
   enableDtx: 1
-  logLevel: 3
+  logLevel: 0
 --- !u!4 &368814931
 Transform:
   m_ObjectHideFlags: 0
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 210570790
+  GlobalObjectIdHash: 1025151928
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6cb4f54329c4b89ac3d81b51675ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameSceneName: InGame
+  inGameSceneName: llm_ingame
 --- !u!1 &827851488
 GameObject:
   m_ObjectHideFlags: 0
