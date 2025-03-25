@@ -78,3 +78,6 @@ crashlytics-build.properties
 # Windows 관련
 **/Thumbs.db
 **/desktop.ini
+
+# Llama 모델과 .dll 파일 
+**/[Aa]ssets/[Ss]treamingAssets/[Uu]ndreamai-v1.2.3-llamacpp/
