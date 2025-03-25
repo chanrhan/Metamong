@@ -3,33 +3,30 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class SBERTMotionMapper : MonoBehaviour
 {
     private string actionText;
-    private string UserAct;
-    private string UserFace;
-    private string NPCAct;
-    private string NPCFace;
+    //private string Act;
+    //private string Face;
+    [SerializeField]
     private PlayerController PlayerController;
-    private NpcAI NpcAI;
-
-    private void Start()
-    {
-        PlayerController = FindObjectOfType<PlayerController>();
-        NpcAI = FindObjectOfType<NpcAI>();
-    }
+    //private NpcAI NpcAI;
     // ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
-    void OnEnable()
-    {
-        ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
-    }
+    // void OnEnable()
+    // {
+    //     //ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
+    //     PlayerController.OnActionTextUpdated += UpdateActionText;
+    // }
 
-    void OnDisable()
-    {
-        ChatCompletionWithSummary.OnActionTextUpdated -= UpdateActionText;
-    }
+    // void OnDisable()
+    // {
+    //     //ChatCompletionWithSummary.OnActionTextUpdated -= UpdateActionText;
+    //     PlayerController.OnActionTextUpdated -= UpdateActionText;
+    // }
 
+    
     /// <summary>
     /// 사용자 입력 텍스트가 업데이트될 때 호출됩니다.
     /// 입력된 각 줄(모션 텍스트)에 대해 SBERT 임베딩 기반 유사도 검사를 수행하고,
@@ -39,20 +36,19 @@ public class SBERTMotionMapper : MonoBehaviour
     private void UpdateActionText(string newText)
     {
         actionText = newText;
-        string[] motionText = actionText.Split('\n');
+
+        //string[] motionText = actionText.Split('\n');
 
         // 모션 키 리스트 추출
-        GetMotionKeys(motionText);
+        //GetMotionKeys(motionText);
 
         // 모션 라벨 (순서대로: UserAct, UserFace, NPCAct, NPCFace)
-        string[] motionLabels = new string[] { "UserAct", "UserFace", "NPCAct", "NPCFace" };
-        Debug.Log($"키워드 : {UserAct} {UserFace} / {NPCAct} {NPCFace}"); 
+        //string[] motionLabels = new string[] { "Act", "Face"};
                 
-        StringBuilder sb = new StringBuilder();
-        PlayerController.MakeMotion(UserAct);
-        PlayerController.MakeFace(UserFace);
-        NpcAI.MakeMotion(NPCAct);
-        NpcAI.MakeFace(NPCFace);
+        //StringBuilder sb = new StringBuilder();
+        PlayerController.MakeMotion(actionText);
+        PlayerController.MakeFace(actionText);
+
 
         // sb.AppendLine($"{motionLabels[0], -10}: {UserAct}");
         // sb.AppendLine($"{motionLabels[1], -10}: {UserFace}");
@@ -72,7 +68,10 @@ public class SBERTMotionMapper : MonoBehaviour
     void Awake()
     {
         // SBERTEmbedding 컴포넌트를 같은 GameObject에서 찾기
+        PlayerController = transform.parent.GetComponent<PlayerController>();
+        PlayerController.OnActionTextUpdated += UpdateActionText;
         sbertEmbedding = GetComponent<SBERTEmbedding>();
+
         if (sbertEmbedding == null)
         {
             Debug.LogError("SBERTEmbedding 컴포넌트를 찾을 수 없습니다. 해당 GameObject에 부착되어 있는지 확인하세요.");
@@ -85,13 +84,11 @@ public class SBERTMotionMapper : MonoBehaviour
     /// motions 배열 순서: 0 - UserAct, 1 - UserFace, 2 - NPCAct, 3 - NPCFace
     /// </summary>
     /// <param name="motions">사용자 입력 모션 텍스트 배열</param>
-    private void GetMotionKeys(string[] motions)
-    {
-        UserAct = sbertEmbedding.CompareWordText(motions[0], true);
-        UserFace = sbertEmbedding.CompareWordText(motions[1], false);
-        NPCAct = sbertEmbedding.CompareWordText(motions[2], true);
-        NPCFace = sbertEmbedding.CompareWordText(motions[3], false);
-
-        return;
-    }
+    //private void GetMotionKeys(string[] motions)
+    //{
+    //    Act = sbertEmbedding.CompareWordText(motions[0], true);
+    //    Face = sbertEmbedding.CompareWordText(motions[1], false);
+    //
+    //    return;
+    //}
 }

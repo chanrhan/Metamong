@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Vivox/VivoxLogin.unity
     guid: b7edfa07ab47e46448876e970701cdd4
+  - enabled: 1
+    path: Assets/Scenes/Llama/Login.unity
+    guid: 8d183edeaf6721e4ebccd7d4a6204558
   m_configObjects: {}
