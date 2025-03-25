@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logLevel: 4
   modelPath: "C:\\Users\\lss52\\OneDrive\\\uBB38\uC11C\\GitHub\\Metamong\\client\\Metamong\\Assets\\whisper.unity-master\\Assets\\StreamingAssets\\Whisper\\ggml-tiny.bin"
-  isModelPathInStreamingAssets: 0
+  isModelPathInStreamingAssets: 1
   initOnAwake: 1
   language: ko
   translateToEnglish: 0
@@ -598,11 +598,11 @@ MonoBehaviour:
   singleSegment: 1
   enableTokens: 1
   initialPrompt: 
-  stepSec: 0.04
+  stepSec: 0
   keepSec: 0.2
   lengthSec: 20
   updatePrompt: 1
-  dropOldBuffer: 0
+  dropOldBuffer: 1
   useVad: 1
   tokensTimestamps: 0
   speedUp: 0
