@@ -199,7 +199,7 @@ public class NpcAI : NetworkCharacter
     /// <returns></returns>
     private IEnumerator StartDailyActionCoroutine()
     {
-        int randomNumber = Random.Range(0, 2);
+        int randomNumber = Random.Range(1, 2);
 
         if(randomNumber == 0) //랜덤 위치 이동
         {
