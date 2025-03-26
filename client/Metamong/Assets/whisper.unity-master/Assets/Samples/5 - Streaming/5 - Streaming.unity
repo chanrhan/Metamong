@@ -528,6 +528,8 @@ MonoBehaviour:
   text: {fileID: 1194114916}
   button: {fileID: 2099288375}
   count: 0
+  targetObject: {fileID: 587639197}
+  componentTypeName: WhisperManager
 --- !u!4 &450121192
 Transform:
   m_ObjectHideFlags: 0
@@ -584,11 +586,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 587639197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9370225a2ca94276b870d5f87b0db55, type: 3}
+  m_Script: {fileID: 11500000, guid: fef351f69173626428cf464bd3ec6d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logLevel: 4
-  modelPath: "C:\\Users\\lss52\\OneDrive\\\uBB38\uC11C\\GitHub\\Metamong\\client\\Metamong\\Assets\\whisper.unity-master\\Assets\\StreamingAssets\\Whisper\\ggml-tiny.bin"
+  logLevel: 1
+  modelPath: ggml-large-v3-turbo-q8_0.bin
   isModelPathInStreamingAssets: 1
   initOnAwake: 1
   language: ko
@@ -596,13 +598,13 @@ MonoBehaviour:
   strategy: 1
   noContext: 1
   singleSegment: 1
-  enableTokens: 1
+  enableTokens: 0
   initialPrompt: 
-  stepSec: 0
-  keepSec: 0.2
-  lengthSec: 20
+  stepSec: 0.5
+  keepSec: 0.5
+  lengthSec: 5
   updatePrompt: 1
-  dropOldBuffer: 1
+  dropOldBuffer: 0
   useVad: 1
   tokensTimestamps: 0
   speedUp: 0
@@ -1876,7 +1878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337591121}
   - component: {fileID: 1337591124}
-  - component: {fileID: 1337591123}
+  - component: {fileID: 1337591125}
   m_Layer: 0
   m_Name: DemoMic
   m_TagString: Untagged
@@ -1899,35 +1901,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1337591123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337591120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc03a4c19604ea394e364f8fc632928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLengthSec: 60
-  loop: 1
-  frequency: 16000
-  chunksLengthSec: 0.5
-  echo: 0
-  useVad: 1
-  vadUpdateRateSec: 0.1
-  vadContextSec: 30
-  vadLastSec: 1.25
-  vadThd: 1
-  vadFreqThd: 100
-  vadIndicatorImage: {fileID: 1303962929}
-  vadStop: 0
-  dropVadPart: 1
-  vadStopTime: 3
-  microphoneDropdown: {fileID: 948466958}
-  microphoneDefaultLabel: Default microphone
 --- !u!114 &1337591124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1941,11 +1914,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whisper: {fileID: 587639199}
-  microphoneRecord: {fileID: 1337591123}
+  microphoneRecord: {fileID: 1337591125}
   button: {fileID: 2099288375}
   buttonText: {fileID: 1431014845}
   text: {fileID: 1194114916}
   scroll: {fileID: 942089564}
+--- !u!114 &1337591125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337591120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8b2b16067ae314e8a5ad2cb4681d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLengthSec: 60
+  loop: 1
+  frequency: 16000
+  chunksLengthSec: 1
+  echo: 0
+  useVad: 1
+  vadUpdateRateSec: 0.1
+  vadContextSec: 30
+  vadLastSec: 1.25
+  vadThd: 1
+  vadFreqThd: 100
+  vadIndicatorImage: {fileID: 1303962929}
+  vadStop: 0
+  dropVadPart: 1
+  vadStopTime: 3
+  microphoneDropdown: {fileID: 948466958}
+  microphoneDefaultLabel: Default microphone
 --- !u!1 &1345287211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535893990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1033d10016c24195b53f011eb12b139, type: 3}
+  m_Script: {fileID: 11500000, guid: c101dca3051b3424b9c3573d7a8cf40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
