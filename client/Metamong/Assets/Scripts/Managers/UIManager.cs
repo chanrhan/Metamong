@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Services.Vivox;
 using UnityEngine;
 
 public class UIManager : MonobehaviourSingleton<UIManager>

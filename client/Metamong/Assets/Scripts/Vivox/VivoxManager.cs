@@ -48,14 +48,14 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
             EnableDtx = enableDtx,
             // UpstreamJitterFrameCount = upstreamJitterFrameCount
         });
-        AuthenticationManager.Instance.SetLoginProgress(50);
+        LobbyUIManager.Instance.SetLoginProgress(50);
 
         Debug.Log("초기화 완료");
 
         BindSessionEvents();
 
         await LoginAsync();
-        AuthenticationManager.Instance.SetLoginProgress(70);
+        LobbyUIManager.Instance.SetLoginProgress(70);
 
         
         SetVoiceProperties();

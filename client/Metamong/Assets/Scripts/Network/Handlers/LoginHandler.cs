@@ -15,39 +15,25 @@ using UnityEngine.UI;
 /// </summary>
 public class LoginHandler : MonoBehaviour
 {
-    
-
-    private TMP_InputField ipInput;
-    private TMP_InputField portInput;
     private TMP_InputField usernameInput;
-    private Button btnClient;
-    private Button btnHost;
     private TMP_InputField joinCodeInput;
+    private Button loginClientButton;
+    private Button loginHostButton;
     
-
-    // Random Usernames
-    // private List<string> randomUsernameList = new List<string>{
-    //     "AAA",
-    //     "BBB",
-    //     "CCC"
-    // };
-
     private void Awake() {
         TMP_InputField[] inputs = GetComponentsInChildren<TMP_InputField>();
         joinCodeInput = inputs[0];
-        // ipInput = inputs[0];
-        // portInput = inputs[1];
         usernameInput = inputs[1];
 
         Button[] buttons = GetComponentsInChildren<Button>();
-        btnClient = buttons[0];
-        btnHost = buttons[1];
+        loginClientButton = buttons[0];
+        loginHostButton = buttons[1];
 
-        btnClient.onClick.AddListener(()=>{
+        loginClientButton.onClick.AddListener(()=>{
             Login(false);
         });
 
-        btnHost.onClick.AddListener(()=>{
+        loginHostButton.onClick.AddListener(()=>{
             Login(true);
         });
     }
@@ -94,28 +80,9 @@ public class LoginHandler : MonoBehaviour
     private void Login(bool isHost){
         ClientManager.Instance.ClientInfo.username = usernameInput.text;
         ClientManager.Instance.ClientInfo.isHost = isHost;
-
-        // 포트 설정 
-        // ushort port;
-        // string ipAddress;
-
-        // if(isHost){
-        //     ipAddress = GetLocalIPAddress();
-        // }else{
-        //     ipAddress = ipInput.text;
-        // }
-
-        // if(ushort.TryParse(portInput.text, out port)){
-        //     CustomNetworkManager.Instance.SetUnityTransport(ipAddress, port);
-        // }else{
-        //     throw new Exception("No Port") ;
-        // }
-
         ClientManager.Instance.JoinCode = joinCodeInput.text;
 
         AuthenticationManager.Instance.Login();
-
-        // VivoxManager.Instance.InitializeVivox();
     }
 
     
