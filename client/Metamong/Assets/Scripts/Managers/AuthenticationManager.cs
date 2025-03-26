@@ -23,7 +23,6 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
         LobbyUIManager.Instance.SetLoginProgress(30);
     }
 
-
     public async void Login(){
         await Authenticate();
 

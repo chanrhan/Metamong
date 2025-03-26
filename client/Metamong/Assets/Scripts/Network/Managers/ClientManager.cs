@@ -1,3 +1,4 @@
+using LLMUnity;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -38,7 +39,9 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
     }
 
     private async void JoinVoiceChannel(){
-        await VivoxManager.Instance.JoinVoiceChannel();
+        string channelName = $"Ch_{JoinCode}";
+        Debug.Log("Joining Channel: " + channelName);
+        await VivoxManager.Instance.JoinVoiceChannel(channelName);
     }
 
     public NetworkObject PlayerNetworkObject{

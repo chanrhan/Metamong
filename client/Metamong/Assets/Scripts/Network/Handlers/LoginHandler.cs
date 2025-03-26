@@ -82,6 +82,9 @@ public class LoginHandler : MonoBehaviour
         ClientManager.Instance.ClientInfo.isHost = isHost;
         ClientManager.Instance.JoinCode = joinCodeInput.text;
 
+        joinCodeInput.enabled = false;
+        usernameInput.enabled =false;
+
         AuthenticationManager.Instance.Login();
     }
 

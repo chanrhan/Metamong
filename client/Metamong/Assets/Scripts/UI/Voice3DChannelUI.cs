@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.Services.Vivox;
 using UnityEngine;
 
-public class Voice3DChannelUI : MonoBehaviour
+public class VoiceChannelUI : MonoBehaviour
 {
     [SerializeField]
     private VivoxSpeakerUI[] vivoxSpeakerUIs;

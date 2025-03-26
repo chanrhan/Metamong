@@ -97,6 +97,8 @@ public class AudioDeviceSettings : MonoBehaviour
         InputDeviceDropdown.options.AddRange(VivoxService.Instance.AvailableInputDevices.Select(v => new Dropdown.OptionData() { text = v.DeviceName }));
         InputDeviceDropdown.SetValueWithoutNotify(InputDeviceDropdown.options.FindIndex(option => option.text == VivoxService.Instance.ActiveInputDevice.DeviceName));
         InputDeviceDropdown.RefreshShownValue();
+
+        // Debug.Log("Mics: "+string.Join(",", InputDeviceDropdown.options.Select(v=>v.text)));
     }
 
     private void RefreshOutputDeviceList()

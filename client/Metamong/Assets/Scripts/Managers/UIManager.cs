@@ -1,21 +1,46 @@
 using System.Collections;
+using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonobehaviourSingleton<UIManager>
 {
+    [Header("Whisper")]
     [SerializeField]
-    private Voice3DChannelUI voice3DChannelUI;
-    private float voice3DChannelUIUpdateInterval = 0.1f;
+    private TextMeshProUGUI sttResponse;
+    [SerializeField]
+    private Image vadIndicatorImage;
+
+    [Header("Vivox Voice Channel")]
+    [SerializeField]
+    private VoiceChannelUI voiceChannelUI;
+    private float voiceChannelUIUpdateInterval = 0.1f;
 
     void Start()
     {
-        StartCoroutine(Update3DVoiceChannelUICoroutine());       
+        ClearSttResponseText();
     }
 
-    private IEnumerator Update3DVoiceChannelUICoroutine(){
+    public void SetSttResponseText(string text){
+        sttResponse.text = text;
+    }
+
+    public void AddSttResponseText(string text){
+        sttResponse.text += text;
+    }
+
+    public void ClearSttResponseText(){
+        sttResponse.text = "";
+    }
+
+    public void StartUpdatingVoiceChannelUI(){
+        StartCoroutine(UpdateVoiceChannelUICoroutine());  
+    }
+
+    private IEnumerator UpdateVoiceChannelUICoroutine(){
         while(true){
-            voice3DChannelUI.UpdateUI();
-            yield return new WaitForSeconds(voice3DChannelUIUpdateInterval);
+            voiceChannelUI.UpdateUI();
+            yield return new WaitForSeconds(voiceChannelUIUpdateInterval);
         }
     }
     
