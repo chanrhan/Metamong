@@ -46,6 +46,7 @@ public class SBERTMotionMapper : MonoBehaviour
         //string[] motionLabels = new string[] { "Act", "Face"};
                 
         //StringBuilder sb = new StringBuilder();
+        
         PlayerController.MakeMotion(keywords[0]);
         PlayerController.MakeFace(keywords[1]);
 

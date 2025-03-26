@@ -23,53 +23,22 @@ public class PlayerController : NetworkCharacter
     //애니메이션 관련
     private Animator myAnim;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
-    private LLM llm;
-    private LLMCharacter llmCharacter;
 
-    public static event Action<string> OnActionTextUpdated;
+    public event Action<string> OnActionTextUpdated;
 
     private void Awake()
     {
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         myAnim = GetComponentInChildren<Animator>();
-        llm = gameObject.GetComponent<LLM>();
-        llmCharacter = gameObject.GetComponent<LLMCharacter>();
     }
 
     private void Start()
     {
         if(IsOwner){
-            gameObject.SetActive(false);    
-            llm.SetModel("llama-3.2-3b-instruct-q4_k_m.gguf");
-            llm.numThreads = -1;
-            llm.numGPULayers = 10;
 
-            llmCharacter.llm = llm;
-            llmCharacter.SetPrompt(
-            "You are an AI assistant that converts a user's spoken input (provided as Korean text) into a single, concise English sentence describing both the emotional state and corresponding physical actions (facial expressions and body movements). The output should only include the English sentence that conveys the mood and motion.\n\n" +
-            "For each Korean input, generate a clear and concise sentence that includes:\n" +
-            "1. **Act**: A physical action or behavior (e.g., jumping, sitting, waving).\n" +
-            "2. **Face**: A facial expression (e.g., smiling, frowning, surprised).\n" +
-            "3. **Emotion**: The feeling behind the action (e.g., happiness, anger, surprise).\n\n" +
-            "Do not include any introductory text. **Only the action, face, and emotion should be included in the response.**\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "Input (Korean): \"오늘 정말 기뻐\"\n" +
-            "Output (English): \"The person smiles broadly and claps their hands joyfully.\"\n\n" +
-            "Input (Korean): \"너무 놀라서 숨이 막혀\"\n" +
-            "Output (English): \"The person gasps in surprise, eyes widening and shoulders tensing.\"\n\n" +
-            "Input (Korean): \"화가 나서 소리쳤어\"\n" +
-            "Output (English): \"The person frowns deeply and shouts with an aggressive gesture, fists clenched.\"\n\n" +
-            "Input (Korean): \"나 배고파\"\n" +
-            "Output (English): \"The person looks slightly irritated, with their eyebrows furrowed, rubbing their stomach in discomfort.\"\n\n" +
-            "Now, process the input and generate a response based on the input."
-            );
-
-            // 카메라 및 플레이어 오브젝트 설정
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
-
-            gameObject.SetActive(true);
 
         }
     }
@@ -215,10 +184,9 @@ public class PlayerController : NetworkCharacter
     {
         if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
             PacketSendHandler.Chat(message, targets);
-            string response = await llmCharacter.Chat(message, HandleReply, ReplyCompleted, false);
+            string response = await LlmManager.Instance.MyLlmCharacter.Chat(message, HandleReply, ReplyCompleted, false);
             Debug.Log("Response: " + response);
-            Debug.Log(llmCharacter.llm);
-
+           
             OnActionTextUpdated?.Invoke(response);
         }
     }
@@ -266,6 +234,7 @@ public class PlayerController : NetworkCharacter
     {
         myAnim.Play(expressionName, 2);
     }
+    
     public void MakeMotion(string motionName)
     {
         myAnim.Play(motionName, 0);

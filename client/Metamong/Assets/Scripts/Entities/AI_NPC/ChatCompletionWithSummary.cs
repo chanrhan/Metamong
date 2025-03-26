@@ -11,6 +11,8 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using LLMUnity;
+using System.Threading.Tasks;
 
 public class ChatCompletionWithSummary : MonoBehaviour
 {
@@ -43,7 +45,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
     private NpcAI myNpc;
-
     private void Start()
     {
         inputField = FindObjectOfType<InputField>();
@@ -85,7 +86,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "사용자: \"오늘 좀 차려 입은것 같은데? \"\n" +  
             "친구(assistant): \"오오 이걸 알아차리다니 고단순데? 이렇게 이쁜 친구를 둔걸 감사히 여기라고 엣헴!\"\n\n" + 
             "-------------------------\n\n";
-
         // 페르소나를 대화 이력에 추가
         conversationHistory.Add(new ChatMessage("system", systemInstruction));
     }
@@ -222,6 +222,14 @@ public class ChatCompletionWithSummary : MonoBehaviour
                 Debug.LogError("ChatCompletion Error: " + request.error + ", Code: " + request.responseCode);
             }
         }
+    }
+    void HandleReply(string reply)
+    {
+        //Debug.Log("Extracted Actions: " + reply);
+    }
+    void ReplyCompleted()
+    {
+        Debug.Log("Reply Completed");
     }
 
     /// <summary>
