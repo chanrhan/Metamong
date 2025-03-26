@@ -40,14 +40,14 @@ public class SBERTMotionMapper : MonoBehaviour
         //string[] motionText = actionText.Split('\n');
 
         // 모션 키 리스트 추출
-        //GetMotionKeys(motionText);
+        string[] keywords = GetMotionKeys(newText);
 
         // 모션 라벨 (순서대로: UserAct, UserFace, NPCAct, NPCFace)
         //string[] motionLabels = new string[] { "Act", "Face"};
                 
         //StringBuilder sb = new StringBuilder();
-        PlayerController.MakeMotion(actionText);
-        PlayerController.MakeFace(actionText);
+        PlayerController.MakeMotion(keywords[0]);
+        PlayerController.MakeFace(keywords[1]);
 
 
         // sb.AppendLine($"{motionLabels[0], -10}: {UserAct}");
@@ -84,11 +84,13 @@ public class SBERTMotionMapper : MonoBehaviour
     /// motions 배열 순서: 0 - UserAct, 1 - UserFace, 2 - NPCAct, 3 - NPCFace
     /// </summary>
     /// <param name="motions">사용자 입력 모션 텍스트 배열</param>
-    //private void GetMotionKeys(string[] motions)
-    //{
-    //    Act = sbertEmbedding.CompareWordText(motions[0], true);
-    //    Face = sbertEmbedding.CompareWordText(motions[1], false);
-    //
-    //    return;
-    //}
+    private string[] GetMotionKeys(string motions)
+    {
+        
+        string[] keywords = new string[2];
+        keywords[0] = sbertEmbedding.CompareWordText(motions, true);
+        keywords[1] = sbertEmbedding.CompareWordText(motions, false);
+    
+       return keywords;
+    }
 }
