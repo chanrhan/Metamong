@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a18c1e59f26a6c7418a55baa357a0f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  microphoneDefaultLabel: Default microphone
+  microphoneDefaultLabel: Default System Device
 --- !u!1 &4795170265952628179
 GameObject:
   m_ObjectHideFlags: 0

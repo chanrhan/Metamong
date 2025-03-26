@@ -11,7 +11,7 @@ public class MicrophoneDropdown : MonoBehaviour
 
     public string microphoneDefaultLabel = "Default System Device";
 
-    private string[] AvailableInputDevices = Microphone.devices;
+    private IEnumerable<string> AvailableInputDevices => Microphone.devices;
 
     void Awake()
     {

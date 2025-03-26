@@ -8413,7 +8413,7 @@ MonoBehaviour:
   initOnAwake: 1
   language: ko
   translateToEnglish: 0
-  strategy: 0
+  strategy: 1
   noContext: 1
   singleSegment: 0
   enableTokens: 0
