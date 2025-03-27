@@ -654,7 +654,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: WHISPER_CUDA
+    Standalone: WHISPER_METAL
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

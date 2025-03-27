@@ -42,7 +42,7 @@ public class MicrophoneDropdown : MonoBehaviour
         }
         
         VivoxManager.Instance.InputDeviceValueChanged(selectedMicDevice);
-        STTManager.Instance.SetMicDevice(selectedMicDevice);
+        STTManager.Instance.OnInputDeviceChanged(selectedMicDevice);
     }
 
 

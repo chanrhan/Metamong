@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 352544419}
   - component: {fileID: 352544421}
   m_Layer: 5
-  m_Name: Login_panel
+  m_Name: Panel_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,10 +790,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 578013083}
-  - {fileID: 1287455566}
-  - {fileID: 1306768306}
   - {fileID: 1004370186}
   - {fileID: 708397660}
+  - {fileID: 1287455566}
+  - {fileID: 1306768306}
   - {fileID: 2124951365}
   - {fileID: 317189670}
   - {fileID: 770343667}
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8156863}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -854,6 +854,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c36c3fe338a40ebbdd895654bd2f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usernameInput: {fileID: 708397661}
+  joinCodeInput: {fileID: 1306768307}
+  loginClientButton: {fileID: 2124951366}
+  loginHostButton: {fileID: 317189671}
+  progressBar: {fileID: 770343668}
 --- !u!1 &357864890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Betamong Test
+  m_text: Server Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2342,7 +2347,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306768305}
   m_CullTransparentMesh: 1
---- !u!1 &1414033173
+--- !u!1 &1322048358
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2350,8 +2355,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1414033175}
-  - component: {fileID: 1414033174}
+  - component: {fileID: 1322048360}
+  - component: {fileID: 1322048359}
   m_Layer: 0
   m_Name: LobbyUIManager
   m_TagString: Untagged
@@ -2359,30 +2364,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1414033174
+--- !u!114 &1322048359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414033173}
+  m_GameObject: {fileID: 1322048358}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cc79907ce6b984d86b2210065da280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  progressBar: {fileID: 770343668}
---- !u!4 &1414033175
+  lobbyUI: {fileID: 352544421}
+--- !u!4 &1322048360
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414033173}
+  m_GameObject: {fileID: 1322048358}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 243.42249, y: 212.66042, z: -12.792897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 218.53249, y: 384.88177, z: -18.488169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3061,4 +3066,4 @@ SceneRoots:
   - {fileID: 368814931}
   - {fileID: 800764898}
   - {fileID: 1103070731}
-  - {fileID: 1414033175}
+  - {fileID: 1322048360}

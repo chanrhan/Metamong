@@ -11,7 +11,8 @@ public class AudioDeviceSettings : MonoBehaviour
     public Slider InputDeviceVolume;
     public Slider OutputDeviceVolume;
 
-    public Image DeviceEnergyMask;
+    public Image InputVolume;
+    public Image OutputVolume;
 
     public Text EffectiveInputDeviceText;
     public Text EffectiveOutputDeviceText;
@@ -28,7 +29,6 @@ public class AudioDeviceSettings : MonoBehaviour
         VivoxService.Instance.AvailableOutputDevicesChanged += RefreshOutputDeviceList;
         VivoxService.Instance.EffectiveInputDeviceChanged += EffectiveInputDeviceChanged;
         VivoxService.Instance.EffectiveOutputDeviceChanged += EffectiveOutputDeviceChanged;
-
 
         InputDeviceDropdown.onValueChanged.AddListener((i) =>
         {
@@ -56,7 +56,8 @@ public class AudioDeviceSettings : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        DeviceEnergyMask.fillAmount = 0;
+        InputVolume.fillAmount = 0;
+        OutputVolume.fillAmount = 0;
 
         RefreshInputDeviceList();
         RefreshOutputDeviceList();
@@ -85,7 +86,7 @@ public class AudioDeviceSettings : MonoBehaviour
         {
             var channel = VivoxService.Instance.ActiveChannels.FirstOrDefault();
             var localParticipant = channel.Value.FirstOrDefault(p => p.IsSelf);
-            DeviceEnergyMask.fillAmount = Mathf.Lerp(DeviceEnergyMask.fillAmount, (float)localParticipant.AudioEnergy, Time.deltaTime * k_voiceMeterSpeed);
+            InputVolume.fillAmount = Mathf.Lerp(InputVolume.fillAmount, (float)localParticipant.AudioEnergy, Time.deltaTime * k_voiceMeterSpeed);
         }
     }
 
@@ -113,7 +114,10 @@ public class AudioDeviceSettings : MonoBehaviour
 
     void InputDeviceValueChanged(int index)
     {
-        VivoxService.Instance.SetActiveInputDeviceAsync(VivoxService.Instance.AvailableInputDevices.First(device => device.DeviceName == InputDeviceDropdown.options[index].text));
+        VivoxInputDevice inputDevice = VivoxService.Instance.AvailableInputDevices.First(device => device.DeviceName == InputDeviceDropdown.options[index].text);
+        STTManager.Instance.OnInputDeviceChanged(inputDevice.DeviceName);
+        
+        VivoxService.Instance.SetActiveInputDeviceAsync(inputDevice);
     }
 
     void EffectiveInputDeviceChanged()
@@ -123,7 +127,8 @@ public class AudioDeviceSettings : MonoBehaviour
 
     void OutputDeviceValueChanged(int index)
     {
-        VivoxService.Instance.SetActiveOutputDeviceAsync(VivoxService.Instance.AvailableOutputDevices.First(device => device.DeviceName == OutputDeviceDropdown.options[index].text));
+        VivoxOutputDevice outputDevice = VivoxService.Instance.AvailableOutputDevices.First(device => device.DeviceName == OutputDeviceDropdown.options[index].text);
+        VivoxService.Instance.SetActiveOutputDeviceAsync(outputDevice);
     }
 
     void EffectiveOutputDeviceChanged()

@@ -61,8 +61,10 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         UIManager.Instance.SetSttResponseText(result);
     }
 
-    public void SetMicDevice(string deviceName){
-        microphoneRecord.SelectedMicDevice = deviceName;
+    public void OnInputDeviceChanged(string deviceName){
+        if(microphoneRecord != null){
+            microphoneRecord.SelectedMicDevice = deviceName;
+        }
     }
 
     private void OnSegmentUpdated(WhisperResult segment)
