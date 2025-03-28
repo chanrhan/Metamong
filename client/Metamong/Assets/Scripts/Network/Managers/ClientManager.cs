@@ -39,9 +39,7 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
     }
 
     private async void JoinVoiceChannel(){
-        string channelName = $"Ch_{JoinCode}";
-        Debug.Log("Joining Channel: " + channelName);
-        await VivoxManager.Instance.JoinVoiceChannel(channelName);
+        await VivoxManager.Instance.JoinVoiceChannel(JoinCode);
     }
 
     public NetworkObject PlayerNetworkObject{

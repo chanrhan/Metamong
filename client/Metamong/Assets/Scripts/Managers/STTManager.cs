@@ -14,9 +14,26 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private WhisperStream _stream;
 
+    [Header("Mac Os")]
+    [SerializeField]
+    private bool AllowMacOs = false;
+
+    private bool IsPlatformMacOs = false;
+
     protected async override void Awake()
     {
         base.Awake();
+
+        IsPlatformMacOs = !AllowMacOs && 
+        (Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.OSXEditor);
+
+        // Debug.Log("OS : " + Application.platform);
+        
+        if(IsPlatformMacOs){
+            Debug.LogWarning("MacOS should not use Whisper!");
+           return; 
+        }
+        
         whisper = GetComponent<WhisperManager>();
         microphoneRecord = GetComponent<MicrophoneRecord>();
         if(whisper == null){
@@ -39,6 +56,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     void Update()
     {
+        if(IsPlatformMacOs){
+            return;
+        }
+
+
         if(Input.GetKeyDown(KeyCode.T)){
             Debug.Log("Start Record");
             StartRecord();
@@ -62,6 +84,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     }
 
     public void OnInputDeviceChanged(string deviceName){
+        if(IsPlatformMacOs){
+            return;
+        }
+
+
         if(microphoneRecord != null){
             microphoneRecord.SelectedMicDevice = deviceName;
         }

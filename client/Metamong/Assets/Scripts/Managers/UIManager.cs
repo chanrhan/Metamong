@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class UIManager : MonobehaviourSingleton<UIManager>
 {
+    [Header("Channel Info")]
+    [SerializeField]
+    private ChannelInfoPanel channelInfoPanel;
+
     [Header("Whisper")]
     [SerializeField]
     private TextMeshProUGUI sttResponse;
@@ -31,6 +35,10 @@ public class UIManager : MonobehaviourSingleton<UIManager>
 
     public void ClearSttResponseText(){
         sttResponse.text = "";
+    }
+
+    public void SetChannelCode(string channelCode){
+        channelInfoPanel.ChannelCode = channelCode;
     }
 
     public void StartUpdatingVoiceChannelUI(){

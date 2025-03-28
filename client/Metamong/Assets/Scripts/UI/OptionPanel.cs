@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionUI : MonoBehaviour
+public class OptionPanel : MonoBehaviour
 {
     [SerializeField]
     private GameObject menu;
@@ -21,13 +21,17 @@ public class OptionUI : MonoBehaviour
         menuButtons = menu.GetComponentsInChildren<Button>();
         contentPanels = contents.GetComponentsInChildren<GameObject>();
 
-        for(int i=0;i<menuButtons.Count();++i){
-            Button button = menuButtons[i];
+        if(menuButtons != null && contentPanels != null){
+            for(int i=0;i<menuButtons.Count();++i){
+                Button button = menuButtons[i];
 
-            button.onClick.AddListener(()=>{
-                OnMenuChanged(i);
-            });
+                button.onClick.AddListener(()=>{
+                    OnMenuChanged(i);
+                });
+            }
         }
+
+        
     }
 
     private void OnMenuChanged(int index){
@@ -39,6 +43,5 @@ public class OptionUI : MonoBehaviour
             activePanel.SetActive(true);
         }
     }
-
 
 }
