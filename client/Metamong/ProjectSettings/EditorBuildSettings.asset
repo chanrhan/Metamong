@@ -5,9 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Network/LoginTest.unity
   - enabled: 1
     path: Assets/Scenes/Multi_Test/Network/LoginTest.unity
     guid: 675794155e87d4c08a2502a73ac25218
+  - enabled: 0
+    path: Assets/Scenes/Network/InGameTest.unity
   - enabled: 1
     path: Assets/Scenes/Multi_Test/Network/InGameTest.unity
     guid: 51842b3f4a4534b6bbadb26d10801595

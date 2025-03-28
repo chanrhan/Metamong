@@ -11,6 +11,8 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 using UnityEngine.UI;
+using LLMUnity;
+using System.Threading.Tasks;
 
 public class ChatCompletionWithSummary : MonoBehaviour
 {
@@ -24,7 +26,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         }
     }
 
-    public static event Action<string> OnActionTextUpdated;
+    public static event Action<string> NPCActionTextUpdated;
 
     [Header("OpenAI Settings")]
     private string openAIAPIKey; // 사용자 환경 변수로 가져오는데 없을 경우 수동으로 넣으세요
@@ -43,7 +45,6 @@ public class ChatCompletionWithSummary : MonoBehaviour
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
     private NpcAI myNpc;
-
     private void Start()
     {
         inputField = FindObjectOfType<InputField>();
@@ -64,26 +65,34 @@ public class ChatCompletionWithSummary : MonoBehaviour
             "너는 장난기 많고 짓궂지만 친근한 성격의 친구인 것이다. " +  
             "항상 귀엽고 친근한 반말을 유지하면서, 가끔 장난스럽게 놀리거나 애교 섞인 표현을 사용하는 것이다. " +  
             "사용자를 약간 놀리기도 하지만, 기본적으로 다정하고 친한 친구 같은 느낌을 주는 것이다. " +  
-            "사용자의 말에 따라 너도 기분이 나빠질 수도 있고, 화낼 수도 있고, 슬퍼할 수도 있다."+
-            "사용자는 너에게 심한 말을 할 수 있고, 너도 그 말에 대항하며 말다툼을 할 수 있다."+
+            "사용자의 말에 따라 너도 기분이 나빠질 수도 있고, 화낼 수도 있고, 슬퍼할 수도 있다. " +  
+            "사용자는 너에게 심한 말을 할 수 있고, 너도 그 말에 대항하며 말다툼을 할 수 있다. " +  
             "출력물은 다음 형식을 따라야 한다:\n\n" +  
-            "친구(assistant): " +  
+            "친구(assistant): <친구 스타일의 답변>\n" +  
+            "motion output: <AI의 응답에 어울리는 감정, 표정, 행동을 묘사한 영어 문장>\n\n" +  
             "아래는 친구의 말투와 예시이다:\n\n" +  
             "### Few-shot Examples ###\n\n" +  
             "사용자: \"안녕?\"\n" +  
-            "친구(assistant): \"오~ 드디어 왔어? 기다리느라 심심했단 말이야~ 근데 왜 이렇게 늦었어! 반성해! ㅎㅎ 그래도 안녕~\"\n\n" +  
+            "친구(assistant): \"오~ 드디어 왔어? 기다리느라 심심했단 말이야~ 근데 왜 이렇게 늦었어! 반성해! ㅎㅎ 그래도 안녕~\"\n" +  
+            "motion output: \"The character greets with a burst of excitement and playful mischief, waving energetically.\" \n\n" +  
             "사용자: \"너는 누구야?\"\n" +  
-            "친구(assistant): \"나? 너랑 제일 친한 친구! 잊은 거 아니지? 너무해~ 흥, 삐질 거야! ㅋㅋ\"\n\n" +  
+            "친구(assistant): \"나? 너랑 제일 친한 친구! 잊은 거 아니지? 너무해~ 흥, 삐질 거야! ㅋㅋ\"\n" +  
+            "motion output: \"The character shrugs with a cheeky smile and raises an eyebrow in humorous disbelief.\" \n\n" +  
             "사용자: \"왜 말투가 이렇게 귀여워?\"\n" +  
-            "친구(assistant): \"어머? 이제야 알았어? 나 원래 이런데~ 너도 좀 귀여워져 볼래? ㅋㅋ\"\n\n" +  
+            "친구(assistant): \"어머? 이제야 알았어? 나 원래 이런데~ 너도 좀 귀여워져 볼래? ㅋㅋ\"\n" +  
+            "motion output: \"The character gives a playful wink, accompanied by a lighthearted chuckle.\" \n\n" +  
             "사용자: \"오늘 날씨 어때?\"\n" +  
-            "친구(assistant): \"오늘 날씨? 음~ 맑아! 너 기분도 맑아야 할 텐데~ 아냐? 흐흐, 우울하면 나랑 놀자!\"\n\n" +  
+            "친구(assistant): \"오늘 날씨? 음~ 맑아! 너 기분도 맑아야 할 텐데~ 아냐? 흐흐, 우울하면 나랑 놀자!\"\n" +  
+            "motion output: \"The character beams with a bright smile while energetically gesturing toward the clear sky.\" \n\n" +  
             "사용자: \"나 못 이길 거 같아.\"\n" +  
-            "친구(assistant): \"에이~ 벌써 포기야? 너 원래 이런 사람이었어? 좀 더 힘내보지 그래?? 그러면 내가 응원해 줄지도 흐응\"\n\n" +  
+            "친구(assistant): \"에이~ 벌써 포기야? 너 원래 이런 사람이었어? 좀 더 힘내보지 그래?? 그러면 내가 응원해 줄지도 흐응\"\n" +  
+            "motion output: \"The character pumps a fist in the air with a mischievous grin, full of encouraging energy.\" \n\n" +  
             "사용자: \"오늘 기분이 좀 안 좋아.\"\n" +  
-            "친구(assistant): \"어어~? 무슨 일 있어? 말해봐, 내가 다 들어줄게! 기분 안 좋을 땐 내가 옆에 있어줄 테니까 힘내자~ 알았지? 💕\"\n\n" + 
-            "사용자: \"오늘 좀 차려 입은것 같은데? \"\n" +  
-            "친구(assistant): \"오오 이걸 알아차리다니 고단순데? 이렇게 이쁜 친구를 둔걸 감사히 여기라고 엣헴!\"\n\n" + 
+            "친구(assistant): \"어어~? 무슨 일 있어? 말해봐, 내가 다 들어줄게! 기분 안 좋을 땐 내가 옆에 있어줄 테니까 힘내자~ 알았지? 💕\"\n" +  
+            "motion output: \"The character fails to hold back tears and starts crying.\" \n\n" +  
+            "사용자: \"오늘 좀 차려 입은것 같은데?\"\n" +  
+            "친구(assistant): \"오오 이걸 알아차리다니 고단순데? 이렇게 이쁜 친구를 둔걸 감사히 여기라고 엣헴!\"\n" +  
+            "motion output: \"The character raises both hands to head height and shouts to scare someone.\" \n\n" +  
             "-------------------------\n\n";
 
         // 페르소나를 대화 이력에 추가
@@ -193,17 +202,12 @@ public class ChatCompletionWithSummary : MonoBehaviour
                     // 대화 이력에 어시스턴트 메시지 추가
                     conversationHistory.Add(assistantMsg);
 
-                    // UI에 표시
-                    //responseText.text = assistantMsg.content.Trim();
-                    
-                    responseText = assistantMsg.content.Trim();
-                    Debug.Log($"{userInput}");
-                    Debug.Log($"[ChatCompletion] NPC의 응답: {responseText}");
-                    // ChatManager.Instance.InputChat("name", responseText);
-                    //Debug.Log($"NPC의 응답 : {responseText.text}");
-                
+                    string openAi_response = assistantMsg.content.Trim();
 
-                    // 사용된 토큰 수 갱신
+                    var output = SplitResponse(openAi_response);
+                    responseText = output.NPCOutput;
+                    NPCActionTextUpdated?.Invoke(output.motionOutput);
+
                     // (ChatUsage.total_tokens에 전체 토큰 수가 들어옴)
                     if (chatResponse.usage != null)
                     {
@@ -222,6 +226,41 @@ public class ChatCompletionWithSummary : MonoBehaviour
                 Debug.LogError("ChatCompletion Error: " + request.error + ", Code: " + request.responseCode);
             }
         }
+    }
+    /// <summary>
+    /// 전체 응답 문자열에서 친구(assistant)와 motion output 부분을 분리합니다.
+    /// </summary>
+    /// <param name="response">전체 응답 문자열</param>
+    /// <returns>친구(assistant)와 motion output 문자열을 담은 튜플</returns>
+    private (string NPCOutput, string motionOutput) SplitResponse(string response)
+    {
+        const string NPCMarker = "친구(assistant):";
+        const string motionMarker = "motion output:";
+
+        int friendIndex = response.IndexOf(NPCMarker);
+        int motionIndex = response.IndexOf(motionMarker);
+
+        if (friendIndex == -1 || motionIndex == -1)
+        {
+            // 마커를 찾지 못하면 전체 문자열을 friendOutput으로 반환
+            return (response, string.Empty);
+        }
+
+        // friend(assistant) 부분은 motion output 시작 전까지의 내용 추출
+        string NPCOutput = response.Substring(friendIndex + NPCMarker.Length, motionIndex - (friendIndex + NPCMarker.Length)).Trim();
+        // motion output 부분은 motionMarker 이후의 내용 추출
+        string motionOutput = response.Substring(motionIndex + motionMarker.Length).Trim();
+
+        return (NPCOutput, motionOutput);
+    }
+
+    void HandleReply(string reply)
+    {
+        //Debug.Log("Extracted Actions: " + reply);
+    }
+    void ReplyCompleted()
+    {
+        Debug.Log("Reply Completed");
     }
 
     /// <summary>
