@@ -9,6 +9,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class PlayerController : NetworkCharacter
 {
@@ -19,6 +20,7 @@ public class PlayerController : NetworkCharacter
     private bool isOnGround = true;                         //플레이어 땅에 닿았는지 여부
     private Rigidbody myRigid;      
     private Collider myCollider;
+    private Vector3 currMoveVec = new Vector3(0,0,0);
 
     //애니메이션 관련
     private Animator myAnim;
@@ -48,10 +50,15 @@ public class PlayerController : NetworkCharacter
         if(!IsOwner){
             return;
         }
+        CharacterRotate();
         CheckOnGround();
         if(!ChatManager.Instance.IsTyping){
             MovePosition();
             TryJump();
+        }
+        else
+        {
+            myAnim.SetBool("isWalking",false);
         }
     }
 
@@ -65,15 +72,15 @@ public class PlayerController : NetworkCharacter
         TryTalking();
         if (!ChatManager.Instance.IsTyping)
         {
-            CharacterRotate();
-            
+            //CharacterRotate();
+            //CheckOnGround();
+
             // 테스트용 
             if (Input.GetKeyDown(KeyCode.G))
             {
                 SendMessageToOthers();
             }
         }
-
         
     }
 
@@ -82,16 +89,29 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     private void MovePosition()
     {
-        float nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
-        if (nowVel < speedLimit * speedLimit)
-        {
-            Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
-            myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);
-            // myRigid.MovePosition(myRigid.position + moveVec * moveSpeed * Time.deltaTime);
-            nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
-        }
+        // float nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
+        // if (nowVel < speedLimit * speedLimit)
+        // {
+        //     Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
+        //     //myRigid.AddForce(moveVec * moveSpeed, ForceMode.Force);
+        //     myRigid.MovePosition(myRigid.position + moveVec * moveSpeed * Time.deltaTime);
+        //     nowVel = Mathf.Pow(myRigid.velocity.x, 2) + Mathf.Pow(myRigid.velocity.z, 2);
+        // }
 
-        SetWalkingAnim(nowVel);
+        // SetWalkingAnim(nowVel);
+        Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
+
+        if(moveVec != Vector3.zero)
+        {
+            currMoveVec = moveVec;
+            Debug.Log(currMoveVec);
+            myRigid.MovePosition(myRigid.position + currMoveVec * moveSpeed);
+            myAnim.SetBool("isWalking",true);
+        }
+        else
+        {
+            myAnim.SetBool("isWalking",false);
+        }
     }
 
     /// <summary>
@@ -116,11 +136,13 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     private void CharacterRotate()
     {
-        Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z);
-        if (moveVec.sqrMagnitude > 0.1f)
-        {
-            transform.forward = moveVec;
-        }
+        // Vector3 moveVec = new Vector3(myRigid.velocity.x, 0.0f, myRigid.velocity.z);
+
+        // if (moveVec.sqrMagnitude > 0.1f)
+        // {
+        //     transform.forward = moveVec;
+        // }
+        transform.forward = Vector3.Slerp(transform.forward, currMoveVec, 0.4f);
     }
 
     /// <summary>
@@ -148,8 +170,8 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     private void CheckOnGround()
     {
-        //isOnGround =  Physics.Raycast(myCollider.bounds.center, Vector3.down, 1.05f);
-        isOnGround = Physics.BoxCast(myCollider.bounds.center, Vector3.one * 0.2f, Vector3.down, Quaternion.identity, 1.05f);
+        isOnGround =  Physics.Raycast(myCollider.bounds.center, Vector3.down, 1.05f);
+        //isOnGround = Physics.BoxCast(myCollider.bounds.center, Vector3.one * 0.2f, Vector3.down, Quaternion.identity, 1.05f);
     }
 
     /// <summary>

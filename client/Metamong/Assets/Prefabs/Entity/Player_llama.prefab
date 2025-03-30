@@ -2477,6 +2477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 3568514041156784676}
+  NpcAI: {fileID: 0}
   textarea: {fileID: 0}
 --- !u!114 &58205211315323545
 MonoBehaviour:
@@ -5787,7 +5788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speekRange: 5
-  moveSpeed: 200
+  moveSpeed: 0.1
   speedLimit: 200
   jumpForce: 50
 --- !u!114 &4479669847779389281
