@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4790229997035009725}
   - component: {fileID: 8490845883418425624}
   - component: {fileID: 5922651401077312978}
-  - component: {fileID: -1027697542866564130}
   m_Layer: 0
   m_Name: government-building-fire-station
   m_TagString: Untagged
@@ -26,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5274137796737592327}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8490845883418425624
 MeshFilter:
@@ -86,18 +85,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-1027697542866564130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274137796737592327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed30bcd987450da4ebab77b8c7d28e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windowMaterialIndex: 2
-  lightColor: {r: 0.41568628, g: 0.36078432, b: 0.14117648, a: 1}
-  areLightsOn: 0
