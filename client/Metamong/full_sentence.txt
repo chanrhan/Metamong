@@ -18,3 +18,15 @@ stepSec = 0.2
 keepSec = 0.2
 lengthSec = 5
  반갑습니다. 로그를 하기 위한 로그라이크. 아니다. 이거 있습니다. 아 그런거에요? 네. sdt를 켜서. 그러니까 완성. - 아... - 아...
+stepSec = 0.2
+keepSec = 0.2
+lengthSec = 5
+ - 네. - 네.
+
+ avg = 837.50
+stepSec = 0.2
+keepSec = 0.2
+lengthSec = 5
+ - 그런 거지. - 가져오는 것만 한 거다. 그치? 되는 거지? - 되는 거잖아. - 그래도 되는 거지?
+
+ avg = 869.33

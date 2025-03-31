@@ -1,0 +1,34 @@
+[
+  {
+    "stepSec": 10.0,
+    "keepSec": 0.0,
+    "lengthSec": 0.0,
+    "inferenceAvg": 843.0,
+    "context": [
+      {
+        "segment": " 기존에 있는게 그게 형식이 안맞으니까 안맞으니까",
+        "time": 0.0
+      }
+    ]
+  },
+  {
+    "stepSec": 10.0,
+    "keepSec": 0.0,
+    "lengthSec": 0.0,
+    "inferenceAvg": 853.125,
+    "context": [
+      {
+        "segment": " 그래. 그래. 좀 길게 한 번 말해보자. 그게 다 저장이 되는지 우리는 한 번 봐야 될 거 아니니?",
+        "time": 0.0
+      },
+      {
+        "segment": " 너가 이렇게 크게 저장하고 있다는 걸 알고 있어.",
+        "time": 0.0
+      },
+      {
+        "segment": " 고생하시잖아요. 그래. 그래.",
+        "time": 0.0
+      }
+    ]
+  }
+]

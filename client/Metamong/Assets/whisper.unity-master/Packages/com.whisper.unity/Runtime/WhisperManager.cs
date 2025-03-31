@@ -156,6 +156,12 @@ namespace Whisper
             _dispatcher.Update();
         }
 
+        public WhisperWrapper GetWhisperWrapper(){
+            return _whisper;
+        }
+
+        
+
         /// <summary>
         /// Load model and default parameters. Prepare it for text transcription.
         /// </summary>

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Whisper.Utils;
 // ReSharper disable once RedundantUsingDirective
 using System.Linq;
+using System.Diagnostics;
 
 namespace Whisper
 {
@@ -259,6 +260,9 @@ namespace Whisper
             Reset();
         }
         
+        private Stopwatch mySW =new Stopwatch();
+        public List<double> finishSegmentTime = new List<double>();
+        public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
             // check if task isn't busy
@@ -303,6 +307,7 @@ namespace Whisper
             // current data is already copied into local buffer
             _newBuffer.Clear();
 
+            mySW.Restart();
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
                 _param.Channels, _param.InferenceParam);
@@ -310,6 +315,7 @@ namespace Whisper
             // append current transcription into temporary output
             var res = await _task;
             var currentSegment = res.Result;
+            LogUtils.Log($"segment text: {currentSegment}\n");
             var currentOutput = _output + currentSegment;
 
             // send update to user
@@ -323,6 +329,8 @@ namespace Whisper
             {
                 LogUtils.Verbose($"Stream finished an old segment with total steps of {_step}");
                 _output = currentOutput;
+                stt_result_segments = _output;
+                
 
                 // TODO: don't use string prompt - use tokenized prompt_tokens
                 // update prompt with latest transcription
@@ -339,6 +347,7 @@ namespace Whisper
                 _step = 0;
                 
                 OnSegmentFinished?.Invoke(res);
+                finishSegmentTime.Add(mySW.ElapsedMilliseconds);
             }
             else
             {
@@ -346,6 +355,10 @@ namespace Whisper
                 // swap buffers
                 _oldBuffer = buffer;
             }
+        }
+
+        public string GetFinishedSegment(){
+            return stt_result_segments;
         }
 
         private void Reset()

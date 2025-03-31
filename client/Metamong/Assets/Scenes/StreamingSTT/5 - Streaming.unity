@@ -528,7 +528,7 @@ MonoBehaviour:
   text: {fileID: 1194114916}
   button: {fileID: 2099288375}
   count: 0
-  targetObject: {fileID: 587639197}
+  whisperManager: {fileID: 587639199}
 --- !u!4 &450121192
 Transform:
   m_ObjectHideFlags: 0
@@ -599,9 +599,9 @@ MonoBehaviour:
   singleSegment: 1
   enableTokens: 0
   initialPrompt: 
-  stepSec: 0.2
-  keepSec: 0.2
-  lengthSec: 5
+  stepSec: 0
+  keepSec: 1
+  lengthSec: 10
   updatePrompt: 1
   dropOldBuffer: 1
   useVad: 1
@@ -1918,6 +1918,8 @@ MonoBehaviour:
   buttonText: {fileID: 1431014845}
   text: {fileID: 1194114916}
   scroll: {fileID: 942089564}
+  segment_launch: []
+  finSegTime: []
 --- !u!114 &1337591125
 MonoBehaviour:
   m_ObjectHideFlags: 0
