@@ -8677,7 +8677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logLevel: 1
-  modelPath: ggml-tiny.bin
+  modelPath: ggml-large-v3-turbo-q8_0.bin
   isModelPathInStreamingAssets: 1
   initOnAwake: 1
   language: ko

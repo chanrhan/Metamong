@@ -25,7 +25,7 @@ public class PacketReceiveHandler : PacketHandler
     /// <param name="packet"></param>
     private static void ReceiveChatMessage(Packet packet){
         ClientInfo clientInfo = packet.clientInfo;
-
+        LlmManager.Instance.AddChatLog(clientInfo.username, packet.message);
         // 채팅창에 띄우기
         ChatManager.Instance.InputChat(clientInfo.username, packet.message);
     }

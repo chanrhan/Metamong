@@ -211,7 +211,7 @@ public class PlayerController : NetworkCharacter
         if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
             PacketSendHandler.Chat(message, targets);
             
-            string response = await LlmManager.Instance.Chat(ClientManager.Instance.ClientInfo.username + message, HandleReply, ReplyCompleted, false);
+            string response = await LlmManager.Instance.Chat(ClientManager.Instance.ClientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
             LlmManager.Instance.AddChatLog(ClientManager.Instance.ClientInfo.username,message);
             Debug.Log("Response: " + response);
            

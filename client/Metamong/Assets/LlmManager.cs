@@ -62,6 +62,13 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
 
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.L)){
+            Debug.Log(GenerateChatLogs());
+        }
+    }
+
     public void AddChatLog(string playerId, string msg) {
         
         if(chatHistory.Count + 1 > 10)
@@ -69,6 +76,7 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
             chatHistory.Dequeue();
         }
         chatHistory.Enqueue($"{playerId}:{msg}");
+        
     }
 
     public string GenerateChatLogs()
