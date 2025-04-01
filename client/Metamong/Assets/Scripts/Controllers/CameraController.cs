@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private GameObject targetPlayer;   // 카메라가 따라갈 대상 플레이어
     [SerializeField] private Vector3 posOffset;         //플레이어-카메라 사이의 Position 보정값.
-    //[SerializeField] private Vector3 rotOffset;         //플레이어-카메라 사이의 Rotation 보정값.
+    [SerializeField] private Vector3 rotOffset;         //플레이어-카메라 사이의 Rotation 보정값.
 
     private void LateUpdate()
     {
@@ -41,6 +42,8 @@ public class CameraController : MonoBehaviour
 
     public void SetTargetPlayer(GameObject gameObject){
         targetPlayer = gameObject;
+        transform.rotation = Quaternion.identity;
+        transform.Rotate(rotOffset);
     }
 
 }

@@ -508,6 +508,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93853081}
   m_CullTransparentMesh: 1
+--- !u!1 &97003493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97003497}
+  - component: {fileID: 97003496}
+  - component: {fileID: 97003494}
+  - component: {fileID: 97003498}
+  m_Layer: 0
+  m_Name: LlmManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97003494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97003493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advancedOptions: 0
+  remote: 0
+  port: 13333
+  numThreads: -1
+  numGPULayers: 0
+  debug: 0
+  parallelPrompts: -1
+  dontDestroyOnLoad: 1
+  contextSize: 8192
+  batchSize: 512
+  model: llama-3.2-3b-instruct-q4_k_m.gguf
+  chatTemplate: llama3 chat
+  lora: 
+  loraWeights: 
+  flashAttention: 0
+  APIKey: 
+  SSLCert: 
+  SSLCertPath: 
+  SSLKey: 
+  SSLKeyPath: 
+  minContextLength: 0
+  maxContextLength: 131072
+  embeddingsOnly: 0
+  embeddingLength: 3072
+--- !u!114 &97003496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97003493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0470890c8ecbc944a12c000dad5fa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &97003497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97003493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1071.3578, y: 560.5055, z: -6.770215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97003498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97003493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6c87a428fd5d0be9bbc686bdc8c3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advancedOptions: 0
+  remote: 0
+  _llm: {fileID: 97003494}
+  APIKey: 
+  host: localhost
+  port: 13333
+  numRetries: 10
+  save: 
+  saveCache: 0
+  debugPrompt: 0
+  numPredict: 256
+  slot: -1
+  grammar: 
+  cachePrompt: 1
+  seed: 0
+  temperature: 0.2
+  topK: 40
+  topP: 0.9
+  minP: 0.05
+  repeatPenalty: 1.1
+  presencePenalty: 0
+  frequencyPenalty: 0
+  typicalP: 1
+  repeatLastN: 64
+  penalizeNl: 1
+  penaltyPrompt: 
+  mirostat: 0
+  mirostatTau: 5
+  mirostatEta: 0.1
+  nProbs: 0
+  ignoreEos: 0
+  nKeep: -1
+  stop: []
+  stream: 1
+  playerName: user
+  AIName: assistant
+  prompt: A chat between a curious human and an artificial intelligence assistant.
+    The assistant gives helpful, detailed, and polite answers to the human's questions.
+  setNKeepToPrompt: 1
+  chat: []
+  grammarString: 
 --- !u!1 &132296291
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +1057,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 706340978}
     m_Modifications:
+    - target: {fileID: 280803436441130371, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 344256181743812504, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931763848207032267, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.009155273
+      objectReference: {fileID: 0}
     - target: {fileID: 2600684180855221755, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_Name
       value: AudioDevice Panel
@@ -941,6 +1088,10 @@ PrefabInstance:
     - target: {fileID: 2603121448390058805, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710741465257395959, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.25701904
       objectReference: {fileID: 0}
     - target: {fileID: 3870483261105138387, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1030,6 +1181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603039737008252847, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5968525003025492325, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -1037,6 +1192,10 @@ PrefabInstance:
     - target: {fileID: 5968525003025492325, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256466145858019940, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7069565831989366503, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1049,6 +1208,10 @@ PrefabInstance:
     - target: {fileID: 7069565831989366503, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840343891538809886, guid: c5d1ec452601344df9eb38760c6003fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.1000061
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2432,6 +2595,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469595301}
   m_CullTransparentMesh: 1
+--- !u!1 &478339256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 478339257}
+  - component: {fileID: 478339259}
+  - component: {fileID: 478339258}
+  m_Layer: 0
+  m_Name: MotionMapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &478339257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478339256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9961947, z: -0, w: -0.08715578}
+  m_LocalPosition: {x: -980.6829, y: 674.65814, z: -191.40594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138341566293135917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &478339258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478339256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28709463f781e34f9b89632d7e7bb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &478339259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478339256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbd29bac4b87454499ad685169dee39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerController: {fileID: 0}
+  NpcAI: {fileID: 0}
+  textarea: {fileID: 0}
 --- !u!1 &521941151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3220,6 +3443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbd29bac4b87454499ad685169dee39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerController: {fileID: 0}
+  NpcAI: {fileID: 0}
   textarea: {fileID: 0}
 --- !u!4 &724136029
 Transform:
@@ -3927,6 +4152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd9cceff2b2736489ecfd5be1bb5bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 0}
 --- !u!224 &886560164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8198,13 +8424,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989050164}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3153336, y: 0.0018547175, z: -0.00068712624, w: -0.94897884}
-  m_LocalPosition: {x: 0.017892828, y: 5.142528, z: -2.9630501}
+  m_LocalRotation: {x: -0.22495107, y: 0, z: -0, w: -0.9743701}
+  m_LocalPosition: {x: -1.9366992, y: 2.0715246, z: 4.6489983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26, y: 360, z: 0}
 --- !u!114 &1989050168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8218,7 +8444,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
-  posOffset: {x: 0, y: 5.148695, z: -3}
+  posOffset: {x: 0, y: 3, z: -2.5}
+  rotOffset: {x: 26, y: 360, z: 0}
 --- !u!1 &2036059271
 GameObject:
   m_ObjectHideFlags: 0
@@ -8906,74 +9133,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6180977833186921756, guid: fd2b13defb1b8438785dea0a9fca94a5, type: 3}
   m_PrefabInstance: {fileID: 2141746909}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2143505620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2143505622}
-  - component: {fileID: 2143505623}
-  m_Layer: 0
-  m_Name: ActionExtractorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2143505622
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143505620}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143505623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143505620}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advancedOptions: 0
-  remote: 0
-  port: 13333
-  numThreads: -1
-  numGPULayers: 10
-  debug: 0
-  parallelPrompts: -1
-  dontDestroyOnLoad: 1
-  contextSize: 8192
-  batchSize: 512
-  model: 
-  chatTemplate: llama3 chat
-  lora: 
-  loraWeights: 
-  flashAttention: 0
-  APIKey: 
-  SSLCert: 
-  SSLCertPath: 
-  SSLKey: 
-  SSLKeyPath: 
-  minContextLength: 0
-  maxContextLength: 131072
-  embeddingsOnly: 0
-  embeddingLength: 2048
 --- !u!1001 &138341566293135916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8984,7 +9143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3467976579344336881, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1685500443
+      value: 1784031615
       objectReference: {fileID: 0}
     - target: {fileID: -3467976579344336881, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -9036,122 +9195,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2087415712440016775, guid: 895829f3e710645478fb273d981a9424, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 138341566293135919}
-    - targetCorrespondingSourceObject: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 138341566293135930}
+      addedObject: {fileID: 478339257}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895829f3e710645478fb273d981a9424, type: 3}
---- !u!1 &138341566293135917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
+--- !u!4 &138341566293135917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2087415712440016775, guid: 895829f3e710645478fb273d981a9424, type: 3}
   m_PrefabInstance: {fileID: 138341566293135916}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &138341566293135919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138341566293135917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f6c87a428fd5d0be9bbc686bdc8c3c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advancedOptions: 0
-  remote: 0
-  _llm: {fileID: 2143505623}
-  APIKey: 
-  host: localhost
-  port: 13333
-  numRetries: 10
-  save: 
-  saveCache: 0
-  debugPrompt: 0
-  numPredict: 256
-  slot: -1
-  grammar: 
-  cachePrompt: 1
-  seed: 0
-  temperature: 0.2
-  topK: 40
-  topP: 0.9
-  minP: 0.05
-  repeatPenalty: 1.1
-  presencePenalty: 0
-  frequencyPenalty: 0
-  typicalP: 1
-  repeatLastN: 64
-  penalizeNl: 1
-  penaltyPrompt: 
-  mirostat: 0
-  mirostatTau: 5
-  mirostatEta: 0.1
-  nProbs: 0
-  ignoreEos: 0
-  nKeep: -1
-  stop: []
-  stream: 1
-  playerName: user
-  AIName: assistant
-  prompt: 
-  setNKeepToPrompt: 1
-  chat: []
-  grammarString: 
---- !u!114 &138341566293135930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138341566293135917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50e3140c3ecaaf1c848dbf141cc2074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advancedOptions: 0
-  remote: 0
-  port: 13333
-  numThreads: -1
-  numGPULayers: 0
-  debug: 0
-  parallelPrompts: -1
-  dontDestroyOnLoad: 1
-  contextSize: 8192
-  batchSize: 512
-  model: 
-  chatTemplate: chatml
-  lora: 
-  loraWeights: 
-  flashAttention: 0
-  APIKey: 
-  SSLCert: 
-  SSLCertPath: 
-  SSLKey: 
-  SSLKeyPath: 
-  minContextLength: 0
-  maxContextLength: 0
-  embeddingsOnly: 0
-  embeddingLength: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1601483641}
   - {fileID: 213846321}
-  - {fileID: 1989050167}
   - {fileID: 706340978}
   - {fileID: 1065828631}
   - {fileID: 405745140}
+  - {fileID: 1989050167}
   - {fileID: 138341566293135916}
   - {fileID: 886560164}
   - {fileID: 724136029}
   - {fileID: 587161553}
   - {fileID: 1442636224}
   - {fileID: 611683758}
-  - {fileID: 2143505622}
+  - {fileID: 97003497}

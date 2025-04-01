@@ -1,24 +1,54 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.Services.Vivox;
+using System.Drawing;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonobehaviourSingleton<UIManager>
 {
+    [Header("Channel Info")]
     [SerializeField]
-    private Voice3DChannelUI voice3DChannelUI;
-    private float voice3DChannelUIUpdateInterval = 0.1f;
+    private ChannelInfoPanel channelInfoPanel;
+
+    [Header("Whisper")]
+    [SerializeField]
+    private TextMeshProUGUI sttResponse;
+    [SerializeField]
+    private Image vadIndicatorImage;
+
+    [Header("Vivox Voice Channel")]
+    [SerializeField]
+    private VoiceChannelUI voiceChannelUI;
+    private float voiceChannelUIUpdateInterval = 0.1f;
 
     void Start()
     {
-        StartCoroutine(Update3DVoiceChannelUICoroutine());       
+        ClearSttResponseText();
     }
 
-    private IEnumerator Update3DVoiceChannelUICoroutine(){
+    public void SetSttResponseText(string text){
+        sttResponse.text = text;
+    }
+
+    public void AddSttResponseText(string text){
+        sttResponse.text += text;
+    }
+
+    public void ClearSttResponseText(){
+        sttResponse.text = "";
+    }
+
+    public void SetChannelCode(string channelCode){
+        channelInfoPanel.ChannelCode = channelCode;
+    }
+
+    public void StartUpdatingVoiceChannelUI(){
+        StartCoroutine(UpdateVoiceChannelUICoroutine());  
+    }
+
+    private IEnumerator UpdateVoiceChannelUICoroutine(){
         while(true){
-            voice3DChannelUI.UpdateUI();
-            yield return new WaitForSeconds(voice3DChannelUIUpdateInterval);
+            voiceChannelUI.UpdateUI();
+            yield return new WaitForSeconds(voiceChannelUIUpdateInterval);
         }
     }
     

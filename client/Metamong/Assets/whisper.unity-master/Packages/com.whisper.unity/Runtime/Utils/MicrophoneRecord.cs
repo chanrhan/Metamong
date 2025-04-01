@@ -102,6 +102,7 @@ namespace Whisper.Utils
             {
                 if (value != null && !AvailableMicDevices.Contains(value))
                     throw new ArgumentException("Microphone device not found");
+                Debug.Log("Changed Mic Device: " + value);
                 _selectedMicDevice = value;
             }
         }

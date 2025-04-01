@@ -6,33 +6,6 @@ using System;
 
 public class ChatManager : MonobehaviourSingleton<ChatManager>
 {
-    // #region 싱글톤 구현 부분 with Awake()
-    // private static ChatManager instance;
-    // public static ChatManager Instance
-    // {
-    //     get
-    //     {
-    //         if (!instance)
-    //         {
-    //             instance = FindObjectOfType<ChatManager>();
-    //             if (!instance)
-    //             {
-    //                 instance = new GameObject("ChatManager").AddComponent<ChatManager>();
-    //             }
-    //         }
-    //         return instance;
-    //     }
-    // }
-
-    // private void Awake()
-    // {
-    //     if (instance == null) instance = this;
-    //     else
-    //         Destroy(gameObject);
-        
-    //     DontDestroyOnLoad(gameObject);
-    // }
-    // #endregion
 
     private ChatLogBox chatLogBox;
     private ChatInputBox chatInputBox;
@@ -45,11 +18,11 @@ public class ChatManager : MonobehaviourSingleton<ChatManager>
         {
             chatLogBox = FindFirstObjectByType<ChatLogBox>();
             if(chatLogBox == null)
-                throw new System.Exception("ChatLogBox를 찾을 수 없습니다.");
+                throw new Exception("ChatLogBox를 찾을 수 없습니다.");
 
             chatInputBox = FindFirstObjectByType<ChatInputBox>();
             if(chatInputBox == null)
-                throw new System.Exception("ChatInputBox를 찾을 수 없습니다.");
+                throw new Exception("ChatInputBox를 찾을 수 없습니다.");
         }
     }
 

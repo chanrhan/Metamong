@@ -22,7 +22,11 @@ public class RelayManager : MonobehaviourSingleton<RelayManager>
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(m_MaxConnections);
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            Debug.Log("JoinCode: " + joinCode);
+
+            // Set Join Code
+            ClientManager.Instance.JoinCode = joinCode;
+            UIManager.Instance.SetChannelCode(joinCode);
+            // Debug.Log("JoinCode: " + joinCode);
 
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
             CustomNetworkManager.Instance.GetComponent<UnityTransport>().SetRelayServerData(

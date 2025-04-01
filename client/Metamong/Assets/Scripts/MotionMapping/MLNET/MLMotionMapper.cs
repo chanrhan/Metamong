@@ -21,13 +21,13 @@ public class MLMotionMapper : MonoBehaviour
         void OnEnable()
     {
         // ChatCompletion의 이벤트 구독
-        ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
+        //ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
     }
 
     void OnDisable()
     {
         // 이벤트 구독 해제 (메모리 누수 방지)
-        ChatCompletionWithSummary.OnActionTextUpdated -= UpdateActionText;
+        //ChatCompletionWithSummary.OnActionTextUpdated -= UpdateActionText;
     }
 private void UpdateActionText(string newText)
 {

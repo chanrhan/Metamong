@@ -14,8 +14,8 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 {
     public event Action OnLoginEndEvent;
 
-    [SerializeField]
-    public string channelName;
+    public string joinedChannelName;
+
     [SerializeField]
     private Channel3DSetting channel3DSetting;
     [SerializeField]
@@ -27,7 +27,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     [SerializeField]
     private bool enableDtx = true;
     [SerializeField]
-    private VivoxLogLevel logLevel = VivoxLogLevel.Debug;
+    private VivoxLogLevel logLevel = VivoxLogLevel.None;
 
     private HashSet<VivoxParticipant> joinedParticipants = new HashSet<VivoxParticipant>();
     private HashSet<VivoxParticipant> speakingParticipants = new HashSet<VivoxParticipant>();
@@ -48,14 +48,14 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
             EnableDtx = enableDtx,
             // UpstreamJitterFrameCount = upstreamJitterFrameCount
         });
-        AuthenticationManager.Instance.SetLoginProgress(50);
+        LobbyUIManager.Instance.SetLoginProgress(50);
 
         Debug.Log("초기화 완료");
 
         BindSessionEvents();
 
         await LoginAsync();
-        AuthenticationManager.Instance.SetLoginProgress(70);
+        LobbyUIManager.Instance.SetLoginProgress(70);
 
         
         SetVoiceProperties();
@@ -84,10 +84,6 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         await VivoxService.Instance.EnableAutoVoiceActivityDetectionAsync();
     }
 
-    private void SetAutoVad(){
-        
-    }
-
     private void BindSessionEvents(){
         VivoxService.Instance.ParticipantAddedToChannel += OnParticipantAdded;
         VivoxService.Instance.ParticipantRemovedFromChannel += OnParticipantRemoved;
@@ -101,20 +97,26 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
 
     
 
-    public async Task JoinVoiceChannel(){
+    public async Task JoinVoiceChannel(string channelName){
         await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
-
+        OnJoinChannel(channelName);
         // STT 
         await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
     }
 
-    public async void Join3DChannel(GameObject speakObj){
+    public async void Join3DChannel(string channelName, GameObject speakObj){
         await VivoxService.Instance.JoinPositionalChannelAsync(channelName, ChatCapability.AudioOnly, channel3DSetting.GetChannel3DSetting());
-
-        StartCoroutine(Update3DPositionCoroutine(speakObj));
+        OnJoinChannel(channelName);
+        StartCoroutine(Update3DPositionCoroutine(channelName, speakObj));
     }
 
-    private IEnumerator Update3DPositionCoroutine(GameObject speakObj){
+    private void OnJoinChannel(string channelName){
+        Debug.Log("Joined Channel: " + channelName);
+        joinedChannelName = channelName;
+        UIManager.Instance.StartUpdatingVoiceChannelUI();
+    }
+
+    private IEnumerator Update3DPositionCoroutine(string channelName, GameObject speakObj){
         while(true){
             VivoxService.Instance.Set3DPosition(speakObj, channelName);
             yield return new WaitForSeconds(positionUpdateRate);
@@ -122,14 +124,29 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
     }
 
     private void OnParticipantAdded(VivoxParticipant participant){
-        Debug.Log("Vivox Participant Added : " + participant.DisplayName);
+        // Debug.Log("Vivox Participant Added : " + participant.DisplayName);
         participant.SetLocalVolume(100);
         joinedParticipants.Add(participant);
     }
 
     private void OnParticipantRemoved(VivoxParticipant participant){
-        Debug.Log("Vivox Participant Removed : " + participant.DisplayName);
+        // Debug.Log("Vivox Participant Removed : " + participant.DisplayName);
         joinedParticipants.Remove(participant);
     }
+
+    public void InputDeviceValueChanged(string deviceName)
+    {
+        VivoxService.Instance.SetActiveInputDeviceAsync(
+            VivoxService.Instance.AvailableInputDevices
+                .First(device => device.DeviceName == deviceName));
+    }
+
+    public void OutputDeviceValueChanged(string deviceName)
+    {
+        VivoxService.Instance.SetActiveOutputDeviceAsync(
+            VivoxService.Instance.AvailableOutputDevices
+                .First(device => device.DeviceName == deviceName));
+    }
+
 
 }

@@ -74,7 +74,7 @@ namespace Unity.Services.Vivox.AudioTaps
             };
 
             SetSpeechToText();
-            await VivoxManager.Instance.JoinVoiceChannel();
+            await VivoxManager.Instance.JoinVoiceChannel("test");
 
             GameObject runObject = Instantiate(spinningPrefab);
         }
