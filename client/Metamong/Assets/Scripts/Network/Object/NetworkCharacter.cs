@@ -18,7 +18,10 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
             {
                 NetworkObject no = hit.transform.GetComponent<NetworkObject>();
                 if(no){
-                    targets.Add(no.ToNetworkTarget());
+                    NetworkTarget nt = no.ToNetworkTarget();
+                    if(nt.clientId != ClientManager.Instance.ClientInfo.clientId){
+                        targets.Add(nt);
+                    }
                 }
             }
         }

@@ -76,7 +76,7 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
             chatHistory.Dequeue();
         }
         chatHistory.Enqueue($"{playerId}:{msg}");
-        
+
     }
 
     public string GenerateChatLogs()
@@ -90,7 +90,7 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
         return strBuilder.ToString();
     }
 
-    public async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = true)
+    public async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = false)
     {
         string logs = GenerateChatLogs();
 
