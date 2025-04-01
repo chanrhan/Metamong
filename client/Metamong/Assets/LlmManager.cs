@@ -1,7 +1,11 @@
 using LLMUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Text;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +15,8 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
     private LLMCharacter myllmCharacter;
     public LLMCharacter MyLlmCharacter {get => myllmCharacter;}
     private LLM llm;
+
+    private Queue<string> chatHistory = new Queue<string>(10);
 
     protected override void Awake()
     {
@@ -23,28 +29,29 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
     {
         gameObject.SetActive(false);
         
-        llm.SetModel("llama-3.2-3b-instruct-q4_k_m.gguf");
+        llm.SetModel("llama-3-Korean-Bllossom-8B-Q4_K_M.gguf");
             llm.numThreads = -1;
             llm.numGPULayers = 10;
             myllmCharacter.llm = llm;
 
             myllmCharacter.SetPrompt(
-            "You are an AI assistant that converts a user's spoken input (provided as Korean text) into a single, concise English sentence describing both the emotional state and corresponding physical actions (facial expressions and body movements). The output should only include the English sentence that conveys the mood and motion.\n\n" +
-            "For each Korean input, generate a clear and concise sentence that includes:\n" +
-            "1. **Act**: A physical action or behavior (e.g., jumping, sitting, waving).\n" +
-            "2. **Face**: A facial expression (e.g., smiling, frowning, surprised).\n" +
-            "3. **Emotion**: The feeling behind the action (e.g., happiness, anger, surprise).\n\n" +
-            "Do not include any introductory text. **Only the action, face, and emotion should be included in the response.**\n\n" +
-            "### Few-shot Examples ###\n\n" +
-            "Input (Korean): \"오늘 정말 기뻐\"\n" +
-            "Output (English): \"The person smiles broadly and claps their hands joyfully.\"\n\n" +
-            "Input (Korean): \"너무 놀라서 숨이 막혀\"\n" +
-            "Output (English): \"The person gasps in surprise, eyes widening and shoulders tensing.\"\n\n" +
-            "Input (Korean): \"화가 나서 소리쳤어\"\n" +
-            "Output (English): \"The person frowns deeply and shouts with an aggressive gesture, fists clenched.\"\n\n" +
-            "Input (Korean): \"나 배고파\"\n" +
-            "Output (English): \"The person looks slightly irritated, with their eyebrows furrowed, rubbing their stomach in discomfort.\"\n\n" +
-            "Now, process the input and generate a response based on the input."
+            "당신은 한국어 대화 분석 전문가입니다.\n" +
+            "아래 대화 맥락을 분석하고, 마지막 발화에 집중하여 다음 네 가지 핵심 요소를 중심으로 분석하세요:\n" +
+            "   - 대화의 주요 아이디어를 한 단어로 요약한 키워드\n" +
+            "   - 내포된 감정 (예: 기쁨, 슬픔, 분노, 비꼬는, 진지함 등)\n" +
+            "   - 암시되는 표정 (예: 미소, 찡그림, 비꼬는 표정 등)\n" +
+            "   - 관련된 행동 또는 모션 (예: 웃음, 어깨 으쓱, 끄덕임 등)\n" +
+            "대화 맥락 전체를 고려하여, 마지막 발화가 비꼬는지 혹은 진심인지를 판단한 후, 위 네 가지 요소를 모두 반영한 자연스럽고 일관된 한 문장의 영어 문장으로 요약된 결과를 출력하세요.\n" +
+            "\n" +
+            "예시:\n" +
+            "대화 맥락:\n" +
+            "    jjj : 오늘 날씨 어때?\n" +
+            "    aaa : 뭐, 별로야.\n" +
+            "마지막 발화: aaa : 정말? 아무리 그래도...\n" +
+            "출력 예: 'A mildly skeptical remark with a slight frown and a shrug, questioning the sincerity of the comment.'\n" +
+            "\n" +
+            "아래 대화 맥락과 마지막 발화를 참고하여 작업을 수행하세요:" +
+            "---\n"
             );
             gameObject.SetActive(true);
 
@@ -55,5 +62,30 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
 
     }
 
+    public void AddChatLog(string playerId, string msg) {
+        
+        if(chatHistory.Count + 1 > 10)
+        {
+            chatHistory.Dequeue();
+        }
+        chatHistory.Enqueue($"{playerId}:{msg}");
+    }
 
+    public string GenerateChatLogs()
+    {
+        StringBuilder strBuilder = new StringBuilder("");
+        foreach(string str in chatHistory)
+        {
+            strBuilder.Append($"{str}\n");
+        }
+        
+        return strBuilder.ToString();
+    }
+
+    public async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = true)
+    {
+        string logs = GenerateChatLogs();
+
+        return await myllmCharacter.Chat(logs + "---\n 마지막 발화: " + query, callback, completionCallback, addToHistory);
+    }
 }
