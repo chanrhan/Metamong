@@ -194,8 +194,12 @@ namespace Whisper
         /// <remarks>
         /// If you set microphone into constructor, it will be called automatically.
         /// </remarks>
+        
+        public static bool wasFinishedSegment = false;
+        public static bool start = true;
         public async void AddToStream(AudioChunk chunk)
         {
+
             if (!_isStreaming)
             {
                 LogUtils.Warning("Start streaming first!");
@@ -204,6 +208,13 @@ namespace Whisper
 
             if (_param.UseVad)
             {
+                if(wasFinishedSegment || start){
+                    mySW.Restart();
+                    LogUtils.Log("스탑워치를 재시작합니다.");
+                    wasFinishedSegment = false;
+                    start = false;
+                }
+                
                 if (chunk.IsVoiceDetected)
                 {
                     _newBuffer.AddRange(chunk.Data);
@@ -219,6 +230,9 @@ namespace Whisper
 
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow(true);
+                    
+                    
+
                 }
             }
             else
@@ -234,6 +248,7 @@ namespace Whisper
         /// </summary>
         public async void StopStream()
         {
+            
             if (!_isStreaming)
             {
                 LogUtils.Warning("Start streaming first!");
@@ -307,7 +322,8 @@ namespace Whisper
             // current data is already copied into local buffer
             _newBuffer.Clear();
 
-            mySW.Restart();
+            
+            
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
                 _param.Channels, _param.InferenceParam);
@@ -327,6 +343,7 @@ namespace Whisper
             _step++;
             if (forceSegmentEnd || _step >= _param.StepsCount)
             {
+                
                 LogUtils.Verbose($"Stream finished an old segment with total steps of {_step}");
                 _output = currentOutput;
                 stt_result_segments = _output;
@@ -347,7 +364,10 @@ namespace Whisper
                 _step = 0;
                 
                 OnSegmentFinished?.Invoke(res);
+                LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
                 finishSegmentTime.Add(mySW.ElapsedMilliseconds);
+                wasFinishedSegment = true;
+                
             }
             else
             {
