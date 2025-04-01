@@ -11,6 +11,7 @@ using System;
 using System.Linq;
 using Unity.VisualScripting;
 
+
 public class PlayerController : NetworkCharacter
 {
     //이동관련
@@ -54,7 +55,6 @@ public class PlayerController : NetworkCharacter
         CheckOnGround();
         if(!ChatManager.Instance.IsTyping){
             MovePosition();
-            TryJump();
         }
         else
         {
@@ -74,6 +74,7 @@ public class PlayerController : NetworkCharacter
         {
             //CharacterRotate();
             //CheckOnGround();
+            TryJump();
 
             // 테스트용 
             if (Input.GetKeyDown(KeyCode.G))
@@ -99,13 +100,16 @@ public class PlayerController : NetworkCharacter
         // }
 
         // SetWalkingAnim(nowVel);
-        Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical")).normalized;
+        Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
+
 
         if(moveVec != Vector3.zero)
-        {
-            currMoveVec = moveVec;
-            Debug.Log(currMoveVec);
-            myRigid.MovePosition(myRigid.position + currMoveVec * moveSpeed);
+        { 
+            Vector3 tempVec = CameraController.Instance.nowWatchingVec;
+            currMoveVec.x = tempVec.x * moveVec.z + tempVec.z * moveVec.x;
+            currMoveVec.z = tempVec.z * moveVec.z - tempVec.x * moveVec.x;
+
+            myRigid.MovePosition(myRigid.position + currMoveVec.normalized * moveSpeed);
             myAnim.SetBool("isWalking",true);
         }
         else
