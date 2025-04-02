@@ -42,7 +42,7 @@ public class PlayerController : NetworkCharacter
 
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
-
+            transform.position = new Vector3(-10,0,-5);
         }
     }
 
@@ -209,19 +209,23 @@ public class PlayerController : NetworkCharacter
     public async void SendMessageToOthers(string message)
     {
         if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+            foreach(NetworkTarget nt in targets){
+                Debug.Log("Send to : " + nt);
+            }
             PacketSendHandler.Chat(message, targets);
-
-            ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
-            
-            ChatManager.Instance.InputChat(clientInfo.username, message);
-            string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
-            LlmManager.Instance.AddChatLog(clientInfo.username,message);
-            
-            Debug.Log("Response: " + response);
-           
-            OnActionTextUpdated?.Invoke(response);
         }
+
+        ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
+            
+        ChatManager.Instance.InputChat(clientInfo.username, message);
+        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
+        LlmManager.Instance.AddChatLog(clientInfo.username,message);
+            
+        Debug.Log("Response: " + response);
+            
+        OnActionTextUpdated?.Invoke(response);
     }
+
     void HandleReply(string reply)
     {
         //Debug.Log("Extracted Actions: " + reply);

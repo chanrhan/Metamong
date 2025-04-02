@@ -3041,80 +3041,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &724136025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 724136029}
-  - component: {fileID: 724136028}
-  - component: {fileID: 724136027}
-  - component: {fileID: 724136026}
-  m_Layer: 0
-  m_Name: MotionMapper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &724136026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724136025}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e523b6d6ced69f43afea26d4684b173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textarea: {fileID: 0}
---- !u!114 &724136027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724136025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e28709463f781e34f9b89632d7e7bb6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &724136028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724136025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbd29bac4b87454499ad685169dee39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerController: {fileID: 0}
-  NpcAI: {fileID: 0}
-  textarea: {fileID: 0}
---- !u!4 &724136029
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724136025}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 999.0213, y: 674.65814, z: 21.720196}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737237762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,8 +3546,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866260185}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.22495107, y: 0, z: -0, w: -0.9743701}
-  m_LocalPosition: {x: -1.9366992, y: 2.0715246, z: 4.6489983}
+  m_LocalRotation: {x: -0.38184184, y: 0.009330336, z: -0.0038597763, w: -0.9241726}
+  m_LocalPosition: {x: -16.34952, y: 9.486425, z: -21.378159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7690,8 +7616,7 @@ MonoBehaviour:
   stream: 1
   playerName: user
   AIName: assistant
-  prompt: A chat between a curious human and an artificial intelligence assistant.
-    The assistant gives helpful, detailed, and polite answers to the human's questions.
+  prompt: 
   setNKeepToPrompt: 1
   chat: []
   grammarString: 
@@ -9998,7 +9923,6 @@ SceneRoots:
   - {fileID: 405745140}
   - {fileID: 138341566293135916}
   - {fileID: 886560164}
-  - {fileID: 724136029}
   - {fileID: 587161553}
   - {fileID: 1442636224}
   - {fileID: 611683758}
