@@ -62,7 +62,7 @@ public class ServerPacketReceiveHandler : PacketHandler
                 TargetClientIds = packetSendWrapper.GetClientIds()
             };
         }
-        Debug.Log("Chat To " + packetSendWrapper.networkTargets[0].networkObjectId);
+        // Debug.Log("Chat To " + packetSendWrapper.networkTargets[0].networkObjectId);
 
         // 클라이언트에게 메세지 전송
         RpcManager.Instance.ReceivePacketClientRpc(packetSendWrapper.packet, clientRpcParams);
@@ -77,6 +77,7 @@ public class ServerPacketReceiveHandler : PacketHandler
                 string msg = packetSendWrapper.packet.message;
 
                 foreach(ulong id in networkObjectIds){
+                    // Debug.Log("npc send id : " + id);
                     if(CustomNetworkManager.Instance.TryGetNetworkObjectById(id, out NetworkObject networkObject)){
                         // IListenable 을 가지고 있는 객체들에게 모두 메세지 전송
                         if(networkObject.TryGetComponent(out IListenable listenable)){

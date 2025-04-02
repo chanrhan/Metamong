@@ -63,7 +63,7 @@ public class NpcAI : NetworkCharacter
     /// </summary>
     public override void SendMessageToOthers()
     {
-        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+        if(TryGetAroundNetworkTargets(OwnerClientId, out NetworkTarget[] targets)){
             string msg = chatCompletionWithSummary.ResponseText;
             ServerPacketReceiveHandler.TalkByNPC(msg, targets);
             isMessageListened = false;

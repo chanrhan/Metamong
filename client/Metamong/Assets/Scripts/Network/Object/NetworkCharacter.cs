@@ -8,7 +8,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
     //대화 관련
     public float speekRange = 5.0f;       // 채팅 전송 범위
     
-    protected bool TryGetAroundNetworkTargets(out NetworkTarget[] networkTargets){
+    protected bool TryGetAroundNetworkTargets(ulong networkObjectId, out NetworkTarget[] networkTargets){
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable Layer(2^7)
         
         List<NetworkTarget> targets = new List<NetworkTarget>();
@@ -19,8 +19,9 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
                 NetworkObject no = hit.transform.GetComponent<NetworkObject>();
                 if(no){
                     NetworkTarget nt = no.ToNetworkTarget();
-                    Debug.Log($"Detect: {nt.clientId}, {ClientManager.Instance.ClientInfo.clientId}" );
-                    if(nt.clientId != ClientManager.Instance.ClientInfo.clientId){
+
+                    // 자기 자신에게는 보내지 않음 (메아리 X)
+                    if(networkObjectId != nt.networkObjectId){
                         targets.Add(nt);
                     }
                 }

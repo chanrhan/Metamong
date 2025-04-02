@@ -199,7 +199,8 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     public override void SendMessageToOthers() 
     {
-        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
+        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
+        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
             string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
             
             PacketSendHandler.Chat(msg, targets);
@@ -208,10 +209,8 @@ public class PlayerController : NetworkCharacter
 
     public async void SendMessageToOthers(string message)
     {
-        if(TryGetAroundNetworkTargets(out NetworkTarget[] targets)){
-            foreach(NetworkTarget nt in targets){
-                Debug.Log("Send to : " + nt);
-            }
+        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
+        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
             PacketSendHandler.Chat(message, targets);
         }
 
