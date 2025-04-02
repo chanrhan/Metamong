@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Whisper.Utils;
 // ReSharper disable once RedundantUsingDirective
 using System.Linq;
+using System.Diagnostics;
 
 namespace Whisper
 {
@@ -193,8 +194,12 @@ namespace Whisper
         /// <remarks>
         /// If you set microphone into constructor, it will be called automatically.
         /// </remarks>
+        
+        public static bool wasFinishedSegment = false;
+        public static bool start = true;
         public async void AddToStream(AudioChunk chunk)
         {
+
             if (!_isStreaming)
             {
                 LogUtils.Warning("Start streaming first!");
@@ -203,6 +208,13 @@ namespace Whisper
 
             if (_param.UseVad)
             {
+                if(wasFinishedSegment || start){
+                    mySW.Restart();
+                    LogUtils.Log("스탑워치를 재시작합니다.");
+                    wasFinishedSegment = false;
+                    start = false;
+                }
+                
                 if (chunk.IsVoiceDetected)
                 {
                     _newBuffer.AddRange(chunk.Data);
@@ -218,6 +230,9 @@ namespace Whisper
 
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow(true);
+                    
+                    
+
                 }
             }
             else
@@ -233,6 +248,7 @@ namespace Whisper
         /// </summary>
         public async void StopStream()
         {
+            
             if (!_isStreaming)
             {
                 LogUtils.Warning("Start streaming first!");
@@ -259,6 +275,9 @@ namespace Whisper
             Reset();
         }
         
+        private Stopwatch mySW =new Stopwatch();
+        public List<double> finishSegmentTime = new List<double>();
+        public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
             // check if task isn't busy
@@ -303,6 +322,8 @@ namespace Whisper
             // current data is already copied into local buffer
             _newBuffer.Clear();
 
+            
+            
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
                 _param.Channels, _param.InferenceParam);
@@ -310,6 +331,7 @@ namespace Whisper
             // append current transcription into temporary output
             var res = await _task;
             var currentSegment = res.Result;
+            LogUtils.Log($"segment text: {currentSegment}\n");
             var currentOutput = _output + currentSegment;
 
             // send update to user
@@ -321,8 +343,11 @@ namespace Whisper
             _step++;
             if (forceSegmentEnd || _step >= _param.StepsCount)
             {
+                
                 LogUtils.Verbose($"Stream finished an old segment with total steps of {_step}");
                 _output = currentOutput;
+                stt_result_segments = _output;
+                
 
                 // TODO: don't use string prompt - use tokenized prompt_tokens
                 // update prompt with latest transcription
@@ -339,6 +364,10 @@ namespace Whisper
                 _step = 0;
                 
                 OnSegmentFinished?.Invoke(res);
+                LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
+                finishSegmentTime.Add(mySW.ElapsedMilliseconds);
+                wasFinishedSegment = true;
+                
             }
             else
             {
@@ -346,6 +375,10 @@ namespace Whisper
                 // swap buffers
                 _oldBuffer = buffer;
             }
+        }
+
+        public string GetFinishedSegment(){
+            return stt_result_segments;
         }
 
         private void Reset()

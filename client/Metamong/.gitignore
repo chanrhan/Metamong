@@ -82,3 +82,6 @@ crashlytics-build.properties
 # Llama 모델과 .dll 파일 
 **/[Aa]ssets/[Ss]treamingAssets/[Uu]ndreamai-v1.2.3-llamacpp/
 **/[Aa]ssets/[Ss]treamingAssets/*.gguf
+
+#STT 모델 파일 형식
+**/[Aa]ssets/[Ss]treamingAssets/*.bin

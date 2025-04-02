@@ -38,6 +38,8 @@ namespace Whisper
         private readonly WhisperNativeParams _params;
         private readonly object _lock = new object();
 
+        private List<long> inferenceList = new List<long>();
+
         private WhisperWrapper(IntPtr whisperCtx)
         {
             _whisperCtx = whisperCtx;
@@ -68,6 +70,7 @@ namespace Whisper
                 LogUtils.Error($"Failed to get audio data from clip {clip.name}!");
                 return null;
             }
+
             
             return GetText(samples, clip.frequency, clip.channels, param);
         }
@@ -117,7 +120,7 @@ namespace Whisper
                 var gch = GCHandle.Alloc(userData);
                 var nativeParams = param.NativeParams;
                 
-                // add callback (if no custom callback set)
+                // add callback (if no custom callback set) 콜백 주소 설정 포인터 할당
                 if (nativeParams.new_segment_callback == null &&
                     nativeParams.new_segment_callback_user_data == IntPtr.Zero)
                 {
@@ -151,7 +154,7 @@ namespace Whisper
 
                 var langId = WhisperNative.whisper_full_lang_id(_whisperCtx);
                 var res = new WhisperResult(list, langId);
-
+                
                 //UnityEngine.Debug.Log($"{sw.ElapsedMilliseconds} ms");
                 LogUtils.MyLog($"Final text: {res.Result}\n");
                 return res;
@@ -192,7 +195,12 @@ namespace Whisper
             }
 
             LogUtils.MyLog($"Whisper inference finished, total time: {mySW.ElapsedMilliseconds} ms.");
+            inferenceList.Add(mySW.ElapsedMilliseconds);
             return true;
+        }
+
+        public List<long> GetInferenceTime(){
+            return inferenceList;
         }
 
         [MonoPInvokeCallback(typeof(whisper_new_segment_callback))]

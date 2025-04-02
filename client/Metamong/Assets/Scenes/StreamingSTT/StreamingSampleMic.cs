@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Whisper.Utils;
+using System.Collections.Generic;
 
 namespace Whisper.Samples
 {
@@ -19,6 +20,10 @@ namespace Whisper.Samples
         public ScrollRect scroll;
         private WhisperStream _stream;
 
+        public List<string> segment_launch = new List<string>();
+        
+        public List<double> finSegTime = new List<double>()
+;
         private async void Start()
         {
             _stream = await whisper.CreateStream(microphoneRecord);
@@ -39,7 +44,9 @@ namespace Whisper.Samples
                 microphoneRecord.StartRecord();
             }
             else
+            {
                 microphoneRecord.StopRecord();
+            }
         
             buttonText.text = microphoneRecord.IsRecording ? "Stop" : "Record";
         }
@@ -62,12 +69,18 @@ namespace Whisper.Samples
         
         private void OnSegmentFinished(WhisperResult segment)
         {
+            segment_launch.Add(segment.Result);
+            finSegTime=_stream.finishSegmentTime;
             print($"Segment finished: {segment.Result}");
+
         }
         
         private void OnFinished(string finalResult)
         {
             print("Stream finished!");
+            
+            Debug.Log(string.Join(",", finSegTime));
+            
         }
     }
 }
