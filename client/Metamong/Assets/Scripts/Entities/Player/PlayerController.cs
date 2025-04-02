@@ -39,9 +39,9 @@ public class PlayerController : NetworkCharacter
     private void Start()
     {
         if(IsOwner){
-
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
+            ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10,0,-5);
         }
     }

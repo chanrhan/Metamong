@@ -19,6 +19,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
                 NetworkObject no = hit.transform.GetComponent<NetworkObject>();
                 if(no){
                     NetworkTarget nt = no.ToNetworkTarget();
+                    Debug.Log($"Detect: {nt.clientId}, {ClientManager.Instance.ClientInfo.clientId}" );
                     if(nt.clientId != ClientManager.Instance.ClientInfo.clientId){
                         targets.Add(nt);
                     }
