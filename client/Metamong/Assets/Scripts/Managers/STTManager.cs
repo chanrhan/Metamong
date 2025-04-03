@@ -14,10 +14,15 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private WhisperStream _stream;
 
+    private PlayerController myCharic;
+    public PlayerController MyCharic
+    {
+        set {myCharic = value;}
+    }
+
     [Header("Mac Os")]
     [SerializeField]
     private bool AllowMacOs = false;
-
     private bool IsPlatformMacOs = false;
 
     protected async override void Awake()
@@ -36,6 +41,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         
         whisper = GetComponent<WhisperManager>();
         microphoneRecord = GetComponent<MicrophoneRecord>();
+        
+
         if(whisper == null){
             throw new Exception("WhisperManager is not found!");
         }
@@ -50,7 +57,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         }
         _stream.OnResultUpdated += OnResult;
         // _stream.OnSegmentUpdated += OnSegmentUpdated;
-        // _stream.OnSegmentFinished += OnSegmentFinished;
+        _stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
     }
 
@@ -101,6 +108,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     
     private void OnSegmentFinished(WhisperResult segment)
     {
+        myCharic.SendMessageToOthers(segment.Result);
         print($"Segment finished: {segment.Result}");
     }
     

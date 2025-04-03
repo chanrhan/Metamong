@@ -8575,7 +8575,7 @@ MonoBehaviour:
   maxLengthSec: 60
   loop: 0
   frequency: 16000
-  chunksLengthSec: 0.5
+  chunksLengthSec: 0.8
   echo: 0
   useVad: 1
   vadUpdateRateSec: 0.1
@@ -8612,11 +8612,11 @@ MonoBehaviour:
   singleSegment: 0
   enableTokens: 0
   initialPrompt: 
-  stepSec: 3
-  keepSec: 0.2
+  stepSec: 0
+  keepSec: 1
   lengthSec: 10
   updatePrompt: 1
-  dropOldBuffer: 0
+  dropOldBuffer: 1
   useVad: 1
   tokensTimestamps: 0
   speedUp: 0
