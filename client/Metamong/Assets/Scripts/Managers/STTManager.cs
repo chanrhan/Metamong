@@ -14,11 +14,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private WhisperStream _stream;
 
-    private PlayerController myCharic;
-    public PlayerController MyCharic
-    {
-        set {myCharic = value;}
+    private PlayerController playerController;
+    public PlayerController PlayerController{
+        set => playerController = value;
     }
+    
 
     [Header("Mac Os")]
     [SerializeField]
@@ -59,6 +59,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         // _stream.OnSegmentUpdated += OnSegmentUpdated;
         _stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
+
+        // myCharic = ClientManager.Instance.PlayerController;
     }
 
     void Update()
@@ -108,9 +110,18 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     
     private void OnSegmentFinished(WhisperResult segment)
     {
-        myCharic.SendMessageToOthers(segment.Result);
-        print($"Segment finished: {segment.Result}");
+        
+        if (playerController != null)
+        {
+            playerController.SendResultToLlama(segment.Result);
+            Debug.Log($"Segment finished: {segment.Result}");
+        }
+        else
+        {
+            Debug.LogError("PlayerController 인스턴스가 할당되지 않았습니다.");
+        }
     }
+
     
     private void OnFinished(string finalResult)
     {

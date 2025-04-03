@@ -199,24 +199,39 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     public override void SendMessageToOthers() 
     {
-        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
-        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
+        if(TryGetAroundAll(out NetworkTarget[] targets)){
             string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
             
-            PacketSendHandler.Chat(msg, targets);
+            PacketSendHandler.ChatText(msg, targets);
         }
     }
 
     public async void SendMessageToOthers(string message)
     {
-        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
-        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
-            PacketSendHandler.Chat(message, targets);
+        if(TryGetAroundAll(out NetworkTarget[] targets)){
+            PacketSendHandler.ChatText(message, targets);
         }
 
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
             
         ChatManager.Instance.InputChat(clientInfo.username, message);
+        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
+        LlmManager.Instance.AddChatLog(clientInfo.username,message);
+            
+        Debug.Log("Response: " + response);
+            
+        OnActionTextUpdated?.Invoke(response);
+    }
+    public async void SendResultToLlama(string message)
+    {
+        // 채팅 메세지는 NPC한테만 보내기
+        if(TryGetAroundNPC(out NetworkTarget[] targets)){
+            PacketSendHandler.ChatText(message, targets);
+        }
+        
+        ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
+            
+        //ChatManager.Instance.InputChat(clientInfo.username, message);
         string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
         LlmManager.Instance.AddChatLog(clientInfo.username,message);
             
@@ -231,7 +246,7 @@ public class PlayerController : NetworkCharacter
     }
     void ReplyCompleted()
     {
-        Debug.Log("Reply Completed");
+       // Debug.Log("Reply Completed");
     }
 
     /// <summary>

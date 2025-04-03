@@ -14,7 +14,7 @@ public class PacketSendHandler : PacketHandler
     /// </summary>
     /// <param name="msg">보낼 메세지</param>
     /// <param name="targets">수신할 네트워크 객체들 (빈 값일 경우 클라이언트 모두에게 전송)</param>
-    public static void Chat(string msg, NetworkTarget[] targets = null){
+    public static void ChatText(string msg, NetworkTarget[] targets = null){
         Chat(ClientManager.Instance.ClientInfo, msg, targets);
     }
 

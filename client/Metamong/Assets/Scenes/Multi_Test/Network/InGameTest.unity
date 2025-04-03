@@ -7636,7 +7636,7 @@ MonoBehaviour:
   remote: 0
   port: 13333
   numThreads: -1
-  numGPULayers: 10
+  numGPULayers: 20
   debug: 0
   parallelPrompts: -1
   dontDestroyOnLoad: 1
@@ -9762,10 +9762,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1685500443
       objectReference: {fileID: 0}
-    - target: {fileID: -3467976579344336881, guid: 895829f3e710645478fb273d981a9424, type: 3}
-      propertyPath: InScenePlacedSourceGlobalObjectIdHash
-      value: 2863424488
-      objectReference: {fileID: 0}
     - target: {fileID: 2087415712440016775, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.159231
@@ -9809,6 +9805,10 @@ PrefabInstance:
     - target: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: m_Name
       value: BasicNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
