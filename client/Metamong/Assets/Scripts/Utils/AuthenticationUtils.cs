@@ -4,11 +4,11 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
 
-public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManager>
+public class AuthenticationUtils
 {
+    private static bool isLogined = false;
 
-
-    public async Task Authenticate(){
+    public static async Task Authenticate(){
         LobbyUIManager.Instance.SetLoginProgress(10);
         await UnityServices.InitializeAsync();
 
@@ -19,17 +19,22 @@ public class AuthenticationManager : MonobehaviourSingleton<AuthenticationManage
         };
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
+        
         LobbyUIManager.Instance.SetLoginProgress(30);
     }
 
-    public async void Login(){
-        await Authenticate();
+    public static async void Login(){
+        if(isLogined){
+            Debug.Log("이미 로그인 상태입니다.");
+        }else{
+            await Authenticate();
+            isLogined = true;
 
-        // Vivox
-        await VivoxManager.Instance.InitializeVivox();
+            // Vivox
+            await VivoxManager.Instance.InitializeVivox();
 
-        LobbyUIManager.Instance.SetLoginProgress(100);
+            LobbyUIManager.Instance.SetLoginProgress(100);
+        }
 
         // Scene Load
         GameSceneManager.Instance.LoadInGameScene();

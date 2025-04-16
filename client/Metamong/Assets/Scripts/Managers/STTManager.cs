@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Whisper;
 using Whisper.Utils;
 
@@ -63,6 +64,10 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     void Update()
     {
+        if(SceneManager.GetActiveScene().name != GameSceneManager.Instance.InGameSceneName){
+            return;
+        }
+        
         if(IsPlatformMacOs){
             return;
         }

@@ -1,7 +1,8 @@
 using System.Collections;
-using System.Drawing;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonobehaviourSingleton<UIManager>
 {
@@ -19,6 +20,19 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     [SerializeField]
     private VoiceChannelUI voiceChannelUI;
     private float voiceChannelUIUpdateInterval = 0.1f;
+
+    [Header("Header UI")]
+
+    [SerializeField]
+    private Button btnQuit;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if(btnQuit){
+            btnQuit.onClick.AddListener(Quit);
+        }
+    }
 
     void Start()
     {
@@ -51,5 +65,9 @@ public class UIManager : MonobehaviourSingleton<UIManager>
             yield return new WaitForSeconds(voiceChannelUIUpdateInterval);
         }
     }
-    
+
+    private void Quit(){
+        GameSceneManager.Instance.LoadLobbyScene();
+        CustomNetworkManager.Instance.Disconnect();
+    }
 }

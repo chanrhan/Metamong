@@ -10,12 +10,17 @@ public class NetworkBehaviourSingleton<T> : NetworkBehaviour where T : Component
 
     public static T Instance { get => instance; }
 
+    [SerializeField]
+    protected bool dontDestroyOnLoad = true;
+
     protected virtual void Awake()
     {
         if (instance == null)
         {
             instance = this as T;
-            DontDestroyOnLoad(gameObject);
+            if(dontDestroyOnLoad){
+                DontDestroyOnLoad(gameObject);
+            }
         } else if (instance != this as T)
         {
             Destroy(this);

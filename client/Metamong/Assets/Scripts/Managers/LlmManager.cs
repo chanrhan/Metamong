@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LlmManager : MonobehaviourSingleton<LlmManager>
 {
@@ -55,7 +56,6 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
             );
             gameObject.SetActive(true);
 
-
             // 카메라 및 플레이어 오브젝트 설정
             //CameraController.Instance.SetTargetPlayer(gameObject);
             //ClientManager.Instance.MyPlayerObject = gameObject;
@@ -64,6 +64,11 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
 
     private void Update()
     {
+        // 인게임 씬이 아니면 동작하지 않도록 
+        if(SceneManager.GetActiveScene().name != GameSceneManager.Instance.InGameSceneName){
+            return;
+        }
+
         if(Input.GetKeyDown(KeyCode.L)){
             Debug.Log(GenerateChatLogs());
         }

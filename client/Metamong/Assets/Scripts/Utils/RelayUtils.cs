@@ -12,12 +12,11 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
 
-public class RelayManager : MonobehaviourSingleton<RelayManager>
+public class RelayUtils 
 {
-    [SerializeField]
-    private int m_MaxConnections = 4;
+    private static int m_MaxConnections = 4;
 
-    public async Task CreateRelay(){
+    public static async Task CreateRelay(){
         try{
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(m_MaxConnections);
 
@@ -40,7 +39,7 @@ public class RelayManager : MonobehaviourSingleton<RelayManager>
 
     }
 
-    public async Task JoinRelay(string joinCode){
+    public static async Task JoinRelay(string joinCode){
         try{
             Debug.Log("Joining Relay with " + joinCode);
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);

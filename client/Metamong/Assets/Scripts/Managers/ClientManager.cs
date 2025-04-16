@@ -12,14 +12,14 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
 {
 
     // [SerializeField]
-    public ClientInfo ClientInfo;
+    public ClientInfo ClientInfo = new ClientInfo();
 
-    public string JoinCode;
+    public string JoinCode = "";
 
 
-    private GameObject myPlayerObject;
-    private NetworkObject playerNetworkObject;
-    private PlayerController playerController;
+    private GameObject myPlayerObject = null;
+    private NetworkObject playerNetworkObject = null;
+    private PlayerController playerController = null;
 
     public GameObject MyPlayerObject{
         get{
@@ -38,10 +38,6 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
         }
     }
 
-    private async void JoinVoiceChannel(){
-        await VivoxManager.Instance.JoinVoiceChannel(JoinCode);
-    }
-
     public NetworkObject PlayerNetworkObject{
         get => playerNetworkObject;
     }
@@ -49,5 +45,20 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
     public PlayerController PlayerController{
         get => playerController;
     }
+    
+
+    void Start()
+    {
+        ClientInfo = new ClientInfo();
+        JoinCode = "";
+        myPlayerObject = null;
+        playerNetworkObject = null;
+        playerController = null;
+    }
+
+    private async void JoinVoiceChannel(){
+        await VivoxManager.Instance.JoinVoiceChannel(JoinCode);
+    }
+
     
 }

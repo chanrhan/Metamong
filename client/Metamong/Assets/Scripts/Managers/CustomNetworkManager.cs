@@ -62,7 +62,7 @@ public class CustomNetworkManager : NetworkManager
     public async Task JoinHost()
     {
         Debug.Log($"Welcome Host {ClientManager.Instance.ClientInfo.username}");
-        await RelayManager.Instance.CreateRelay();
+        await RelayUtils.CreateRelay();
     }
 
     public async Task JoinClient()
@@ -72,7 +72,7 @@ public class CustomNetworkManager : NetworkManager
             throw new System.Exception("No Join Code!");
         }
         Debug.Log($"Welcome Client {ClientManager.Instance.ClientInfo.username}");
-        await RelayManager.Instance.JoinRelay(joinCode);
+        await RelayUtils.JoinRelay(joinCode);
     }
 
     /// <summary>

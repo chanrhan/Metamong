@@ -57,7 +57,7 @@ namespace Unity.Services.Vivox.AudioTaps
         }
 
         private async void LoginAsync(){
-            await AuthenticationManager.Instance.Authenticate();
+            await AuthenticationUtils.Authenticate();
             await VivoxManager.Instance.InitializeVivox();
         }
 

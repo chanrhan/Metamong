@@ -79,7 +79,7 @@ public class LobbyUI : MonoBehaviour
         joinCodeInput.enabled = false;
         usernameInput.enabled =false;
 
-        AuthenticationManager.Instance.Login();
+        AuthenticationUtils.Login();
     }
 
     
