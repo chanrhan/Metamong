@@ -30,6 +30,8 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
             playerNetworkObject = value.GetComponent<NetworkObject>();
             playerController = value.GetComponent<PlayerController>();
 
+            UIManager.Instance.HideLoadingPanel();
+
             // Join 3D Channel
             // VivoxManager.Instance.Join3DChannel(value);
 
@@ -50,7 +52,6 @@ public class ClientManager : MonobehaviourSingleton<ClientManager>
     void Start()
     {
         ClientInfo = new ClientInfo();
-        JoinCode = "";
         myPlayerObject = null;
         playerNetworkObject = null;
         playerController = null;

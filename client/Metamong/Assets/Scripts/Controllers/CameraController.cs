@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonobehaviourSingleton<CameraController>
 {
-    public static CameraController Instance { get; private set; }
 
     [SerializeField] private GameObject targetPlayer;   // 카메라가 따라갈 대상 플레이어
     [SerializeField] private Vector3 posOffset;           // 플레이어-카메라 사이의 기본 Position 보정값.
@@ -14,19 +13,6 @@ public class CameraController : MonoBehaviour
     private float currentAngle = 0f;                      // 현재 회전 각도 (Y축 기준)
 
     public Vector3 nowWatchingVec = new Vector3(0.0f, 0.0f, 0.0f);
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void LateUpdate()
     {

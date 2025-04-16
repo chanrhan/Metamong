@@ -25,10 +25,13 @@ public class UIManager : MonobehaviourSingleton<UIManager>
 
     [SerializeField]
     private Button btnQuit;
+    [SerializeField]
+    private GameObject loadingPanel;
 
     protected override void Awake()
     {
         base.Awake();
+        loadingPanel.SetActive(true);
         if(btnQuit){
             btnQuit.onClick.AddListener(Quit);
         }
@@ -37,6 +40,10 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     void Start()
     {
         ClearSttResponseText();
+    }
+
+    public void HideLoadingPanel(){
+        loadingPanel.SetActive(false);
     }
 
     public void SetSttResponseText(string text){
@@ -67,7 +74,7 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     }
 
     private void Quit(){
-        GameSceneManager.Instance.LoadLobbyScene();
         CustomNetworkManager.Instance.Disconnect();
+        GameSceneManager.Instance.LoadLobbyScene();
     }
 }

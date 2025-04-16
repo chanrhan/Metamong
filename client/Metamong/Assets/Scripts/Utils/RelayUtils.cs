@@ -10,27 +10,35 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RelayUtils 
 {
     private static int m_MaxConnections = 4;
+    private static Allocation serverAllocation = null;
+    private static JoinAllocation clientAllocation = null;
+    private static string joinCode = "";
 
     public static async Task CreateRelay(){
         try{
-            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(m_MaxConnections);
+            
+            if(serverAllocation == null){
+                Debug.Log("Create Relay");
+                serverAllocation = await RelayService.Instance.CreateAllocationAsync(m_MaxConnections);
 
-            string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+                joinCode = await RelayService.Instance.GetJoinCodeAsync(serverAllocation.AllocationId);
 
+                RelayServerData relayServerData = new RelayServerData(serverAllocation, "dtls");
+                CustomNetworkManager.Instance.GetComponent<UnityTransport>().SetRelayServerData(
+                    relayServerData
+                );
+            }else{
+                Debug.Log("Relay already created");
+            }
             // Set Join Code
             ClientManager.Instance.JoinCode = joinCode;
             UIManager.Instance.SetChannelCode(joinCode);
-            // Debug.Log("JoinCode: " + joinCode);
-
-            RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
-            CustomNetworkManager.Instance.GetComponent<UnityTransport>().SetRelayServerData(
-                relayServerData
-            );
 
             CustomNetworkManager.Instance.StartHost();
         }catch(RelayServiceException e){
@@ -41,13 +49,17 @@ public class RelayUtils
 
     public static async Task JoinRelay(string joinCode){
         try{
-            Debug.Log("Joining Relay with " + joinCode);
-            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+            if(clientAllocation == null){
+                Debug.Log("Joining Relay with " + joinCode);
+                clientAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
 
-            RelayServerData relayServerData = new RelayServerData(joinAllocation, "dtls");
-            CustomNetworkManager.Instance.GetComponent<UnityTransport>().SetRelayServerData(
-                relayServerData
-            );
+                RelayServerData relayServerData = new RelayServerData(clientAllocation, "dtls");
+                CustomNetworkManager.Instance.GetComponent<UnityTransport>().SetRelayServerData(
+                    relayServerData
+                );
+            }else{
+                Debug.Log("Relay already created");
+            }
 
             CustomNetworkManager.Instance.StartClient();
         }catch(RelayServiceException e){
