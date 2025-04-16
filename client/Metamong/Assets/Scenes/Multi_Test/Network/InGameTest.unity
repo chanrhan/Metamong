@@ -1004,7 +1004,7 @@ MonoBehaviour:
   text: {fileID: 0}
   button: {fileID: 0}
   count: 0
-  whisperManager: {fileID: 0}
+  whisperManager: {fileID: 1878321468}
 --- !u!4 &316737821
 Transform:
   m_ObjectHideFlags: 0

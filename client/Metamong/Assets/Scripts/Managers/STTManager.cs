@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Whisper;
 using Whisper.Utils;
+using System.Threading.Tasks;
 
 public class SegmentMotionSet{
     public string segment;
     public string actionClipName;
     public string faceClipName;
-    public double time = 0f;
 
     public SegmentMotionSet(string segment){
         this.segment = segment;
@@ -18,6 +18,10 @@ public class SegmentMotionSet{
         this.segment = segment;
         this.actionClipName = actionClipName;
         this.faceClipName = faceClipName;
+    }
+
+    public override String ToString(){
+        return "seg: "+segment + ", action: " + actionClipName + ", face: " + faceClipName;
     }
 }
 
@@ -123,7 +127,6 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             return;
         }
 
-
         if(microphoneRecord != null){
             microphoneRecord.SelectedMicDevice = deviceName;
         }
@@ -131,9 +134,13 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(segment.Result);
-        playerController.SendResultToLlama(segmentMotionSet);
-        print($"Segment updated: {segment.Result}");
+        LogSegmentMotion(segment.Result);
+    }
+
+    private async void LogSegmentMotion(string result){
+        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(result);
+        await playerController.SendResultToLlama(segmentMotionSet);
+        print(segmentMotionSet.ToString());
         segmentMotionSets.Add(segmentMotionSet);
     }
     

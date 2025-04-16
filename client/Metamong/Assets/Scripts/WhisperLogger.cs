@@ -68,6 +68,7 @@ public class WhisperLogger : MonobehaviourSingleton<WhisperLogger>
 
     private void WriteFile()
     {
+        Debug.Log("Log Start");
         wrapper = whisperManager.GetWhisperWrapper();
         if(wrapper == null){
             throw new Exception("다시 해 : " + wrapper);
@@ -141,9 +142,13 @@ public class WhisperLogger : MonobehaviourSingleton<WhisperLogger>
             List<SegmentMotionSet> segmentMotionSets = STTManager.Instance.SegmentMotionSets;
             List<double> times = STTManager.Instance.SegmentFinshiedTimes;
             int maxCount = segmentMotionSets.Count;
+
+            Debug.Log("maxCount: " + maxCount);
         
 
             for(int i = 0; i < maxCount; i++ ){
+                Debug.Log(segmentMotionSets[i].ToString());
+                Debug.Log(times[i].ToString());
                 // string seg = i < stm.segment_launch.Count ? stm.segment_launch[i] : "";
                 // double ti = i < stm.finSegTime.Count ? stm.finSegTime[i] : 0.0;
                 // time = i < stm.finSegTime.Count ? stm.finSegTime[i] : 0.0;

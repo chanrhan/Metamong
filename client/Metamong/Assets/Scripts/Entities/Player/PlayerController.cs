@@ -223,7 +223,7 @@ public class PlayerController : NetworkCharacter
         OnActionTextUpdated?.Invoke(response, default);
     }
     
-    public async void SendResultToLlama(SegmentMotionSet segmentMotionSet)
+    public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet)
     {
         string messageSegment = segmentMotionSet.segment;
         // 채팅 메세지는 NPC한테만 보내기
