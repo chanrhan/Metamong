@@ -72,7 +72,6 @@ namespace Whisper.Samples
             segment_launch.Add(segment.Result);
             finSegTime=_stream.finishSegmentTime;
             print($"Segment finished: {segment.Result}");
-
         }
         
         private void OnFinished(string finalResult)

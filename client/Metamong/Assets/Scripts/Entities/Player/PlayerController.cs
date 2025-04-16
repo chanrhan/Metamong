@@ -27,7 +27,7 @@ public class PlayerController : NetworkCharacter
     private Animator myAnim;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
 
-    public event Action<string> OnActionTextUpdated;
+    public event Action<string, SegmentMotionSet> OnActionTextUpdated;
 
     private void Awake()
     {
@@ -220,24 +220,26 @@ public class PlayerController : NetworkCharacter
             
         Debug.Log("Response: " + response);
             
-        OnActionTextUpdated?.Invoke(response);
+        OnActionTextUpdated?.Invoke(response, default);
     }
-    public async void SendResultToLlama(string message)
+    
+    public async void SendResultToLlama(SegmentMotionSet segmentMotionSet)
     {
+        string messageSegment = segmentMotionSet.segment;
         // 채팅 메세지는 NPC한테만 보내기
         if(TryGetAroundNPC(out NetworkTarget[] targets)){
-            PacketSendHandler.ChatText(message, targets);
+            PacketSendHandler.ChatText(messageSegment, targets);
         }
         
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
             
         //ChatManager.Instance.InputChat(clientInfo.username, message);
-        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
-        LlmManager.Instance.AddChatLog(clientInfo.username,message);
+        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +messageSegment, HandleReply, ReplyCompleted, false);
+        LlmManager.Instance.AddChatLog(clientInfo.username,messageSegment);
             
         Debug.Log("Response: " + response);
             
-        OnActionTextUpdated?.Invoke(response);
+        OnActionTextUpdated?.Invoke(response, segmentMotionSet);
     }
 
     void HandleReply(string reply)

@@ -5,13 +5,28 @@ using UnityEngine;
 using Whisper;
 using Whisper.Utils;
 
+public class SegmentMotionSet{
+    public string segment;
+    public string actionClipName;
+    public string faceClipName;
+    public double time = 0f;
+
+    public SegmentMotionSet(string segment){
+        this.segment = segment;
+    }
+    public SegmentMotionSet(string segment, string actionClipName, string faceClipName){
+        this.segment = segment;
+        this.actionClipName = actionClipName;
+        this.faceClipName = faceClipName;
+    }
+}
+
 public class STTManager : MonobehaviourSingleton<STTManager>
 {
     // [SerializeField]
     private WhisperManager whisper;
     // [SerializeField]
     private MicrophoneRecord microphoneRecord;
-
     private WhisperStream _stream;
 
     private PlayerController playerController;
@@ -24,6 +39,17 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     [SerializeField]
     private bool AllowMacOs = false;
     private bool IsPlatformMacOs = false;
+
+    public static int segmentId = 0;
+
+    private List<SegmentMotionSet> segmentMotionSets = new List<SegmentMotionSet>();
+    public List<SegmentMotionSet> SegmentMotionSets{
+        get=>segmentMotionSets;
+    }
+
+    public List<double> SegmentFinshiedTimes{
+        get=>_stream.finishSegmentTime;
+    }
 
     protected async override void Awake()
     {
@@ -105,13 +131,14 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-        playerController.SendResultToLlama(segment.Result);
+        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(segment.Result);
+        playerController.SendResultToLlama(segmentMotionSet);
         print($"Segment updated: {segment.Result}");
+        segmentMotionSets.Add(segmentMotionSet);
     }
     
     private void OnSegmentFinished(WhisperResult segment)
     {
-        
         if (playerController != null)
         {
             //playerController.SendResultToLlama(segment.Result);

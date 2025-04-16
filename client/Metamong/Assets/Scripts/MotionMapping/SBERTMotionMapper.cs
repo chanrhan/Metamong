@@ -35,10 +35,12 @@ public class SBERTMotionMapper : MonoBehaviour
     /// 스레시홀드 이상이면 해당 모션 키를, 아니면 "No match"를 출력합니다.
     /// </summary>
     /// <param name="newText">사용자 입력 텍스트 (각 줄이 하나의 모션 텍스트)</param>
-    private void UpdateActionText(string newText)
+    private void UpdateActionText(string newText, SegmentMotionSet segmentMotionSet=default)
     {
         actionText = newText;
         string[] keywords = GetMotionKeys(newText);
+        segmentMotionSet.actionClipName = keywords[0];
+        segmentMotionSet.faceClipName = keywords[1];
 
         PlayerController.MakeMotion(keywords[0]);
         PlayerController.MakeFace(keywords[1]);

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using Whisper.Utils;
 using System;
-using System.Text;
 using System.Reflection;
 using Whisper;
-using System.Threading.Tasks;
 using System.Linq;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Whisper.Samples;
 
 public class LogJson
@@ -22,23 +18,23 @@ public class LogJson
     public double inferenceAvg;    
     public List<ContextItem> context = new List<ContextItem>();
 
-     public class ContextItem
+    public class ContextItem
     {
-        public string segment;
+        SegmentMotionSet segmentMotion;
         public double time;
-        public ContextItem(double time, string segment){
+        public ContextItem(double time, SegmentMotionSet segmentMotion){
             this.time = time;
-            this.segment = segment;
+            this.segmentMotion = segmentMotion;
         }
     }
 
-    public void AddSegment(double time, string segment){
-        context.Add(new ContextItem(time, segment));
+    public void AddSegment(double time, SegmentMotionSet segmentMotion){
+        context.Add(new ContextItem(time, segmentMotion));
     }
 }
 
 
-public class WriteFileTest : MonoBehaviour
+public class WhisperLogger : MonobehaviourSingleton<WhisperLogger>
 {
     // private WhisperWrapper whisperWrapper;
     public Text text;
@@ -48,8 +44,9 @@ public class WriteFileTest : MonoBehaviour
     StreamingSampleMic stm;
     public LogJson log;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         stm = GameObject.Find("DemoMic").GetComponent<StreamingSampleMic>();
     }
 
@@ -62,6 +59,11 @@ public class WriteFileTest : MonoBehaviour
     void Start()
     { 
         button.onClick.AddListener(WriteFile);
+    }
+
+    void OnDestroy()
+    {
+        WriteFile();
     }
 
     private void WriteFile()
@@ -132,18 +134,22 @@ public class WriteFileTest : MonoBehaviour
             // result = sb.ToString() + $" avg = {avg:F2} \n";
 
             // List<ContextItem> contexts = new List<ContextItem>();
-            Debug.Log(stm.segment_launch.Count);
-            Debug.Log(stm.finSegTime.Count);
+            // Debug.Log(stm.segment_launch.Count);
+            // Debug.Log(stm.finSegTime.Count);
 
-            int maxCount = Math.Max(stm.segment_launch.Count, stm.finSegTime.Count);
-            
+            // int maxCount = Math.Max(stm.segment_launch.Count, stm.finSegTime.Count);
+            List<SegmentMotionSet> segmentMotionSets = STTManager.Instance.SegmentMotionSets;
+            List<double> times = STTManager.Instance.SegmentFinshiedTimes;
+            int maxCount = segmentMotionSets.Count;
+        
 
             for(int i = 0; i < maxCount; i++ ){
-                string seg = i < stm.segment_launch.Count ? stm.segment_launch[i] : "";
-                double ti = i < stm.finSegTime.Count ? stm.finSegTime[i] : 0.0;
+                // string seg = i < stm.segment_launch.Count ? stm.segment_launch[i] : "";
+                // double ti = i < stm.finSegTime.Count ? stm.finSegTime[i] : 0.0;
+                // time = i < stm.finSegTime.Count ? stm.finSegTime[i] : 0.0;
 
                 // contexts.Add(new ContextItem{segment = seg, time = ti});
-                log.AddSegment(ti, seg);
+                log.AddSegment(times[i], segmentMotionSets[i]);
             }
 
             // log.context = contexts;
