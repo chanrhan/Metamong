@@ -1,0 +1,166 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 542.857143,
+    "context": [
+      {
+        "segment": " 내 가",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
+        "time": 4099.0
+      },
+      {
+        "segment": " 내가 웃고 있네",
+        "actionClipName": "펄쩍뛰며기쁨",
+        "faceClipName": "Smile_S",
+        "time": 2765.0
+      },
+      {
+        "segment": " 내가 웃고 있나요",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Smile_S",
+        "time": 6366.0
+      },
+      {
+        "segment": " 내가 웃고 있나요?",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Smile_S",
+        "time": 2708.0
+      },
+      {
+        "segment": " 어두과지",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Surprised",
+        "time": 5056.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 805.666667,
+    "context": [
+      {
+        "segment": " 얘는 어떤 코드가 되어있는 건지",
+        "actionClipName": "부끄러워하며_밑에봄",
+        "faceClipName": "Hansim",
+        "time": 3275.0
+      },
+      {
+        "segment": " 얘는 어떤 코드가 되어있는건지 모르겠네",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Surprised",
+        "time": 6467.0
+      },
+      {
+        "segment": " 스피커스의 문화가 되어 있는건이 되요",
+        "actionClipName": "모델포즈",
+        "faceClipName": "Surprised",
+        "time": 5449.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 1013.615385,
+    "context": [
+      {
+        "segment": " 그럼",
+        "actionClipName": "바로그거야1",
+        "faceClipName": "Hansim",
+        "time": 6401.0
+      },
+      {
+        "segment": " 끝도 봤고",
+        "actionClipName": "Yell",
+        "faceClipName": "Hansim",
+        "time": 2018.0
+      },
+      {
+        "segment": " - 그럼 - 최소 것도 맞고 그래서",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 12262.0
+      },
+      {
+        "segment": " - 그럼 - 저것도 맞고 사실상 어쩔 수 없다 생각하고",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 5622.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 1318.8,
+    "context": [
+      {
+        "segment": " 지점이 없는 기본도",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 2455.0
+      },
+      {
+        "segment": " 지점이 없는데 너무 기본 콜백합니다.",
+        "actionClipName": "Yell",
+        "faceClipName": "Hansim",
+        "time": 5898.0
+      },
+      {
+        "segment": " 기본 콜백이라는 게 내가...",
+        "actionClipName": "손인사",
+        "faceClipName": "Hansim",
+        "time": 3809.0
+      },
+      {
+        "segment": " 기본 콜백. 콜백이라는 게 내가 생소해서 그런가?",
+        "actionClipName": "설명하다",
+        "faceClipName": "Hansim",
+        "time": 5532.0
+      },
+      {
+        "segment": " 콜백이라는 게 생소해서 그런가? 그럴 수도 있어.",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Surprised",
+        "time": 0.0
+      },
+      {
+        "segment": " 기본 콜백... 콜백이라는 게 생소해서 그런가? 그럴 수도 있어. - 콜백이라는 게 멋있어. - 어.",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
+        "time": 0.0
+      },
+      {
+        "segment": " - 그래서... 등록...",
+        "actionClipName": "우아한인사",
+        "faceClipName": "Sad_S",
+        "time": 0.0
+      },
+      {
+        "segment": " 아, 그래서... 이벤트 등록함수...",
+        "actionClipName": "우아한인사",
+        "faceClipName": "Hansim",
+        "time": 0.0
+      },
+      {
+        "segment": " 이벤트 등록 함수인데...",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
+        "time": 0.0
+      },
+      {
+        "segment": " 감사합니다.",
+        "actionClipName": "손인사",
+        "faceClipName": "Smile_S",
+        "time": 0.0
+      }
+    ]
+  }
+]

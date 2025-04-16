@@ -55,6 +55,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         get=>_stream.finishSegmentTime;
     }
 
+    private int lastSegmentId = 0;
+
     protected async override void Awake()
     {
         base.Awake();
