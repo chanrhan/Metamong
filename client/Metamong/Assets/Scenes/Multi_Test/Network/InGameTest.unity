@@ -8590,9 +8590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLengthSec: 60
-  loop: 0
+  loop: 1
   frequency: 16000
-  chunksLengthSec: 0.8
+  chunksLengthSec: 0.7
   echo: 0
   useVad: 1
   vadUpdateRateSec: 0.1

@@ -118,6 +118,7 @@ public class SBERTEmbedding : MonoBehaviour
             }
         }
         Debug.Log($"Best match Sentence :{inputText} => {bestMatchSentence} ({bestScore})");
+        // 쓰레시홀드가 여기있어요
         return bestScore >= threshold ? bestMatchKey : "No match";
     }
 
