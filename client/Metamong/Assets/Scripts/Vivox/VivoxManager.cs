@@ -99,7 +99,7 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
         OnJoinChannel(channelName);
         // STT 
-        await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
+        // await VivoxService.Instance.SpeechToTextEnableTranscription(channelName);
     }
 
     public async void Join3DChannel(string channelName, GameObject speakObj){
@@ -144,6 +144,10 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         VivoxService.Instance.SetActiveOutputDeviceAsync(
             VivoxService.Instance.AvailableOutputDevices
                 .First(device => device.DeviceName == deviceName));
+    }
+
+    public void QuitVoiceChannel(){
+        VivoxService.Instance.LeaveAllChannelsAsync();
     }
 
 

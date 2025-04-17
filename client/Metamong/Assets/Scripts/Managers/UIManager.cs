@@ -74,6 +74,7 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     }
 
     private void Quit(){
+        VivoxManager.Instance.QuitVoiceChannel();
         CustomNetworkManager.Instance.Disconnect();
         GameSceneManager.Instance.LoadLobbyScene();
     }
