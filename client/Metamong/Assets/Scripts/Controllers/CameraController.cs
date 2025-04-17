@@ -13,6 +13,7 @@ public class CameraController : MonobehaviourSingleton<CameraController>
     private float currentAngle = 0f;                      // 현재 회전 각도 (Y축 기준)
 
     public Vector3 nowWatchingVec = new Vector3(0.0f, 0.0f, 0.0f);
+    public float yFocus = 2.0f; // Y축 벡터
 
     private void LateUpdate()
     {
@@ -46,7 +47,7 @@ public class CameraController : MonobehaviourSingleton<CameraController>
         transform.position = targetPlayer.transform.position + rotatedOffset;
 
         // targetPlayer를 항상 바라보도록 함
-        transform.LookAt(targetPlayer.transform.position + Vector3.up*2.0f);
+        transform.LookAt(targetPlayer.transform.position + Vector3.up*yFocus);
         nowWatchingVec.x = transform.forward.x;
         nowWatchingVec.z = transform.forward.z;
     }

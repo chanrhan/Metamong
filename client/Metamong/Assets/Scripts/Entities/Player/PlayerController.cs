@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 using Unity.VisualScripting;
+using System.Threading.Tasks;
 
 
 public class PlayerController : NetworkCharacter
@@ -27,7 +28,7 @@ public class PlayerController : NetworkCharacter
     private Animator myAnim;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
 
-    public event Action<string> OnActionTextUpdated;
+    public event Action<string, SegmentMotionSet> OnActionTextUpdated;
 
     private void Awake()
     {
@@ -199,19 +200,17 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     public override void SendMessageToOthers() 
     {
-        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
-        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
+        if(TryGetAroundAll(out NetworkTarget[] targets)){
             string msg = "Hello, My name is " + ClientManager.Instance.ClientInfo.username;
             
-            PacketSendHandler.Chat(msg, targets);
+            PacketSendHandler.ChatText(msg, targets);
         }
     }
 
     public async void SendMessageToOthers(string message)
     {
-        ulong networkObjectId = ClientManager.Instance.PlayerNetworkObject.NetworkObjectId;
-        if(TryGetAroundNetworkTargets(networkObjectId, out NetworkTarget[] targets)){
-            PacketSendHandler.Chat(message, targets);
+        if(TryGetAroundAll(out NetworkTarget[] targets)){
+            PacketSendHandler.ChatText(message, targets);
         }
 
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
@@ -222,7 +221,26 @@ public class PlayerController : NetworkCharacter
             
         Debug.Log("Response: " + response);
             
-        OnActionTextUpdated?.Invoke(response);
+        OnActionTextUpdated?.Invoke(response, default);
+    }
+    
+    public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet)
+    {
+        string messageSegment = segmentMotionSet.segment;
+        // 채팅 메세지는 NPC한테만 보내기
+        if(TryGetAroundNPC(out NetworkTarget[] targets)){
+            PacketSendHandler.ChatText(messageSegment, targets);
+        }
+        
+        ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
+            
+        //ChatManager.Instance.InputChat(clientInfo.username, message);
+        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +messageSegment, HandleReply, ReplyCompleted, false);
+        LlmManager.Instance.AddChatLog(clientInfo.username,messageSegment);
+            
+        Debug.Log("Response: " + response);
+            
+        OnActionTextUpdated?.Invoke(response, segmentMotionSet);
     }
 
     void HandleReply(string reply)
@@ -231,7 +249,7 @@ public class PlayerController : NetworkCharacter
     }
     void ReplyCompleted()
     {
-        Debug.Log("Reply Completed");
+       // Debug.Log("Reply Completed");
     }
 
     /// <summary>

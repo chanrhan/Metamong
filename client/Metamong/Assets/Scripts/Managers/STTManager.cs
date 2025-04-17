@@ -5,6 +5,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Whisper;
 using Whisper.Utils;
+using System.Threading.Tasks;
+
+public class SegmentMotionSet{
+    public string segment;
+    public string actionClipName;
+    public string faceClipName;
+
+    public SegmentMotionSet(string segment){
+        this.segment = segment;
+    }
+    public SegmentMotionSet(string segment, string actionClipName, string faceClipName){
+        this.segment = segment;
+        this.actionClipName = actionClipName;
+        this.faceClipName = faceClipName;
+    }
+
+    public override String ToString(){
+        return "seg: "+segment + ", action: " + actionClipName + ", face: " + faceClipName;
+    }
+}
 
 public class STTManager : MonobehaviourSingleton<STTManager>
 {
@@ -12,19 +32,31 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private WhisperManager whisper;
     // [SerializeField]
     private MicrophoneRecord microphoneRecord;
-
     private WhisperStream _stream;
 
-    private PlayerController myCharic;
-    public PlayerController MyCharic
-    {
-        set {myCharic = value;}
+    private PlayerController playerController;
+    public PlayerController PlayerController{
+        set => playerController = value;
     }
+    
 
     [Header("Mac Os")]
     [SerializeField]
     private bool AllowMacOs = false;
     private bool IsPlatformMacOs = false;
+
+    public static int segmentId = 0;
+
+    private List<SegmentMotionSet> segmentMotionSets = new List<SegmentMotionSet>();
+    public List<SegmentMotionSet> SegmentMotionSets{
+        get=>segmentMotionSets;
+    }
+
+    public List<double> SegmentFinshiedTimes{
+        get=>_stream.finishSegmentTime;
+    }
+
+    private int lastSegmentId = 0;
 
     protected async override void Awake()
     {
@@ -57,9 +89,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
         _stream.OnResultUpdated += OnResult;
-        // _stream.OnSegmentUpdated += OnSegmentUpdated;
+        _stream.OnSegmentUpdated += OnSegmentUpdated;
         _stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
+
+        // myCharic = ClientManager.Instance.PlayerController;
     }
 
     void Update()
@@ -100,7 +134,6 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             return;
         }
 
-
         if(microphoneRecord != null){
             microphoneRecord.SelectedMicDevice = deviceName;
         }
@@ -108,14 +141,29 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-        print($"Segment updated: {segment.Result}");
+        LogSegmentMotion(segment.Result);
+    }
+
+    private async void LogSegmentMotion(string result){
+        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(result);
+        await playerController.SendResultToLlama(segmentMotionSet);
+        print(segmentMotionSet.ToString());
+        segmentMotionSets.Add(segmentMotionSet);
     }
     
     private void OnSegmentFinished(WhisperResult segment)
     {
-        myCharic.SendMessageToOthers(segment.Result);
-        print($"Segment finished: {segment.Result}");
+        if (playerController != null)
+        {
+            //playerController.SendResultToLlama(segment.Result);
+            Debug.Log($"Segment finished: {segment.Result}");
+        }
+        else
+        {
+            Debug.LogError("PlayerController 인스턴스가 할당되지 않았습니다.");
+        }
     }
+
     
     private void OnFinished(string finalResult)
     {

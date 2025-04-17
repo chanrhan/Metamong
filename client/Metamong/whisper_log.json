@@ -1,369 +1,165 @@
 [
   {
-    "stepSec": 10.0,
-    "keepSec": 0.0,
-    "lengthSec": 0.0,
-    "inferenceAvg": 843.0,
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 542.857143,
     "context": [
       {
-        "segment": " 기존에 있는게 그게 형식이 안맞으니까 안맞으니까",
+        "segment": " 내 가",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
+        "time": 4099.0
+      },
+      {
+        "segment": " 내가 웃고 있네",
+        "actionClipName": "펄쩍뛰며기쁨",
+        "faceClipName": "Smile_S",
+        "time": 2765.0
+      },
+      {
+        "segment": " 내가 웃고 있나요",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Smile_S",
+        "time": 6366.0
+      },
+      {
+        "segment": " 내가 웃고 있나요?",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Smile_S",
+        "time": 2708.0
+      },
+      {
+        "segment": " 어두과지",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Surprised",
+        "time": 5056.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 805.666667,
+    "context": [
+      {
+        "segment": " 얘는 어떤 코드가 되어있는 건지",
+        "actionClipName": "부끄러워하며_밑에봄",
+        "faceClipName": "Hansim",
+        "time": 3275.0
+      },
+      {
+        "segment": " 얘는 어떤 코드가 되어있는건지 모르겠네",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Surprised",
+        "time": 6467.0
+      },
+      {
+        "segment": " 스피커스의 문화가 되어 있는건이 되요",
+        "actionClipName": "모델포즈",
+        "faceClipName": "Surprised",
+        "time": 5449.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 1013.615385,
+    "context": [
+      {
+        "segment": " 그럼",
+        "actionClipName": "바로그거야1",
+        "faceClipName": "Hansim",
+        "time": 6401.0
+      },
+      {
+        "segment": " 끝도 봤고",
+        "actionClipName": "Yell",
+        "faceClipName": "Hansim",
+        "time": 2018.0
+      },
+      {
+        "segment": " - 그럼 - 최소 것도 맞고 그래서",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 12262.0
+      },
+      {
+        "segment": " - 그럼 - 저것도 맞고 사실상 어쩔 수 없다 생각하고",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 5622.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 10.0,
+    "inferenceAvg": 1318.8,
+    "context": [
+      {
+        "segment": " 지점이 없는 기본도",
+        "actionClipName": "Shy_with_headskaking",
+        "faceClipName": "Hansim",
+        "time": 2455.0
+      },
+      {
+        "segment": " 지점이 없는데 너무 기본 콜백합니다.",
+        "actionClipName": "Yell",
+        "faceClipName": "Hansim",
+        "time": 5898.0
+      },
+      {
+        "segment": " 기본 콜백이라는 게 내가...",
+        "actionClipName": "손인사",
+        "faceClipName": "Hansim",
+        "time": 3809.0
+      },
+      {
+        "segment": " 기본 콜백. 콜백이라는 게 내가 생소해서 그런가?",
+        "actionClipName": "설명하다",
+        "faceClipName": "Hansim",
+        "time": 5532.0
+      },
+      {
+        "segment": " 콜백이라는 게 생소해서 그런가? 그럴 수도 있어.",
+        "actionClipName": "의문을표함",
+        "faceClipName": "Surprised",
         "time": 0.0
-      }
-    ]
-  },
-  {
-    "stepSec": 10.0,
-    "keepSec": 0.0,
-    "lengthSec": 0.0,
-    "inferenceAvg": 853.125,
-    "context": [
+      },
       {
-        "segment": " 그래. 그래. 좀 길게 한 번 말해보자. 그게 다 저장이 되는지 우리는 한 번 봐야 될 거 아니니?",
+        "segment": " 기본 콜백... 콜백이라는 게 생소해서 그런가? 그럴 수도 있어. - 콜백이라는 게 멋있어. - 어.",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
         "time": 0.0
       },
       {
-        "segment": " 너가 이렇게 크게 저장하고 있다는 걸 알고 있어.",
+        "segment": " - 그래서... 등록...",
+        "actionClipName": "우아한인사",
+        "faceClipName": "Sad_S",
         "time": 0.0
       },
       {
-        "segment": " 고생하시잖아요. 그래. 그래.",
+        "segment": " 아, 그래서... 이벤트 등록함수...",
+        "actionClipName": "우아한인사",
+        "faceClipName": "Hansim",
         "time": 0.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 1006.538462,
-    "context": [
-      {
-        "segment": " 어 그래 그래 그런 건 아니야",
-        "time": 819.0
       },
       {
-        "segment": " 아 형은 아니라니까 왜 뭔 그런 건 아니냐",
-        "time": 822.0
+        "segment": " 이벤트 등록 함수인데...",
+        "actionClipName": "오라는손짓",
+        "faceClipName": "Surprised",
+        "time": 0.0
       },
       {
-        "segment": " 응용 확률 및 통계 기술 통계 분석 제출 상태 시도하지 않음",
-        "time": 875.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 801.909091,
-    "context": [
-      {
-        "segment": " 자 이번엔 제대로 각질이 들어가는지",
-        "time": 826.0
-      },
-      {
-        "segment": " 각질이 들어가는지 체크 좀 해보겠습니다",
-        "time": 828.0
-      },
-      {
-        "segment": " 각질이 왜 들어가요 값이 들어가요",
-        "time": 825.0
-      },
-      {
-        "segment": " 값이 들어가는 거예요",
-        "time": 787.0
-      },
-      {
-        "segment": " 각질 안 들어가",
-        "time": 769.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 1045.296296,
-    "context": [
-      {
-        "segment": " 내 이름은",
-        "time": 5578.0
-      },
-      {
-        "segment": " 일석이라고 해",
-        "time": 3996.0
-      },
-      {
-        "segment": " 나보고 일석이라 해 어",
-        "time": 4001.0
-      },
-      {
-        "segment": " 이수성이야 이수성 어 잘 들어놔 use the associated options",
-        "time": 4808.0
-      },
-      {
-        "segment": " 잘 되는데 이거",
-        "time": 7986.0
-      },
-      {
-        "segment": " local variables method parameters and class members",
-        "time": 807.0
-      },
-      {
-        "segment": " 단어스타일, prepinded, type for",
-        "time": 858.0
-      },
-      {
-        "segment": "",
-        "time": 2331.0
-      },
-      {
-        "segment": "",
-        "time": 5592.0
-      },
-      {
-        "segment": "",
-        "time": 6407.0
-      },
-      {
-        "segment": "",
-        "time": 1606.0
-      },
-      {
-        "segment": "",
-        "time": 769.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 846.058824,
-    "context": [
-      {
-        "segment": " 해당 연선자의 동작은 눌러볼 값 형식을 사용하는",
-        "time": 6367.0
-      },
-      {
-        "segment": " 일반 연선자의 동작과 다릅니다.",
-        "time": 6477.0
-      },
-      {
-        "segment": " 일반적으로 값 형식의 피연선자에 대해 정의된 연선자도",
-        "time": 2409.0
-      },
-      {
-        "segment": " 해당 눌러 볼 값 형식의 피연선자와 함께 사용할 수 있습니다.",
-        "time": 2396.0
-      },
-      {
-        "segment": " 피연선자의 동작과 다릅니다.",
-        "time": 2488.0
-      },
-      {
-        "segment": " 그러나 피연선자 중 하나가 널로 평가되는 경우에도 연선",
-        "time": 2390.0
-      },
-      {
-        "segment": "",
-        "time": 802.0
-      },
-      {
-        "segment": "",
-        "time": 887.0
-      },
-      {
-        "segment": "",
-        "time": 4006.0
-      },
-      {
-        "segment": "",
-        "time": 4062.0
-      },
-      {
-        "segment": "",
-        "time": 8036.0
-      },
-      {
-        "segment": "",
-        "time": 899.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 901.047619,
-    "context": [
-      {
-        "segment": " 열개 구단 중 키움 히어로즈와 함께 모자에 삽입되는 구단 심벌이 목욕의 이니셜로만 구성됐다",
-        "time": 4799.0
-      },
-      {
-        "segment": " 메인 스폰서로부터 지원을 받고 해주는 히어로즈",
-        "time": 800.0
-      },
-      {
-        "segment": " 두산만 보기 호주구단의 특급 기업 이니셜을 구단심벌로 쓰는 셈이다",
-        "time": 785.0
-      },
-      {
-        "segment": " 여담으로 덕적고등학교 야구부 모자의 상징은 1998년이다",
-        "time": 1103.0
-      },
-      {
-        "segment": " 2019년부터 지금까지 사용된 d 싱벌과 비슷하다 다만 덕적고 야구구",
-        "time": 2425.0
-      },
-      {
-        "segment": " 다만 덕적고 야부구에서 쓰는 d는 다",
-        "time": 2533.0
-      },
-      {
-        "segment": " 또 광주동성고등학교 야구부도 2010년부터 사용된",
-        "time": 7208.0
-      },
-      {
-        "segment": " 사용된 d 심벌과 유사태의 심벌을 모자에 새겼다가 바꿨다",
-        "time": 7398.0
-      },
-      {
-        "segment": "",
-        "time": 2387.0
-      },
-      {
-        "segment": "",
-        "time": 2525.0
-      },
-      {
-        "segment": "",
-        "time": 3200.0
-      },
-      {
-        "segment": "",
-        "time": 942.0
-      },
-      {
-        "segment": "",
-        "time": 2458.0
-      },
-      {
-        "segment": "",
-        "time": 2441.0
-      },
-      {
-        "segment": "",
-        "time": 4019.0
-      },
-      {
-        "segment": "",
-        "time": 4089.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 953.357143,
-    "context": [
-      {
-        "segment": " 아",
-        "time": 2365.0
-      },
-      {
-        "segment": " 동그라미 땡 동그라미 땡",
-        "time": 6440.0
-      },
-      {
-        "segment": " \"Apatu\"",
-        "time": 5728.0
-      },
-      {
-        "segment": " 아파트 아파트",
-        "time": 1584.0
-      },
-      {
-        "segment": " 아파트",
-        "time": 10099.0
-      },
-      {
-        "segment": " 그래 내가 미안하다 어 마이크도 잘못 썼지 그지 어 내가 잘못 쓴 거지",
-        "time": 14467.0
-      },
-      {
-        "segment": " 14초 걸리는 게 맞나? 우리가 그렇게 오래 길게 말한 건가? 한번 이렇게 쭉 말해볼게 니가 세그먼트 피니시드가 언제 끝나는지 한번 보자 그래 몇 초까지 가나 보자고 그래 그래",
-        "time": 16285.0
-      },
-      {
-        "segment": " 내가 계속 그래 그래 그래 그래 보고 있을게 하면 끝나는구나?",
-        "time": 3641.0
-      },
-      {
-        "segment": " 15초 정도면은 그냥 추론을 해버리네?",
-        "time": 2862.0
-      },
-      {
-        "segment": " 제가 쭉 길게 말해보겠습니다 쭉 길게 말해보겠습니다",
-        "time": 2060.0
-      },
-      {
-        "segment": " 쭉쭉쭉쭉쭉쭉 소리 들어간다 쭉쭉쭉쭉쭉쭉 소리 들어간다 소리~ 시가 몇 초까지 넣는 거야 너?",
-        "time": 19017.0
-      },
-      {
-        "segment": " 아아 아아 아아",
-        "time": 15651.0
-      },
-      {
-        "segment": " 아니 왜 다시 해가 떴어",
-        "time": 14032.0
-      },
-      {
-        "segment": " 왜 다시 해가 떴?",
-        "time": 3645.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 878.833333,
-    "context": [
-      {
-        "segment": " 이후 다시 한번 BI를 바꾼 도안은",
-        "time": 4874.0
-      },
-      {
-        "segment": " 2010년 2월 11일 새 마스코트를 공개했다 이름은 철웅이 배번은",
-        "time": 4166.0
-      },
-      {
-        "segment": " 기존의 곰의 나사로 철판을 연결한 것부터",
-        "time": 3282.0
-      },
-      {
-        "segment": " 보여주는 사이버, 소급, 로봇, 공식 공평,",
-        "time": 3302.0
-      },
-      {
-        "segment": " 공식 공평 페이지 마스코트 소개에 의하면 철웅이는 두산의 상징곰물인 곰을",
-        "time": 4121.0
-      },
-      {
-        "segment": " 곰을 역동적으로 형성하는 로봇 캐릭터로 이는 강의 나무과 미래지향적인 두산의 이미지를 강조하여",
-        "time": 4190.0
-      },
-      {
-        "segment": " 또한 공조한 것이라고 한다 두산그룹구의 신을 상징하며 현재에 만족하지 않으며",
-        "time": 4944.0
-      },
-      {
-        "segment": " 과감한 변신을 주지 않고 정상을 추가하며 한 단계 앞으로 노력하는 명문구단 백월스의 이미지를 표현한 것이라고 한다",
-        "time": 7363.0
+        "segment": " 감사합니다.",
+        "actionClipName": "손인사",
+        "faceClipName": "Smile_S",
+        "time": 0.0
       }
     ]
   }
