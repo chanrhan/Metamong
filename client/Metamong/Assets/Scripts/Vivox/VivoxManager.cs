@@ -95,8 +95,6 @@ public class VivoxManager : MonobehaviourSingleton<VivoxManager>
         ChatManager.Instance.InputChat(vivoxMessage.SenderDisplayName, vivoxMessage.MessageText);
     }
 
-    
-
     public async Task JoinVoiceChannel(string channelName){
         await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
         OnJoinChannel(channelName);
