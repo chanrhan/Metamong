@@ -27,6 +27,8 @@ public class PlayerController : NetworkCharacter
     //애니메이션 관련
     private Animator myAnim;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
+    private bool isFaceAnimPlaying = false;
+    private bool isActionAnimPlaying = false;
 
     public event Action<string, SegmentMotionSet> OnActionTextUpdated;
 
@@ -224,8 +226,14 @@ public class PlayerController : NetworkCharacter
         OnActionTextUpdated?.Invoke(response, default);
     }
     
+    // 모션 매핑 프로세스
     public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet)
     {
+        // (Test) 모션 실행 도중 입력되는 세그먼트는 무조건 무시 
+        if(isActionAnimPlaying){
+            return;
+        }
+
         string messageSegment = segmentMotionSet.segment;
         // 채팅 메세지는 NPC한테만 보내기
         if(TryGetAroundNPC(out NetworkTarget[] targets)){
@@ -285,12 +293,25 @@ public class PlayerController : NetworkCharacter
     /// <param name="expressionName">출력할 표정의 키워드</param>
     public void MakeFace(string expressionName)
     {
+        isFaceAnimPlaying = true;
         myAnim.Play(expressionName, 2);
+        // myAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle")
     }
     
     public void MakeMotion(string motionName)
     {
-        myAnim.Play(motionName, 0);
+        if(!isActionAnimPlaying){
+            myAnim.Play(motionName, 0);
+            StartCoroutine(DisablePlayingAnimCoroutine());
+        }
+    }
+
+    private IEnumerator DisablePlayingAnimCoroutine(){
+        isActionAnimPlaying = true;
+        while(myAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle")){
+            yield return null;
+        }
+        isActionAnimPlaying = false;
     }
 
 
