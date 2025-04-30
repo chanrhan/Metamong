@@ -47,6 +47,7 @@ public class PlayerController : NetworkCharacter
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10,0,-5);
         }
+        STTManager.Instance.PlayerController = this;
     }
 
     private void FixedUpdate()

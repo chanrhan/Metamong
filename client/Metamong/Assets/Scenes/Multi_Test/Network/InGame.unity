@@ -2831,7 +2831,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   channelInfoPanel: {fileID: 1404624842}
   sttResponse: {fileID: 1038893235}
-  vadIndicatorImage: {fileID: 0}
+  vadIndicatorImage: {fileID: 1379283522}
   voiceChannelUI: {fileID: 343913750}
   btnQuit: {fileID: 1184120784}
   loadingPanel: {fileID: 25093207}
@@ -3650,6 +3650,7 @@ MonoBehaviour:
   rotOffset: {x: 26, y: 360, z: 0}
   orbitSpeed: 1000
   nowWatchingVec: {x: 0, y: 0, z: 0}
+  yFocus: 2
 --- !u!81 &866260187
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9644,7 +9645,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3467976579344336881, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1685500443
+      value: 3779892617
       objectReference: {fileID: 0}
     - target: {fileID: -3467976579344336881, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
@@ -9854,7 +9855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2179552079
+  GlobalObjectIdHash: 1914248213
   InScenePlacedSourceGlobalObjectIdHash: 2897948296
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

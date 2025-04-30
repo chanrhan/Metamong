@@ -6,27 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Llama/llm_login.unity
-    guid: 8d183edeaf6721e4ebccd7d4a6204558
-  - enabled: 1
-    path: Assets/Scenes/Llama/llm_ingame.unity
-    guid: a4c4faf0159258d4fae524a6c7398a12
-  - enabled: 0
-    path: Assets/Scenes/Network/LoginTest.unity
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: Assets/Scenes/Multi_Test/Network/Lobby.unity
     guid: 675794155e87d4c08a2502a73ac25218
-  - enabled: 0
-    path: Assets/Scenes/Network/InGameTest.unity
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Multi_Test/Network/InGame.unity
-    guid: 51842b3f4a4534b6bbadb26d10801595
-  - enabled: 0
-    path: Assets/Scenes/Multi_Test/Vivox/VivoxInGame.unity
-    guid: f601761dc36814c5492ba51c06ec9483
-  - enabled: 0
-    path: Assets/Scenes/Multi_Test/Vivox/VivoxLogin.unity
-    guid: b7edfa07ab47e46448876e970701cdd4
+    guid: 415550a12ada94e349456482e5c6234b
   m_configObjects: {}
