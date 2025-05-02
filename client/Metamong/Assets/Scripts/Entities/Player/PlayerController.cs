@@ -11,6 +11,7 @@ using System;
 using System.Linq;
 using Unity.VisualScripting;
 using System.Threading.Tasks;
+using System.Threading;
 
 
 public class PlayerController : NetworkCharacter
@@ -24,11 +25,14 @@ public class PlayerController : NetworkCharacter
     private Collider myCollider;
     private Vector3 currMoveVec = new Vector3(0,0,0);
 
+    private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromSeconds(0.2f));
+
+
     //애니메이션 관련
     private Animator myAnim;
+    private AvatarAnimation avatarAnim;
     private bool isTyping = false;      //삭제 예정. 표정 키워드를 Input으로 입력중에 활성화 됨.
-    private bool isFaceAnimPlaying = false;
-    private bool isActionAnimPlaying = false;
+    
 
     public event Action<string, SegmentMotionSet> OnActionTextUpdated;
 
@@ -36,7 +40,7 @@ public class PlayerController : NetworkCharacter
     {
         myRigid = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
-        myAnim = GetComponentInChildren<Animator>();
+        avatarAnim = GetComponent<AvatarAnimation>();
     }
 
     private void Start()
@@ -57,12 +61,14 @@ public class PlayerController : NetworkCharacter
         }
         CharacterRotate();
         CheckOnGround();
-        if(!ChatManager.Instance.IsTyping){
+        if (!ChatManager.Instance.IsTyping)
+        {
             MovePosition();
         }
         else
         {
-            myAnim.SetBool("isWalking",false);
+            // myAnim.SetBool("isWalking",false);
+            avatarAnim.StopWalking();
         }
     }
 
@@ -107,18 +113,20 @@ public class PlayerController : NetworkCharacter
         Vector3 moveVec = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
 
 
-        if(moveVec != Vector3.zero)
-        { 
+        if (moveVec != Vector3.zero)
+        {
             Vector3 tempVec = CameraController.Instance.nowWatchingVec;
             currMoveVec.x = tempVec.x * moveVec.z + tempVec.z * moveVec.x;
             currMoveVec.z = tempVec.z * moveVec.z - tempVec.x * moveVec.x;
 
             myRigid.MovePosition(myRigid.position + currMoveVec.normalized * moveSpeed);
-            myAnim.SetBool("isWalking",true);
+            // myAnim.SetBool("isWalking",true);
+            avatarAnim.StartWalking();
         }
         else
         {
-            myAnim.SetBool("isWalking",false);
+            // myAnim.SetBool("isWalking", false);
+            avatarAnim.StopWalking();
         }
     }
 
@@ -126,18 +134,18 @@ public class PlayerController : NetworkCharacter
     /// 플레이어 걷기 애니메이션 출력함수. 일정속도 이하면 걷기 애니메이션 출력을 하지 않음.
     /// </summary>
     /// <param name="speedSqure"> 이동속도의 제곱값</param>
-    private void SetWalkingAnim(float speedSqure)
-    {
-        if (speedSqure < 1.0f)
-        {
-            myAnim.SetBool("isWalking", false);
-        }
-        else
-        {
-            myAnim.SetBool("isWalking", true);
-            // Debug.Log("Walking");
-        }
-    }
+    // private void SetWalkingAnim(float speedSqure)
+    // {
+    //     if (speedSqure < 1.0f)
+    //     {
+    //         myAnim.SetBool("isWalking", false);
+    //     }
+    //     else
+    //     {
+    //         myAnim.SetBool("isWalking", true);
+    //         // Debug.Log("Walking");
+    //     }
+    // }
 
     /// <summary>
     /// 캐릭터를 회전시키는 메서드. 캐릭터의 실제 이동벡터에 맞게 회전시킴.
@@ -189,11 +197,13 @@ public class PlayerController : NetworkCharacter
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            StartTalking();
+            // StartTalking();
+            avatarAnim.StartTalking();
         }
         else if (Input.GetKeyUp(KeyCode.T))
         {
-            StopTalking();
+            // StopTalking();
+            avatarAnim.StopTalking();
         }
     }
 
@@ -228,12 +238,17 @@ public class PlayerController : NetworkCharacter
     }
     
     // 모션 매핑 프로세스
-    public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet)
+    
+    public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet, CancellationToken token)
     {
         // (Test) 모션 실행 도중 입력되는 세그먼트는 무조건 무시 
-        if(isActionAnimPlaying){
+        if (avatarAnim.IsBlocked)
+        {
+            // Debug.Log($"[chan] Ignore : {segmentMotionSet.segment}");
             return;
         }
+        avatarAnim.IsBlocked = true;
+        
 
         string messageSegment = segmentMotionSet.segment;
         // 채팅 메세지는 NPC한테만 보내기
@@ -242,12 +257,16 @@ public class PlayerController : NetworkCharacter
         }
         
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
-            
+
         //ChatManager.Instance.InputChat(clientInfo.username, message);
-        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " +messageSegment, HandleReply, ReplyCompleted, false);
+        TimerUtils.Start();
+        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " + messageSegment, HandleReply, ReplyCompleted, false);
+        TimerUtils.LogAndReset();
         LlmManager.Instance.AddChatLog(clientInfo.username,messageSegment);
-            
-        Debug.Log("Response: " + response);
+
+        // Debug.Log("Response: " + response);
+        // Debug.Log($"[chan] {segmentMotionSet.segment} : {response}");
+        
             
         OnActionTextUpdated?.Invoke(response, segmentMotionSet);
     }
@@ -292,30 +311,10 @@ public class PlayerController : NetworkCharacter
     /// 키워드를 통해 알맞은 애니메이션을 출력하는 함수
     /// </summary>
     /// <param name="expressionName">출력할 표정의 키워드</param>
-    public void MakeFace(string expressionName)
+    public void PlayMotion(string faceClipName, string actionClipName)
     {
-        isFaceAnimPlaying = true;
-        myAnim.Play(expressionName, 2);
-        // myAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle")
+        avatarAnim.PlayFaceAndActionAnimation(faceClipName, actionClipName);
     }
-    
-    public void MakeMotion(string motionName)
-    {
-        if(!isActionAnimPlaying){
-            myAnim.Play(motionName, 0);
-            StartCoroutine(DisablePlayingAnimCoroutine());
-        }
-    }
-
-    private IEnumerator DisablePlayingAnimCoroutine(){
-        isActionAnimPlaying = true;
-        while(myAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle")){
-            yield return null;
-        }
-        isActionAnimPlaying = false;
-    }
-
-
 
     /// <summary>
     /// 표정 키워드 InputField를 작성중인지 채크하는 함수. 추후 AI가 생성한 키워드를 입력으로 넣을 수 있을 때 되면 삭제 예정.

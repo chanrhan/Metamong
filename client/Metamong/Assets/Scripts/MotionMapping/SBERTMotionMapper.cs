@@ -42,8 +42,7 @@ public class SBERTMotionMapper : MonoBehaviour
         segmentMotionSet.actionClipName = keywords[0];
         segmentMotionSet.faceClipName = keywords[1];
 
-        PlayerController.MakeMotion(keywords[0]);
-        PlayerController.MakeFace(keywords[1]);
+        PlayerController.PlayMotion(keywords[0], keywords[1]);
     }
 
     private void NPCUpdateActionText(string newText)

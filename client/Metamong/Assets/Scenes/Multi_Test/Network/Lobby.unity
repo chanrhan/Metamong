@@ -2450,8 +2450,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: keepSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: stepSec
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: language
+      value: ko
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: strategy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: lengthSec
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: modelPath
-      value: ggml-tiny.bin
+      value: ggml-large-v3-turbo-q8_0.bin
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: dropOldBuffer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: isModelPathInStreamingAssets
@@ -2500,6 +2524,14 @@ PrefabInstance:
     - target: {fileID: 1296988299201472907, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863722905202681617, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863722905202681617, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: chunksLengthSec
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

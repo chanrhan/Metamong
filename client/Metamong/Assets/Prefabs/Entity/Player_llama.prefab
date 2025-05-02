@@ -5637,6 +5637,7 @@ GameObject:
   - component: {fileID: 933711270880248809}
   - component: {fileID: 3568514041156784676}
   - component: {fileID: 4479669847779389281}
+  - component: {fileID: 960557171997248951}
   m_Layer: 6
   m_Name: Player_llama
   m_TagString: Player
@@ -5805,6 +5806,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 1892067632334318536}
+--- !u!114 &960557171997248951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9124639000001752788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432c4e821b1bdba449facb2493152731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleClipName: IdleAnimation
 --- !u!1 &9140170519348878785
 GameObject:
   m_ObjectHideFlags: 0

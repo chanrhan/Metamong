@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 using Whisper;
 using Whisper.Utils;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
+using System.Threading;
 
 public class SegmentMotionSet{
     public string segment;
     public string actionClipName;
     public string faceClipName;
+    public bool timeout = false;
 
-    public SegmentMotionSet(string segment){
+    public SegmentMotionSet(string segment)
+    {
         this.segment = segment;
     }
     public SegmentMotionSet(string segment, string actionClipName, string faceClipName){
@@ -57,35 +61,44 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     }
 
     private int lastSegmentId = 0;
+    
+    private bool isRecording = false;
+
+    private CancellationTokenSource cts = null;
+
 
     protected async override void Awake()
     {
         base.Awake();
 
-        IsPlatformMacOs = !AllowMacOs && 
+        IsPlatformMacOs = !AllowMacOs &&
         (Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.OSXEditor);
 
         // Debug.Log("OS : " + Application.platform);
-        
-        if(IsPlatformMacOs){
+
+        if (IsPlatformMacOs)
+        {
             Debug.LogWarning("MacOS should not use Whisper!");
-           return; 
+            return;
         }
-        
+
         whisper = GetComponent<WhisperManager>();
         microphoneRecord = GetComponent<MicrophoneRecord>();
-        
 
-        if(whisper == null){
+
+        if (whisper == null)
+        {
             throw new Exception("WhisperManager is not found!");
         }
-        if(microphoneRecord == null){
+        if (microphoneRecord == null)
+        {
             throw new Exception("MicrophoneRecord is not found");
         }
 
         _stream = await whisper.CreateStream(microphoneRecord);
 
-        if(_stream == null){
+        if (_stream == null)
+        {
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
         _stream.OnResultUpdated += OnResult;
@@ -106,13 +119,17 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             return;
         }
 
-
-        if(Input.GetKeyDown(KeyCode.T)){
-            Debug.Log("Start Record");
-            StartRecord();
-        }else if(Input.GetKeyUp(KeyCode.T)){
-            Debug.Log("Stop Record");
-            StopRecord();
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            if(isRecording){
+                isRecording = false;
+                Debug.Log("Stop Record");
+                StopRecord();
+            }else{
+                isRecording = true;
+                Debug.Log("Start Record");
+                StartRecord();
+            }
         }
     }
 
@@ -146,8 +163,23 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private async void LogSegmentMotion(string result){
         SegmentMotionSet segmentMotionSet = new SegmentMotionSet(result);
-        await playerController.SendResultToLlama(segmentMotionSet);
-        print(segmentMotionSet.ToString());
+
+        cts = new CancellationTokenSource();
+        cts.CancelAfter(2000);
+        try
+        {
+            await playerController.SendResultToLlama(segmentMotionSet, cts.Token);
+        }
+        catch (OperationCanceledException e)
+        {
+            Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
+            segmentMotionSet.timeout = true;
+        }
+        finally
+        {
+            cts.Dispose();
+        }
+        // print(segmentMotionSet.ToString());
         segmentMotionSets.Add(segmentMotionSet);
     }
     
