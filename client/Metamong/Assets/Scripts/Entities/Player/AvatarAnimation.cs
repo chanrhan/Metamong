@@ -58,7 +58,7 @@ public class AvatarAnimation : MonoBehaviour
             AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
             // Debug.Log($"[chan] Blocked: {state.normalizedTime}");
 
-            if (IsDefaultAnimBool() || state.normalizedTime >= 0.9f)
+            if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
             {
                 Debug.Log("[chan] Idle");
                 anim.Play(idleClipName);

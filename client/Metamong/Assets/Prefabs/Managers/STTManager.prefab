@@ -61,21 +61,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logLevel: 1
-  modelPath: Whisper/ggml-tiny.bin
+  modelPath: ggml-large-v3-turbo-q8_0.bin
   isModelPathInStreamingAssets: 1
   initOnAwake: 1
-  language: en
+  language: ko
   translateToEnglish: 0
-  strategy: 0
+  strategy: 1
   noContext: 1
   singleSegment: 0
   enableTokens: 0
   initialPrompt: 
-  stepSec: 3
-  keepSec: 0.2
-  lengthSec: 10
+  stepSec: 0.5
+  keepSec: 0.4
+  lengthSec: 2
   updatePrompt: 1
-  dropOldBuffer: 0
+  dropOldBuffer: 1
   useVad: 1
   tokensTimestamps: 0
   speedUp: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLengthSec: 60
-  loop: 0
+  loop: 1
   frequency: 16000
   chunksLengthSec: 0.5
   echo: 1

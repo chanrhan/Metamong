@@ -67,7 +67,6 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
             // 카메라 및 플레이어 오브젝트 설정
             //CameraController.Instance.SetTargetPlayer(gameObject);
             //ClientManager.Instance.MyPlayerObject = gameObject;
-
     }
 
     private void Update()

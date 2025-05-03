@@ -239,36 +239,33 @@ public class PlayerController : NetworkCharacter
     
     // 모션 매핑 프로세스
     
-    public async Task SendResultToLlama(SegmentMotionSet segmentMotionSet, CancellationToken token)
+    public void ChatToOther(string chatText)
     {
         // (Test) 모션 실행 도중 입력되는 세그먼트는 무조건 무시 
-        if (avatarAnim.IsBlocked)
-        {
-            // Debug.Log($"[chan] Ignore : {segmentMotionSet.segment}");
-            return;
-        }
-        avatarAnim.IsBlocked = true;
-        
+        // if (avatarAnim.IsBlocked)
+        // {
+        //     // Debug.Log($"[chan] Ignore : {segmentMotionSet.segment}");
+        //     return;
+        // }
+        // avatarAnim.IsBlocked = true;
 
-        string messageSegment = segmentMotionSet.segment;
         // 채팅 메세지는 NPC한테만 보내기
         if(TryGetAroundNPC(out NetworkTarget[] targets)){
-            PacketSendHandler.ChatText(messageSegment, targets);
+            PacketSendHandler.ChatText(chatText, targets);
         }
         
-        ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
+        // ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
 
-        //ChatManager.Instance.InputChat(clientInfo.username, message);
-        TimerUtils.Start();
-        string response = await LlmManager.Instance.Chat(clientInfo.username + ": " + messageSegment, HandleReply, ReplyCompleted, false);
-        TimerUtils.LogAndReset();
-        LlmManager.Instance.AddChatLog(clientInfo.username,messageSegment);
+        // //ChatManager.Instance.InputChat(clientInfo.username, message);
+        // TimerUtils.Start();
+        // string response = await LlmManager.Instance.Chat(clientInfo.username + ": " + chatText, HandleReply, ReplyCompleted, false);
+        // TimerUtils.LogAndReset();
+        // LlmManager.Instance.AddChatLog(clientInfo.username,chatText);
 
-        // Debug.Log("Response: " + response);
-        // Debug.Log($"[chan] {segmentMotionSet.segment} : {response}");
+        // // Debug.Log("Response: " + response);
+        // // Debug.Log($"[chan] {segmentMotionSet.segment} : {response}");
         
-            
-        OnActionTextUpdated?.Invoke(response, segmentMotionSet);
+        // OnActionTextUpdated?.Invoke(response, chatText);
     }
 
     void HandleReply(string reply)

@@ -14,7 +14,13 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     [SerializeField]
     private TextMeshProUGUI sttResponse;
     [SerializeField]
-    private Image vadIndicatorImage;
+    private Image vadImg;
+    [SerializeField]
+    private Image onRecordPanel;
+    [SerializeField]
+    private Color orgColor;
+    [SerializeField]
+    private Color onRecordColor;
 
     [Header("Vivox Voice Channel")]
     [SerializeField]
@@ -32,9 +38,12 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     {
         base.Awake();
         loadingPanel.SetActive(true);
-        if(btnQuit){
+        if (btnQuit)
+        {
             btnQuit.onClick.AddListener(Quit);
         }
+        STTManager.Instance.OnVadChanged = OnVoiceDetected;
+        STTManager.Instance.OnRecord = OnRecord;
     }
 
     void Start()
@@ -42,7 +51,18 @@ public class UIManager : MonobehaviourSingleton<UIManager>
         ClearSttResponseText();
     }
 
-    public void HideLoadingPanel(){
+    public void OnRecord(bool isRecord)
+    {
+        onRecordPanel.color = isRecord ? onRecordColor : orgColor;
+    }
+
+    public void OnVoiceDetected(bool isDeteched)
+    {
+        vadImg.gameObject.SetActive(isDeteched);
+    }
+
+    public void HideLoadingPanel()
+    {
         loadingPanel.SetActive(false);
     }
 

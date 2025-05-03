@@ -8,41 +8,31 @@ using UnityEngine.Animations;
 public class SBERTMotionMapper : MonoBehaviour
 {
     private string actionText;
-    //private string Act;
-    //private string Face;
+
     [SerializeField]
     private PlayerController PlayerController;
     
     [SerializeField]
     private NpcAI NpcAI;
-    //ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
-    // void OnEnable()
-    // {
-    //     ChatCompletionWithSummary.NPCActionTextUpdated += NPCUpdateActionText;
-    //     //PlayerController.OnActionTextUpdated += UpdateActionText;
-    // }
-
-    // void OnDisable()
-    // {
-    //     ChatCompletionWithSummary.NPCActionTextUpdated -= NPCUpdateActionText;
-    //     //PlayerController.OnActionTextUpdated -= UpdateActionText;
-    // }
-
     
+    // 사용할 SBERT 임베딩 모델 (SBERTEmbedding 컴포넌트)
+    private SBERTEmbedding sbertEmbedding;
+    //ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
+
     /// <summary>
     /// 사용자 입력 텍스트가 업데이트될 때 호출됩니다.
     /// 입력된 각 줄(모션 텍스트)에 대해 SBERT 임베딩 기반 유사도 검사를 수행하고,
     /// 스레시홀드 이상이면 해당 모션 키를, 아니면 "No match"를 출력합니다.
     /// </summary>
     /// <param name="newText">사용자 입력 텍스트 (각 줄이 하나의 모션 텍스트)</param>
-    private void UpdateActionText(string newText, SegmentMotionSet segmentMotionSet=default)
+    private void UpdateActionText(string newText, SegmentMotionSet segmentMotionSet = default)
     {
         actionText = newText;
         string[] keywords = GetMotionKeys(newText);
-        segmentMotionSet.actionClipName = keywords[0];
-        segmentMotionSet.faceClipName = keywords[1];
+        // segmentMotionSet.actionClipName = keywords[0];
+        // segmentMotionSet.faceClipName = keywords[1];
 
-        PlayerController.PlayMotion(keywords[0], keywords[1]);
+        // PlayerController.PlayMotion(keywords[0], keywords[1]);
     }
 
     private void NPCUpdateActionText(string newText)
@@ -53,13 +43,8 @@ public class SBERTMotionMapper : MonoBehaviour
         NpcAI.MakeMotion(keywords[0]);
         NpcAI.MakeFace(keywords[1]);
     }
-    /// <summary>
-    /// 결과를 표시할 TextMeshProUGUI (Inspector에서 할당)
-    /// </summary>
-    [SerializeField] private TextMeshProUGUI textarea;
 
-    // 사용할 SBERT 임베딩 모델 (SBERTEmbedding 컴포넌트)
-    private SBERTEmbedding sbertEmbedding;
+    
 
     void Awake()
     {
@@ -90,9 +75,8 @@ public class SBERTMotionMapper : MonoBehaviour
     /// motions 배열 순서: 0 - UserAct, 1 - UserFace, 2 - NPCAct, 3 - NPCFace
     /// </summary>
     /// <param name="motions">사용자 입력 모션 텍스트 배열</param>
-    private string[] GetMotionKeys(string motions)
+    public string[] GetMotionKeys(string motions)
     {
-        
         string[] keywords = new string[2];
         keywords[0] = sbertEmbedding.CompareWordText(motions, true);
         keywords[1] = sbertEmbedding.CompareWordText(motions, false);

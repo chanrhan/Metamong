@@ -39,8 +39,19 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private WhisperStream _stream;
 
     private PlayerController playerController;
-    public PlayerController PlayerController{
+    public PlayerController PlayerController {
         set => playerController = value;
+    }
+    public OnVadChangedDelegate OnVadChanged
+    {
+        set => microphoneRecord.OnVadChanged += value;
+    }
+
+    public Action<bool> onRecord;
+
+    public Action<bool> OnRecord
+    {
+        set => onRecord += value;
     }
     
 
@@ -111,25 +122,31 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     void Update()
     {
-        if(SceneManager.GetActiveScene().name != GameSceneManager.Instance.InGameSceneName){
+        if (SceneManager.GetActiveScene().name != GameSceneManager.Instance.InGameSceneName)
+        {
             return;
         }
-        
-        if(IsPlatformMacOs){
+
+        if (IsPlatformMacOs)
+        {
             return;
         }
 
         if (Input.GetKeyUp(KeyCode.T))
         {
-            if(isRecording){
+            if (isRecording)
+            {
                 isRecording = false;
                 Debug.Log("Stop Record");
                 StopRecord();
-            }else{
+            }
+            else
+            {
                 isRecording = true;
                 Debug.Log("Start Record");
                 StartRecord();
             }
+            onRecord?.Invoke(isRecording);
         }
     }
 
@@ -158,17 +175,17 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-        LogSegmentMotion(segment.Result);
     }
 
     private async void LogSegmentMotion(string result){
+        Debug.Log($"[chan] result: " + result);
         SegmentMotionSet segmentMotionSet = new SegmentMotionSet(result);
 
         cts = new CancellationTokenSource();
         cts.CancelAfter(2000);
         try
         {
-            await playerController.SendResultToLlama(segmentMotionSet, cts.Token);
+            await playerController.ChatToOther(segmentMotionSet, cts.Token);
         }
         catch (OperationCanceledException e)
         {
@@ -182,18 +199,20 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         // print(segmentMotionSet.ToString());
         segmentMotionSets.Add(segmentMotionSet);
     }
-    
+
     private void OnSegmentFinished(WhisperResult segment)
     {
-        if (playerController != null)
-        {
-            //playerController.SendResultToLlama(segment.Result);
-            Debug.Log($"Segment finished: {segment.Result}");
-        }
-        else
-        {
-            Debug.LogError("PlayerController 인스턴스가 할당되지 않았습니다.");
-        }
+        LogSegmentMotion(segment.Result);
+        
+        // if (playerController != null)
+        // {
+        //     //playerController.SendResultToLlama(segment.Result);
+        //     Debug.Log($"Segment finished: {segment.Result}");
+        // }
+        // else
+        // {
+        //     Debug.LogError("PlayerController 인스턴스가 할당되지 않았습니다.");
+        // }
     }
 
     

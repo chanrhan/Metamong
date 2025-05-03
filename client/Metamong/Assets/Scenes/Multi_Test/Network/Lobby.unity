@@ -2392,6 +2392,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5152413228007512883, guid: f1e7811cac2b44257a4a2c0ce06464c2, type: 3}
+      propertyPath: numGPULayers
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152413228007512883, guid: f1e7811cac2b44257a4a2c0ce06464c2, type: 3}
+      propertyPath: advancedOptions
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5904429989698625086, guid: f1e7811cac2b44257a4a2c0ce06464c2, type: 3}
       propertyPath: m_Name
       value: LlmManager
@@ -2449,38 +2457,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: keepSec
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: stepSec
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: language
-      value: ko
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: strategy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: lengthSec
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: modelPath
-      value: ggml-large-v3-turbo-q8_0.bin
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: dropOldBuffer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: isModelPathInStreamingAssets
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 830593043218384986, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: m_Name
       value: STTManager
@@ -2524,14 +2500,6 @@ PrefabInstance:
     - target: {fileID: 1296988299201472907, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863722905202681617, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863722905202681617, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: chunksLengthSec
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
