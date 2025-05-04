@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 플레이어 또는 NPC의 애니메이션 제어를 담당하는 클래스 
+/// </summary>
 public class AvatarAnimation : MonoBehaviour
 {
     [SerializeField]
-    private string idleClipName = "IdleAnimation";
+    private string idleClipName = "IdleAnimation"; // Idle 애니메이션 클립명 
 
     private Animator anim;
-    private bool isBlocked = false;
-    private bool isMotionPlaying = false;
+    private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
+    private bool isMotionPlaying = false; // 모션 실행 중 여부 체크
     public bool IsBlocked
     {
         get => isBlocked;
@@ -19,15 +22,6 @@ public class AvatarAnimation : MonoBehaviour
     {
         get => isMotionPlaying;
         set => isMotionPlaying = value;
-    }
-
-    
-
-    private string currentPlayingClipName = string.Empty;
-
-    public bool IsPlayingIdleAnim
-    {
-        get => anim.GetCurrentAnimatorStateInfo(0).IsName(idleClipName);
     }
 
     void Awake()
@@ -51,13 +45,18 @@ public class AvatarAnimation : MonoBehaviour
         return anim.GetBool("isWalking") || anim.GetBool("isTalking");
     }
 
+    /// <summary>
+    /// 특정 애니메이션이 끝난 후, 애니메이션 상태를 강제로 Idle로 바꿔버리는 함수
+    /// isWalking 등의 trigger로 Animation Transition을 제어하면, has Exit Time을 사용할 수 없기 때문에,
+    /// 코드로 제어하기로 하였다. 
+    /// </summary>
     private void UpdateIdleTransition()
     {
         if (isBlocked && IsMotionPlaying)
         {
             AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-            // Debug.Log($"[chan] Blocked: {state.normalizedTime}");
 
+            // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
             if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
             {
                 Debug.Log("[chan] Idle");

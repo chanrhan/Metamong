@@ -2024,6 +2024,7 @@ GameObject:
   - component: {fileID: 9119664383364838322}
   - component: {fileID: 5081610154288509185}
   - component: {fileID: 5095382934083476293}
+  - component: {fileID: 7580794769317073}
   m_Layer: 6
   m_Name: BasicNPC
   m_TagString: OtherPlayer
@@ -2110,7 +2111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1685500443
+  GlobalObjectIdHash: 3779892617
   InScenePlacedSourceGlobalObjectIdHash: 2863424488
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2136,7 +2137,6 @@ MonoBehaviour:
   isGeneratingAnswer: 0
   isMessageListened: 0
   detectedPlayer: {fileID: 0}
-  answerText: 
 --- !u!114 &9199000185213451224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2238,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
   m_Animator: {fileID: 4121256540156357491}
+--- !u!114 &7580794769317073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232820536256093580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432c4e821b1bdba449facb2493152731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleClipName: IdleAnimation
 --- !u!1 &3403221377241351205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,7 +4369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 0}
   NpcAI: {fileID: 0}
-  textarea: {fileID: 0}
 --- !u!114 &4866668544297326293
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,43 +14,35 @@ using UnityEngine.UI;
 using LLMUnity;
 using System.Threading.Tasks;
 
-public class ChatCompletionWithSummary : MonoBehaviour
+// Coroutine을 async로 바꾸면서, MonoBehaviour도 제거
+// 따라서 이를 전역으로 두는 것이 아닌, NPC 객체 하나마다 이를 소유하도록 함 
+public class ChatCompletionWithSummary 
 {
-    [Header("UI References")]
-    [SerializeField] 
-    private InputField inputField; // 입력 받는 영역
     private string responseText; // 응답 결과
-    public string ResponseText{
-        get{
-            return responseText;
-        }
-    }
-
-    public static event Action<string> NPCActionTextUpdated;
-
-    [Header("OpenAI Settings")]
     private string openAIAPIKey; // 사용자 환경 변수로 가져오는데 없을 경우 수동으로 넣으세요
     private string modelName = "gpt-4o";
+
+    // chat completion api url 
+    private const string URL_CHAT_COMPLETION = "https://api.openai.com/v1/chat/completions";
+
 
     // Chat Completions 대화 이력 (role: user / assistant / system)
     private List<ChatMessage> conversationHistory = new List<ChatMessage>();
 
     // 응답 대기 플래그
-    private bool isWaitingForResponse = false;
-    public bool IsWaitingForResponse => isWaitingForResponse;
+    // private bool isWaitingForResponse = false;
     // 대략 3000 토큰 이상이면 요약 시작
     // 실제로는 프로젝트 요구사항, 비용, 모델 한도 등에 맞춰 조절해야 함!
     private const int MaxTotalTokensThreshold = 3000;
 
     // 마지막 응답에서 받아온 사용량
     private int lastTotalTokensUsed = 0;
-    private NpcAI myNpc;
-    private void Start()
+
+    public ChatCompletionWithSummary()
     {
-        inputField = FindObjectOfType<InputField>();
         if (string.IsNullOrEmpty(openAIAPIKey))
         {
-            // 난 API 키를 GIT HUB에 못 올려서 사용자 변수로 설정함.
+            // Git에 올라가는 API_KEY 유출 방지를 위해 환경변수로 설정하여 참조하도록 함 
             openAIAPIKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
         }
 
@@ -59,7 +51,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
             Debug.LogError("OpenAI API Key가 설정되지 않았습니다!");
         }
 
-        inputField.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
+        // inputField?.onSubmit.AddListener(delegate { OnSendButtonClicked(); });
         
         string systemInstruction =  
             "너는 장난기 많고 짓궂지만 친근한 성격의 친구인 것이다. " +  
@@ -102,35 +94,35 @@ public class ChatCompletionWithSummary : MonoBehaviour
     /// <summary>
     /// [UI] 버튼 클릭 시 호출될 함수
     /// </summary>
-    public void OnSendButtonClicked()
-    {
-        if (isWaitingForResponse)
-        {
-            Debug.Log("[ChatCompletion] 이미 다른 응답을 기다리는 중입니다.");
-            return;
-        }
-        // 변수 하나 더 만들어서 입력 값 저장
-        // 입력 필드를 초기화 하기 위해서 이렇게 씀
-        string userInput = inputField.text;
+    // public void OnSendButtonClicked()
+    // {
+    //     if (isWaitingForResponse)
+    //     {
+    //         Debug.Log("[ChatCompletion] 이미 다른 응답을 기다리는 중입니다.");
+    //         return;
+    //     }
+    //     // 변수 하나 더 만들어서 입력 값 저장
+    //     // 입력 필드를 초기화 하기 위해서 이렇게 씀
+    //     string userInput = inputField.text;
 
-        if (string.IsNullOrEmpty(userInput))
-        {
-            responseText = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
-            return;
-        }
+    //     if (string.IsNullOrEmpty(userInput))
+    //     {
+    //         responseText = "입력된 텍스트가 없습니다. 문장을 입력해주세요!";
+    //         return;
+    //     }
 
-        // 사용자 입력 필드 초기화 & 포커스 이동
-        inputField.text = "";
-        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+    //     // 사용자 입력 필드 초기화 & 포커스 이동
+    //     inputField.text = "";
+    //     EventSystem.current.SetSelectedGameObject(inputField.gameObject);
 
-        // 대화 이력에 사용자 메시지 추가
-        conversationHistory.Add(new ChatMessage("user", userInput));
+    //     // 대화 이력에 사용자 메시지 추가
+    //     conversationHistory.Add(new ChatMessage("user", userInput));
 
-        // 전송~응답
-        isWaitingForResponse = true;
-        // 쓰레드 머시기 만들어서 발사~
-        StartCoroutine(RequestChatCompletionAndMaybeSummarize(userInput));
-    }
+    //     // 전송~응답
+    //     isWaitingForResponse = true;
+    //     // 쓰레드 머시기 만들어서 발사~
+    //     RequestChatCompletionAndMaybeSummarize(userInput);
+    // }
 
     public void AddHistory(string role, string content)
     {
@@ -138,13 +130,13 @@ public class ChatCompletionWithSummary : MonoBehaviour
     }
 
     /// <summary>
-    /// API 요청을 순차적으로 처리하기 위한 코루틴
+    /// API 요청을 순차적으로 처리하기 위한 비동기 처리 메서드
     /// </summary>
     /// <param name="userInput">사용자 입력</param>
-    public IEnumerator RequestChatCompletionAndMaybeSummarize(string userInput)
+    public async Task<string> RequestChatCompletionAndMaybeSummarize(string userInput)
     {
         // 먼저 현재 대화 이력으로 ChatCompletion API를 호출
-        yield return StartCoroutine(RequestChatCompletion(userInput));
+        string response = await RequestChatCompletion(userInput);
 
         // 응답을 받은 뒤, 토큰 사용량이 너무 많으면 요약 시도
         if (lastTotalTokensUsed > MaxTotalTokensThreshold)
@@ -152,19 +144,21 @@ public class ChatCompletionWithSummary : MonoBehaviour
             Debug.Log($"[ChatCompletion] 토큰 {lastTotalTokensUsed} 사용. " +
                       $"임계치 {MaxTotalTokensThreshold} 초과 → 대화 요약 진행");
 
-            // 대화 요약 코루틴
-            yield return StartCoroutine(SummarizeConversation());
+            // 대화 요약 
+            SummarizeConversation();
         }
 
-        isWaitingForResponse = false;
+        // isWaitingForResponse = false;
+        return response;
     }
 
     /// <summary>
     /// Chat Completions API를 사용해 대화 이력에 대한 답변을 받아오는 함수
     /// </summary>
     /// <param name="userInput">마찬가지로 사용자 입력</param>
-    private IEnumerator RequestChatCompletion(string userInput)
+    private async Task<string> RequestChatCompletion(string userInput)
     {
+        var tcs = new TaskCompletionSource<string>();
         // 1) 요청 바디 구성
         // temperature은 얼마나 독창적? 창의적으로 답변을 받을지 정도임. 0이면 완전 완하는 답만, 1이면 완전 창의적으로 답함 
         ChatRequest requestData = new ChatRequest
@@ -176,7 +170,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         };
         string jsonBody = JsonUtility.ToJson(requestData);
 
-        using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST")) //https://api.openai.com/v1/chat/completions
+        using (UnityWebRequest request = new UnityWebRequest(URL_CHAT_COMPLETION, "POST")) //https://api.openai.com/v1/chat/completions
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -185,46 +179,52 @@ public class ChatCompletionWithSummary : MonoBehaviour
             request.SetRequestHeader("Content-Type", "application/json");
             request.SetRequestHeader("Authorization", "Bearer " + openAIAPIKey);
 
-            yield return request.SendWebRequest();
+            // UnityWebRequestAsyncOperation 은 await로 처리할 수 없기 때문에 Task를 이용하여 비동기 처리 
+            var operation = request.SendWebRequest();
 
-            // 입력이 오면
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string response = request.downloadHandler.text;
-
-                // JSON -> C# 파싱
-                ChatResponse chatResponse = JsonUtility.FromJson<ChatResponse>(response);
-
-                if (chatResponse != null && chatResponse.choices != null && chatResponse.choices.Count > 0)
+            // 응답이 오면 
+            operation.completed += (_)=>{
+                if (request.result == UnityWebRequest.Result.Success)
                 {
-                    // 첫 번째 choice 사용. 첫 번째 답변이 우리가 필요한 응답임.
-                    ChatMessage assistantMsg = chatResponse.choices[0].message;
-                    // 대화 이력에 어시스턴트 메시지 추가
-                    conversationHistory.Add(assistantMsg);
+                    string response = request.downloadHandler.text;
 
-                    string openAi_response = assistantMsg.content.Trim();
+                    // JSON -> C# 파싱
+                    ChatResponse chatResponse = JsonUtility.FromJson<ChatResponse>(response);
 
-                    var output = SplitResponse(openAi_response);
-                    responseText = output.NPCOutput;
-                    NPCActionTextUpdated?.Invoke(output.motionOutput);
-
-                    // (ChatUsage.total_tokens에 전체 토큰 수가 들어옴)
-                    if (chatResponse.usage != null)
+                    if (chatResponse != null && chatResponse.choices != null && chatResponse.choices.Count > 0)
                     {
-                        lastTotalTokensUsed = chatResponse.usage.total_tokens;
-                        //Debug.Log($"[ChatCompletion] total_tokens used = {lastTotalTokensUsed}");
+                        // 첫 번째 choice 사용. 첫 번째 답변이 우리가 필요한 응답임.
+                        ChatMessage assistantMsg = chatResponse.choices[0].message;
+                        // 대화 이력에 어시스턴트 메시지 추가
+                        conversationHistory.Add(assistantMsg);
+
+                        string openAi_response = assistantMsg.content.Trim();
+
+                        var output = SplitResponse(openAi_response);
+                        responseText = output.NPCOutput;
+                        // NPCActionTextUpdated?.Invoke(output.motionOutput);
+
+                        // (ChatUsage.total_tokens에 전체 토큰 수가 들어옴)
+                        if (chatResponse.usage != null)
+                        {
+                            lastTotalTokensUsed = chatResponse.usage.total_tokens;
+                            //Debug.Log($"[ChatCompletion] total_tokens used = {lastTotalTokensUsed}");
+                        }
+                    }
+                    else
+                    {
+                        responseText = "응답 파싱 실패\n" + response;
                     }
                 }
                 else
                 {
-                    responseText = "응답 파싱 실패\n" + response;
+                    responseText = "오류 발생: " + request.error + "\nHTTP " + request.responseCode;
+                    Debug.LogError("ChatCompletion Error: " + request.error + ", Code: " + request.responseCode);
                 }
-            }
-            else
-            {
-                responseText = "오류 발생: " + request.error + "\nHTTP " + request.responseCode;
-                Debug.LogError("ChatCompletion Error: " + request.error + ", Code: " + request.responseCode);
-            }
+                tcs.SetResult(responseText);
+            };
+
+            return await tcs.Task;
         }
     }
     /// <summary>
@@ -253,22 +253,12 @@ public class ChatCompletionWithSummary : MonoBehaviour
 
         return (NPCOutput, motionOutput);
     }
-
-    void HandleReply(string reply)
-    {
-        //Debug.Log("Extracted Actions: " + reply);
-    }
-    void ReplyCompleted()
-    {
-        Debug.Log("Reply Completed");
-    }
-
     /// <summary>
     /// 토큰 절약을 위해, 이미 누적된 긴 대화를 요약하는 함수.
     /// - 기존 대화 전체를 system(NPC) 입장에서 짧게 요약한 뒤,
     /// - conversationHistory를 새로 갱신하여 전체 길이를 줄임
     /// </summary>
-    private IEnumerator SummarizeConversation()
+    private void SummarizeConversation()
     {
         // 1) 먼저 대화 이력을 전부 가져와서 하나의 문자열로 묶는다
         string allMessages = "";
@@ -302,7 +292,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
         string jsonBody = JsonUtility.ToJson(summaryReq);
 
         // 3) ChatCompletion API로 "요약" 요청
-        using (UnityWebRequest request = new UnityWebRequest("https://api.openai.com/v1/chat/completions", "POST"))
+        using (UnityWebRequest request = new UnityWebRequest(URL_CHAT_COMPLETION, "POST"))
         {
             byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -311,7 +301,7 @@ public class ChatCompletionWithSummary : MonoBehaviour
             request.SetRequestHeader("Content-Type", "application/json");
             request.SetRequestHeader("Authorization", "Bearer " + openAIAPIKey);
 
-            yield return request.SendWebRequest();
+            request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
             {

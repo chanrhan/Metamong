@@ -10,7 +10,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LlmManager : MonobehaviourSingleton<LlmManager>
+public class Llama : MonoBehaviour
 {
     //LLM llm;
     private LLMCharacter myllmCharacter;
@@ -19,9 +19,8 @@ public class LlmManager : MonobehaviourSingleton<LlmManager>
 
     private Queue<string> chatHistory = new Queue<string>(10);
 
-    protected override void Awake()
+    void Awake()
     {
-            base.Awake();
             llm = GetComponent<LLM>();
             myllmCharacter = GetComponent<LLMCharacter>();
     }

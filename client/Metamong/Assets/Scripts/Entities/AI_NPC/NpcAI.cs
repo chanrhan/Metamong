@@ -9,29 +9,22 @@ public class NpcAI : NetworkCharacter
     //NpcAI 관련 컴포넌트 및 변수
     [SerializeField]
     private string npcName = "BasicNPC";
-    private NpcAnimationController myAnimationController;
+    private NpcAnimationController animController;
     private Coroutine dailyActionCoroutine;
-    private ChatCompletionWithSummary chatCompletionWithSummary;
-    private string inputmessage;
+    private ChatCompletionWithSummary chatCompletionWithSummary = new ChatCompletionWithSummary();
     public string NpcName
     {
         get => npcName;
     }
 
-    
     public bool isGeneratingAnswer = true;
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
-    public string answerText;
-    //private LLM llm;
-    //private LLMCharacter llmCharacter;
 
-    private void Awake()
+    protected override void Awake()
     {
-        myAnimationController = GetComponent<NpcAnimationController>();
-        chatCompletionWithSummary = FindObjectOfType<ChatCompletionWithSummary>();
-
-
+        base.Awake();
+        animController = GetComponent<NpcAnimationController>();
     }
 
     private void Update()
@@ -61,16 +54,14 @@ public class NpcAI : NetworkCharacter
     /// 주변 플레이어에게 자신의 대화 텍스트를 전달하는 메서드. STT와 같은 대화 텍스트 입력 기능이 구현되면 수정할 예정
     /// 주변의 플레이어는 Conversable 레이어와 "Player"태그를 가지고 있어야 한다.
     /// </summary>
-    public override void SendMessageToOthers()
+    public override void SendMessageToOthers(string text)
     {
         if(TryGetAroundAll(out NetworkTarget[] targets)){
-            string msg = chatCompletionWithSummary.ResponseText;
-            ServerPacketReceiveHandler.TalkByNPC(msg, targets);
+            // string msg = chatCompletionWithSummary.ResponseText;
+            ServerPacketReceiveHandler.TalkByNPC(text, targets);
             isMessageListened = false;
         }
     }
-
-   
 
     private void DetectPlayer()
     {
@@ -101,11 +92,11 @@ public class NpcAI : NetworkCharacter
         transform.rotation = Quaternion.Lerp(transform.rotation, dest, 0.1f);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, speekRange);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawWireSphere(transform.position, speekRange);
+    // }
 
     /// <summary>
     /// NPC에게 메세지를 전달하는 메서드. 외부에서 사용하도록 설계함.
@@ -113,13 +104,13 @@ public class NpcAI : NetworkCharacter
     /// <param name="message">NPC에게 전달할 메세지</param>
     public override void ListenMessage(GameObject partnerObj, string message)
     {
-        if (isMessageListened) return;
+        if (isGeneratingAnswer) return;
         
         StopDailyCoroutine();
         detectedPlayer = partnerObj;
         isMessageListened = true;
         isGeneratingAnswer = true;
-        StartCoroutine(GeneratingAnswerCoroutine(message));
+        GeneratingAnswerAsync(message);
     }
 
     /// <summary>
@@ -128,13 +119,15 @@ public class NpcAI : NetworkCharacter
     /// <returns></returns>
     // public IEnumerator GeneratingAnswerCoroutine()
 
-    public IEnumerator GeneratingAnswerCoroutine(string msg)
+    public async void GeneratingAnswerAsync(string msg)
     {
         //myAnimationController.MyAnimator.SetBool("isThinking", true);
         //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
 
         chatCompletionWithSummary.AddHistory("user", msg);
-        yield return StartCoroutine(chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg));
+
+        // chatGPT를 통해 응답 생성 
+        string response = await chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg);
 
         // while(chatCompletionWithSummary.IsWaitingForResponse){
         //     Debug.Log("대화 생성 중");
@@ -146,7 +139,8 @@ public class NpcAI : NetworkCharacter
         //answerText = talkTextArray[talkIndex];
         //talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
-        SendMessageToOthers();
+        // 모션 생성
+        MotionGenerator.Instance.Generate(response, false, this);
     }
 
     /// <summary>
@@ -169,19 +163,19 @@ public class NpcAI : NetworkCharacter
 
         if(randomNumber == 0) //랜덤 위치 이동
         {
-            myAnimationController.StopAllMovement();
-            myAnimationController.MyAgent.SetDestination(new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f)));
-            while (myAnimationController.MyAgent.pathPending){ yield return null; }
+            animController.StopAllMovement();
+            animController.MyAgent.SetDestination(new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f)));
+            while (animController.MyAgent.pathPending){ yield return null; }
 
-            myAnimationController.MyAnimator.SetBool("isWalking", true);
-            while (myAnimationController.MyAgent.remainingDistance > 0.001f) { yield return null; }
-            myAnimationController.MyAnimator.SetBool("isWalking", false);
+            animController.MyAnimator.SetBool("isWalking", true);
+            while (animController.MyAgent.remainingDistance > 0.001f) { yield return null; }
+            animController.MyAnimator.SetBool("isWalking", false);
         }
         else if (randomNumber == 1) //랜덤 애니메이션 재생
         {
-            myAnimationController.PlayRandomAnimation(0);
+            animController.PlayRandomAnimation(0);
 
-            while (myAnimationController.MyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98)
+            while (animController.MyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.98)
             {
 
                 yield return null;
@@ -197,22 +191,16 @@ public class NpcAI : NetworkCharacter
     /// </summary>
     private void StopDailyCoroutine()
     {
-        myAnimationController.StopAllMovement();
+        animController.StopAllMovement();
         if (dailyActionCoroutine != null)
         {
             StopCoroutine(dailyActionCoroutine);
             dailyActionCoroutine = null;
         }
     }
-    public void MakeFace(string face)
+    public override void PlayMotion(string faceClipName, string actionClipName)
     {
-        myAnimationController.MyAnimator.Play(face, 2);
-    }
-
-    public void MakeMotion(string motion)
-    {
-        //myAnimationController.MyAnimator.SetTrigger("StopTrigger");
-        myAnimationController.MyAnimator.Play(motion, 0);
+        avatarAnim.PlayFaceAndActionAnimation(faceClipName, actionClipName);
     }
 
 }

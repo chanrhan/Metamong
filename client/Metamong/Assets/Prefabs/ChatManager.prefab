@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacd8d465e30de548bda203b997c5074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chatTextField: {fileID: 0}
+  dontDestroyOnLoad: 0
+  IsTyping: 0

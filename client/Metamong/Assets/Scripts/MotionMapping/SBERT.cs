@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Unity.Sentis; // Sentis 관련 API
 
-public class SBERTEmbedding : MonoBehaviour
+public class SBERT : MonoBehaviour
 {
     private Model runtimeModel;
     private Worker worker;

@@ -7,6 +7,21 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
 {
     //대화 관련
     public float speekRange = 5.0f;       // 채팅 전송 범위
+    protected AvatarAnimation avatarAnim;
+
+    protected Rigidbody myRigid;      
+    protected Collider myCollider;
+
+    public bool AnimationBlocked{
+        get=>avatarAnim.IsBlocked;
+        set=>avatarAnim.IsBlocked = value;
+    }
+
+    protected virtual void Awake(){
+        myRigid = GetComponent<Rigidbody>();
+        myCollider = GetComponent<Collider>();
+        avatarAnim = GetComponent<AvatarAnimation>();
+    }
     
     protected bool TryGetAroundNetworkTargets(string targetTag, out NetworkTarget[] networkTargets){
         RaycastHit[] hitPlayers = Physics.SphereCastAll(transform.position, speekRange, Vector3.up, 0.0f, 64); //64 = Conversable Layer(2^7)
@@ -44,6 +59,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
     }
 
     public abstract void ListenMessage(GameObject senderObj, string message);
-    public abstract void SendMessageToOthers();
+    public abstract void SendMessageToOthers(string text);
+    public abstract void PlayMotion(string faceClipName, string actionClipName);
 
 }

@@ -38,10 +38,6 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private MicrophoneRecord microphoneRecord;
     private WhisperStream _stream;
 
-    private PlayerController playerController;
-    public PlayerController PlayerController {
-        set => playerController = value;
-    }
     public OnVadChangedDelegate OnVadChanged
     {
         set => microphoneRecord.OnVadChanged += value;
@@ -70,13 +66,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     public List<double> SegmentFinshiedTimes{
         get=>_stream.finishSegmentTime;
     }
-
-    private int lastSegmentId = 0;
     
     private bool isRecording = false;
-
-    private CancellationTokenSource cts = null;
-
 
     protected async override void Awake()
     {
@@ -177,42 +168,9 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
     }
 
-    private async void LogSegmentMotion(string result){
-        Debug.Log($"[chan] result: " + result);
-        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(result);
-
-        cts = new CancellationTokenSource();
-        cts.CancelAfter(2000);
-        try
-        {
-            await playerController.ChatToOther(segmentMotionSet, cts.Token);
-        }
-        catch (OperationCanceledException e)
-        {
-            Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
-            segmentMotionSet.timeout = true;
-        }
-        finally
-        {
-            cts.Dispose();
-        }
-        // print(segmentMotionSet.ToString());
-        segmentMotionSets.Add(segmentMotionSet);
-    }
-
     private void OnSegmentFinished(WhisperResult segment)
     {
-        LogSegmentMotion(segment.Result);
-        
-        // if (playerController != null)
-        // {
-        //     //playerController.SendResultToLlama(segment.Result);
-        //     Debug.Log($"Segment finished: {segment.Result}");
-        // }
-        // else
-        // {
-        //     Debug.LogError("PlayerController 인스턴스가 할당되지 않았습니다.");
-        // }
+        MotionGenerator.Instance?.Generate(segment.Result);
     }
 
     

@@ -16,7 +16,7 @@ using Newtonsoft.Json.Linq;
 public static class JsonConverter<T> where T : class, new()
 {
 
-      public static List<T>? DeserializeToList(string source)
+      public static List<T> DeserializeToList(string source)
     {
         if (source == null)
         {
@@ -25,7 +25,7 @@ public static class JsonConverter<T> where T : class, new()
         return JsonConvert.DeserializeObject<List<T>>(source);
     }
 
-    public static T? Deserialize(string source)
+    public static T Deserialize(string source)
     {
         if (source == null)
         {

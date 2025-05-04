@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 
+[Obsolete]
 public class SBERTMotionMapper : MonoBehaviour
 {
     private string actionText;
@@ -16,8 +17,31 @@ public class SBERTMotionMapper : MonoBehaviour
     private NpcAI NpcAI;
     
     // 사용할 SBERT 임베딩 모델 (SBERTEmbedding 컴포넌트)
-    private SBERTEmbedding sbertEmbedding;
+    private SBERT sbertEmbedding;
     //ChatCompletion의 이벤트 구독 (프로젝트에 맞게 이벤트 이름과 처리 방식을 수정)
+
+    void Awake()
+    {
+        // SBERTEmbedding 컴포넌트를 같은 GameObject에서 찾기
+        // PlayerController = transform.parent.GetComponent<PlayerController>();
+        //PlayerController.OnActionTextUpdated += UpdateActionText;
+        
+        // if(PlayerController == null){
+        //     NpcAI = transform.parent.GetComponent<NpcAI>();
+            // ChatCompletionWithSummary.NPCActionTextUpdated += NPCUpdateActionText;
+        // }else
+        // {
+        //     PlayerController.OnActionTextUpdated += UpdateActionText;
+        // }
+        //ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
+
+        sbertEmbedding = GetComponent<SBERT>();
+
+        if (sbertEmbedding == null)
+        {
+            Debug.LogError("SBERTEmbedding 컴포넌트를 찾을 수 없습니다. 해당 GameObject에 부착되어 있는지 확인하세요.");
+        }
+    }
 
     /// <summary>
     /// 사용자 입력 텍스트가 업데이트될 때 호출됩니다.
@@ -25,49 +49,24 @@ public class SBERTMotionMapper : MonoBehaviour
     /// 스레시홀드 이상이면 해당 모션 키를, 아니면 "No match"를 출력합니다.
     /// </summary>
     /// <param name="newText">사용자 입력 텍스트 (각 줄이 하나의 모션 텍스트)</param>
-    private void UpdateActionText(string newText, SegmentMotionSet segmentMotionSet = default)
-    {
-        actionText = newText;
-        string[] keywords = GetMotionKeys(newText);
-        // segmentMotionSet.actionClipName = keywords[0];
-        // segmentMotionSet.faceClipName = keywords[1];
+    // private void UpdateActionText(string newText, SegmentMotionSet segmentMotionSet = default)
+    // {
+    //     actionText = newText;
+    //     string[] keywords = GetMotionKeys(newText);
+    //     // segmentMotionSet.actionClipName = keywords[0];
+    //     // segmentMotionSet.faceClipName = keywords[1];
 
-        // PlayerController.PlayMotion(keywords[0], keywords[1]);
-    }
+    //     // PlayerController.PlayMotion(keywords[0], keywords[1]);
+    // }
 
-    private void NPCUpdateActionText(string newText)
-    {
-        actionText = newText;
-        string[] keywords = GetMotionKeys(newText);
+    // private void NPCUpdateActionText(string newText)
+    // {
+    //     actionText = newText;
+    //     string[] keywords = GetMotionKeys(newText);
 
-        NpcAI.MakeMotion(keywords[0]);
-        NpcAI.MakeFace(keywords[1]);
-    }
-
-    
-
-    void Awake()
-    {
-        // SBERTEmbedding 컴포넌트를 같은 GameObject에서 찾기
-        PlayerController = transform.parent.GetComponent<PlayerController>();
-        //PlayerController.OnActionTextUpdated += UpdateActionText;
-        
-        if(PlayerController == null){
-            NpcAI = transform.parent.GetComponent<NpcAI>();
-            ChatCompletionWithSummary.NPCActionTextUpdated += NPCUpdateActionText;
-        }else
-        {
-            PlayerController.OnActionTextUpdated += UpdateActionText;
-        }
-        //ChatCompletionWithSummary.OnActionTextUpdated += UpdateActionText;
-
-        sbertEmbedding = GetComponent<SBERTEmbedding>();
-
-        if (sbertEmbedding == null)
-        {
-            Debug.LogError("SBERTEmbedding 컴포넌트를 찾을 수 없습니다. 해당 GameObject에 부착되어 있는지 확인하세요.");
-        }
-    }
+    //     NpcAI.MakeMotion(keywords[0]);
+    //     NpcAI.MakeFace(keywords[1]);
+    // }
 
     /// <summary>
     /// 입력된 각 모션 텍스트에 대해, 해당 카테고리(Act 또는 Face)의 모션 사전에서 SBERT 기반 유사도 검사를 수행합니다.
