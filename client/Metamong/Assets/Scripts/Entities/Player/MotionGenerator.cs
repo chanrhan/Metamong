@@ -20,6 +20,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private Llama llama;
     private SBERT sBERT;
 
+    private bool _timeout;
+
     protected override void Awake()
     {
         base.Awake();
@@ -48,49 +50,53 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         {
             return;
         }
-        nc.AnimationBlocked = true;       
+        nc.AnimationBlocked = true;    
+        _timeout = false;
         
         // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
         nc.SendMessageToOthers(text);
 
-        SegmentMotionSet segmentMotionSet = new SegmentMotionSet(text);
-
-        // 취소 토큰
-        // 일정 시간이 지나면 자동으로 특정 Task를 중단시킨다 
-        cts = new CancellationTokenSource();
-        cts.CancelAfter(llamaCancelAfterSeconds * 1000);
-        try
-        {
-            // 1. Llama를 통해 text를 전처리 
-            // canlcelToken을 통해 처리 지연 부하 방지 
-            string response = await GetResultFromLlama(text, cts.Token);
-
-            // SBert를 통해 모션 키워드 추출 
-            // 0번 인덱스: face Clip / 1번 인덱스: action Clip
-            string[] keywords = GetMotionKeywords(response);
-
-            // 모션 애니메이션 실행 
-            nc.PlayMotion(keywords[0], keywords[1]);
-
-            segmentMotionSet.faceClipName = keywords[0];
-            segmentMotionSet.actionClipName = keywords[1];
-        }
-        catch (OperationCanceledException)
-        {
-            // 토큰 만료 시 (=Llama의 처리가 너무 오래 걸렸을 경우)
-            Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
-            segmentMotionSet.timeout = true;
-            nc.AnimationBlocked = false;
-        }
-        finally
-        {
-            // 토큰 해제 
-            cts.Dispose();
-        }
-        
-        // 플레이어인 경우에만 기록(Log)
+        string response = text;
         if(isPlayer){
-            segmentMotionSets.Add(segmentMotionSet);
+            // 취소 토큰
+            // 일정 시간이 지나면 자동으로 특정 Task를 중단시킨다 
+            cts = new CancellationTokenSource();
+            cts.CancelAfter(llamaCancelAfterSeconds * 1000);
+            try
+            {
+                // 1. Llama를 통해 text를 전처리 
+                // canlcelToken을 통해 처리 지연 부하 방지 
+                response = await GetResultFromLlama(text, cts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                // 토큰 만료 시 (=Llama의 처리가 너무 오래 걸렸을 경우)
+                Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
+                nc.AnimationBlocked = false;
+                _timeout = true;
+            }
+            finally
+            {
+                // 토큰 해제 
+                cts.Dispose();
+            }
+        }
+
+        // SBert를 통해 모션 키워드 추출 
+        // 0번 인덱스: face Clip / 1번 인덱스: action Clip
+        string[] keywords = GetMotionKeywords(response);
+
+        // 모션 애니메이션 실행 
+        nc.PlayMotion(keywords[0], keywords[1]);
+
+        // Whisper-Motion 기록용 (Log)
+        if(isPlayer){
+            segmentMotionSets.Add(new SegmentMotionSet{
+                segment=text,
+                faceClipName=keywords[0],
+                actionClipName=keywords[1],
+                timeout=_timeout
+            });
         }
     }
 

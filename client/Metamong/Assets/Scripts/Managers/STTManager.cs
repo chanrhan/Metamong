@@ -14,17 +14,6 @@ public class SegmentMotionSet{
     public string actionClipName;
     public string faceClipName;
     public bool timeout = false;
-
-    public SegmentMotionSet(string segment)
-    {
-        this.segment = segment;
-    }
-    public SegmentMotionSet(string segment, string actionClipName, string faceClipName){
-        this.segment = segment;
-        this.actionClipName = actionClipName;
-        this.faceClipName = faceClipName;
-    }
-
     public override String ToString(){
         return "seg: "+segment + ", action: " + actionClipName + ", face: " + faceClipName;
     }
