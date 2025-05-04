@@ -3014,10 +3014,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
-      propertyPath: llamaCancelAfterSeconds
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7871937133293059740, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: m_Name
       value: MotionGenerator
