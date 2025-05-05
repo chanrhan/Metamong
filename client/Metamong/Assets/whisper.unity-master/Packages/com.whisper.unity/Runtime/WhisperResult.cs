@@ -11,13 +11,14 @@ namespace Whisper
         public readonly string Result;
         public readonly int LanguageId;
         public readonly string Language;
+        public long inferTime;
 
         public WhisperResult(List<WhisperSegment> segments, int languageId)
         {
             Segments = segments;
             LanguageId = languageId;
             Language = WhisperLanguage.GetLanguageString(languageId);
-            
+
             // generate full string based on segments
             var builder = new StringBuilder();
             foreach (var seg in segments)

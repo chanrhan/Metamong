@@ -20,14 +20,16 @@ public class TimerUtils
     {
         sw.Reset();
     }
-    public static void Log()
+    public static long Log()
     {
         UnityEngine.Debug.Log($"[chan] Timer: {sw.ElapsedMilliseconds} ms");
+        return sw.ElapsedMilliseconds;
     }
-    public static void LogAndReset()
+    public static long LogAndReset()
     {
-        Log();
+        long time = Log();
         Reset();
         Stop();
+        return time;
     }
 }

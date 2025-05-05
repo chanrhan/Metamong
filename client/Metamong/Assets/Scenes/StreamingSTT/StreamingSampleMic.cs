@@ -70,7 +70,7 @@ namespace Whisper.Samples
         private void OnSegmentFinished(WhisperResult segment)
         {
             segment_launch.Add(segment.Result);
-            finSegTime=_stream.finishSegmentTime;
+            finSegTime=_stream.finishSegmentTimes;
             print($"Segment finished: {segment.Result}");
         }
         

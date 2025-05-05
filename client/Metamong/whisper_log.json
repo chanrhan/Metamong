@@ -1,165 +1,145 @@
 [
   {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 542.857143,
-    "context": [
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
       {
-        "segment": " 내 가",
-        "actionClipName": "오라는손짓",
-        "faceClipName": "Surprised",
-        "time": 4099.0
+        "segment": " 새는 알을 깨고 나오려",
+        "ignored": [
+          " 새는 알을 깨고 나오려 힘겹게 싸운다.",
+          " 이는 세계이다.",
+          " 세기다. 태어나려고",
+          " 태어나려고 하는 자는",
+          " 태어나려고 하는 자는 세계를 깨트려야",
+          " 시내기로 해야한다. 날아간다.",
+          " 날아간다.",
+          " 지금은 잘 모르겠지만",
+          " 지금은 잘 모르겠지만",
+          " 제가 학교를 다니던 때에",
+          " 제가 학교를 다니던 때",
+          " 헤르만 해세의 데미안은",
+          " 헤르만 해세의 데미안은"
+        ],
+        "inferTime": 2013,
+        "llmTime": 16261,
+        "llmResponse": "[Few-shot Examples]\nExample 1)\nbbb : 나 오늘 슬픈 일 있었어\n마지막 발화 ccc : 무슨 일 있었어\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened.\nExample 2)\nyyy : 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\nttt : 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때\nyyy : 어 너 거기 가봤어? 거기 어때?\nttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n마지막 발화 yyy : 아 그래 이번에 가봐야겠다\nOutput : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.\n\n--- \n\n PPP: 새는 알을 깨고 나오려\nOutput :\nThe bird is breaking out of its egg.",
+        "llmTimeout": false,
+        "sbertTime": 32,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalTime": 18306
       },
       {
-        "segment": " 내가 웃고 있네",
-        "actionClipName": "펄쩍뛰며기쁨",
-        "faceClipName": "Smile_S",
-        "time": 2765.0
+        "segment": " 청소년 권장도서 목록에서",
+        "ignored": [
+          " 항상 전문점에서",
+          " 청소랑 권장도서 목록에서 빠지지 않았습니다.",
+          " 워낙 유명한 소설이고",
+          " 워낙 유명한 소설이고 이곳저곳에",
+          " 인용도 많이 되고",
+          " 인용도 많이 되고 추천도 많이 되고",
+          " 모르긴 몰라도 한국에서",
+          " 모르긴 몰라도 한국에서",
+          " 가장 유명한 독일 소설이고",
+          " 가장 유명한 독일 소설이 아닐까요?",
+          " 그럼에도 불구하고 사실",
+          " 그럼에도 불구하고 사실 데미안은",
+          " 완독하기가 굉장히 어렵습니다.",
+          " 완독하기가 굉장히 어려운 책입니다."
+        ],
+        "inferTime": 1477,
+        "llmTime": 17084,
+        "llmResponse": "[Few-shot Examples]\nExample 1)\nbbb : 나 오늘 슬픈 일 있었어\n마지막 발화 ccc : 무슨 일 있었어\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened.\nExample 2)\nyyy : 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\nttt : 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때\nyyy : 어 너 거기 가봤어? 거기 어때?\nttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n마지막 발화 yyy : 아 그래 이번에 가봐야겠다\nOutput : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.\n\n--- \n\nPPP: 새는 알을 깨고 나오려\n마지막 발화 PPP: 청소년 권장도서 목록에서",
+        "llmTimeout": false,
+        "sbertTime": 34,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalTime": 18595
       },
       {
-        "segment": " 내가 웃고 있나요",
-        "actionClipName": "의문을표함",
-        "faceClipName": "Smile_S",
-        "time": 6366.0
+        "segment": " 실무술에 대상입니다.",
+        "ignored": [
+          " 기사가 예술 없고 장황한 데다가 의미가 생기고 있습니다.",
+          " 장황한대다가 의미가 생각보다 많습니다."
+        ],
+        "inferTime": 3650,
+        "llmTime": 2692,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalTime": 6352
       },
       {
-        "segment": " 내가 웃고 있나요?",
-        "actionClipName": "의문을표함",
-        "faceClipName": "Smile_S",
-        "time": 2708.0
+        "segment": " 도대체 이게 무슨 말이지?",
+        "ignored": [
+          " 학생이면 몰라도",
+          " 학생이면 몰라도",
+          " 이 학생이 이 책을 끝까지 읽는 것이 쉽지가 않지요. 제가 처음",
+          " 제가 처음 이 책을 접했던 중앙대학교에서",
+          " 제가 처음 이 책을 접했던 중학생 때도",
+          " 이 책을 접했던 중학생 때도 도대체",
+          " 도대체 이게 무슨 말이지? 하는 대상자들입니다.",
+          " 이게 무슨 말이지? 하는 대사들이 너무 많았고"
+        ],
+        "inferTime": 459,
+        "llmTime": 2742,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalTime": 3204
       },
       {
-        "segment": " 어두과지",
-        "actionClipName": "의문을표함",
-        "faceClipName": "Surprised",
-        "time": 5056.0
+        "segment": " 다른 것들이 보였고",
+        "ignored": [
+          " 중거리를 따라",
+          " 중거리를 따라가는 것이죠.",
+          " 중거리를 따라가는 것조차 힘들었습니다.",
+          " 제가 처음 이 책을 읽었습니다.",
+          " 신을 읽었습니다. 어떤 고등학생 때는 조금 낫고",
+          " 고등학생 때는 조금 나았고 20대는 조금 나았고 20대는 조금 나았고",
+          " 20대 중반에 또 읽었을 때는",
+          " 20대 중반에 또 읽었을 때는 그 전보다",
+          " 중간에 또 읽었을 때는 그 전보다 더 다른 것조차 힘들었습니다.",
+          " 30대 중반에 다가간 지금은"
+        ],
+        "inferTime": 779,
+        "llmTime": 2481,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalTime": 3263
       }
     ]
   },
   {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 805.666667,
-    "context": [
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
       {
-        "segment": " 얘는 어떤 코드가 되어있는 건지",
-        "actionClipName": "부끄러워하며_밑에봄",
-        "faceClipName": "Hansim",
-        "time": 3275.0
-      },
-      {
-        "segment": " 얘는 어떤 코드가 되어있는건지 모르겠네",
-        "actionClipName": "Shy_with_headskaking",
-        "faceClipName": "Surprised",
-        "time": 6467.0
-      },
-      {
-        "segment": " 스피커스의 문화가 되어 있는건이 되요",
-        "actionClipName": "모델포즈",
-        "faceClipName": "Surprised",
-        "time": 5449.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 1013.615385,
-    "context": [
-      {
-        "segment": " 그럼",
-        "actionClipName": "바로그거야1",
-        "faceClipName": "Hansim",
-        "time": 6401.0
-      },
-      {
-        "segment": " 끝도 봤고",
-        "actionClipName": "Yell",
-        "faceClipName": "Hansim",
-        "time": 2018.0
-      },
-      {
-        "segment": " - 그럼 - 최소 것도 맞고 그래서",
-        "actionClipName": "Shy_with_headskaking",
-        "faceClipName": "Hansim",
-        "time": 12262.0
-      },
-      {
-        "segment": " - 그럼 - 저것도 맞고 사실상 어쩔 수 없다 생각하고",
-        "actionClipName": "Shy_with_headskaking",
-        "faceClipName": "Hansim",
-        "time": 5622.0
-      }
-    ]
-  },
-  {
-    "stepSec": 0.0,
-    "keepSec": 1.0,
-    "lengthSec": 10.0,
-    "inferenceAvg": 1318.8,
-    "context": [
-      {
-        "segment": " 지점이 없는 기본도",
-        "actionClipName": "Shy_with_headskaking",
-        "faceClipName": "Hansim",
-        "time": 2455.0
-      },
-      {
-        "segment": " 지점이 없는데 너무 기본 콜백합니다.",
-        "actionClipName": "Yell",
-        "faceClipName": "Hansim",
-        "time": 5898.0
-      },
-      {
-        "segment": " 기본 콜백이라는 게 내가...",
-        "actionClipName": "손인사",
-        "faceClipName": "Hansim",
-        "time": 3809.0
-      },
-      {
-        "segment": " 기본 콜백. 콜백이라는 게 내가 생소해서 그런가?",
-        "actionClipName": "설명하다",
-        "faceClipName": "Hansim",
-        "time": 5532.0
-      },
-      {
-        "segment": " 콜백이라는 게 생소해서 그런가? 그럴 수도 있어.",
-        "actionClipName": "의문을표함",
-        "faceClipName": "Surprised",
-        "time": 0.0
-      },
-      {
-        "segment": " 기본 콜백... 콜백이라는 게 생소해서 그런가? 그럴 수도 있어. - 콜백이라는 게 멋있어. - 어.",
-        "actionClipName": "오라는손짓",
-        "faceClipName": "Surprised",
-        "time": 0.0
-      },
-      {
-        "segment": " - 그래서... 등록...",
-        "actionClipName": "우아한인사",
-        "faceClipName": "Sad_S",
-        "time": 0.0
-      },
-      {
-        "segment": " 아, 그래서... 이벤트 등록함수...",
-        "actionClipName": "우아한인사",
-        "faceClipName": "Hansim",
-        "time": 0.0
-      },
-      {
-        "segment": " 이벤트 등록 함수인데...",
-        "actionClipName": "오라는손짓",
-        "faceClipName": "Surprised",
-        "time": 0.0
-      },
-      {
-        "segment": " 감사합니다.",
-        "actionClipName": "손인사",
-        "faceClipName": "Smile_S",
-        "time": 0.0
+        "segment": " 이 책을 읽게 되었네요.",
+        "ignored": [
+          " 30대 중반에 다가간 지금은",
+          " 다행히도 그 전에 저보다는",
+          " 다행히도 그 전에 저보다는 훨씬 더 힘들었습니다.",
+          " 훨씬 더 자체롭게",
+          " 이 책을 읽게 되었네요."
+        ],
+        "inferTime": 35215,
+        "llmTime": 15730,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.\n\n---\n\nIf the conversation context is not provided, the last message can be used as a reference:\n\nPPP: 새는 알을 깨고 나오려\nPPP: 청소년 권장도서 목록에서\nPPP: 실무술에 대상입니다.\nPPP: 도대체 이게 무슨 말이지?\nPPP: 다른 것들이 보였고\n마지막 발화 PPP:  이 책을 읽게 되었네요.\n\n---\n\nIf the conversation context is not provided, the last message can be used as a reference:\n\nPPP: 새는 알을 깨고 나오려\nPPP: 청소년 권장도서 목록에서\nPPP: 실무술에 대상입니다.\nPPP: 도대체 이게 무슨 말이지?\nPPP: 다른 것들이 보였고\n마지막 발화 PPP:  이 책을 읽게 되었네요.",
+        "llmTimeout": false,
+        "sbertTime": 26,
+        "actionClipName": "Sad_L",
+        "faceClipName": "의문을표함",
+        "totalTime": 50971
       }
     ]
   }

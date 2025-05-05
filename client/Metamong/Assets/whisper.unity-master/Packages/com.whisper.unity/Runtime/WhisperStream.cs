@@ -276,7 +276,7 @@ namespace Whisper
         }
         
         private Stopwatch mySW =new Stopwatch();
-        public List<double> finishSegmentTime = new List<double>();
+        public List<double> finishSegmentTimes = new List<double>();
         public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
@@ -335,6 +335,7 @@ namespace Whisper
             var currentOutput = _output + currentSegment;
 
             // send update to user
+            res.inferTime = mySW.ElapsedMilliseconds;
             OnSegmentUpdated?.Invoke(res);
             OnResultUpdated?.Invoke(currentOutput);
             
@@ -365,7 +366,7 @@ namespace Whisper
                 
                 OnSegmentFinished?.Invoke(res);
                 LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
-                finishSegmentTime.Add(mySW.ElapsedMilliseconds);
+                finishSegmentTimes.Add(mySW.ElapsedMilliseconds);
                 wasFinishedSegment = true;
                 
             }

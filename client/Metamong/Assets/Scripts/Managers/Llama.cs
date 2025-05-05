@@ -14,8 +14,9 @@ public class Llama : MonoBehaviour
 {
     //LLM llm;
     private LLMCharacter myllmCharacter;
-    public LLMCharacter MyLlmCharacter {get => myllmCharacter;}
     private LLM llm;
+    public LLMCharacter MyLlmCharacter { get => myllmCharacter; }
+    
 
     private Queue<string> chatHistory = new Queue<string>(10);
 
@@ -105,6 +106,10 @@ public class Llama : MonoBehaviour
     {
         string logs = GenerateChatLogs();
         string response = await myllmCharacter.Chat(logs + "마지막 발화 " + query, callback, completionCallback, addToHistory);
+        if (string.IsNullOrEmpty(response))
+        {
+            return "";
+        }
         string prefix = "Output :";
         string result = response.StartsWith(prefix) ? response.Substring(prefix.Length).Trim() : response.Trim();
 

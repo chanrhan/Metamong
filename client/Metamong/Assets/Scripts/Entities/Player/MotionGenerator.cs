@@ -5,6 +5,14 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UIElements;
+
+public enum LogState
+{
+    Failed,
+    Ignored,
+    Successed
+}
 
 /// <summary>
 /// 모션 생성의 전체 프로세스를 담당하는 싱글톤 클래스
@@ -14,19 +22,33 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 {
     [SerializeField]
     private int llamaCancelAfterSeconds = 2;
-    private List<SegmentMotionSet> segmentMotionSets = new List<SegmentMotionSet>();
     private CancellationTokenSource cts = new CancellationTokenSource();
 
     private Llama llama;
     private SBERT sBERT;
 
     private bool _timeout;
+    private long _llmTime;
+    private long _sbertTime;
 
     protected override void Awake()
     {
         base.Awake();
         sBERT = GetComponentInChildren<SBERT>();
         llama = GetComponentInChildren<Llama>();
+    }
+
+    public void PlayTakingMotion(bool isPlayer = true, NetworkCharacter nc = null)
+    {
+        if (isPlayer)
+        {
+            nc = ClientManager.Instance?.PlayerController;
+        }
+        if (nc.IsTalking || nc.IsAnimationBlocked)
+        {
+            return;
+        }
+        nc.IsTalking = true;
     }
 
     /// <summary>
@@ -38,26 +60,40 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     /// <param name="text">입력 텍스트</param>
     /// <param name="isPlayer">플레이어 여부</param>
     /// <param name="nc">플레이어가 아닐 경우, 호출하는 NPC 객체</param>
-    public async void Generate(string text, bool isPlayer = true, NetworkCharacter nc = null)
+    public async Task<(LogState, FileLogVO.LogContextItem)> Generate(string text, bool isPlayer = true, NetworkCharacter nc = null)
     {
+        if (text.Equals(""))
+        {
+            return (
+                LogState.Failed,
+                null
+            );
+        }
         // 플레이어일 경우 
-        if(isPlayer){
+        if (isPlayer)
+        {
             nc = ClientManager.Instance?.PlayerController;
         }
 
         // 모션이 실행중이면, 처리 자원 낭비 방지를 위해 입력을 막음 
-        if (nc.AnimationBlocked)
+        if (nc.IsAnimationBlocked)
         {
-            return;
+            return (
+                LogState.Ignored,
+                null
+            );
         }
-        nc.AnimationBlocked = true;    
+        nc.IsAnimationBlocked = true;
         _timeout = false;
-        
+        _llmTime = 0;
+
+
         // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
         nc.SendMessageToOthers(text);
 
         string response = text;
-        if(isPlayer){
+        if (isPlayer)
+        {
             // 취소 토큰
             // 일정 시간이 지나면 자동으로 특정 Task를 중단시킨다 
             cts = new CancellationTokenSource();
@@ -66,13 +102,17 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             {
                 // 1. Llama를 통해 text를 전처리 
                 // canlcelToken을 통해 처리 지연 부하 방지 
+
+                // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
+                TimerUtils.Start();
                 response = await GetResultFromLlama(text, cts.Token);
+                _llmTime = TimerUtils.LogAndReset();
             }
             catch (OperationCanceledException)
             {
                 // 토큰 만료 시 (=Llama의 처리가 너무 오래 걸렸을 경우)
                 Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
-                nc.AnimationBlocked = false;
+                nc.IsAnimationBlocked = false;
                 _timeout = true;
             }
             finally
@@ -82,22 +122,36 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             }
         }
 
+        TimerUtils.Start();
         // SBert를 통해 모션 키워드 추출 
         // 0번 인덱스: face Clip / 1번 인덱스: action Clip
         string[] keywords = GetMotionKeywords(response);
 
         // 모션 애니메이션 실행 
         nc.PlayMotion(keywords[0], keywords[1]);
+        _sbertTime = TimerUtils.LogAndReset();
 
         // Whisper-Motion 기록용 (Log)
-        if(isPlayer){
-            segmentMotionSets.Add(new SegmentMotionSet{
-                segment=text,
-                faceClipName=keywords[0],
-                actionClipName=keywords[1],
-                timeout=_timeout
-            });
+        if (!isPlayer)
+        {
+            return (
+                LogState.Failed,
+                null
+            );
         }
+        return (
+                LogState.Successed,
+                new FileLogVO.LogContextItem
+                {
+                    segment = text,
+                    llmResponse = response,
+                    llmTime = _llmTime,
+                    llmTimeout = _timeout,
+                    sbertTime = _sbertTime,
+                    faceClipName = keywords[0],
+                    actionClipName = keywords[1]
+                }
+            );
     }
 
     private async Task<string> GetResultFromLlama(string seg, CancellationToken token)
@@ -107,10 +161,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         //ChatManager.Instance.InputChat(clientInfo.username, message);
         string requestText = clientInfo.username + ": " + seg;
 
-        // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
-        TimerUtils.Start();
+
         string response = await llama.Chat(requestText);
-        TimerUtils.LogAndReset();
 
         llama.AddChatLog(clientInfo.username, seg);
 
@@ -125,7 +177,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         string[] keywords = new string[2];
         keywords[0] = sBERT.CompareWordText(motions, true);
         keywords[1] = sBERT.CompareWordText(motions, false);
-    
-       return keywords;
+
+        return keywords;
     }
 }

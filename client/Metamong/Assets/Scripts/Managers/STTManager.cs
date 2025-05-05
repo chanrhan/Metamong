@@ -8,24 +8,19 @@ using Whisper.Utils;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Threading;
-
-public class SegmentMotionSet{
-    public string segment;
-    public string actionClipName;
-    public string faceClipName;
-    public bool timeout = false;
-    public override String ToString(){
-        return "seg: "+segment + ", action: " + actionClipName + ", face: " + faceClipName;
-    }
-}
+using System.Linq;
+using Unity.VisualScripting;
 
 public class STTManager : MonobehaviourSingleton<STTManager>
 {
+
+    private const string LOG_PATH = "whisper_log.json";
     // [SerializeField]
-    private WhisperManager whisper;
+    private WhisperManager wm;
     // [SerializeField]
     private MicrophoneRecord microphoneRecord;
     private WhisperStream _stream;
+    private WhisperWrapper whisperWrapper;
 
     public OnVadChangedDelegate OnVadChanged
     {
@@ -45,15 +40,15 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private bool AllowMacOs = false;
     private bool IsPlatformMacOs = false;
 
-    public static int segmentId = 0;
+    private static List<string> ignoredSegements = new List<string>();
 
-    private List<SegmentMotionSet> segmentMotionSets = new List<SegmentMotionSet>();
-    public List<SegmentMotionSet> SegmentMotionSets{
-        get=>segmentMotionSets;
+    private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
+    public List<FileLogVO.LogContextItem> LogContextItems{
+        get=>logContextItems;
     }
 
     public List<double> SegmentFinshiedTimes{
-        get=>_stream.finishSegmentTime;
+        get=>_stream.finishSegmentTimes;
     }
     
     private bool isRecording = false;
@@ -73,11 +68,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             return;
         }
 
-        whisper = GetComponent<WhisperManager>();
+        wm = GetComponent<WhisperManager>();
         microphoneRecord = GetComponent<MicrophoneRecord>();
 
 
-        if (whisper == null)
+        if (wm == null)
         {
             throw new Exception("WhisperManager is not found!");
         }
@@ -86,7 +81,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             throw new Exception("MicrophoneRecord is not found");
         }
 
-        _stream = await whisper.CreateStream(microphoneRecord);
+        _stream = await wm.CreateStream(microphoneRecord);
 
         if (_stream == null)
         {
@@ -98,6 +93,12 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         // _stream.OnStreamFinished += OnFinished;
 
         // myCharic = ClientManager.Instance.PlayerController;
+
+        whisperWrapper = wm.GetWhisperWrapper();
+        if (whisperWrapper == null)
+        {
+            throw new Exception("whisperWrapper is not found!");
+        }
     }
 
     void Update()
@@ -117,16 +118,21 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             if (isRecording)
             {
                 isRecording = false;
-                Debug.Log("Stop Record");
+                // Debug.Log("Stop Record");
                 StopRecord();
             }
             else
             {
                 isRecording = true;
-                Debug.Log("Start Record");
+                // Debug.Log("Start Record");
                 StartRecord();
             }
             onRecord?.Invoke(isRecording);
+        }
+
+        if (microphoneRecord.IsVoiceDetected)
+        {
+            OnVoiceDeteched();
         }
     }
 
@@ -135,8 +141,10 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         microphoneRecord.StartRecord();
     }
 
-    public void StopRecord(){
+    public void StopRecord()
+    {
         microphoneRecord.StopRecord();
+        LogCurrentItems();
     }
 
     private void OnResult(string result){
@@ -155,14 +163,68 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
+        GenerateMotion(segment);
     }
 
     private void OnSegmentFinished(WhisperResult segment)
     {
-        MotionGenerator.Instance?.Generate(segment.Result);
+        
     }
 
-    
+    private async void GenerateMotion(WhisperResult segment)
+    {
+        var result = await MotionGenerator.Instance?.Generate(segment.Result);
+        switch (result.Item1)
+        {
+            case LogState.Ignored:
+                ignoredSegements.Add(segment.Result);
+                break;
+            case LogState.Successed:
+                FileLogVO.LogContextItem log = result.Item2;
+
+                log.ignored = new List<string>(ignoredSegements);
+                log.inferTime = segment.inferTime;
+                log.totalTime = log.inferTime + log.llmTime + log.sbertTime;
+                logContextItems.Add(log);
+                ignoredSegements.Clear();
+                break;
+        }
+        if (!isRecording)
+        {
+            LogCurrentItems();
+        }
+    }
+
+    private void LogCurrentItems()
+    {
+        if (logContextItems.Count == 0)
+        {
+            return;
+        }
+
+        FileLogVO logVO = new FileLogVO
+        {
+            stepSec = wm.stepSec,
+            keepSec = wm.keepSec,
+            lengthSec = wm.lengthSec,
+            logContextItems = logContextItems
+        };
+
+        FileLogUtils.Overwrite(logVO, LOG_PATH);
+        logContextItems.Clear();
+    }
+
+    void OnVoiceDeteched()
+    {
+        MotionGenerator.Instance?.PlayTakingMotion();
+    }
+
+    void OnDestroy()
+    {
+        LogCurrentItems();
+    }
+
+
     private void OnFinished(string finalResult)
     {
         print("Stream finished!");
