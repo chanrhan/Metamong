@@ -13,15 +13,15 @@ public class FileLogVO
     public class LogContextItem
     {
         public string segment;
-        public List<string> ignored = new List<string>();
-        public long inferTime;
+        public List<string> whileIgnored = new List<string>();
+        public long whisperInferTime;
         public long llmTime;
         public string llmResponse;
         public bool llmTimeout = false;
         public long sbertTime;
         public string actionClipName;
         public string faceClipName;
-        public long totalTime;
+        public long totalElapsedTime;
         public override string ToString()
         {
             return "seg: " + segment + ", action: " + actionClipName + ", face: " + faceClipName;

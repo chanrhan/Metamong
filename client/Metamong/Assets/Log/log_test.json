@@ -1,0 +1,1073 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 네",
+        "whileIgnored": [
+          " 네",
+          " 네"
+        ],
+        "whisperInferTime": 2384,
+        "llmTime": 2013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4397
+      },
+      {
+        "segment": " 그래서 따라갔습니다",
+        "whileIgnored": [
+          " 그래서 따라갔습니다"
+        ],
+        "whisperInferTime": 899,
+        "llmTime": 2004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2903
+      },
+      {
+        "segment": " 근데 나이가 부모 없으면",
+        "whileIgnored": [
+          " 나이가 부모 없으면 얼마나 애매한지",
+          " 얼마나 애매한 나이인 줄 알아요?"
+        ],
+        "whisperInferTime": 2415,
+        "llmTime": 2002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4417
+      },
+      {
+        "segment": " 얼마나 애매한 나이인 줄 알아요?",
+        "whileIgnored": [],
+        "whisperInferTime": 1431,
+        "llmTime": 2003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3434
+      },
+      {
+        "segment": " 이제 어른이니까",
+        "whileIgnored": [
+          " 이제 어른이니까",
+          " 꿀렁은 200개월이냐?",
+          " 꿀렁 200 지워주고"
+        ],
+        "whisperInferTime": 2450,
+        "llmTime": 2004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4454
+      },
+      {
+        "segment": " 볼그릇에서 나가래?",
+        "whileIgnored": [
+          " 볼거루에서 나가래",
+          " 근데"
+        ],
+        "whisperInferTime": 926,
+        "llmTime": 2003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2929
+      },
+      {
+        "segment": " 그 돈으로",
+        "whileIgnored": [
+          " 그 돈으로",
+          " 먹고 자고 입고 다행히"
+        ],
+        "whisperInferTime": 1357,
+        "llmTime": 2003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3360
+      },
+      {
+        "segment": " 먹고 자고 입고 다 해결하래",
+        "whileIgnored": [
+          " 근데 그 돈으로 먹으면 좋겠지?"
+        ],
+        "whisperInferTime": 1459,
+        "llmTime": 2005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3464
+      },
+      {
+        "segment": " 근데 은행 가면",
+        "whileIgnored": [
+          " 근데 은행 가면",
+          " 애라고 계절 안 터뜨려"
+        ],
+        "whisperInferTime": 1900,
+        "llmTime": 2005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3905
+      },
+      {
+        "segment": " 애라고 계절을 안 터줘",
+        "whileIgnored": [
+          " 어른도 아니고"
+        ],
+        "whisperInferTime": 1439,
+        "llmTime": 2003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3442
+      },
+      {
+        "segment": " 어른도 아니고",
+        "whileIgnored": [
+          " 얘도 아니고"
+        ],
+        "whisperInferTime": 2407,
+        "llmTime": 2002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4409
+      },
+      {
+        "segment": " 애도 아니고",
+        "whileIgnored": [
+          " 이런 거지같은 아이가 어딨어?",
+          " 이런 거지같은 나이가 어딨어?"
+        ],
+        "whisperInferTime": 2421,
+        "llmTime": 2001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4422
+      },
+      {
+        "segment": " 그리고",
+        "whileIgnored": [],
+        "whisperInferTime": 893,
+        "llmTime": 2010,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2903
+      },
+      {
+        "segment": " 근데 호구 할머니가 떡하니?",
+        "whileIgnored": [
+          " 근데 호구 할머니가 떡칼에 나타났는데?"
+        ],
+        "whisperInferTime": 1923,
+        "llmTime": 2006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3929
+      },
+      {
+        "segment": " 이렇게 나타났네?",
+        "whileIgnored": [],
+        "whisperInferTime": 2387,
+        "llmTime": 2004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4391
+      },
+      {
+        "segment": " 그 돈으로 먹으면 좋겠지?",
+        "whileIgnored": [
+          " 호구 할머니가 고모하우스 간 줄 알았어요?"
+        ],
+        "whisperInferTime": 5376,
+        "llmTime": 2008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7384
+      },
+      {
+        "segment": " 극한 짓은요",
+        "whileIgnored": [
+          " 여유 있는 놈들이나"
+        ],
+        "whisperInferTime": 1894,
+        "llmTime": 2004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3898
+      },
+      {
+        "segment": " 여유 있는 놈들이나 하는 거예요",
+        "whileIgnored": [
+          " 뭐하는 거예요?"
+        ],
+        "whisperInferTime": 1946,
+        "llmTime": 2003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3949
+      },
+      {
+        "segment": " 괜히 나서서 착하니?",
+        "whileIgnored": [
+          " 괜히 나서서 착하니",
+          " 수원 이제 그런 헛소리도"
+        ],
+        "whisperInferTime": 1936,
+        "llmTime": 2009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3945
+      },
+      {
+        "segment": " 수원 언니의 그런 헛소리에 놀아나서",
+        "whileIgnored": [
+          " 돌아나서",
+          " 놀아나서"
+        ],
+        "whisperInferTime": 1482,
+        "llmTime": 2005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3487
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이렇게 하면 안 돼요?",
+        "whileIgnored": [
+          " 집에 가봤어요?",
+          " 가봤어요?"
+        ],
+        "whisperInferTime": 2511,
+        "llmTime": 2102,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4613
+      },
+      {
+        "segment": " 가봤어요?",
+        "whileIgnored": [
+          " 다 하러그 공사하던데요?",
+          " 다 하러그 공사하던데요?"
+        ],
+        "whisperInferTime": 1378,
+        "llmTime": 2103,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3481
+      },
+      {
+        "segment": " 그럼 우리 이제 아파트에서 살고있어요",
+        "whileIgnored": [
+          " 아파트에서 살아요?",
+          " 아파트에서 살아요? 잠은요?"
+        ],
+        "whisperInferTime": 1476,
+        "llmTime": 2103,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3579
+      },
+      {
+        "segment": " 여기서 주무세요?",
+        "whileIgnored": [
+          " 여기서 주무세요?",
+          " 여기서 주무세요?"
+        ],
+        "whisperInferTime": 916,
+        "llmTime": 2108,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3024
+      },
+      {
+        "segment": " 잘 듣네요",
+        "whileIgnored": [
+          " 잘 됐네요 병원은요?",
+          " 혹은요?"
+        ],
+        "whisperInferTime": 1895,
+        "llmTime": 2103,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3998
+      },
+      {
+        "segment": " 확실하게 해서 와봤어요",
+        "whileIgnored": [
+          " 확실하게 해서 와봤어요",
+          " 아직도 여기서 일하나 해서요"
+        ],
+        "whisperInferTime": 1432,
+        "llmTime": 2557,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3989
+      },
+      {
+        "segment": " 아직도 여기서 일하나 해서요",
+        "whileIgnored": [],
+        "whisperInferTime": 2433,
+        "llmTime": 2103,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4536
+      },
+      {
+        "segment": " 제가 하는 일이 왜",
+        "whileIgnored": [
+          " 제가 하는 일이 매일 검문서 안팎이에요",
+          " 검문서 앞에서 촬영관 잡는 일이",
+          " 검문서 앞에서 타령관 잡는 일인데"
+        ],
+        "whisperInferTime": 2428,
+        "llmTime": 2104,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4532
+      },
+      {
+        "segment": " 자폐한 군인들이 다 고개를 못 들었거든요?",
+        "whileIgnored": [
+          " 자폐한 구인들이 다 고개를 못들어요"
+        ],
+        "whisperInferTime": 2495,
+        "llmTime": 2105,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4600
+      },
+      {
+        "segment": " 검문서 바닥에 무릎 꿇고",
+        "whileIgnored": [
+          " 검문서 바닥에 무릎 꿇고 비는 병사",
+          " 이런 병사들도 있고",
+          " 이런 병사들도 있고"
+        ],
+        "whisperInferTime": 2977,
+        "llmTime": 2105,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5082
+      },
+      {
+        "segment": " 그때 갑자기 그런 생각이 들었어요",
+        "whileIgnored": [
+          " 그때 갑자기 그런 생각이 들었어요"
+        ],
+        "whisperInferTime": 1409,
+        "llmTime": 2108,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3517
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그럼요?",
+        "whileIgnored": [
+          " 다 먹어요"
+        ],
+        "whisperInferTime": 7983,
+        "llmTime": 2105,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10088
+      },
+      {
+        "segment": " 야 내가",
+        "whileIgnored": [
+          " 내가 말하라",
+          " 내가 말하고 있잖아",
+          " 내가 내가 말하고 있잖아"
+        ],
+        "whisperInferTime": 2378,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5381
+      },
+      {
+        "segment": " 다 니들 잘 돼",
+        "whileIgnored": [
+          " 다 니들 잘 되려고 하는 소리",
+          " 내가 말하고 있잖아"
+        ],
+        "whisperInferTime": 1920,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4922
+      },
+      {
+        "segment": " 이렇게 해야 성공했어",
+        "whileIgnored": [
+          " 이렇게 해야 성공했어",
+          " 나는 너"
+        ],
+        "whisperInferTime": 2906,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5908
+      },
+      {
+        "segment": " 나는 어",
+        "whileIgnored": [
+          " 이 사람의 말하면 그냥 군더더",
+          " 이 사람이 말하면 그냥 군더더기 없이 그냥",
+          " 이렇게"
+        ],
+        "whisperInferTime": 2912,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5915
+      },
+      {
+        "segment": " 바르시 없어 바르시",
+        "whileIgnored": [
+          " 바르시 없어 바르시"
+        ],
+        "whisperInferTime": 4956,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7957
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 내가",
+        "whileIgnored": [
+          " 내가 말하고 있잖아",
+          " 나 말하고 있잖아",
+          " 나 말하고 있잖아"
+        ],
+        "whisperInferTime": 2405,
+        "llmTime": 5004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7409
+      },
+      {
+        "segment": " 자식아",
+        "whileIgnored": [
+          " 자식아",
+          " 어?",
+          " 어?"
+        ],
+        "whisperInferTime": 5383,
+        "llmTime": 5004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10387
+      },
+      {
+        "segment": " 나 때는 어",
+        "whileIgnored": [
+          " 나 때는 어",
+          " 그냥 감사합니다",
+          " 그냥 감사합니다",
+          " 하고 그냥 받고",
+          " 나 하고 그냥 받고"
+        ],
+        "whisperInferTime": 3392,
+        "llmTime": 5001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8393
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 알겠습니다 하고 따랐는데",
+        "whileIgnored": [
+          " 알겠습니다 하고 따랐는데",
+          " 요즘 것들은 그냥",
+          " 요즘 것들은 그냥"
+        ],
+        "whisperInferTime": 1420,
+        "llmTime": 5001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6421
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아아 나 오늘",
+        "whileIgnored": [
+          " 아아 나 우울해서 판매했어",
+          " 우울해서 판매했어",
+          " 우울해서 판매했어",
+          " 어떻게 될지는 모르겠는데",
+          " 어떻게 될지는 모르겠는데",
+          " 쉽고 판단해봐",
+          " 아 나 우울해서 판단해 봐",
+          " 다음 영웅이 되고 있니?",
+          " 다음 해외이 되고 있니?"
+        ],
+        "whisperInferTime": 1935,
+        "llmTime": 70515,
+        "llmResponse": "PPP : 아아 나 오늘\nPPP : 무슨 일 있었어?",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Sad_L",
+        "faceClipName": "여자처럼앉기",
+        "totalElapsedTime": 72462
+      },
+      {
+        "segment": " 아아 잘 되고 있네",
+        "whileIgnored": [
+          " 아 잘 되고 있는 거 맞아?",
+          " 잘 되고 있는 거 맞아?"
+        ],
+        "whisperInferTime": 1947,
+        "llmTime": 2551,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4508
+      },
+      {
+        "segment": " 그러면...",
+        "whileIgnored": [
+          " 이건 잘 되네."
+        ],
+        "whisperInferTime": 2418,
+        "llmTime": 2524,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4944
+      },
+      {
+        "segment": " 이건 잘 되네.",
+        "whileIgnored": [],
+        "whisperInferTime": 2969,
+        "llmTime": 2336,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5308
+      },
+      {
+        "segment": " 잘 되고 안 되는 거 맞아?",
+        "whileIgnored": [
+          " 잘 되고 안 되는 건 뭐야?",
+          " 어, 지금...",
+          " 지금 엄청 타임어웃",
+          " 지금 엄청 타임아웃을 되게 길게"
+        ],
+        "whisperInferTime": 3425,
+        "llmTime": 3113,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking if everything is going well.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 6549
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 했는데...",
+        "whileIgnored": [
+          " 아, 되게 길게 했는데",
+          " 되고 안 되고 되고 안 되고",
+          " 되고? 안 되고? 되고? 안 되고?"
+        ],
+        "whisperInferTime": 902,
+        "llmTime": 2803,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3717
+      },
+      {
+        "segment": " 어?",
+        "whileIgnored": [
+          " 어?",
+          " 안녕하세요",
+          " 안녕하세요 제 이름은"
+        ],
+        "whisperInferTime": 2429,
+        "llmTime": 2278,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4710
+      },
+      {
+        "segment": " 제 이름은 박기찬이라고 하구요",
+        "whileIgnored": [
+          " 제 이름은 박기찬이라고 하구요",
+          " 반가워요",
+          " 반가워요"
+        ],
+        "whisperInferTime": 980,
+        "llmTime": 2587,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3570
+      },
+      {
+        "segment": " 형은 반가워요",
+        "whileIgnored": [
+          " 형은 반가워요",
+          " 너무 그리고 행복하고",
+          " 너무 그리고 행복하고 기쁘고"
+        ],
+        "whisperInferTime": 1459,
+        "llmTime": 4161,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened. The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5635
+      },
+      {
+        "segment": " 살짝 배고프고서 좀 짜증이 나고",
+        "whileIgnored": [
+          " 살짝 배고프어서 좀 짜증이 나긴 해요"
+        ],
+        "whisperInferTime": 4492,
+        "llmTime": 4370,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened. The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip. The speaker's stomach is growling and they feel a bit irritated.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 8879
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 야...",
+        "whileIgnored": [
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정"
+        ],
+        "whisperInferTime": 1903,
+        "llmTime": 3016,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4919
+      },
+      {
+        "segment": " 거기",
+        "whileIgnored": [
+          " 잘 지내고",
+          " 잘 지내니"
+        ],
+        "whisperInferTime": 871,
+        "llmTime": 3005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3876
+      },
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [],
+        "whisperInferTime": 940,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3942
+      },
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정 한글자막 by 한효정"
+        ],
+        "whisperInferTime": 3453,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6456
+      },
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [
+          " 한글자막 by 한효정"
+        ],
+        "whisperInferTime": 2928,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5932
+      },
+      {
+        "segment": " 고의니",
+        "whileIgnored": [],
+        "whisperInferTime": 6044,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9048
+      },
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정"
+        ],
+        "whisperInferTime": 4464,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7465
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [
+          " 한글자막 by 한효정",
+          " 한글자막 by 한효정 한글자막 by 한효정",
+          " 한글자막 by 한효정"
+        ],
+        "whisperInferTime": 1954,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4958
+      },
+      {
+        "segment": " 여보세요~ 어~",
+        "whileIgnored": [
+          " 여보세요? 어"
+        ],
+        "whisperInferTime": 1921,
+        "llmTime": 3007,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4928
+      },
+      {
+        "segment": " 어떻게 해야 되고 있어?",
+        "whileIgnored": [],
+        "whisperInferTime": 2441,
+        "llmTime": 3007,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5448
+      },
+      {
+        "segment": " 안녕 안녕~",
+        "whileIgnored": [
+          " 안녕 안녕",
+          " 안녕~",
+          " 안녕"
+        ],
+        "whisperInferTime": 2941,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5942
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 반가워",
+        "whileIgnored": [
+          " 반가워 내 이름은 박기찬이"
+        ],
+        "whisperInferTime": 1928,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4931
+      },
+      {
+        "segment": " 반가워",
+        "whileIgnored": [
+          " 반가워",
+          " 박기찬이",
+          " 정말 반가워",
+          " 정말 반가워"
+        ],
+        "whisperInferTime": 5886,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8889
+      },
+      {
+        "segment": " 어 진짜?",
+        "whileIgnored": [
+          " 아 진짜?",
+          " 아 대박",
+          " 아 대박 헐",
+          " 어떡해"
+        ],
+        "whisperInferTime": 4926,
+        "llmTime": 3006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7932
+      },
+      {
+        "segment": " 어떡해",
+        "whileIgnored": [],
+        "whisperInferTime": 1398,
+        "llmTime": 3011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4409
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 진짜 우리 바로",
+        "whileIgnored": [
+          " 아 어떡해"
+        ],
+        "whisperInferTime": 9133,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 12135
+      }
+    ]
+  }
+]

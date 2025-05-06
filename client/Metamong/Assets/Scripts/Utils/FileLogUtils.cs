@@ -6,16 +6,29 @@ using UnityEngine;
 
 public class FileLogUtils
 {
-    public static void Overwrite<T>(T item, string path)
+    private const string log_path_prefix = "Assets\\Log\\";
+    public static void Overwrite<T>(T item, string filename)
     {
-        string source = File.ReadAllText(path);
-        Debug.Log("source: " + source);
+        List<T> readFile = new List<T>();
+        string pull_path = Path.Combine(log_path_prefix, filename + ".json");
+        Debug.Log("Log Path: " + pull_path);
 
-        List<T> readFile = JsonConverter.DeserializeToList<T>(source);
+        if (!File.Exists(pull_path))
+        {
+            Debug.Log("Created new log file : " + pull_path);
+            readFile.Add(item);
+            File.WriteAllText(pull_path, JsonConvert.SerializeObject(readFile, Formatting.Indented));
+            return;
+        }
 
-        Debug.Log(string.Join(",", readFile));
+        string source = File.ReadAllText(pull_path);
+        // Debug.Log("source: " + source);
+
+        readFile = JsonConverter.DeserializeToList<T>(source) ?? new List<T>();
+
+        // Debug.Log(string.Join(",", readFile));
         readFile.Add(item);
 
-        File.WriteAllText(path, JsonConvert.SerializeObject(readFile, Formatting.Indented));
+        File.WriteAllText(pull_path, JsonConvert.SerializeObject(readFile, Formatting.Indented));
     }
 }

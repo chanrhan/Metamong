@@ -1,0 +1,25 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아.. 아.. 아..",
+        "ignored": [
+          " 아... 아... 아...",
+          " 나 너무",
+          " 나 너무 행복해"
+        ],
+        "inferTime": 1940,
+        "llmTime": 2951,
+        "llmResponse": "The speaker's tone is one of deep sorrow and despair, their words echoing a sense of profound loss.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Sad_L",
+        "faceClipName": "Yell",
+        "totalTime": 4908
+      }
+    ]
+  }
+]

@@ -142,5 +142,85 @@
         "totalTime": 50971
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아아",
+        "ignored": [
+          " 아, 나 너무",
+          " 아, 너무",
+          " 아, 너무 지금",
+          " 지금 목이 아파서"
+        ],
+        "inferTime": 2362,
+        "llmTime": 3111,
+        "llmResponse": "BBB : 아아\nOutput : The speaker's expression turns into a mix of frustration and exasperation, their tone reflecting annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalTime": 5485
+      },
+      {
+        "segment": " 머리도 아픈 것 같은데?",
+        "ignored": [
+          " 진짜 머리도 아픈 것 같은데?",
+          " 머리도 아픈 것 같아서"
+        ],
+        "inferTime": 5951,
+        "llmTime": 2623,
+        "llmResponse": "The speaker's tone is one of concern and empathy, as they respond with a soothing phrase.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalTime": 8585
+      },
+      {
+        "segment": " 이게 얼마나",
+        "ignored": [
+          " 다시 돌아와서",
+          " 다시 돌아와서",
+          " 이게 얼마나...",
+          " 뭔지는 잘 모르겠어",
+          " 그런지는 잘 모르겠어. 지금 말하고 있고..."
+        ],
+        "inferTime": 1917,
+        "llmTime": 3150,
+        "llmResponse": "BBB : This is very painful.\nBBB : Is it expensive? \nBBB : How much is this?",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Sad_L",
+        "faceClipName": "의문을표함",
+        "totalTime": 5079
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 돌아오다가 안 돌아오다가",
+        "ignored": [
+          " 하는 거 다 좋아해.",
+          " 하는 거 다 좋은데",
+          " 돌아오다가 안 돌아오다가 하고 있으니까"
+        ],
+        "inferTime": 3935,
+        "llmTime": 3193,
+        "llmResponse": "The speaker's tone is one of concern and frustration, with a hint of resignation as they express their physical discomfort and inquire about the cost.",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalTime": 7142
+      }
+    ]
   }
 ]

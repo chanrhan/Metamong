@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Whisper;
 
 public enum LogState
 {
@@ -20,35 +21,76 @@ public enum LogState
 /// </summary>
 public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 {
+    [Header("Timeout")]
     [SerializeField]
-    private int llamaCancelAfterSeconds = 2;
-    private CancellationTokenSource cts = new CancellationTokenSource();
+    private int llmTimeoutLimit = 2000;
+    // private CancellationTokenSource cts = new CancellationTokenSource();
 
     private Llama llama;
-    private SBERT sBERT;
+    private SBERT sbert;
 
     private bool _timeout;
     private long _llmTime;
     private long _sbertTime;
+    private string _llmResponse;
+    private string[] _keywords;
+    private float _stepSec;
+    private float _keepSec;
+    private float _lengthSec;
+    public float StepSec
+    {
+        set => _stepSec = value;
+    }
+    public float KeepSec
+    {
+        set => _keepSec = value;
+    }
+    public float LengthSec
+    {
+        set => _lengthSec = value;
+    }
+
+    // Log
+    [Header("Log")]
+    [SerializeField]
+    private string logFileName = "whisper_log";
+
+    private static List<string> ignoredSegements = new List<string>();
+    private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
 
     protected override void Awake()
     {
         base.Awake();
-        sBERT = GetComponentInChildren<SBERT>();
+        sbert = GetComponentInChildren<SBERT>();
         llama = GetComponentInChildren<Llama>();
     }
 
-    public void PlayTakingMotion(bool isPlayer = true, NetworkCharacter nc = null)
+    public void PlayTakingMotion()
     {
-        if (isPlayer)
-        {
-            nc = ClientManager.Instance?.PlayerController;
-        }
+        NetworkCharacter nc = ClientManager.Instance?.PlayerController;
         if (nc.IsTalking || nc.IsAnimationBlocked)
         {
             return;
         }
         nc.IsTalking = true;
+    }
+
+    public void GenerateNpcMotion(string text, NetworkCharacter nc)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
+        if (nc.IsAnimationBlocked)
+        {
+            return;
+        }
+        nc.IsAnimationBlocked = true;
+
+        string[] keywords = GetMotionKeywords(text);
+
+        // 모션 애니메이션 실행 
+        nc.PlayMotion(keywords[0], keywords[1]);
     }
 
     /// <summary>
@@ -60,124 +102,115 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     /// <param name="text">입력 텍스트</param>
     /// <param name="isPlayer">플레이어 여부</param>
     /// <param name="nc">플레이어가 아닐 경우, 호출하는 NPC 객체</param>
-    public async Task<(LogState, FileLogVO.LogContextItem)> Generate(string text, bool isPlayer = true, NetworkCharacter nc = null)
+    public async void Generate(WhisperResult whisperResult)
     {
-        if (text.Equals(""))
+        string text = whisperResult.Result;
+
+        if (string.IsNullOrWhiteSpace(text))
         {
-            return (
-                LogState.Failed,
-                null
-            );
+            return;
         }
-        // 플레이어일 경우 
-        if (isPlayer)
-        {
-            nc = ClientManager.Instance?.PlayerController;
-        }
+
+        NetworkCharacter nc = ClientManager.Instance?.PlayerController;
 
         // 모션이 실행중이면, 처리 자원 낭비 방지를 위해 입력을 막음 
         if (nc.IsAnimationBlocked)
         {
-            return (
-                LogState.Ignored,
-                null
-            );
+            ignoredSegements.Add(text);
+            return;
         }
         nc.IsAnimationBlocked = true;
-        _timeout = false;
-        _llmTime = 0;
-
 
         // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
         nc.SendMessageToOthers(text);
 
-        string response = text;
-        if (isPlayer)
-        {
-            // 취소 토큰
-            // 일정 시간이 지나면 자동으로 특정 Task를 중단시킨다 
-            cts = new CancellationTokenSource();
-            cts.CancelAfter(llamaCancelAfterSeconds * 1000);
-            try
-            {
-                // 1. Llama를 통해 text를 전처리 
-                // canlcelToken을 통해 처리 지연 부하 방지 
+        // 1. Llama를 통해 text를 전처리 
 
-                // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
-                TimerUtils.Start();
-                response = await GetResultFromLlama(text, cts.Token);
-                _llmTime = TimerUtils.LogAndReset();
-            }
-            catch (OperationCanceledException)
-            {
-                // 토큰 만료 시 (=Llama의 처리가 너무 오래 걸렸을 경우)
-                Debug.Log($"[chan] timeout: {cts.Token.IsCancellationRequested}");
-                nc.IsAnimationBlocked = false;
-                _timeout = true;
-            }
-            finally
-            {
-                // 토큰 해제 
-                cts.Dispose();
-            }
-        }
-
+        // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
         TimerUtils.Start();
-        // SBert를 통해 모션 키워드 추출 
-        // 0번 인덱스: face Clip / 1번 인덱스: action Clip
-        string[] keywords = GetMotionKeywords(response);
+        _llmResponse = await GetResultFromLlama(text);
+        _llmTime = TimerUtils.LogAndReset();
+        _timeout = _llmResponse == null;
 
-        // 모션 애니메이션 실행 
-        nc.PlayMotion(keywords[0], keywords[1]);
-        _sbertTime = TimerUtils.LogAndReset();
+        if (!_timeout)
+        {
+            TimerUtils.Start();
+            // SBert를 통해 모션 키워드 추출 
+            // 0번 인덱스: face Clip / 1번 인덱스: action Clip
+            _keywords = GetMotionKeywords(_llmResponse);
+            _sbertTime = TimerUtils.LogAndReset();
+
+            // 모션 애니메이션 실행 
+            nc.PlayMotion(_keywords[0], _keywords[1]);
+        }
 
         // Whisper-Motion 기록용 (Log)
-        if (!isPlayer)
+        logContextItems.Add(new FileLogVO.LogContextItem
         {
-            return (
-                LogState.Failed,
-                null
-            );
-        }
-        return (
-                LogState.Successed,
-                new FileLogVO.LogContextItem
-                {
-                    segment = text,
-                    llmResponse = response,
-                    llmTime = _llmTime,
-                    llmTimeout = _timeout,
-                    sbertTime = _sbertTime,
-                    faceClipName = keywords[0],
-                    actionClipName = keywords[1]
-                }
-            );
+            segment = text,
+            whisperInferTime = whisperResult.inferTime,
+            whileIgnored = new List<string>(ignoredSegements),
+            llmResponse = _llmResponse,
+            llmTime = _llmTime,
+            llmTimeout = _timeout,
+            sbertTime = _sbertTime,
+            faceClipName = _keywords?[0],
+            actionClipName = _keywords?[1],
+            totalElapsedTime = whisperResult.inferTime + _llmTime + _sbertTime
+        });
+        ignoredSegements.Clear();
+        nc.IsAnimationBlocked = false;
     }
 
-    private async Task<string> GetResultFromLlama(string seg, CancellationToken token)
+    private async Task<string> GetResultFromLlama(string seg)
     {
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
 
-        //ChatManager.Instance.InputChat(clientInfo.username, message);
         string requestText = clientInfo.username + ": " + seg;
 
+        var chatTask = llama.Chat(requestText);
 
-        string response = await llama.Chat(requestText);
+        // LLM의 과도하게 긴 처리를 방지하기 위해 최대 처리 시간 제한 Task 생성 
+        var delayTask = Task.Delay(TimeSpan.FromMilliseconds(llmTimeoutLimit));
+
+        // LLM Task 와 Delay Task 중 먼저 끝날때까지 기다림 
+        var finished = await Task.WhenAny(chatTask, delayTask);
+        if (finished != chatTask) // LLM Task가 먼저 끝나지 않았다면, 
+        {
+            Debug.Log($"[chan] timeout : {seg}");
+            return null;
+        }
+        string response = await chatTask;
 
         llama.AddChatLog(clientInfo.username, seg);
-
-        // Debug.Log("Response: " + response);
-        // Debug.Log($"[chan] {segmentMotionSet.segment} : {response}");
-
         return response;
     }
 
     public string[] GetMotionKeywords(string motions)
     {
         string[] keywords = new string[2];
-        keywords[0] = sBERT.CompareWordText(motions, true);
-        keywords[1] = sBERT.CompareWordText(motions, false);
+        keywords[0] = sbert.CompareWordText(motions, true);
+        keywords[1] = sbert.CompareWordText(motions, false);
 
         return keywords;
+    }
+
+    public void Log()
+    {
+        if (logContextItems.Count == 0)
+        {
+            return;
+        }
+
+        FileLogVO vo = new FileLogVO
+        {
+            stepSec = _stepSec,
+            keepSec = _keepSec,
+            lengthSec = _lengthSec,
+            logContextItems = logContextItems
+        };
+
+        FileLogUtils.Overwrite(vo, logFileName);
+        logContextItems.Clear();
     }
 }

@@ -140,7 +140,7 @@ public class NpcAI : NetworkCharacter
         //talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
         // 모션 생성
-        MotionGenerator.Instance.Generate(response, false, this);
+        MotionGenerator.Instance.GenerateNpcMotion(response, this);
     }
 
     /// <summary>

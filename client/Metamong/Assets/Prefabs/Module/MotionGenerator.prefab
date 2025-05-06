@@ -68,7 +68,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   contextSize: 8192
   batchSize: 512
-  model: llama-3-Korean-Bllossom-8B-Q4_K_M.gguf
+  model: llama-3.2-Korean-Bllossom-3B-IQ3_M.gguf
   chatTemplate: llama3 chat
   lora: 
   loraWeights: 
@@ -79,9 +79,9 @@ MonoBehaviour:
   SSLKey: 
   SSLKeyPath: 
   minContextLength: 0
-  maxContextLength: 8192
+  maxContextLength: 131072
   embeddingsOnly: 0
-  embeddingLength: 4096
+  embeddingLength: 3072
 --- !u!114 &8463130892063350230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,3 +226,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
   llamaCancelAfterSeconds: 2
+  logPath: log_test

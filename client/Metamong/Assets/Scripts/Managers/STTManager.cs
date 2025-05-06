@@ -13,8 +13,9 @@ using Unity.VisualScripting;
 
 public class STTManager : MonobehaviourSingleton<STTManager>
 {
-
-    private const string LOG_PATH = "whisper_log.json";
+    [Header("Mac Os")]
+    [SerializeField]
+    private bool AllowMacOs = false;
     // [SerializeField]
     private WhisperManager wm;
     // [SerializeField]
@@ -34,23 +35,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         set => onRecord += value;
     }
     
-
-    [Header("Mac Os")]
-    [SerializeField]
-    private bool AllowMacOs = false;
     private bool IsPlatformMacOs = false;
-
-    private static List<string> ignoredSegements = new List<string>();
-
-    private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
-    public List<FileLogVO.LogContextItem> LogContextItems{
-        get=>logContextItems;
-    }
-
-    public List<double> SegmentFinshiedTimes{
-        get=>_stream.finishSegmentTimes;
-    }
-    
     private bool isRecording = false;
 
     protected async override void Awake()
@@ -136,15 +121,20 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         }
     }
 
-    public void StartRecord(){
+    public void StartRecord()
+    {
         _stream.StartStream();
         microphoneRecord.StartRecord();
+
+        MotionGenerator.Instance.StepSec = wm.stepSec;
+        MotionGenerator.Instance.KeepSec = wm.keepSec;
+        MotionGenerator.Instance.LengthSec = wm.lengthSec;
     }
 
     public void StopRecord()
     {
         microphoneRecord.StopRecord();
-        LogCurrentItems();
+        MotionGenerator.Instance?.Log();
     }
 
     private void OnResult(string result){
@@ -163,55 +153,12 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-        GenerateMotion(segment);
+        MotionGenerator.Instance?.Generate(segment);
     }
 
     private void OnSegmentFinished(WhisperResult segment)
     {
         
-    }
-
-    private async void GenerateMotion(WhisperResult segment)
-    {
-        var result = await MotionGenerator.Instance?.Generate(segment.Result);
-        switch (result.Item1)
-        {
-            case LogState.Ignored:
-                ignoredSegements.Add(segment.Result);
-                break;
-            case LogState.Successed:
-                FileLogVO.LogContextItem log = result.Item2;
-
-                log.ignored = new List<string>(ignoredSegements);
-                log.inferTime = segment.inferTime;
-                log.totalTime = log.inferTime + log.llmTime + log.sbertTime;
-                logContextItems.Add(log);
-                ignoredSegements.Clear();
-                break;
-        }
-        if (!isRecording)
-        {
-            LogCurrentItems();
-        }
-    }
-
-    private void LogCurrentItems()
-    {
-        if (logContextItems.Count == 0)
-        {
-            return;
-        }
-
-        FileLogVO logVO = new FileLogVO
-        {
-            stepSec = wm.stepSec,
-            keepSec = wm.keepSec,
-            lengthSec = wm.lengthSec,
-            logContextItems = logContextItems
-        };
-
-        FileLogUtils.Overwrite(logVO, LOG_PATH);
-        logContextItems.Clear();
     }
 
     void OnVoiceDeteched()
@@ -221,7 +168,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     void OnDestroy()
     {
-        LogCurrentItems();
+        MotionGenerator.Instance?.Log();
     }
 
 
