@@ -1,0 +1,413 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그거 알아요",
+        "whileIgnored": [
+          " 그거 알아요?",
+          " 고시원에는 세 가지가 없어요.",
+          " 고시원에는 세 가지가 없어요"
+        ],
+        "whisperInferTime": 1937,
+        "llmTime": 2406,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4343
+      },
+      {
+        "segment": " 고시원에는 세 가지가 없어요",
+        "whileIgnored": [],
+        "whisperInferTime": 1441,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3845
+      },
+      {
+        "segment": " 를 찾는 사람이 없죠",
+        "whileIgnored": [
+          " 를 찾는 사람이 없죠",
+          " 그런데 아저씨가 우리를 찾는 사람은"
+        ],
+        "whisperInferTime": 4963,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7367
+      },
+      {
+        "segment": " 근데 아저씨가 우리를 찾는 사람이 있게 만들어버렸어요",
+        "whileIgnored": [],
+        "whisperInferTime": 2498,
+        "llmTime": 2403,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4901
+      },
+      {
+        "segment": " 고시원 규칙이네요",
+        "whileIgnored": [
+          " 고시원 규칙에 위반인데",
+          " 고시원 규칙 위반인데"
+        ],
+        "whisperInferTime": 2481,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4885
+      },
+      {
+        "segment": " 고시를 좀 하셨어야지",
+        "whileIgnored": [
+          " 고시불점 하셨어야지"
+        ],
+        "whisperInferTime": 3447,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5848
+      },
+      {
+        "segment": " 사들어온 그 양과는 죽었고",
+        "whileIgnored": [
+          " 들어온 그 양과는 죽었고"
+        ],
+        "whisperInferTime": 5513,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7914
+      },
+      {
+        "segment": " 자 어디 볼까요?",
+        "whileIgnored": [
+          " 자 어디 볼까요?",
+          " 원래 실력이 좋은데 마취를 안해서"
+        ],
+        "whisperInferTime": 4915,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7319
+      },
+      {
+        "segment": " 나 원래 실력이 좋은데 마취를 안해서 아프긴 좀",
+        "whileIgnored": [],
+        "whisperInferTime": 2090,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4491
+      },
+      {
+        "segment": " 자아 아플거에요 아 자아",
+        "whileIgnored": [
+          " 자아 아플거에요 아 자아",
+          " 자 아플거에요 아 자 이거 금방",
+          " 금방 금방"
+        ],
+        "whisperInferTime": 4458,
+        "llmTime": 2402,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6860
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아프고 싶어요",
+        "whileIgnored": [
+          " 아프고 싶어요"
+        ],
+        "whisperInferTime": 2446,
+        "llmTime": 2403,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4849
+      },
+      {
+        "segment": " 끈 풀렸다 야",
+        "whileIgnored": [
+          " 끈 풀렸다 야",
+          " 누가 생각하나 보다",
+          " 누가 니 생각하나본데?"
+        ],
+        "whisperInferTime": 1909,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4912
+      },
+      {
+        "segment": " 그래 니 말 맞다",
+        "whileIgnored": [
+          " 그래 니 말마따만 내가 뭔데?",
+          " 내가 뭔 상처를 받겠냐?",
+          " 내가 뭔 상처를 받겠냐"
+        ],
+        "whisperInferTime": 1918,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4921
+      },
+      {
+        "segment": " 근데",
+        "whileIgnored": [
+          " 조금은 뭐 아팠었어",
+          " 조금은 뭐 아팠었어"
+        ],
+        "whisperInferTime": 1360,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4361
+      },
+      {
+        "segment": " 네가 헤어지자고 한 후에 말이야",
+        "whileIgnored": [
+          " 니가 헤어지자고 한 후에 말이야"
+        ],
+        "whisperInferTime": 1964,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4966
+      },
+      {
+        "segment": " 우리 계속 잊혀지지 않는다",
+        "whileIgnored": [],
+        "whisperInferTime": 2448,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5452
+      },
+      {
+        "segment": " 내가 그런 적이 없더라고",
+        "whileIgnored": [
+          " 근데 니 표정이 없었는데"
+        ],
+        "whisperInferTime": 3502,
+        "llmTime": 3006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6508
+      },
+      {
+        "segment": " 내 표정이 없었는데 무지 행복해 보였다",
+        "whileIgnored": [
+          " 니 표정이 없었는데? 아니 무지 행복해 보였어"
+        ],
+        "whisperInferTime": 2948,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5950
+      },
+      {
+        "segment": " 행복한 표정이 없는데?",
+        "whileIgnored": [
+          " 했을 때 행복한 표정이라니",
+          " 얼굴이 자꾸 떠올라서"
+        ],
+        "whisperInferTime": 2032,
+        "llmTime": 3013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5045
+      },
+      {
+        "segment": " 나 얼굴이 자꾸 떠올라서",
+        "whileIgnored": [
+          " 그럼 아팠지"
+        ],
+        "whisperInferTime": 2436,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5438
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그거를 타임마트 한 번 먼저 해봐.",
+        "whileIgnored": [
+          " 그럼 타임마트 먼저 그냥 방안시키되"
+        ],
+        "whisperInferTime": 2005,
+        "llmTime": 2409,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4414
+      },
+      {
+        "segment": " 아 그렇지",
+        "whileIgnored": [
+          " 아 그렇지",
+          " 아 뭐 그렇지 보면은",
+          " 이게 말을"
+        ],
+        "whisperInferTime": 2401,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4802
+      },
+      {
+        "segment": " 이게 말을 계속하면은",
+        "whileIgnored": [
+          " 계속하면은"
+        ],
+        "whisperInferTime": 1387,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3791
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 계속하면은 계속 이",
+        "whileIgnored": [
+          " 2.4백에 계속 걸리거든 그치"
+        ],
+        "whisperInferTime": 3820,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6221
+      },
+      {
+        "segment": " 말을 해",
+        "whileIgnored": [
+          " 를 하면은",
+          " 를 하면은 이제",
+          " 이 새끼가 무조건",
+          " 이 새끼가 무조건 팔자를 기다려",
+          " 할 줄을 기다려 개 같은거",
+          " 잘 할 줄을 기다려 개 같은 거",
+          " 할 줄을 기다려 개 같은거 이씨",
+          " 이 씹세키 이거"
+        ],
+        "whisperInferTime": 1938,
+        "llmTime": 8001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9939
+      },
+      {
+        "segment": " 이 씹세키 요",
+        "whileIgnored": [
+          " 씨 아니",
+          " 씨 아니 아까",
+          " 아까 예",
+          " 아깔 이게",
+          " 이럴게 아니거든요 데스크가",
+          " 이렇게 아니거든요 데스크가"
+        ],
+        "whisperInferTime": 1432,
+        "llmTime": 8008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9440
+      }
+    ]
+  }
+]

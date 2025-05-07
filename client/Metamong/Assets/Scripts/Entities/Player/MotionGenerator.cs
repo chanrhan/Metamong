@@ -164,14 +164,14 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     private async Task<string> GetResultFromLlama(string seg)
     {
+        using var cts = new CancellationTokenSource(llmTimeoutLimit);
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
 
         string requestText = clientInfo.username + ": " + seg;
 
-        var chatTask = llama.Chat(requestText);
-
+        var chatTask = llama.Chat(requestText).WithCancellation(cts.Token);
         // LLM의 과도하게 긴 처리를 방지하기 위해 최대 처리 시간 제한 Task 생성 
-        var delayTask = Task.Delay(TimeSpan.FromMilliseconds(llmTimeoutLimit));
+        var delayTask = Task.Delay(Timeout.Infinite, cts.Token);
 
         // LLM Task 와 Delay Task 중 먼저 끝날때까지 기다림 
         var finished = await Task.WhenAny(chatTask, delayTask);
