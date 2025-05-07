@@ -1,0 +1,198 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 자 자",
+        "whileIgnored": [
+          " 자",
+          " 자",
+          " 데미안은 어린 시절에",
+          " 데미안은 어린 시절의 종교죠"
+        ],
+        "whisperInferTime": 2404,
+        "llmTime": 3507,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5911
+      },
+      {
+        "segment": " 종교적 도덕적 가치의",
+        "whileIgnored": [
+          " 종교적 도덕적 가치의 회의를 느끼고",
+          " 회의를 느끼는 소녀 싱클레어가",
+          " 해일을 느끼는 소녀 싱클레어가 자신의 정체성"
+        ],
+        "whisperInferTime": 953,
+        "llmTime": 3506,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4459
+      },
+      {
+        "segment": " 자신의 정체성과 삶의 의미를 찾기",
+        "whileIgnored": [
+          " 의미를 찾기 위해 여정을 떠나는",
+          " 위의 여정을 떠나는 성장성과 삶의",
+          " 위해 여정을 떠나는 성장소설입니다"
+        ],
+        "whisperInferTime": 2533,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6041
+      },
+      {
+        "segment": " 잠깐만 이러면",
+        "whileIgnored": [
+          " 트롤리 오류 걸릴 수 밖에 없나?"
+        ],
+        "whisperInferTime": 2422,
+        "llmTime": 3518,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5940
+      },
+      {
+        "segment": " 트롤에 오래 걸릴 수 밖에 없나? 생각해보니까",
+        "whileIgnored": [
+          " 어"
+        ],
+        "whisperInferTime": 3524,
+        "llmTime": 3506,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7030
+      },
+      {
+        "segment": " 어 어쨌든 거네",
+        "whileIgnored": [
+          " 어쨌든 간에",
+          " 탐구해보겠습니다 오케이",
+          " 탐구해보겠습니다 오케이"
+        ],
+        "whisperInferTime": 3448,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6956
+      },
+      {
+        "segment": " 헤르만 해서는 대립과 정신",
+        "whileIgnored": [
+          " 헤르만 회사는 대립과 정신적 탐구를 통해",
+          " 성장과 자아실현에 주된",
+          " 성장과 자아실현의 주요의 지속도로 사용하여"
+        ],
+        "whisperInferTime": 3028,
+        "llmTime": 3502,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6530
+      },
+      {
+        "segment": " 신청과 자아실현의 줄을 지속도로 삼색하며 20세기",
+        "whileIgnored": [],
+        "whisperInferTime": 2071,
+        "llmTime": 3506,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5577
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어어",
+        "whileIgnored": [
+          " 어어 안녕",
+          " 반가워",
+          " 안녕 반가워 오랜만이야"
+        ],
+        "whisperInferTime": 1918,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5426
+      },
+      {
+        "segment": " 아 좀 돌려보내줘",
+        "whileIgnored": [
+          " 아 좀 돌려보내줘"
+        ],
+        "whisperInferTime": 7913,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11421
+      },
+      {
+        "segment": " 저희도 읽고 있니?",
+        "whileIgnored": [
+          " 듣고는 있는거니?",
+          " 듣고는 있는거니?"
+        ],
+        "whisperInferTime": 4962,
+        "llmTime": 3504,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8466
+      },
+      {
+        "segment": " 아~",
+        "whileIgnored": [
+          " 야!",
+          " 야!",
+          " 야!"
+        ],
+        "whisperInferTime": 5437,
+        "llmTime": 3513,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8950
+      }
+    ]
+  }
+]

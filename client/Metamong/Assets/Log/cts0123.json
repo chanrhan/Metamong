@@ -1,0 +1,67 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 나아 때는 마리아 어르신",
+        "whileIgnored": [
+          " 나 때는 말이야 어른들이 말하면 그냥"
+        ],
+        "whisperInferTime": 1993,
+        "llmTime": 2341,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4345
+      },
+      {
+        "segment": " 저게 살라고 하긴 한데 감사하네요",
+        "whileIgnored": [
+          " 너무 잘 나오긴 한데"
+        ],
+        "whisperInferTime": 6032,
+        "llmTime": 4009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10041
+      },
+      {
+        "segment": " 혹시 저때로야 누구한테 말이야",
+        "whileIgnored": [
+          " 역시 저때로야",
+          " 나한테 손 때려야 해"
+        ],
+        "whisperInferTime": 4446,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8448
+      },
+      {
+        "segment": " 무조건",
+        "whileIgnored": [
+          " 무조건 타임아웃이야",
+          " 조금 타임아웃이야"
+        ],
+        "whisperInferTime": 10406,
+        "llmTime": 4010,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14416
+      }
+    ]
+  }
+]

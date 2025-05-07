@@ -1,0 +1,85 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕",
+        "whileIgnored": [
+          " 안녕 너 이 자식이",
+          " 이거 얻은 말 안 듣고",
+          " 이거 얻은 말 안 듣고 지금 혼자",
+          " 이거 얻은 말 안 듣고 지금 혼자 개길래?",
+          " 개길래? 어?"
+        ],
+        "whisperInferTime": 1960,
+        "llmTime": 4007,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5967
+      },
+      {
+        "segment": " 어?",
+        "whileIgnored": [
+          " 자 지금 보상 취향 안 돼, 그래야!",
+          " 지금 모션 출력 안 할거야? 어?"
+        ],
+        "whisperInferTime": 954,
+        "llmTime": 4011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4965
+      },
+      {
+        "segment": " 모션을 출력을 해야 지금",
+        "whileIgnored": [
+          " 모션을 출력을 해야 지금 뭐 사람이",
+          " 어? 사람이요? 잘 말 들어요?",
+          " 뭐 사람이요? 잘 말 듣고 할거야?",
+          " 안 듣고 할거 아니야?"
+        ],
+        "whisperInferTime": 1965,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5967
+      },
+      {
+        "segment": " 아~ 야식이 이거",
+        "whileIgnored": [
+          " 어? 야식이 이거 이거 안 듣겠어?"
+        ],
+        "whisperInferTime": 7011,
+        "llmTime": 4013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11024
+      },
+      {
+        "segment": " 어?",
+        "whileIgnored": [],
+        "whisperInferTime": 3267,
+        "llmTime": 4005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7272
+      }
+    ]
+  }
+]

@@ -1,0 +1,361 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 우연이라니까?",
+        "whileIgnored": [
+          " 우연이라니까?"
+        ],
+        "whisperInferTime": 1924,
+        "llmTime": 2717,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking if it was a coincidence.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4659
+      },
+      {
+        "segment": " 너 너",
+        "whileIgnored": [
+          " 또 할 수 있을 것 같애?",
+          " 보여줘봐!",
+          " 조용해봐! 어?"
+        ],
+        "whisperInferTime": 2827,
+        "llmTime": 2506,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5349
+      },
+      {
+        "segment": " 어? 너가 다시...",
+        "whileIgnored": [
+          " 너가 타임아웃이 안 날 것 같아?",
+          " 너가 타임아웃이 안 날 것 같아?"
+        ],
+        "whisperInferTime": 1476,
+        "llmTime": 2670,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4154
+      },
+      {
+        "segment": " 어? 너가...",
+        "whileIgnored": [
+          " 어? 야!"
+        ],
+        "whisperInferTime": 1933,
+        "llmTime": 2482,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4417
+      },
+      {
+        "segment": " 너가 또 새댐 마...",
+        "whileIgnored": [
+          " 너가 다시..."
+        ],
+        "whisperInferTime": 6588,
+        "llmTime": 2140,
+        "llmResponse": "The speaker's tone shifts from casual to stern, their words becoming increasingly forceful and accusatory.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 8741
+      },
+      {
+        "segment": " 어? 어? 어? 어? 어? 어? 어? 어? 어? 어? 어? 어? 어? 어?",
+        "whileIgnored": [],
+        "whisperInferTime": 1761,
+        "llmTime": 2157,
+        "llmResponse": "The speaker repeats a series of \"yes\" responses, indicating agreement and confusion.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Hansim",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3934
+      },
+      {
+        "segment": " 너가 다시... 너가 다시...",
+        "whileIgnored": [],
+        "whisperInferTime": 4055,
+        "llmTime": 2364,
+        "llmResponse": "The speaker repeats the phrase \"너가 다시...\" multiple times, their tone indicating a mix of frustration and repetition.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 6430
+      },
+      {
+        "segment": " 왕키의 위치에 러가 없을 때... 아!",
+        "whileIgnored": [],
+        "whisperInferTime": 6499,
+        "llmTime": 1686,
+        "llmResponse": "The speaker's tone shifts from curiosity to frustration, and they eventually express relief.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 8201
+      },
+      {
+        "segment": " 왕키의 위치에 러가 없을 때... 왕키의 위치에 러가 없을 때...",
+        "whileIgnored": [
+          " 왕키의 위치에 러가 없을 때..."
+        ],
+        "whisperInferTime": 2639,
+        "llmTime": 2807,
+        "llmResponse": "The speaker's tone shifts from curiosity to frustration, with a series of rapid-fire questions and exclamations before finally expressing relief that the location is empty.",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 5465
+      },
+      {
+        "segment": " 아니... 너... 너가 다시 안 날 것 같아?",
+        "whileIgnored": [
+          " 왕키 안 나? 왜 안 나?",
+          " 왕키 안 나? 왜 안 나? 야!",
+          " 야! 늘 왔나?",
+          " 야! 늘 왔나?",
+          " 야! 늘 안 나? 너 진짜..."
+        ],
+        "whisperInferTime": 7553,
+        "llmTime": 3982,
+        "llmResponse": "The speaker's tone shifts from curiosity to concern, and they repeatedly ask if the other person will be able to come. The conversation becomes increasingly agitated as they inquire about the status of a trip and express uncertainty.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 11552
+      },
+      {
+        "segment": " 너 진짜 이걸 하고?",
+        "whileIgnored": [
+          " 너 진짜 이걸 하고?"
+        ],
+        "whisperInferTime": 901,
+        "llmTime": 2481,
+        "llmResponse": "The speaker's tone shifts from playful teasing to genuine concern, as they repeatedly inquire and express worry about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3399
+      },
+      {
+        "segment": " 오팔리... 아잇!",
+        "whileIgnored": [
+          " 아!",
+          " 그 타임아웃! 아니, 이 타임아웃은 또 왜 안 돼?"
+        ],
+        "whisperInferTime": 1999,
+        "llmTime": 3391,
+        "llmResponse": "The speaker's tone shifts from confusion and concern to frustration, with a series of rapid-fire questions and exclamations, culminating in an exasperated expression.",
+        "llmTimeout": false,
+        "sbertTime": 24,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 5414
+      },
+      {
+        "segment": " 타임아웃은 또 왜 안 나? 그 정도로 시간이 안 나?",
+        "whileIgnored": [
+          " 손 또 왜 안 나? 그 정도로 시간이 안 걸리는 건가?"
+        ],
+        "whisperInferTime": 2493,
+        "llmTime": 3478,
+        "llmResponse": "The speaker's tone shifts from confusion and frustration to exasperation, with an increasing number of \"어?\" questions, eventually leading to a statement about the impossibility of continuing.",
+        "llmTimeout": false,
+        "sbertTime": 20,
+        "actionClipName": "Surprised",
+        "faceClipName": "뺨때림",
+        "totalElapsedTime": 5991
+      },
+      {
+        "segment": " 어? 지금 어드니와 나?",
+        "whileIgnored": [
+          " 너 지금 어른? 어른이 말하는데 지금...",
+          " 어두니만 하는데 지금 타임아웃 안 내고 지금...",
+          " 선생님 그게 자산치시야? 어?"
+        ],
+        "whisperInferTime": 3970,
+        "llmTime": 2600,
+        "llmResponse": "The speaker repeats a series of questions and expresses frustration, asking if the other person is going to do something.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 6585
+      },
+      {
+        "segment": " 좀 말해봐!",
+        "whileIgnored": [
+          " 자꾸 막 이상하게 막 하는데"
+        ],
+        "whisperInferTime": 2293,
+        "llmTime": 2263,
+        "llmResponse": "The speaker's tone is one of frustration and exasperation, with a series of rapid-fire questions and exclamations.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4574
+      },
+      {
+        "segment": " 자꾸만 이상하게 막 하는데 2.5초",
+        "whileIgnored": [
+          " 2.5초 걸리고 그러는데 너 지금...",
+          " 너 지금 원래부터 사줬거든?"
+        ],
+        "whisperInferTime": 2353,
+        "llmTime": 2615,
+        "llmResponse": "The speaker becomes agitated and frustrated, their tone reflecting annoyance and exasperation as they repeatedly express their frustration with the system's unresponsiveness.",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4987
+      },
+      {
+        "segment": " 내가 지금 화나려고 해...",
+        "whileIgnored": [
+          " 내가 지금 화나려고 해... 근데 너 왜 자꾸..."
+        ],
+        "whisperInferTime": 5361,
+        "llmTime": 2617,
+        "llmResponse": "The speaker's tone turns stern and frustrated, their words laced with anger and exasperation as they express their disappointment and frustration.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 7996
+      },
+      {
+        "segment": " 많이 웃게 만들고 사면 화나고 기회에...",
+        "whileIgnored": [
+          " 진짜 웃게 만들고 사람은 화... 그리고 기대... 기대하고 있네..."
+        ],
+        "whisperInferTime": 2915,
+        "llmTime": 2421,
+        "llmResponse": "The speaker becomes increasingly agitated, their tone reflecting frustration and annoyance as they repeatedly express their exasperation with the situation.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 5354
+      },
+      {
+        "segment": " 아니잖아 이거인데... 이거...",
+        "whileIgnored": [
+          " 아니잖아, 이거인데... 이거... 야! 야! 야! 야!",
+          " 야! 야! 야! 야! 야! 야! 말해봐! 너 왜 내"
+        ],
+        "whisperInferTime": 1895,
+        "llmTime": 2614,
+        "llmResponse": "The speaker becomes visibly agitated, their tone reflecting frustration and annoyance as they repeatedly express incredulity and exasperation.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4525
+      },
+      {
+        "segment": " 개투쉐채는 무시해 또?",
+        "whileIgnored": [],
+        "whisperInferTime": 1362,
+        "llmTime": 2205,
+        "llmResponse": "The speaker becomes increasingly agitated, their tone reflecting frustration and annoyance as they repeatedly express their exasperation with the situation.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3569
+      },
+      {
+        "segment": " 이거 약간 오케이! 아니야!",
+        "whileIgnored": [
+          " 이즈... 이거 약간 오케이! 아니야!"
+        ],
+        "whisperInferTime": 11877,
+        "llmTime": 2462,
+        "llmResponse": "The speaker becomes increasingly agitated, their tone reflecting frustration and exasperation as they repeatedly express their annoyance at the constant delays.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 14356
+      },
+      {
+        "segment": " 아! 아! 아! 아! 아! 아! 아! 아! 아! 아! 아!",
+        "whileIgnored": [
+          " 그 3단계 짜니까 실언이가 그거야...",
+          " 그 3단계 짜니까 싫어하니까 그거야... 아!"
+        ],
+        "whisperInferTime": 7456,
+        "llmTime": 2885,
+        "llmResponse": "The speaker's tone shifts from frustration and annoyance to uncontrollable laughter, their voice rising in a series of exasperated \"Aa!\"s.",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 10360
+      },
+      {
+        "segment": " 내가 그 3단계 짜니까",
+        "whileIgnored": [],
+        "whisperInferTime": 7928,
+        "llmTime": 311,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8239
+      },
+      {
+        "segment": " 아! 그... 플레이스...",
+        "whileIgnored": [
+          " 아까 거는 이기무제였나 보다!",
+          " 아까 거는 이기무제였나 보네!"
+        ],
+        "whisperInferTime": 2146,
+        "llmTime": 3222,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5368
+      },
+      {
+        "segment": " 풀리면 다시 모션을 하고 아! 그러면 아깝거든!",
+        "whileIgnored": [],
+        "whisperInferTime": 2944,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2944
+      }
+    ]
+  }
+]

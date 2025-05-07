@@ -657,11 +657,12 @@ namespace LLMUnity
             return result;
         }
 
-        async Task<string> LLMReply(LLMReplyCallback callback, string json)
+        async Task<string> LLMReply(LLMReplyCallback callback, string json, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             AssertStarted();
             IntPtr stringWrapper = llmlib.StringWrapper_Construct();
-            await Task.Run(() => callback(LLMObject, json, stringWrapper));
+            await Task.Run(() => callback(LLMObject, json, stringWrapper)).WithCancellation(token);
             string result = llmlib?.GetStringWrapperResult(stringWrapper);
             llmlib?.StringWrapper_Delete(stringWrapper);
             CheckLLMStatus();
@@ -673,14 +674,16 @@ namespace LLMUnity
         /// </summary>
         /// <param name="json">json request containing the query</param>
         /// <returns>tokenisation result</returns>
-        public async Task<string> Tokenize(string json)
+        public async Task<string> Tokenize(string json, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             AssertStarted();
             LLMReplyCallback callback = (IntPtr LLMObject, string jsonData, IntPtr strWrapper) =>
             {
                 llmlib.LLM_Tokenize(LLMObject, jsonData, strWrapper);
             };
-            return await LLMReply(callback, json);
+            token.ThrowIfCancellationRequested();
+            return await LLMReply(callback, json, token);
         }
 
         /// <summary>
@@ -688,14 +691,16 @@ namespace LLMUnity
         /// </summary>
         /// <param name="json">json request containing the query</param>
         /// <returns>detokenisation result</returns>
-        public async Task<string> Detokenize(string json)
+        public async Task<string> Detokenize(string json, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             AssertStarted();
             LLMReplyCallback callback = (IntPtr LLMObject, string jsonData, IntPtr strWrapper) =>
             {
                 llmlib.LLM_Detokenize(LLMObject, jsonData, strWrapper);
             };
-            return await LLMReply(callback, json);
+            token.ThrowIfCancellationRequested();
+            return await LLMReply(callback, json, token);
         }
 
         /// <summary>
@@ -703,14 +708,15 @@ namespace LLMUnity
         /// </summary>
         /// <param name="json">json request containing the query</param>
         /// <returns>embeddings result</returns>
-        public async Task<string> Embeddings(string json)
+        public async Task<string> Embeddings(string json, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             AssertStarted();
             LLMReplyCallback callback = (IntPtr LLMObject, string jsonData, IntPtr strWrapper) =>
             {
                 llmlib.LLM_Embeddings(LLMObject, jsonData, strWrapper);
             };
-            return await LLMReply(callback, json);
+            return await LLMReply(callback, json, token);
         }
 
         /// <summary>
@@ -760,14 +766,16 @@ namespace LLMUnity
         /// </summary>
         /// <param name="json">json request containing the query</param>
         /// <returns>slot result</returns>
-        public async Task<string> Slot(string json)
+        public async Task<string> Slot(string json, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             AssertStarted();
             LLMReplyCallback callback = (IntPtr LLMObject, string jsonData, IntPtr strWrapper) =>
             {
                 llmlib.LLM_Slot(LLMObject, jsonData, strWrapper);
             };
-            return await LLMReply(callback, json);
+            token.ThrowIfCancellationRequested();
+            return await LLMReply(callback, json, token);
         }
 
         /// <summary>
@@ -776,12 +784,12 @@ namespace LLMUnity
         /// <param name="json">json request containing the query</param>
         /// <param name="streamCallback">callback function to call with intermediate responses</param>
         /// <returns>completion result</returns>
-        public async Task<string> Completion(string json, Callback<string> streamCallback = null)
+        public async Task<string> Completion(string json, Callback<string> streamCallback = null, CancellationToken token=default)
         {
             AssertStarted();
             if (streamCallback == null) streamCallback = (string s) => {};
             StreamWrapper streamWrapper = ConstructStreamWrapper(streamCallback);
-            await Task.Run(() => llmlib.LLM_Completion(LLMObject, json, streamWrapper.GetStringWrapper()));
+            await Task.Run(() => llmlib.LLM_Completion(LLMObject, json, streamWrapper.GetStringWrapper())).WithCancellation(token);
             if (!started) return null;
             streamWrapper.Update();
             string result = streamWrapper.GetString();

@@ -16,7 +16,9 @@ public class AvatarAnimation : MonoBehaviour
     private const string WALKING_PARAM = "isWalking";
 
     private Animator anim;
+    [SerializeField]
     private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
+    [SerializeField]
     private bool isMotionPlaying = false; // 모션 실행 중 여부 체크
     public bool IsBlocked
     {

@@ -3020,11 +3020,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
-      value: timeout_test
+      value: token_timeout_02
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: llmTimeoutLimit
-      value: 2400
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7871937133293059740, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: m_Name

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 using Whisper;
 
@@ -24,16 +25,16 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     [Header("Timeout")]
     [SerializeField]
     private int llmTimeoutLimit = 2000;
-    // private CancellationTokenSource cts = new CancellationTokenSource();
+    private CancellationTokenSource cts = new CancellationTokenSource();
 
     private Llama llama;
     private SBERT sbert;
 
-    private bool _timeout;
-    private long _llmTime;
-    private long _sbertTime;
-    private string _llmResponse;
-    private string[] _keywords;
+    // private bool _timeout;
+    // private long _llmTime;
+    // private long _sbertTime;
+    // private string _llmResponse;
+    // private string[] _keywords;
     private float _stepSec;
     private float _keepSec;
     private float _lengthSec;
@@ -93,6 +94,9 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         nc.PlayMotion(keywords[0], keywords[1]);
     }
 
+
+    private static int taskCount = 0;
+
     /// <summary>
     /// 모션을 생성하는 함수, Player / NPC 모두 통용
     /// 1. 응답을 가지고 Llama로 전처리 (비동기)
@@ -127,18 +131,44 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         // 1. Llama를 통해 text를 전처리 
 
         // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
+        cts = new CancellationTokenSource();
+        cts.CancelAfter(llmTimeoutLimit);
+        bool _timeout = false;
+        string[] _keywords = null;
+        string _llmResponse = null;
+        long _llmTime = 0;
+        long _sbertTime = 0;
         TimerUtils.Start();
-        _llmResponse = await GetResultFromLlama(text);
-        _llmTime = TimerUtils.LogAndReset();
-        _timeout = _llmResponse == null;
+        try
+        {
+            _llmResponse = await GetResultFromLlama(text, cts.Token);
+            _llmTime = TimerUtils.LogAndReset();
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.Log($"[chan] Timeout : {text}");
+
+            _timeout = true;
+            _llmTime = TimerUtils.LogAndReset();
+        }
+        finally
+        {
+            // cts.Dispose();
+        }
 
         if (!_timeout)
         {
+            if (cts.Token.IsCancellationRequested)
+            {
+                Debug.Log($"[chan] Cancelled before SBERT");
+                nc.IsAnimationBlocked = false;
+                return;
+            }
             TimerUtils.Start();
             // SBert를 통해 모션 키워드 추출 
             // 0번 인덱스: face Clip / 1번 인덱스: action Clip
             _keywords = GetMotionKeywords(_llmResponse);
-            _sbertTime = TimerUtils.LogAndReset();
+            _sbertTime = TimerUtils.LogAndReset(false);
 
             // 모션 애니메이션 실행 
             nc.PlayMotion(_keywords[0], _keywords[1]);
@@ -162,27 +192,16 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         nc.IsAnimationBlocked = false;
     }
 
-    private async Task<string> GetResultFromLlama(string seg)
+    private async Task<string> GetResultFromLlama(string seg, CancellationToken token)
     {
-        using var cts = new CancellationTokenSource(llmTimeoutLimit);
+        token.ThrowIfCancellationRequested();
         ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
 
         string requestText = clientInfo.username + ": " + seg;
 
-        var chatTask = llama.Chat(requestText).WithCancellation(cts.Token);
-        // LLM의 과도하게 긴 처리를 방지하기 위해 최대 처리 시간 제한 Task 생성 
-        var delayTask = Task.Delay(Timeout.Infinite, cts.Token);
-
-        // LLM Task 와 Delay Task 중 먼저 끝날때까지 기다림 
-        var finished = await Task.WhenAny(chatTask, delayTask);
-        if (finished != chatTask) // LLM Task가 먼저 끝나지 않았다면, 
-        {
-            Debug.Log($"[chan] timeout : {seg}");
-            return null;
-        }
-        string response = await chatTask;
-
+        string response = await llama.Chat(requestText, token);
         llama.AddChatLog(clientInfo.username, seg);
+
         return response;
     }
 

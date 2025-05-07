@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -55,7 +56,10 @@ public class Llama : MonoBehaviour
             "ttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n" +
             "마지막 발화 yyy : 아 그래 이번에 가봐야겠다\n" +
             "Output : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.\n" +
-            "\n" +
+            "Example 3)\n"+
+            "마지막 발화 bbb : 안녕 반가워\n"+
+            "Output : The Speaker is greeting someone.\n"+
+            "\n\n" +
             "아래 대화 맥락과 마지막 발화를 참고하여 작업을 수행하세요:\n" +
             "특히 마지막 발화에 중점을 두어 작업을 수행하세요:\n" +
             "대화 맥락이 없다면 마지막 발화만 참고하여 작업을 수행하세요:\n" +
@@ -101,10 +105,17 @@ public class Llama : MonoBehaviour
         return strBuilder.ToString();
     }
 
-    public async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = false)
+    public void ClearChatLogs()
     {
+        chatHistory.Clear();
+    }
+
+    public async Task<string> Chat(string query, CancellationToken token, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = false)
+    {
+        token.ThrowIfCancellationRequested();
         string logs = GenerateChatLogs();
-        string response = await myllmCharacter.Chat(logs + "마지막 발화 " + query, callback, completionCallback, addToHistory);
+        Debug.Log($"[yun] {logs}마지막 발화 {query}");
+        string response = await myllmCharacter.Chat(logs + "마지막 발화 " + query, callback, completionCallback, addToHistory, token);
         if (string.IsNullOrEmpty(response))
         {
             return "";
