@@ -1,0 +1,153 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " - 너무 시끄럽다 이거 - 아니 너무 시끄럽다 이거 너무 시끄럽다 - 이게 지금 피니시즈 기준인 거야?",
+        "whileIgnored": [],
+        "whisperInferTime": 1001,
+        "llmTime": 587,
+        "llmResponse": "The speaker laughs at the suggestion, their tone reflecting amusement and a hint of sarcasm.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Hansim",
+        "faceClipName": "Laugh",
+        "totalElapsedTime": 1597
+      },
+      {
+        "segment": " 하하하하",
+        "whileIgnored": [],
+        "whisperInferTime": 3012,
+        "llmTime": 630,
+        "llmResponse": "The speaker laughs and responds with amusement, their tone reflecting a mix of playful teasing and concern for the noise level.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Laugh_L",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3654
+      },
+      {
+        "segment": " 상대방의 주장에",
+        "whileIgnored": [],
+        "whisperInferTime": 2465,
+        "llmTime": 535,
+        "llmResponse": "The speaker laughs and responds with amusement, indicating that they find the situation amusing.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Laugh_L",
+        "faceClipName": "Laugh",
+        "totalElapsedTime": 3009
+      },
+      {
+        "segment": " 깊이 납득하게 되어서 승부",
+        "whileIgnored": [],
+        "whisperInferTime": 2036,
+        "llmTime": 689,
+        "llmResponse": "The speaker laughs and conveys a sense of relief, acknowledging that the situation has been resolved.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 2735
+      },
+      {
+        "segment": " 를 외치게 되면 거기서 토론이",
+        "whileIgnored": [],
+        "whisperInferTime": 2579,
+        "llmTime": 1047,
+        "llmResponse": "The speaker laughs and conveys a sense of relief, their tone reflecting amusement and agreement with the previous statement.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3636
+      },
+      {
+        "segment": " 오늘 침대 펄 토론의 주제는",
+        "whileIgnored": [],
+        "whisperInferTime": 2535,
+        "llmTime": 996,
+        "llmResponse": "The speaker laughs and conveys a sense of relief, their tone reflecting amusement and agreement with the previous conversation.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3541
+      },
+      {
+        "segment": " 하자 대 호랑이 백수의 왕은",
+        "whileIgnored": [],
+        "whisperInferTime": 2542,
+        "llmTime": 2805,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5347
+      },
+      {
+        "segment": " 시장은 과연 누구인가",
+        "whileIgnored": [],
+        "whisperInferTime": 2581,
+        "llmTime": 417,
+        "llmResponse": "The Speaker is inquiring about the market.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "StandingTalk1",
+        "totalElapsedTime": 3006
+      },
+      {
+        "segment": " 살아있는 허프티 덤프티 깨어난 지",
+        "whileIgnored": [],
+        "whisperInferTime": 2525,
+        "llmTime": 1475,
+        "llmResponse": "The speaker inquires about the market, and the last speaker responds with a playful and whimsical tone, saying \"I'm alive, I'm alive, I've woken up.\"",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 4016
+      },
+      {
+        "segment": " 진흥의 베이리트 주민 농수입니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 2037,
+        "llmTime": 275,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 2319
+      },
+      {
+        "segment": " -안녕하세요? 추우민 농객님. -안녕하세요?",
+        "whileIgnored": [],
+        "whisperInferTime": 2005,
+        "llmTime": 261,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 2268
+      },
+      {
+        "segment": " 지금 창매 농객님 반갑습니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 1492,
+        "llmTime": 2802,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4294
+      }
+    ]
+  }
+]

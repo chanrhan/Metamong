@@ -3181,5 +3181,1001 @@
         "totalElapsedTime": 4344
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 때무니가",
+        "whileIgnored": [
+          " 이거 때문에 가설"
+        ],
+        "whisperInferTime": 1938,
+        "llmTime": 1506,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3454
+      },
+      {
+        "segment": " 가설을 해봤습니다. 근데 몰라요.",
+        "whileIgnored": [
+          " 가설을 해봤습니다. 근데 몰라요."
+        ],
+        "whisperInferTime": 470,
+        "llmTime": 2469,
+        "llmResponse": "The speaker makes a serious statement, and the listener responds with skepticism, indicating that they do not believe the hypothesis.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 2950
+      },
+      {
+        "segment": " 그래 그래 그래...",
+        "whileIgnored": [
+          " 이 모션 버그마 없으면"
+        ],
+        "whisperInferTime": 6968,
+        "llmTime": 4009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10977
+      },
+      {
+        "segment": " 그래 그래 그래",
+        "whileIgnored": [],
+        "whisperInferTime": 7584,
+        "llmTime": 115,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7699
+      },
+      {
+        "segment": " 모션 먹으면 없어요.",
+        "whileIgnored": [],
+        "whisperInferTime": 2488,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2488
+      },
+      {
+        "segment": " 모션 버금 없으면",
+        "whileIgnored": [],
+        "whisperInferTime": 3467,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3467
+      },
+      {
+        "segment": " 그래 그래",
+        "whileIgnored": [
+          " 그래 그래",
+          " 내 말을 듣고 있는 거니?",
+          " 내가 뭘 듣고 있는 거니?"
+        ],
+        "whisperInferTime": 5394,
+        "llmTime": 4006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9400
+      },
+      {
+        "segment": " 좀 들어라.",
+        "whileIgnored": [
+          " 좀 들어라",
+          " 사람이 말을 하면 좀 들어야지.",
+          " 사람이 말을 하면 좀 들어야지"
+        ],
+        "whisperInferTime": 1395,
+        "llmTime": 4001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5396
+      },
+      {
+        "segment": " 뭐 어른들이 막",
+        "whileIgnored": [
+          " 어때 어른들이 말하면 그냥",
+          " 알겠습니다 하고",
+          " 알겠습니다 하고 들어오는데"
+        ],
+        "whisperInferTime": 1959,
+        "llmTime": 4001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5960
+      },
+      {
+        "segment": " 쓰른 채도 하네 그냥",
+        "whileIgnored": [
+          " 쓰른 채도 안 해 그냥"
+        ],
+        "whisperInferTime": 4008,
+        "llmTime": 4011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8019
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아",
+        "whileIgnored": [
+          " 아",
+          " 안녕 반가워"
+        ],
+        "whisperInferTime": 1924,
+        "llmTime": 1762,
+        "llmResponse": "The speaker pauses, reflecting on the unexpected turn of events and a hint of curiosity.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3701
+      },
+      {
+        "segment": " 안녕 반가워",
+        "whileIgnored": [
+          " 안녕"
+        ],
+        "whisperInferTime": 1384,
+        "llmTime": 1634,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3020
+      },
+      {
+        "segment": " 반갑디 반갑디",
+        "whileIgnored": [
+          " 반갑디 반갑디"
+        ],
+        "whisperInferTime": 4949,
+        "llmTime": 1795,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6751
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕 반가워",
+        "whileIgnored": [
+          " 안녕 반가워",
+          " 너무 춥던데"
+        ],
+        "whisperInferTime": 1910,
+        "llmTime": 1520,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3438
+      },
+      {
+        "segment": " 아 너무 춥던데 오늘",
+        "whileIgnored": [
+          " 아 너무 춥던데 오늘 더운가?"
+        ],
+        "whisperInferTime": 959,
+        "llmTime": 2122,
+        "llmResponse": "The speaker greets someone with a warm smile.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3090
+      },
+      {
+        "segment": " 모르겠네 이게",
+        "whileIgnored": [
+          " 어떻게 되는지는 잘 모르겠어"
+        ],
+        "whisperInferTime": 2920,
+        "llmTime": 1921,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4843
+      },
+      {
+        "segment": " 어떻게 되는지는 잘 모르겠어",
+        "whileIgnored": [],
+        "whisperInferTime": 1895,
+        "llmTime": 2404,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4301
+      },
+      {
+        "segment": " 나오는거 같기도 하고 안나는거 같기도 하고",
+        "whileIgnored": [],
+        "whisperInferTime": 2465,
+        "llmTime": 2405,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4872
+      },
+      {
+        "segment": " 나는것 같기도 하고 안나는것 같기도 하고",
+        "whileIgnored": [],
+        "whisperInferTime": 2995,
+        "llmTime": 0,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 2997
+      },
+      {
+        "segment": " 어휴~ 움직여봐~",
+        "whileIgnored": [],
+        "whisperInferTime": 5422,
+        "llmTime": 1216,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6640
+      },
+      {
+        "segment": " 움직여봐",
+        "whileIgnored": [],
+        "whisperInferTime": 5878,
+        "llmTime": 1359,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 7239
+      },
+      {
+        "segment": " 찍어 찍어 찍어",
+        "whileIgnored": [],
+        "whisperInferTime": 916,
+        "llmTime": 0,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 918
+      },
+      {
+        "segment": " 잘 나오다가도 안나오고 있다",
+        "whileIgnored": [
+          " 잘 나오다가도 안나오기도 하고"
+        ],
+        "whisperInferTime": 2451,
+        "llmTime": 2402,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4855
+      },
+      {
+        "segment": " 바로 어",
+        "whileIgnored": [],
+        "whisperInferTime": 1887,
+        "llmTime": 2408,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4297
+      },
+      {
+        "segment": " 좀 그래 어",
+        "whileIgnored": [
+          " 좀 그래 어 내가",
+          " 내가",
+          " 내가 안녕 반가워"
+        ],
+        "whisperInferTime": 7406,
+        "llmTime": 2403,
+        "llmResponse": "The speaker urges someone to move.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 9811
+      },
+      {
+        "segment": " 반가워",
+        "whileIgnored": [
+          " 반가워? 그리고"
+        ],
+        "whisperInferTime": 866,
+        "llmTime": 1250,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 2118
+      },
+      {
+        "segment": " 안녕 반가워",
+        "whileIgnored": [
+          " 안녕 반가워 반가워 반가워",
+          " 반가 반가 이런 반가 반가",
+          " 반가 반가워 반가워"
+        ],
+        "whisperInferTime": 2881,
+        "llmTime": 2403,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 5286
+      },
+      {
+        "segment": " 나 너무 힘든데 좀 도와줄래?",
+        "whileIgnored": [
+          " 나 너무 힘든데 좀 도와줄래?"
+        ],
+        "whisperInferTime": 2451,
+        "llmTime": 2404,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4857
+      },
+      {
+        "segment": " 아니 오늘 진짜",
+        "whileIgnored": [
+          " 아니 오늘 진짜 말도 안난다니까?"
+        ],
+        "whisperInferTime": 2406,
+        "llmTime": 2404,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4812
+      },
+      {
+        "segment": " 근데 내가 오늘",
+        "whileIgnored": [
+          " 근데 내가 오늘 참",
+          " 처음으로 그 처음으로"
+        ],
+        "whisperInferTime": 6443,
+        "llmTime": 2408,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 8853
+      },
+      {
+        "segment": " 참 안좋은 일을 겪었는데",
+        "whileIgnored": [
+          " 그 참 안좋은일을 겪었는데"
+        ],
+        "whisperInferTime": 915,
+        "llmTime": 2403,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3320
+      },
+      {
+        "segment": " 콩검주 해주라",
+        "whileIgnored": [
+          " 어 콩검주 해주라"
+        ],
+        "whisperInferTime": 1863,
+        "llmTime": 2410,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4275
+      },
+      {
+        "segment": " 공감 좀 해줘 봐",
+        "whileIgnored": [
+          " 공감 좀 해줘 봐"
+        ],
+        "whisperInferTime": 6420,
+        "llmTime": 2421,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 8843
+      },
+      {
+        "segment": " 어느정도까지 이게",
+        "whileIgnored": [
+          " 어느정도까지 이게 되는건지",
+          " 왜 그런건지 잘 모르겠네?",
+          " 뭐 이런건지 잘 모르겠네? 타이머가 잘 나오는데"
+        ],
+        "whisperInferTime": 4428,
+        "llmTime": 2415,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6845
+      },
+      {
+        "segment": " 타이머가 잘 나오다가 안나오다가",
+        "whileIgnored": [
+          " 타이머가 잘 나오다가 안나오다가",
+          " 막 하는거 왔다가 안나오다가 막"
+        ],
+        "whisperInferTime": 880,
+        "llmTime": 2405,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3287
+      },
+      {
+        "segment": " 막 하는거 왔다가 안나오다가 막 그러는데",
+        "whileIgnored": [
+          " 타이머가 잘 나오는거 왔는데 어",
+          " 어",
+          " 어..."
+        ],
+        "whisperInferTime": 1881,
+        "llmTime": 2423,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4306
+      },
+      {
+        "segment": " 그리고 또 그러니?",
+        "whileIgnored": [
+          " 그리고 또 그러니? 어...",
+          " 어..."
+        ],
+        "whisperInferTime": 14403,
+        "llmTime": 2419,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 16824
+      },
+      {
+        "segment": " 또 그러네?",
+        "whileIgnored": [
+          " 또 그러네?"
+        ],
+        "whisperInferTime": 1793,
+        "llmTime": 2415,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4210
+      },
+      {
+        "segment": " 야 반갑다",
+        "whileIgnored": [
+          " 야 반갑다"
+        ],
+        "whisperInferTime": 6372,
+        "llmTime": 2417,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 8791
+      },
+      {
+        "segment": " 야... 야...",
+        "whileIgnored": [
+          " 야... 얼마만이야?"
+        ],
+        "whisperInferTime": 2171,
+        "llmTime": 2413,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4586
+      },
+      {
+        "segment": " 어떻게 하면 좋을까?",
+        "whileIgnored": [
+          " 어떻게 하면 좋을까 우리가"
+        ],
+        "whisperInferTime": 7438,
+        "llmTime": 2420,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 9860
+      },
+      {
+        "segment": " 아... 어... 어... 어... 어... 어... 어... 어... 어... 어... 어...",
+        "whileIgnored": [],
+        "whisperInferTime": 2038,
+        "llmTime": 2412,
+        "llmResponse": "The speaker greets someone with a warm welcome.",
+        "llmTimeout": true,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4452
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕~ 반가워~",
+        "whileIgnored": [
+          " 안녕~ 반가워~"
+        ],
+        "whisperInferTime": 1934,
+        "llmTime": 1470,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3411
+      },
+      {
+        "segment": " 오늘도 더운 반가워~",
+        "whileIgnored": [
+          " 오늘도 더운 반가워~"
+        ],
+        "whisperInferTime": 1955,
+        "llmTime": 2271,
+        "llmResponse": "The speaker greets someone with a warm and friendly tone.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4235
+      },
+      {
+        "segment": " 원래 나와요?",
+        "whileIgnored": [
+          " 이게 사실 평균이"
+        ],
+        "whisperInferTime": 3481,
+        "llmTime": 2407,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5888
+      },
+      {
+        "segment": " 1.2 사실 평균 보통은",
+        "whileIgnored": [
+          " 보통은 3초가 넘거든요?",
+          " 보통은 3초가 넘거든요?"
+        ],
+        "whisperInferTime": 2460,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4864
+      },
+      {
+        "segment": " 평균 3초가 막 넘었는데",
+        "whileIgnored": [],
+        "whisperInferTime": 2468,
+        "llmTime": 2409,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4877
+      },
+      {
+        "segment": " 평균 3초가 막 넘었는데",
+        "whileIgnored": [],
+        "whisperInferTime": 2980,
+        "llmTime": 443,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3423
+      },
+      {
+        "segment": " 아~ 무엇입니까?",
+        "whileIgnored": [],
+        "whisperInferTime": 1425,
+        "llmTime": 887,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2312
+      },
+      {
+        "segment": " 아~ 무슨 일이야?",
+        "whileIgnored": [],
+        "whisperInferTime": 1941,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 1941
+      },
+      {
+        "segment": " 아~",
+        "whileIgnored": [],
+        "whisperInferTime": 925,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 925
+      },
+      {
+        "segment": " 그건 없애면 되긴 해~",
+        "whileIgnored": [
+          " 그거 그냥 없애면 되긴 해~ 4단계?"
+        ],
+        "whisperInferTime": 4978,
+        "llmTime": 2402,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7380
+      },
+      {
+        "segment": " 음~ 음~",
+        "whileIgnored": [
+          " 아~ 알겠습니다~",
+          " 음~ 아~ 그거 합치고 있는지?",
+          " 아~ 지금 바로 우선은~"
+        ],
+        "whisperInferTime": 7446,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9850
+      },
+      {
+        "segment": " 다 치고 있는 거야~ 저는~ 네~ 그~",
+        "whileIgnored": [],
+        "whisperInferTime": 1998,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5002
+      },
+      {
+        "segment": " 근데 또 이게...",
+        "whileIgnored": [
+          " 근데 또 이게 길어지면은",
+          " 가끔 또 이렇게",
+          " 가끔 또 이렇게"
+        ],
+        "whisperInferTime": 7372,
+        "llmTime": 3011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10383
+      },
+      {
+        "segment": " 계속 타이마음을",
+        "whileIgnored": [
+          " 계속 타임암을 낳는 경우가",
+          " 안고 오이소~",
+          " 그럼 여기 처음에는~"
+        ],
+        "whisperInferTime": 895,
+        "llmTime": 3009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3904
+      },
+      {
+        "segment": " 난 여기 처음에는~",
+        "whileIgnored": [
+          " 그럼 난 여기 처음에는 내가 타임암을",
+          " 아~ 내가 타임암 코드를 잘못 짜는"
+        ],
+        "whisperInferTime": 924,
+        "llmTime": 1986,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 2921
+      },
+      {
+        "segment": " 내가 타임암 코드를 잘못 짜는 생각을 했는데",
+        "whileIgnored": [
+          " 이런 코드를 잘못 짜는 생각을 했는데",
+          " 2시간이 다 다르다~ 그냥 어~"
+        ],
+        "whisperInferTime": 1503,
+        "llmTime": 3006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4509
+      },
+      {
+        "segment": " 2시간이 다 다르다~ 그냥~ 어~ 라는게~",
+        "whileIgnored": [],
+        "whisperInferTime": 3119,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6122
+      },
+      {
+        "segment": " 근데 뭐 3초.. 3초 남은 거 같은데?",
+        "whileIgnored": [
+          " 근데 뭐 3초 남은 건 다 그냥~",
+          " 근데 뭐 3초 넘은 건 다 그냥 컷을 버리는",
+          " 3초에 버리는 게 맞는 거 같아요~",
+          " 탑 해버리는 게 맞는 것 같아서"
+        ],
+        "whisperInferTime": 4398,
+        "llmTime": 2795,
+        "llmResponse": "The speaker looks at their watch and says, \"It's only three seconds left.\"",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 7203
+      },
+      {
+        "segment": " 음~",
+        "whileIgnored": [
+          " 음~"
+        ],
+        "whisperInferTime": 1774,
+        "llmTime": 1827,
+        "llmResponse": "The speaker glances at their watch and says, \"Only three seconds left.\"\n\n---",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Hansim",
+        "faceClipName": "HeadSpinning",
+        "totalElapsedTime": 3615
+      },
+      {
+        "segment": " 그거 좀 자연스럽게 나오고 생각보다",
+        "whileIgnored": [
+          " 그거 좀 자연스럽게 나와 생각보다"
+        ],
+        "whisperInferTime": 1810,
+        "llmTime": 2541,
+        "llmResponse": "The speaker looks at the clock and inquires about time, then responds with a casual remark.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4361
+      },
+      {
+        "segment": " 아딜",
+        "whileIgnored": [
+          " 아니~ 아니~ 저거.. 저거 뭐야?",
+          " 유민이의 바이러스 저거"
+        ],
+        "whisperInferTime": 5263,
+        "llmTime": 3009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8272
+      },
+      {
+        "segment": " 유민이의 바이러스 저거~",
+        "whileIgnored": [
+          " 아니 가끔~ 아니~ 아니~",
+          " 아니 가끔은 아니~ 안 봐~ 안 봐~",
+          " 유민이읠 바이러스 저거! 유민이읠 바이러스 저거~"
+        ],
+        "whisperInferTime": 2576,
+        "llmTime": 3015,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5591
+      },
+      {
+        "segment": " 유민이읠 바이러스 저거~ 야~",
+        "whileIgnored": [],
+        "whisperInferTime": 1804,
+        "llmTime": 3014,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4818
+      },
+      {
+        "segment": " 눈 살짝에서 남살짝",
+        "whileIgnored": [],
+        "whisperInferTime": 5877,
+        "llmTime": 1908,
+        "llmResponse": "The speaker's tone is slightly sarcastic, their facial expression conveying a hint of annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 7801
+      },
+      {
+        "segment": " 유민이읠 바이러스 저거~ 유민이읠 바이러스 저거 원래 테스트용으로 넣어둘야 돼~",
+        "whileIgnored": [],
+        "whisperInferTime": 3636,
+        "llmTime": 2306,
+        "llmResponse": "The speaker makes a casual remark about the weather, and then expresses concern over the presence of a virus in the area.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Hansim",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 5960
+      },
+      {
+        "segment": " 암살을 안하는거야",
+        "whileIgnored": [],
+        "whisperInferTime": 7511,
+        "llmTime": 1983,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 9508
+      },
+      {
+        "segment": " 루시 : 휴양지나 갑자기 돌아와. 정광호 : 학생.",
+        "whileIgnored": [
+          " 그리프트 왜 돌아요? 유민이읠 바이러스 저거~ 유민이읠 바이러스 저거 보다는~"
+        ],
+        "whisperInferTime": 11482,
+        "llmTime": 3007,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14489
+      },
+      {
+        "segment": " 유민이읠 바이러스 저거 보다는 보니까",
+        "whileIgnored": [],
+        "whisperInferTime": 3998,
+        "llmTime": 3023,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7021
+      }
+    ]
   }
 ]

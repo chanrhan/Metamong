@@ -12,12 +12,13 @@ using UnityEngine.SceneManagement;
 
 public class Llama : MonoBehaviour
 {
-    //LLM llm;
+    [SerializeField]
+    private int maxChatLogLength = 10;
     private LLMCharacter myllmCharacter;
     private LLM llm;
     public LLMCharacter MyLlmCharacter { get => myllmCharacter; }
     
-
+    
     private Queue<string> chatHistory = new Queue<string>(10);
 
     void Awake()
@@ -30,12 +31,12 @@ public class Llama : MonoBehaviour
     {
         gameObject.SetActive(false);
         
-        llm.SetModel("llama-3-Korean-Bllossom-8B-Q4_K_M.gguf");
-            llm.numThreads = -1;
-            llm.numGPULayers = 10;
-            myllmCharacter.llm = llm;
+        // llm.SetModel("llama-3.2-Korean-Bllossom-3B-IQ3_M.gguf");
+        // llm.numThreads = -1;
+        // llm.numGPULayers = 30;
+        myllmCharacter.llm = llm;
 
-            myllmCharacter.SetPrompt(
+        myllmCharacter.SetPrompt(
             "당신은 한국어 일상 대화 분석 전문가입니다.\n" +
             "아래 대화 맥락 전체를 고려하여 위 세 가지 요소를 모두 반영한 자연스럽고 일관된 한 문장의 영어 문장으로 요약된 결과를 출력하세요.\n" +
             "   1. 대화의 주요 맥락을 한 단어로 요약한 키워드(예: 인사, 정보 요청, 분노 표출 등)\n" +
@@ -64,12 +65,12 @@ public class Llama : MonoBehaviour
             "특히 마지막 발화에 중점을 두어 작업을 수행하세요:\n" +
             "대화 맥락이 없다면 마지막 발화만 참고하여 작업을 수행하세요:\n" +
             "---\n"
-            );
-            gameObject.SetActive(true);
+        );
+        gameObject.SetActive(true);
 
-            // 카메라 및 플레이어 오브젝트 설정
-            //CameraController.Instance.SetTargetPlayer(gameObject);
-            //ClientManager.Instance.MyPlayerObject = gameObject;
+        // 카메라 및 플레이어 오브젝트 설정
+        //CameraController.Instance.SetTargetPlayer(gameObject);
+        //ClientManager.Instance.MyPlayerObject = gameObject;
     }
 
     private void Update()
@@ -85,13 +86,11 @@ public class Llama : MonoBehaviour
     }
 
     public void AddChatLog(string playerId, string msg) {
-        
-        if(chatHistory.Count + 1 > 10)
+        while(chatHistory.Count >= maxChatLogLength)
         {
             chatHistory.Dequeue();
         }
         chatHistory.Enqueue($"{playerId}:{msg}");
-
     }
 
     public string GenerateChatLogs()

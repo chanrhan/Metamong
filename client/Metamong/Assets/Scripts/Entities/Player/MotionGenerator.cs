@@ -29,12 +29,6 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     private Llama llama;
     private SBERT sbert;
-
-    // private bool _timeout;
-    // private long _llmTime;
-    // private long _sbertTime;
-    // private string _llmResponse;
-    // private string[] _keywords;
     private float _stepSec;
     private float _keepSec;
     private float _lengthSec;
@@ -94,9 +88,6 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         nc.PlayMotion(keywords[0], keywords[1]);
     }
 
-
-    private static int taskCount = 0;
-
     /// <summary>
     /// 모션을 생성하는 함수, Player / NPC 모두 통용
     /// 1. 응답을 가지고 Llama로 전처리 (비동기)
@@ -120,6 +111,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         // 모션이 실행중이면, 처리 자원 낭비 방지를 위해 입력을 막음 
         if (nc.IsAnimationBlocked)
         {
+            llama.AddChatLog(ClientManager.Instance.ClientInfo.username, text);
             ignoredSegements.Add(text);
             return;
         }
@@ -131,29 +123,30 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         // 1. Llama를 통해 text를 전처리 
 
         // 타이머 디버그용 (Llama의 처리가 얼마나 걸리는지 측정)
-        cts = new CancellationTokenSource();
-        cts.CancelAfter(llmTimeoutLimit);
-        bool _timeout = false;
+        
         string[] _keywords = null;
         string _llmResponse = null;
         long _llmTime = 0;
         long _sbertTime = 0;
+
+        cts = new CancellationTokenSource();
+        cts.CancelAfter(llmTimeoutLimit);
+        bool _timeout = false;
         TimerUtils.Start();
         try
         {
             _llmResponse = await GetResultFromLlama(text, cts.Token);
             _llmTime = TimerUtils.LogAndReset();
+            _timeout = false;
         }
         catch (OperationCanceledException)
         {
-            Debug.Log($"[chan] Timeout : {text}");
+            _llmTime = TimerUtils.LogAndReset(false);
+            Debug.Log($"[chan] Timeout({_llmTime}) : {text}");
 
             _timeout = true;
-            _llmTime = TimerUtils.LogAndReset();
-        }
-        finally
-        {
-            // cts.Dispose();
+            nc.IsAnimationBlocked = false;
+            llama.ClearChatLogs();
         }
 
         if (!_timeout)
@@ -189,7 +182,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             totalElapsedTime = whisperResult.inferTime + _llmTime + _sbertTime
         });
         ignoredSegements.Clear();
-        nc.IsAnimationBlocked = false;
+        
     }
 
     private async Task<string> GetResultFromLlama(string seg, CancellationToken token)

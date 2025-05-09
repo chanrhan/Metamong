@@ -13,6 +13,12 @@ public class FileLogUtils
         string pull_path = Path.Combine(log_path_prefix, filename + ".json");
         Debug.Log("Log Path: " + pull_path);
 
+        // if (!Directory.Exists(pull_path))
+        // {
+        //     string dir = Path.GetDirectoryName(pull_path);
+        //     Directory.CreateDirectory(dir);
+        // }
+
         if (!File.Exists(pull_path))
         {
             Debug.Log("Created new log file : " + pull_path);

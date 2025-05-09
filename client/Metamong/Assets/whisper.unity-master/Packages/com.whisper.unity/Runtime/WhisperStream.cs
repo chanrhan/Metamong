@@ -335,7 +335,7 @@ namespace Whisper
             var currentOutput = _output + currentSegment;
 
             // send update to user
-            res.inferTime = mySW.ElapsedMilliseconds;
+            res.inferTime = mySW.ElapsedMilliseconds; // chan
             OnSegmentUpdated?.Invoke(res);
             OnResultUpdated?.Invoke(currentOutput);
             

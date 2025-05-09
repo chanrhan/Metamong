@@ -2392,6 +2392,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: lengthSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: enableTokens
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 830593043218384986, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: m_Name
       value: STTManager
@@ -2978,6 +2986,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: model
+      value: llama-3.2-Korean-Bllossom-3B-IQ3_M.gguf
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: numGPULayers
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: embeddingLength
+      value: 3072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: maxContextLength
+      value: 131072
+      objectReference: {fileID: 0}
     - target: {fileID: 2718586148819185129, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 864.245
@@ -3020,11 +3044,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
-      value: token_timeout_02
+      value: length_sec1
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: llmTimeoutLimit
-      value: 4000
+      value: 2800
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: dontDestroyOnLoad

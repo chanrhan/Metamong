@@ -1,0 +1,152 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 반가워요",
+        "whileIgnored": [],
+        "whisperInferTime": 2946,
+        "llmTime": 791,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3748
+      },
+      {
+        "segment": " 갈까요?",
+        "whileIgnored": [
+          " 안녕하세요 반가워요",
+          " 놀아줘요",
+          " 오늘 놀아주...",
+          " 배겨요 저 집 가고 싶은데"
+        ],
+        "whisperInferTime": 4440,
+        "llmTime": 1276,
+        "llmResponse": "The speaker greets someone with a warm smile and invites them to play. The conversation continues with playful banter, culminating in an invitation for the person to come over.",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 5730
+      },
+      {
+        "segment": " 깔깔죠",
+        "whileIgnored": [],
+        "whisperInferTime": 5386,
+        "llmTime": 0,
+        "llmResponse": "The speaker greets someone with a warm and friendly tone, expressing enthusiasm and inviting them to play.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 5396
+      },
+      {
+        "segment": " 이거?",
+        "whileIgnored": [
+          " 아 어디 가고 싶은데",
+          " 빨리 갈까요",
+          " 너무 좋은데요",
+          " 근데 지금 이 집을 가고 싶은데요",
+          " 왜 이렇게 심프게",
+          " 아니 로고를 로고를 로고를"
+        ],
+        "whisperInferTime": 958,
+        "llmTime": 2803,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3761
+      },
+      {
+        "segment": " 로고를 너무 많이 찍어놔서",
+        "whileIgnored": [
+          " 그래서 그게 버리기 아까워가지고"
+        ],
+        "whisperInferTime": 1226,
+        "llmTime": 2802,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4028
+      },
+      {
+        "segment": " 아...",
+        "whileIgnored": [
+          " 졸라와나 핫은 뭐야 핫"
+        ],
+        "whisperInferTime": 5356,
+        "llmTime": 2803,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8159
+      },
+      {
+        "segment": " 핫은 뭐야 핫은 뭐야?",
+        "whileIgnored": [],
+        "whisperInferTime": 3801,
+        "llmTime": 2808,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6609
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어... 보여요? 집에 가서 보여요",
+        "whileIgnored": [],
+        "whisperInferTime": 2143,
+        "llmTime": 778,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2921
+      },
+      {
+        "segment": " 집에 가서 보셨어요 아 집에 가서... 병일 보고싶으면...",
+        "whileIgnored": [],
+        "whisperInferTime": 4168,
+        "llmTime": 1393,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5561
+      },
+      {
+        "segment": " 아 집에 가서 영일 보고싶으면 500원",
+        "whileIgnored": [],
+        "whisperInferTime": 5576,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5576
+      }
+    ]
+  }
+]
