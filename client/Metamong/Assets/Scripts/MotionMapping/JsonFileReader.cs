@@ -33,4 +33,25 @@ public static class JsonFileReader
             return new Dictionary<string, string>();
         }
     }
+
+    public static Dictionary<string, MotionInfo> ReadMotionInfos(string filePath)
+    {
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError($"\"{filePath}\" 파일을 찾을 수 없습니다!");
+            return new Dictionary<string, MotionInfo>();
+        }
+
+        try
+        {
+            string json = File.ReadAllText(filePath, Encoding.UTF8);
+            Dictionary<string, MotionInfo> dict = JsonConvert.DeserializeObject<Dictionary<string, MotionInfo>>(json);
+            return dict;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"파일 읽기 중 오류 발생: {ex}");
+            return new Dictionary<string, MotionInfo>();
+        }
+    }
 }
