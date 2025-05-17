@@ -131,4 +131,8 @@ public class AvatarAnimation : MonoBehaviour
         anim.Play(actionClipName, 2);
     }
 
+    public void StartJump()
+    {
+        anim.Play("Jump");
+    }
 }

@@ -191,6 +191,11 @@
   "Thinking": {
     "clipNames": [ "Thinking" ],
     "emotion": "중립"
+  },
+
+  "Explaining": {
+    "clipNames": [ "Explaining" ],
+    "emotion": "중립"
   }
 }
   

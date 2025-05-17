@@ -9,18 +9,17 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerMat_base_eye.001
   m_Shader: {fileID: -6465566751694194690, guid: 7e0b5bad5c3d5464fa13085f40bcdbdb, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _ENVIRONMENTREFLECTIONS_OFF
-  - _GLOSSYREFLECTIONS_OFF
-  - _METALLICGLOSSMAP
-  - _METALLICSPECGLOSSMAP
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -68,6 +67,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e4f72cadc7694424b9a67fddf2e278f9_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 54631e082fd321b43ac5fa702e9ba82c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -110,6 +113,7 @@ Material:
     - _Mask_Factor: 0.679
     - _Metallic: 0
     - _Mode: 0
+    - _Normal_Adjust: 0
     - _OcclusionStrength: 1
     - _Outline_Thickness: 0.4
     - _Parallax: 0.02
@@ -137,11 +141,11 @@ Material:
     - _Color_A_1: {r: 0, g: 0, b: 0, a: 0}
     - _Color_A_2: {r: 1, g: 1, b: 1, a: 0}
     - _Color_B: {r: 0.42938215, g: 0.5660378, b: 0.36578855, a: 0}
-    - _Color_B_1: {r: 0.41509432, g: 0.22272158, b: 0.15859737, a: 0}
-    - _Color_B_2: {r: 0.7169812, g: 0.5535185, b: 0.49715206, a: 0}
+    - _Color_B_1: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_B_2: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0}
     - _Color_C: {r: 0.15454787, g: 0.1634669, b: 0.21698111, a: 0}
-    - _Color_C_1: {r: 0.3584906, g: 0.2405029, b: 0.18431827, a: 0}
-    - _Color_C_2: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_C_1: {r: 0.09198127, g: 0, b: 0.6226415, a: 0}
+    - _Color_C_2: {r: 0.06132084, g: 0, b: 0.41509432, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MaskRemap: {r: 0.3, g: 1, b: 0, a: 0}
     - _Outline_Color: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
