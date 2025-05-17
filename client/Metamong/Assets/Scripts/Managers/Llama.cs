@@ -37,8 +37,8 @@ public class Llama : MonoBehaviour
         myllmCharacter.llm = llm;
 
         myllmCharacter.SetPrompt(
-        "당신은 한국어 일상 대화 분석 전문가입니다.\n" +
-        "주어진 전체 대화를 참고하여, 마지막 발화를 중심으로 마지막으로 말한 이가 무엇을 하고 있는 지를 감정을 반영하여 하나의 영어 문장으로 요약하세요.\n" +
+        "당신은 한국 최고의 한국어 일상 대화 분석 전문가입니다.\n" +
+        "주어진 전체 대화를 참고하여, 마지막 발화를 중심으로 마지막으로 말한 이가 무엇을 하고 있는 지를 감정을 반영하여 구체적인 하나의 영어 문장으로 요약하세요.\n" +
         "출력 형식: Output: <영어 문장>\n\n" +
 
         "예시:\n" +
@@ -103,6 +103,11 @@ public class Llama : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.L)){
             Debug.Log(GenerateChatLogs());
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            chatHistory.Clear();
         }
     }
 

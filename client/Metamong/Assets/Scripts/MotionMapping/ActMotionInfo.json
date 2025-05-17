@@ -83,6 +83,11 @@
     "emotion": "중립"
   },
 
+  "HurryUp": {
+    "clipNames": [ "HurryUp" ],
+    "emotion": "중립"
+  },
+
   "Hansim": {
     "clipNames": [ "Hansim" ],
     "emotion": "혐오"
@@ -143,9 +148,19 @@
     "emotion": "기쁨"
   },
 
+  "Pointing": {
+    "clipNames": [ "Pointing" ],
+    "emotion": "중립"
+  },
+
   "Relieved": {
     "clipNames": [ "Relieved" ],
     "emotion": "중립"
+  },
+
+  "Rebuke": {
+    "clipNames": [ "Rebuke" ],
+    "emotion": "분노"
   },
 
   "Scare": {
@@ -173,8 +188,8 @@
     "emotion": "중립"
   },
 
-  "ZogupHam": {
-    "clipNames": [ "ZogupHam" ],
+  "Thinking": {
+    "clipNames": [ "Thinking" ],
     "emotion": "중립"
   }
 }
