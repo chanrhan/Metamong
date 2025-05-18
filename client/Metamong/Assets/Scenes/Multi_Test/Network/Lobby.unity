@@ -2392,6 +2392,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: updatePrompt
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 830593043218384986, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: m_Name
       value: STTManager

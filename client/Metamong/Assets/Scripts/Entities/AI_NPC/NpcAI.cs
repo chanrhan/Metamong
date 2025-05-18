@@ -140,8 +140,9 @@ public class NpcAI : NetworkCharacter
         //talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
         // 모션 생성
-        MotionGenerator.Instance.GenerateNpcMotion(response, this);
-    }
+        MotionGenerator.Instance.GenerateNpcMotion(chatCompletionWithSummary.ResponseMotionText, this);
+        ChatManager.Instance.InputChat(npcName, response);
+    }   
 
     /// <summary>
     /// 대화를 종료했음을 알 수 있도록 변수를 설정하는 메서드.

@@ -63,7 +63,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
 
     protected bool TryGetAroundNPC(out NetworkTarget[] networkTargets)
     {
-        return TryGetAroundNetworkTargets("NPC", out networkTargets);
+        return TryGetAroundNetworkTargets("OtherPlayer", out networkTargets);
     }
 
     protected bool TryGetAroundAll(out NetworkTarget[] networkTargets)
