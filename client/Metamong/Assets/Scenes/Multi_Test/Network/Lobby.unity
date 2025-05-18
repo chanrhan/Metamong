@@ -2770,7 +2770,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 2019422155}
-    PlayerPrefab: {fileID: 9124639000001752788, guid: 6e5bf06975aa4764489eb6dc6d640cff, type: 3}
+    PlayerPrefab: {fileID: 9124639000001752788, guid: be53985ad75ca544eb0d07a68d506d3c, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: bffabade0d54f4a77acba9540fd3e1bc, type: 2}
@@ -2988,7 +2988,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: model
-      value: llama-3.2-Korean-Bllossom-3B-IQ3_M.gguf
+      value: llama-3-Korean-Bllossom-8B-Q4_K_M.gguf
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: numGPULayers
@@ -2996,11 +2996,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: embeddingLength
-      value: 3072
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: maxContextLength
-      value: 131072
+      value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 2718586148819185129, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: m_LocalPosition.x

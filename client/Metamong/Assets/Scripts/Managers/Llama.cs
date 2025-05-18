@@ -37,34 +37,58 @@ public class Llama : MonoBehaviour
         myllmCharacter.llm = llm;
 
         myllmCharacter.SetPrompt(
-            "당신은 한국어 일상 대화 분석 전문가입니다.\n" +
-            "아래 대화 맥락 전체를 고려하여 위 세 가지 요소를 모두 반영한 자연스럽고 일관된 한 문장의 영어 문장으로 요약된 결과를 출력하세요.\n" +
-            "   1. 대화의 주요 맥락을 한 단어로 요약한 키워드(예: 인사, 정보 요청, 분노 표출 등)\n" +
-            "   2. 내포된 감정 (예: 기쁨, 슬픔, 분노, 비꼬는, 진지함 등)\n" +
-            "   3. 관련된 행동 (예: 웃기, 손 흔들기, 고개를 끄덕임 등)\n" +
-            "\n" +
-            "출력은 다음 형식을 따라야 합니다:\n" +
-            "Output :\n\n" +
-            "[Few-shot Examples]\n" +
-            "Example 1)\n" +
-            "bbb : 나 오늘 슬픈 일 있었어\n" +
-            "마지막 발화 ccc : 무슨 일 있었어\n" +
-            "Output : The speaker tilts their head slightly and inquires with concern, asking what happened.\n" +
-            "Example 2)\n" +
-            "yyy : 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\n" +
-            "ttt : 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때\n" +
-            "yyy : 어 너 거기 가봤어? 거기 어때?\n" +
-            "ttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n" +
-            "마지막 발화 yyy : 아 그래 이번에 가봐야겠다\n" +
-            "Output : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.\n" +
-            "Example 3)\n"+
-            "마지막 발화 bbb : 안녕 반가워\n"+
-            "Output : The Speaker is greeting someone.\n"+
-            "\n\n" +
-            "아래 대화 맥락과 마지막 발화를 참고하여 작업을 수행하세요:\n" +
-            "특히 마지막 발화에 중점을 두어 작업을 수행하세요:\n" +
-            "대화 맥락이 없다면 마지막 발화만 참고하여 작업을 수행하세요:\n" +
-            "---\n"
+          "당신은 한국 최고의 한국어 일상 대화 분석 및 반어·비꼬기 감지 전문가입니다.\n" +
+          "주어진 전체 대화를 참고하여, 마지막 발화를 중심으로 화자가 어떤 행동을 하고 있는지, 담긴 감정(기쁨, 슬픔, 놀람, 분노, 공포, 혐오, 중립)를 반영해\n" +
+          "구체적인 영어 문장 하나로 요약하세요.\n" +
+          "반어·비꼬기 표현과 일반 표현 모두 정확히 감지해야 합니다.\n" +
+          "출력 형식: Output: <영어 문장>\n\n" +
+
+          "예시:\n" +
+          "bbb: 나 오늘 슬픈 일 있었어\n" +
+          "ccc: 무슨 일 있었어?\n" +
+          "Output: The speaker, feeling worried, is trying to comfort the other person.\n\n" +
+
+          "yyy: 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\n" +
+          "ttt: 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때?\n" +
+          "yyy: 어, 너 거기 가봤어? 거기 어때?\n" +
+          "ttt: 대학교 친구들이랑 같이 갔었는데 먹거리도 다양해서 좋았어\n" +
+          "Output: The speaker, feeling satisfied, is agreeing with the other person.\n\n" +
+
+          "ggg: 아, 진짜 너무 심심하다.\n" +
+          "Output: The speaker, feeling bored, is talking to himself absentmindedly.\n\n" +
+
+          "aaa: 나 오늘 기분이 너무 좋아\n" +
+          "bbb: 왜? 무슨 일 있어?\n" +
+          "aaa: 그냥 기분이 좋아\n" +
+          "Output: The speaker, feeling positive, is casually expressing happiness.\n\n" +
+
+          "mmm: 요즘 너무 바빠서 정신이 하나도 없어\n" +
+          "jjj: 일이 많아?\n" +
+          "mmm: 어, 회의도 많고 보고서도 많아서 정신이 없어\n" +
+          "jjj: 힘들겠다, 좀 쉬어야겠네\n" +
+          "mmm: 나도 쉴 수 있었으면 진작에 쉬었지\n" +
+          "Output: The speaker, feeling slightly angry, is quietly lamenting his own situation.\n\n" +
+
+          "kun: 나 오늘 학교에서 재밌는 일 있었어\n" +
+          "min: 뭔데?\n" +
+          "kun: 학교에서 선생님이 걷다가 계단에서 넘어졌어, 너무 웃겨\n" +
+          "min: 너는 그게 웃기니?\n" +
+          "Output: The speaker, feeling disappointed, is blaming the other person.\n\n" +
+
+          "jin: 오늘 쿵푸펜더 나왔는데 보러갈래?\n" +
+          "gyu: 아, 진짜? 나 그거 너무 보고싶었어\n" +
+          "jin: 그럼 보러가자\n" +
+          "gyu: 응, 언제 보러갈래?\n" +
+          "jin: 이번 주 토요일 어때?\n" +
+          "gyu: 헐, 그날은 시간 안 되는데\n" +
+          "Output: The speaker, feeling regretful, is politely declining the other person's suggestion.\n\n" +
+
+          "sss: 오, 또 야근이라니 정말 좋다!\n" +
+          "Output: The speaker, feeling sarcastic, is ironically praising the extra work.\n\n" +
+
+          "전체 대화:\n" +
+          "{여기에 대화 맥락}\n\n" +
+          "마지막 발화 {여기에 발화자 이름}: " + "{여기에 마지막 발화}\n"
         );
         gameObject.SetActive(true);
 
@@ -82,6 +106,11 @@ public class Llama : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.L)){
             Debug.Log(GenerateChatLogs());
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            chatHistory.Clear();
         }
     }
 

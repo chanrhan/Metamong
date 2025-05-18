@@ -201,8 +201,12 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     public string[] GetMotionKeywords(string motions)
     {
         string[] keywords = new string[2];
-        keywords[0] = sbert.CompareWordText(motions, true);
+        MotionInfo actMotion = sbert.GetActMotionInfo(motions);
+        
+        //keywords[0] = sbert.CompareWordText(motions, true);
+        keywords[0] = actMotion.clipNames[UnityEngine.Random.Range(0, actMotion.clipNames.Length)];
         keywords[1] = sbert.CompareWordText(motions, false);
+        Debug.Log("DURA : " + keywords[0]);
 
         return keywords;
     }
