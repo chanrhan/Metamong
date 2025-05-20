@@ -34,6 +34,13 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
         set => onRecord += value;
     }
+
+     public Action<bool> onStopRecord;
+
+    public Action<bool> OnStopRecord
+    {
+        set => onStopRecord += value;
+    }
     
     private bool IsPlatformMacOs = false;
     private bool isRecording = false;
@@ -105,6 +112,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
                 isRecording = false;
                 // Debug.Log("Stop Record");
                 StopRecord();
+                onStopRecord?.Invoke(!isRecording);
             }
             else
             {

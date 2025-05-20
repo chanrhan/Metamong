@@ -635,5 +635,983 @@
         "totalElapsedTime": 9009
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아...",
+        "whileIgnored": [],
+        "whisperInferTime": 5752,
+        "llmTime": 4011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9763
+      },
+      {
+        "segment": " 반가워요",
+        "whileIgnored": [],
+        "whisperInferTime": 10220,
+        "llmTime": 4015,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14235
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 21244,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 25246
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 6476,
+        "llmTime": 4005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10481
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 6372,
+        "llmTime": 4015,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10387
+      },
+      {
+        "segment": " 아...",
+        "whileIgnored": [],
+        "whisperInferTime": 4961,
+        "llmTime": 4009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8970
+      },
+      {
+        "segment": " 반가워",
+        "whileIgnored": [],
+        "whisperInferTime": 6336,
+        "llmTime": 4003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10339
+      },
+      {
+        "segment": " 뭐 안되잖아 뭔일이야 이거 지금",
+        "whileIgnored": [],
+        "whisperInferTime": 13317,
+        "llmTime": 4003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 17320
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 19703,
+        "llmTime": 3491,
+        "llmResponse": "The speaker bows slightly and expresses gratitude with a warm smile, indicating appreciation for the help received.",
+        "llmTimeout": false,
+        "sbertTime": 27,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 23221
+      },
+      {
+        "segment": " 아멘",
+        "whileIgnored": [],
+        "whisperInferTime": 10219,
+        "llmTime": 3433,
+        "llmResponse": "The speaker bows their head slightly in a gesture of respect, acknowledging the previous statement with a sense of reverence.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Hansim",
+        "faceClipName": "그랜절",
+        "totalElapsedTime": 13668
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 마이크",
+        "whileIgnored": [],
+        "whisperInferTime": 5210,
+        "llmTime": 4017,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9227
+      },
+      {
+        "segment": " 아 mpc",
+        "whileIgnored": [],
+        "whisperInferTime": 15275,
+        "llmTime": 4003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 19278
+      },
+      {
+        "segment": " 아아",
+        "whileIgnored": [
+          " 안 움직이나?"
+        ],
+        "whisperInferTime": 40182,
+        "llmTime": 4006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 44188
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 8037,
+        "llmTime": 4016,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 12053
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5554,
+        "llmTime": 4006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9560
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [],
+        "whisperInferTime": 7875,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11877
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 마이크 채",
+        "whileIgnored": [],
+        "whisperInferTime": 5269,
+        "llmTime": 4011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9280
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이렇게",
+        "whileIgnored": [],
+        "whisperInferTime": 10262,
+        "llmTime": 3132,
+        "llmResponse": "The speaker leans forward with a hint of curiosity and interest, asking for more details.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Worried",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 13410
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5469,
+        "llmTime": 4014,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9483
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5818,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9820
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 7775,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7775
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 3658,
+        "llmTime": 4003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7661
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 2944,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2944
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5688,
+        "llmTime": 4009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9697
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5234,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9236
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 3936,
+        "llmTime": 3654,
+        "llmResponse": "The speaker bows slightly and expresses gratitude with a warm smile, acknowledging the help received.",
+        "llmTimeout": false,
+        "sbertTime": 67,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 7657
+      },
+      {
+        "segment": " 탱이",
+        "whileIgnored": [],
+        "whisperInferTime": 5758,
+        "llmTime": 2876,
+        "llmResponse": "The speaker gives a thumbs-up and expresses satisfaction with the outcome.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Smile_S",
+        "faceClipName": "따봉",
+        "totalElapsedTime": 8645
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 10482,
+        "llmTime": 3400,
+        "llmResponse": "The speaker bows slightly and expresses gratitude with a polite tone, acknowledging the previous message.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Hansim",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 13894
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 3157,
+        "llmTime": 4011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7168
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [
+          " 감사합니다."
+        ],
+        "whisperInferTime": 5167,
+        "llmTime": 4013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9180
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 반가워. 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 7467,
+        "llmTime": 4017,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11484
+      },
+      {
+        "segment": " 시야, 가급다고.",
+        "whileIgnored": [],
+        "whisperInferTime": 6372,
+        "llmTime": 4012,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10384
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 14038,
+        "llmTime": 4001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 18039
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 7107,
+        "llmTime": 4004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11111
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 올라와",
+        "whileIgnored": [],
+        "whisperInferTime": 10573,
+        "llmTime": 4019,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14592
+      },
+      {
+        "segment": " 됐어? 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 28935,
+        "llmTime": 2605,
+        "llmResponse": "The speaker smiles and nods in satisfaction, expressing gratitude with a polite bow.",
+        "llmTimeout": false,
+        "sbertTime": 62,
+        "actionClipName": "Smile_S",
+        "faceClipName": "허리숙여인사",
+        "totalElapsedTime": 31602
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 30039,
+        "llmTime": 3480,
+        "llmResponse": "The speaker bows slightly and expresses gratitude with a polite tone, acknowledging the appreciation.",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Smile_S",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 33533
+      },
+      {
+        "segment": " 한글자막 제공 및 자막 제공 및 광고를 포함하고 있습니다.",
+        "whileIgnored": [
+          " 감사합니다."
+        ],
+        "whisperInferTime": 3914,
+        "llmTime": 4010,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 14,
+        "actionClipName": "Smile_S",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 7938
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [
+          " 감사합니다."
+        ],
+        "whisperInferTime": 3028,
+        "llmTime": 3894,
+        "llmResponse": "The speaker bows slightly and repeats their gratitude, maintaining a polite and courteous tone.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6934
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 좀 분홍색 되게 설정을 해놨는데",
+        "whileIgnored": [],
+        "whisperInferTime": 6202,
+        "llmTime": 4013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10215
+      },
+      {
+        "segment": " 그래서 일단 보이게 해놨어",
+        "whileIgnored": [],
+        "whisperInferTime": 14520,
+        "llmTime": 4008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 18528
+      },
+      {
+        "segment": " 모르는 거, 보이는 거",
+        "whileIgnored": [],
+        "whisperInferTime": 4589,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8591
+      },
+      {
+        "segment": " 말풍선 보이는 거?",
+        "whileIgnored": [],
+        "whisperInferTime": 4976,
+        "llmTime": 4019,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8995
+      },
+      {
+        "segment": " - 향 향한. - 아.",
+        "whileIgnored": [],
+        "whisperInferTime": 5759,
+        "llmTime": 4005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9764
+      },
+      {
+        "segment": " 드리는 거네.",
+        "whileIgnored": [],
+        "whisperInferTime": 10999,
+        "llmTime": 4004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 15003
+      },
+      {
+        "segment": " 그런 걸로 쓰는 것 같긴 하던데",
+        "whileIgnored": [],
+        "whisperInferTime": 8123,
+        "llmTime": 4012,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 12135
+      },
+      {
+        "segment": " 업데이트 드라. 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 7847,
+        "llmTime": 4012,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11859
+      },
+      {
+        "segment": " 이런 건 어쩔 수 없는 것 같아요. 이렇게 해서 말하면 괜찮아요.",
+        "whileIgnored": [],
+        "whisperInferTime": 7367,
+        "llmTime": 4037,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11404
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 8334,
+        "llmTime": 4003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 12337
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 5896,
+        "llmTime": 4014,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9910
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 12080,
+        "llmTime": 4008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 16088
+      },
+      {
+        "segment": " -뭐, 스케일.",
+        "whileIgnored": [],
+        "whisperInferTime": 5259,
+        "llmTime": 4005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9264
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 너가 보기에 이거 뭔가 좀 매매하네.",
+        "whileIgnored": [],
+        "whisperInferTime": 10751,
+        "llmTime": 4016,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14767
+      },
+      {
+        "segment": " 아~ 이거 조금 애매한데~ 라고 하는거고",
+        "whileIgnored": [],
+        "whisperInferTime": 11084,
+        "llmTime": 3492,
+        "llmResponse": "The speaker hesitates and expresses mild uncertainty, their tone reflecting a mix of curiosity and caution.",
+        "llmTimeout": false,
+        "sbertTime": 79,
+        "actionClipName": "Worried",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 14655
+      },
+      {
+        "segment": " 아, 우리의 동작은?",
+        "whileIgnored": [],
+        "whisperInferTime": 12444,
+        "llmTime": 3476,
+        "llmResponse": "[The speaker leans forward slightly and inquires with a hint of curiosity.]",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 15935
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이거 왜 이렇게 옵션을? 이거 왜 이렇게 옵션을?",
+        "whileIgnored": [],
+        "whisperInferTime": 11692,
+        "llmTime": 4006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 15713
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 랄랄랄랄끼 썬다",
+        "whileIgnored": [],
+        "whisperInferTime": 3730,
+        "llmTime": 4014,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7744
+      },
+      {
+        "segment": " GADON이 애초에 캔버스 밖에 있었어",
+        "whileIgnored": [],
+        "whisperInferTime": 17217,
+        "llmTime": 4008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 21225
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 됩니다",
+        "whileIgnored": [
+          " 아"
+        ],
+        "whisperInferTime": 4445,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8447
+      },
+      {
+        "segment": " 펜머스. 전시회가 수목이네.",
+        "whileIgnored": [],
+        "whisperInferTime": 5869,
+        "llmTime": 4002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9871
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 인지가 됩니다 전심을 왜 이렇게 빨리",
+        "whileIgnored": [
+          " - 지금 빨리."
+        ],
+        "whisperInferTime": 6213,
+        "llmTime": 4004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10217
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " イメーブリー",
+        "whileIgnored": [],
+        "whisperInferTime": 7221,
+        "llmTime": 4009,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11230
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 3820,
+        "llmTime": 4012,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7832
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 지금 이 프로그램은 한국의 인생이거든요.",
+        "whileIgnored": [
+          " 네"
+        ],
+        "whisperInferTime": 17730,
+        "llmTime": 2910,
+        "llmResponse": "[The speaker's tone is reflective and contemplative, with a hint of resignation.]",
+        "llmTimeout": false,
+        "sbertTime": 56,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 20696
+      }
+    ]
   }
 ]

@@ -21,6 +21,7 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     private Color orgColor;
     [SerializeField]
     private Color onRecordColor;
+    
 
     [Header("Vivox Voice Channel")]
     [SerializeField]
@@ -34,6 +35,8 @@ public class UIManager : MonobehaviourSingleton<UIManager>
     [SerializeField]
     private GameObject loadingPanel;
 
+    public TMP_Text sttOrg;
+
     protected override void Awake()
     {
         base.Awake();
@@ -44,6 +47,8 @@ public class UIManager : MonobehaviourSingleton<UIManager>
         }
         STTManager.Instance.OnVadChanged = OnVoiceDetected;
         STTManager.Instance.OnRecord = OnRecord;
+        // STTManager.Instance.OnStopRecord = OnStopRecord;
+        
     }
 
     void Start()
@@ -53,13 +58,26 @@ public class UIManager : MonobehaviourSingleton<UIManager>
 
     public void OnRecord(bool isRecord)
     {
-        onRecordPanel.color = isRecord ? onRecordColor : orgColor;
+        Color alphaControl = onRecordPanel.color;
+        Color textAlpha = sttOrg.color;
+        //onRecordPanel.CrossFadeAlpha(1f, 1f, ignoreTimeScale: false);
+        alphaControl = isRecord ? onRecordColor : orgColor;
+        alphaControl.a = isRecord ? 1f : 0.2f;
+        textAlpha.a = isRecord ? 1f : 0.2f;
+
+        onRecordPanel.color = alphaControl;
+        sttOrg.color = textAlpha;
     }
 
     public void OnVoiceDetected(bool isDeteched)
     {
         vadImg.gameObject.SetActive(isDeteched);
     }
+
+    // public void OnStopRecord(bool isStopped)
+    // {
+    //     onRecordPanel.CrossFadeAlpha(0.2f, 1f, ignoreTimeScale: false);
+    // }
 
     public void HideLoadingPanel()
     {

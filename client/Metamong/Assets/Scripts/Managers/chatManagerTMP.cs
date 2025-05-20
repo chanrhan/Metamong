@@ -7,8 +7,8 @@ using System;
 public class ChatManagerTMP : MonobehaviourSingleton<ChatManagerTMP>
 {
 
-    private ChatLogBoxTMP chatLogBox;
-    private ChatInputBoxTMP chatInputBox;
+    private ChatLogBox chatLogBox;
+    private ChatInputBox chatInputBox;
 
     public bool IsTyping = false;
 
@@ -16,11 +16,11 @@ public class ChatManagerTMP : MonobehaviourSingleton<ChatManagerTMP>
     {
         if(chatLogBox == null)
         {
-            chatLogBox = FindFirstObjectByType<ChatLogBoxTMP>();
+            chatLogBox = FindFirstObjectByType<ChatLogBox>();
             if(chatLogBox == null)
                 throw new Exception("ChatLogBox를 찾을 수 없습니다.");
 
-            chatInputBox = FindFirstObjectByType<ChatInputBoxTMP>();
+            chatInputBox = FindFirstObjectByType<ChatInputBox>();
             if(chatInputBox == null)
                 throw new Exception("ChatInputBox를 찾을 수 없습니다.");
         }

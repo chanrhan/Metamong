@@ -9,20 +9,26 @@ public class ChatManager : MonobehaviourSingleton<ChatManager>
 
     private ChatLogBox chatLogBox;
     private ChatInputBox chatInputBox;
+    // private ChatLogBoxSB chatLogBoxSB;
+    private ChatBubble3D chatBubble;
 
     public bool IsTyping = false;
 
     private void OnEnable()
     {
-        if(chatLogBox == null)
+        if (chatLogBox == null)
         {
             chatLogBox = FindFirstObjectByType<ChatLogBox>();
-            if(chatLogBox == null)
+            if (chatLogBox == null)
                 throw new Exception("ChatLogBox를 찾을 수 없습니다.");
 
             chatInputBox = FindFirstObjectByType<ChatInputBox>();
-            if(chatInputBox == null)
+            if (chatInputBox == null)
                 throw new Exception("ChatInputBox를 찾을 수 없습니다.");
+
+            chatBubble = FindFirstObjectByType<ChatBubble3D>();
+            if (chatBubble == null)
+                throw new Exception("ChatBubble3D를 찾을 수 없습니다.");
         }
     }
 
@@ -34,5 +40,6 @@ public class ChatManager : MonobehaviourSingleton<ChatManager>
     public void InputChat(string playerName, string chatText)
     {
         chatLogBox.DisplayChat($"[{playerName}] : {chatText}");
+        chatBubble.Show($"[{playerName}] : {chatText}");
     }
 }
