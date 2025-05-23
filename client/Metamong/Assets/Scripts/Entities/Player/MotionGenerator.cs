@@ -245,6 +245,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         {
             chatHistory.Dequeue();
         }
+        Debug.Log($"[yun] Add Chat {playerId}: {msg}");
         chatHistory.Enqueue($"{playerId}:{msg}");
     }
 
