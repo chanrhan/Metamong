@@ -179,7 +179,8 @@
   "The speaker, feeling determined, is explaining the answer.": "Explaining",
   "The speaker, feeling embarrassed and apologetic, is explaining the situation.": "Explaining",
 
-  "1": "CallMe",
+  "The speaker, feeling friendly and considerate, is suggesting a follow-up contact": "CallMe",
+
   "2": "ComeMe",
   "3": "Sleepy",
   "4": "Listening",
