@@ -144,7 +144,7 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     public override void SendMessageToOthers(string text) 
     {
-        if(TryGetAroundNPC(out NetworkTarget[] targets)){
+        if(TryGetAroundNetworkTargets(null, out NetworkTarget[] targets)){
             PacketSendHandler.ChatText(text, targets);
         }
     }

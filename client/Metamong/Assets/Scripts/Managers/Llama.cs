@@ -12,15 +12,11 @@ using UnityEngine.SceneManagement;
 
 public class Llama : MonoBehaviour
 {
-    [SerializeField]
-    private int maxChatLogLength = 10;
+    
     private LLMCharacter myllmCharacter;
     private LLM llm;
     public LLMCharacter MyLlmCharacter { get => myllmCharacter; }
     
-    
-    private Queue<string> chatHistory = new Queue<string>(10);
-
     void Awake()
     {
             llm = GetComponent<LLM>();
@@ -104,46 +100,23 @@ public class Llama : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.L)){
-            Debug.Log(GenerateChatLogs());
-        }
+        // if(Input.GetKeyDown(KeyCode.L)){
+        //     Debug.Log(GenerateChatLogs());
+        // }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            chatHistory.Clear();
-        }
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     chatHistory.Clear();
+        // }
     }
 
-    public void AddChatLog(string playerId, string msg) {
-        while(chatHistory.Count >= maxChatLogLength)
-        {
-            chatHistory.Dequeue();
-        }
-        chatHistory.Enqueue($"{playerId}:{msg}");
-    }
-
-    public string GenerateChatLogs()
-    {
-        StringBuilder strBuilder = new StringBuilder("");
-        foreach(string str in chatHistory)
-        {
-            strBuilder.Append($"{str}\n");
-        }
-        
-        return strBuilder.ToString();
-    }
-
-    public void ClearChatLogs()
-    {
-        chatHistory.Clear();
-    }
+    
 
     public async Task<string> Chat(string query, CancellationToken token, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = false)
     {
         token.ThrowIfCancellationRequested();
-        string logs = GenerateChatLogs();
-        Debug.Log($"[yun] {logs}마지막 발화 {query}");
-        string response = await myllmCharacter.Chat(logs + "마지막 발화 " + query, callback, completionCallback, addToHistory, token);
+        
+        string response = await myllmCharacter.Chat(query, callback, completionCallback, addToHistory, token);
         if (string.IsNullOrEmpty(response))
         {
             return "";
