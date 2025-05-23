@@ -128,14 +128,14 @@ public class PlayerController : NetworkCharacter
     /// </summary>
     private void TryTalking()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+       /* if (Input.GetKeyDown(KeyCode.T))
         {
             avatarAnim.StartTalking();
         }
         else if (Input.GetKeyUp(KeyCode.T))
         {
             avatarAnim.StopTalking();
-        }
+        }*/
     }
 
     /// <summary>

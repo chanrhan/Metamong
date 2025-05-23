@@ -6,7 +6,7 @@
   "The speaker, feeling nostalgic, is reminiscing about the past.": "Agreement",
   "The speaker, feeling sympathetic, is expressing understanding.": "Agreement",
   "The speaker, feeling relaxed, is expressing a enjoying the rain.": "Agreement",
-  "The speaker, feeling satisfied and content, is enjoying a meal.": "Agreement", //배불러모션이 더 적합
+  "The speaker, feeling satisfied and content, is enjoying a meal.": "Agreement",
 
   "The speaker, feeling joyful, is expressing their understanding with a delighted 'aha'.": "Aha",
   "The speaker, feeling pleased, is indicating they understood what was said with satisfaction.": "Aha",
@@ -69,7 +69,7 @@
   "The speaker, feeling uncertain, is shrugging their shoulders to indicate they don’t know.": "DontKnow",
   "The speaker, feeling of difference, is expressing a difference of opinion from the other person.": "DontKnow",
   "The speaker, feeling hungry and slightly annoyed, is questioning someone about eating before coming. ": "DontKnow",
-  "The speaker, feeling curious, is asking for an explanation.": "DontKnow", //궁금해하는 모션
+  "The speaker, feeling curious, is asking for an explanation.": "DontKnow",
   "The speaker, feeling curious, is asking for advice.": "DontKnow",
 
   "The speaker, feeling regretful, is informing that the proposed time slot is not suitable.": "Depressed",
@@ -143,7 +143,7 @@
   "The speaker, feeling upset, is pointing at the other person.": "Pointing",
   "The speaker, feeling joyful, enthusiastically praises the other person’s correct answer.": "Pointing",
   "The speaker, feeling confident, is affirming the correctness of their previous statement": "Pointing",
-  "The speaker, feeling amused and curious, is noticing someone's outfit": "Pointing", //지적하는 모션
+  "The speaker, feeling amused and curious, is noticing someone's outfit": "Pointing",
   "The speaker, feeling casual, is making a comment about an old man's shoes.": "Pointing",
 
   "The speaker, feeling relieved, is exhaling deeply and relaxing their shoulders.": "Relieved",
@@ -177,5 +177,12 @@
   "The speaker, feeling satisfied and hungry, is suggesting a nearby restaurant.": "Explaining",
   "The speaker, feeling curious, is questioning a common fact.": "Explaining",
   "The speaker, feeling determined, is explaining the answer.": "Explaining",
-  "The speaker, feeling embarrassed and apologetic, is explaining the situation.": "Explaining"
+  "The speaker, feeling embarrassed and apologetic, is explaining the situation.": "Explaining",
+
+  "1": "CallMe",
+  "2": "ComeMe",
+  "3": "Sleepy",
+  "4": "Listening",
+  "5": "Introduce",
+  "6": "Shouting"
 }

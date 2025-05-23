@@ -20,7 +20,12 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
     public bool IsTalking
     {
         get => avatarAnim.IsTalking;
-        set => avatarAnim.IsTalking = value;
+        //set => avatarAnim.IsTalking = value;
+        set
+        {
+            avatarAnim.IsTalking = value;
+            avatarAnim.TalkingPara = value ? Random.Range(0, 3) : -1;
+        }
     }
 
     protected virtual void Awake()

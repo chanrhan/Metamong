@@ -69,7 +69,7 @@
   },
 
   "DontKnow": {
-    "clipNames": [ "DontKnow" ],
+    "clipNames": [ "DontKnow", "DontKnow_02" ],
     "emotion": "중립"
   },
 
@@ -129,17 +129,17 @@
   },
 
   "Nope": {
-    "clipNames": [ "Nope" ],
+    "clipNames": [ "Nope", "Nope_02", "Nope_03" ],
     "emotion": "중립"
   },
 
   "OkaySign": {
-    "clipNames": [ "OkaySign" ],
+    "clipNames": [ "OkaySign", "OkaySign_02" ],
     "emotion": "중립"
   },
 
   "Pleasure_big": {
-    "clipNames": [ "Pleasure_big" ],
+    "clipNames": [ "Pleasure_big", "Pleasure_big_02" ],
     "emotion": "기쁨"
   },
 
@@ -196,6 +196,36 @@
   "Explaining": {
     "clipNames": [ "Explaining" ],
     "emotion": "중립"
+  },
+
+  "CallMe": {
+    "ClipNames": [ "CallMe" ],
+    "emotion": "중립"
+  },
+
+  "ComeOn": {
+    "ClipNames": [ "ComeOn" ],
+    "emotion": "중립"
+  },
+
+  "Sleepy": {
+    "ClipNames": [ "Sleepy" ],
+    "emotion": "중립"
+  },
+
+  "Listening": {
+    "ClipNames": [ "Listening" ],
+    "emotion": "중립"
+  },
+
+  "Introduce": {
+    "ClipNames": [ "Introduce" ],
+    "emotion": "중립"
+  },
+
+  "Shouting": {
+    "ClipNames": [ "Shouting" ],
+    "emotion":  "중립"
   }
 }
   
