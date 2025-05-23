@@ -1,0 +1,181 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 뭐 그쪽으로도",
+        "whileIgnored": [
+          " 뭐 그치 플로트",
+          " 플로트면 살았지?",
+          " 플로트 면사라지",
+          " 플로트면 살았지? 그치?"
+        ],
+        "whisperInferTime": 3442,
+        "llmTime": 3509,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6951
+      },
+      {
+        "segment": " 테스크당 타임아웃을",
+        "whileIgnored": [
+          " 테스크당 타임아웃 변수를 만드는",
+          " 더 만들어야 되는 거 아니야?",
+          " 더 만들어야 되는 거 아니야?"
+        ],
+        "whisperInferTime": 6441,
+        "llmTime": 3505,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9946
+      },
+      {
+        "segment": " 왜왜? 테스크다",
+        "whileIgnored": [
+          " 왜? 테스크당?",
+          " 어? 어?"
+        ],
+        "whisperInferTime": 2948,
+        "llmTime": 3503,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6451
+      },
+      {
+        "segment": " 왜냐하면",
+        "whileIgnored": [
+          " 왜냐면",
+          " 왜냐면",
+          " 지금 저 타임아웃은"
+        ],
+        "whisperInferTime": 883,
+        "llmTime": 3504,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4387
+      },
+      {
+        "segment": " 지금 저 타임아웃은",
+        "whileIgnored": [
+          " 테스크에 대해서인데",
+          " 그 테스크에 대해서 인데요"
+        ],
+        "whisperInferTime": 2459,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5967
+      },
+      {
+        "segment": " 만약에 저걸 저녁뼈에",
+        "whileIgnored": [
+          " 만약에 저걸 전형편에서 더 보니",
+          " 전형편에서 도모되면",
+          " 좀 더 보냈면",
+          " 말 그대로 그"
+        ],
+        "whisperInferTime": 1968,
+        "llmTime": 3508,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5476
+      },
+      {
+        "segment": " 말 그대로 그 찰나의 순간",
+        "whileIgnored": [
+          " 찰나의 순간에"
+        ],
+        "whisperInferTime": 1971,
+        "llmTime": 3510,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5481
+      },
+      {
+        "segment": " 플로트 플로트 플로트 플로트 플로트 플로트면",
+        "whileIgnored": [
+          " 이런 거 있잖아",
+          " 이런 거 있잖아 크리에 더 리스크"
+        ],
+        "whisperInferTime": 4801,
+        "llmTime": 3512,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8313
+      },
+      {
+        "segment": " 크리에서 리스포? 에베프?",
+        "whileIgnored": [
+          " 첫 번째 테스크에서 사이에서 리스폰스해서"
+        ],
+        "whisperInferTime": 3552,
+        "llmTime": 3506,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7058
+      },
+      {
+        "segment": " 리스포? 에베프? 에베프? 에베프? 에베프? 에베프?",
+        "whileIgnored": [
+          " 테스크닭 타임아웃이 트루가 됐어. 그래서 로그앤 리셋",
+          " 로그앤 리셋이 시작되거나",
+          " 그리고 로그앤 리셋이 시작되거나",
+          " 시작되거나 뭐 디스포스가 시작되거나"
+        ],
+        "whisperInferTime": 3475,
+        "llmTime": 3512,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6987
+      },
+      {
+        "segment": " 다른 두 번째 테스크에서",
+        "whileIgnored": [
+          " 다른 두 번째 테스크에서",
+          " 성공을 강화하겠죠.",
+          " 성공을 강화했잖아. 했어."
+        ],
+        "whisperInferTime": 2466,
+        "llmTime": 3505,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5971
+      }
+    ]
+  }
+]

@@ -118,6 +118,7 @@ public class PlayerController : NetworkCharacter
     {
         myRigid.AddForce(Vector3.up* jumpForce, ForceMode.Impulse);
         isOnGround = false;
+        avatarAnim.StartJump();
     }
 
     /// <summary>

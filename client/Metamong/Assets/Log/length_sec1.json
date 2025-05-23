@@ -1,0 +1,200 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 아아 자",
+        "whileIgnored": [],
+        "whisperInferTime": 1951,
+        "llmTime": 467,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 2425
+      },
+      {
+        "segment": " 쫙 돌다가",
+        "whileIgnored": [
+          " 이제 말해보자",
+          " 아 네 보려",
+          " 말한다 말한다",
+          " 아 좀 빨리 나오는 것 같은데?"
+        ],
+        "whisperInferTime": 3461,
+        "llmTime": 551,
+        "llmResponse": "The speaker is excitedly and enthusiastically responding, their tone reflecting a sense of urgency and eagerness.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "펄쩍뛰며기쁨",
+        "totalElapsedTime": 4022
+      },
+      {
+        "segment": " 아 맞다 할 수 있어",
+        "whileIgnored": [
+          " 어 돌다가 좀 빨리 나오는 것 같은데?",
+          " 또 드로어 또 드로어 또 드로어",
+          " 쪼그만 빠르지 않아? 더 돌아가 턱 돌아가"
+        ],
+        "whisperInferTime": 539,
+        "llmTime": 613,
+        "llmResponse": "The speaker nods in agreement, their tone reflecting a mix of concern and understanding.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Hansim",
+        "faceClipName": "바로그거야1",
+        "totalElapsedTime": 1161
+      },
+      {
+        "segment": " 야 100번 돌아 더들어 더들어 더들어 더들어 더들어 더들어",
+        "whileIgnored": [
+          " 아 맞다 할 수 있어 100번 돌아 100번 돌아 100번 돌아",
+          " 아 100번 돌아 더 돌아 더 돌아 더 돌아"
+        ],
+        "whisperInferTime": 1086,
+        "llmTime": 595,
+        "llmResponse": "The speaker repeats the phrase \"100 times\" multiple times, their tone reflecting frustration and persistence.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 1690
+      },
+      {
+        "segment": " 어디 걸까? 우리가 갔거든 뭐야?",
+        "whileIgnored": [],
+        "whisperInferTime": 8624,
+        "llmTime": 740,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking where someone went.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 9375
+      },
+      {
+        "segment": " 하이~",
+        "whileIgnored": [
+          " 그리고? 우리가?",
+          " 어디 살아있는거야? 데코르 꽉 없잖아 여기",
+          " 지코짱",
+          " 하이~"
+        ],
+        "whisperInferTime": 1582,
+        "llmTime": 1901,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking if someone is staying there. The speaker nods in agreement, saying \"okay\" repeatedly. The speaker then asks where they are and what's left to do. They express disappointment at the lack of decor. Finally, the speaker says \"hi.\"",
+        "llmTimeout": false,
+        "sbertTime": 22,
+        "actionClipName": "Surprised",
+        "faceClipName": "뺨때림",
+        "totalElapsedTime": 3505
+      },
+      {
+        "segment": " 본체 안에 있는 거라면?",
+        "whileIgnored": [
+          " 어? 내가 어?",
+          " 내가 어? 영일이가 사실",
+          " 운치 안에 있는 거라면?"
+        ],
+        "whisperInferTime": 645,
+        "llmTime": 2684,
+        "llmResponse": "The speaker repeats the phrase \"100번 돌아 더 돌아 더 돌아 더 돌아\" multiple times, then responds with a series of questions and comments about their surroundings. The tone is somewhat inquisitive and slightly sarcastic, reflecting a mix of curiosity and annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Surprised",
+        "faceClipName": "모델포즈",
+        "totalElapsedTime": 3347
+      },
+      {
+        "segment": " 아까마다 빨려는 것 같은데?",
+        "whileIgnored": [
+          " 이렇게 내가 컴퓨터 안에 틀린다면?",
+          " 내 컴퓨터 안에 틀린다면?",
+          " 너무 무섭고",
+          " 너무 무섭고"
+        ],
+        "whisperInferTime": 5484,
+        "llmTime": 829,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 6326
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 야야야 너",
+        "whileIgnored": [
+          " 아까 봐도 뻘려는 것 같은데? 로그를 좀",
+          " 너 어?",
+          " 말 좀 해봐"
+        ],
+        "whisperInferTime": 1974,
+        "llmTime": 2802,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4776
+      },
+      {
+        "segment": " 말 좀 해봐",
+        "whileIgnored": [],
+        "whisperInferTime": 2003,
+        "llmTime": 324,
+        "llmResponse": "The speaker asks for more information.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Worried",
+        "faceClipName": "설명하다",
+        "totalElapsedTime": 2334
+      },
+      {
+        "segment": " 말 좀 해봐",
+        "whileIgnored": [
+          " 내 말 듣고 있는 거야?",
+          " 내가 말 듣고 있는 거야"
+        ],
+        "whisperInferTime": 4036,
+        "llmTime": 349,
+        "llmResponse": "The speaker is inquiring to be heard.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 4394
+      },
+      {
+        "segment": " 2천보다 1천보다",
+        "whileIgnored": [
+          " 내가 빙... 내가 도어",
+          " single daughter Gavin",
+          " 장군",
+          " 나 아까보다 빨리",
+          " 그녀보다 빨리 나오는 거 같은데?",
+          " 3.5초가 더 빨리 나오는 거 같긴 한데"
+        ],
+        "whisperInferTime": 3450,
+        "llmTime": 1599,
+        "llmResponse": "The speaker inquires about something, and the conversation involves a series of questions and responses. The tone is somewhat playful and curious, with an underlying sense of curiosity and interest. The final statement reflects a comparison between two numbers.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Surprised",
+        "faceClipName": "모델포즈",
+        "totalElapsedTime": 5064
+      }
+    ]
+  }
+]

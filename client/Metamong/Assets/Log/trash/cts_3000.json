@@ -1,0 +1,158 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 자자자...",
+        "whileIgnored": [
+          " 자 자 자",
+          " 보여줘 너야",
+          " 보여줘 너의 한계를"
+        ],
+        "whisperInferTime": 1930,
+        "llmTime": 2231,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4169
+      },
+      {
+        "segment": " 보여줘 너의 한계를",
+        "whileIgnored": [
+          " 너의 모션을"
+        ],
+        "whisperInferTime": 1389,
+        "llmTime": 2462,
+        "llmResponse": "The speaker exclaims with frustration, \"Show me your limits!\" and then continues to express their disappointment and impatience.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 3864
+      },
+      {
+        "segment": " 모션을 오케 나오다가",
+        "whileIgnored": [
+          " 나오다가 그에",
+          " 나오다가 후에"
+        ],
+        "whisperInferTime": 2392,
+        "llmTime": 1761,
+        "llmResponse": "The speaker expresses frustration and concern, asking if the motion is working properly.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4168
+      },
+      {
+        "segment": " 하루는 걸리겠지",
+        "whileIgnored": [
+          " 하루는 걸리겠지"
+        ],
+        "whisperInferTime": 2455,
+        "llmTime": 2903,
+        "llmResponse": "The speaker's tone is one of frustration and exasperation, with a hint of desperation as they repeatedly emphasize the need for something to happen.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 5376
+      },
+      {
+        "segment": " 어 아",
+        "whileIgnored": [
+          " 어",
+          " 내가 듣고 있냐고",
+          " 내가 듣고 있냐고"
+        ],
+        "whisperInferTime": 7931,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10934
+      },
+      {
+        "segment": " 내가 말하고 있냐고",
+        "whileIgnored": [
+          " 내가 말하고 있잖아",
+          " 오케이",
+          " 4명씩 걸렸어"
+        ],
+        "whisperInferTime": 894,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3897
+      },
+      {
+        "segment": " 걸렸어 걸렸어",
+        "whileIgnored": [
+          " 걸렸어 걸렸어 한번 걸렸어",
+          " 걸렸어 걸렸어 한 번 걸렸어"
+        ],
+        "whisperInferTime": 473,
+        "llmTime": 2558,
+        "llmResponse": "The speaker continues to lecture, their tone becoming increasingly stern and demanding.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Hansim",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 3040
+      },
+      {
+        "segment": " 보여줘 어?",
+        "whileIgnored": [
+          " 보여줘 어?"
+        ],
+        "whisperInferTime": 3406,
+        "llmTime": 2096,
+        "llmResponse": "The speaker continues to speak, their tone escalating as they demand more from the other person.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 5517
+      },
+      {
+        "segment": " 걸렸다가",
+        "whileIgnored": [
+          " 걸렸다가 풀렸어",
+          " 뜯다가 풀렸네요"
+        ],
+        "whisperInferTime": 2395,
+        "llmTime": 2389,
+        "llmResponse": "The speaker repeatedly emphasizes the need for someone to show their limitations, with a tone of frustration and annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4794
+      },
+      {
+        "segment": " 3초가 넘으면은",
+        "whileIgnored": [
+          " 3초가 넘으면은"
+        ],
+        "whisperInferTime": 1939,
+        "llmTime": 2747,
+        "llmResponse": "The speaker's tone shifts from playful to confrontational, their words becoming increasingly forceful and urgent as they demand to see the motion.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 4699
+      }
+    ]
+  }
+]

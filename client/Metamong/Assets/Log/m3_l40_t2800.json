@@ -1,0 +1,224 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그때 7.3% 썼나?",
+        "whileIgnored": [],
+        "whisperInferTime": 1984,
+        "llmTime": 1191,
+        "llmResponse": "The speaker raises an eyebrow and inquires with concern, asking if the amount used was indeed 7.3%.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "HighFive",
+        "totalElapsedTime": 3191
+      },
+      {
+        "segment": " 그땐 7.3% 썼었나?",
+        "whileIgnored": [],
+        "whisperInferTime": 3200,
+        "llmTime": 998,
+        "llmResponse": "The speaker inquires about the percentage used, and the respondent responds with a question about whether they used 7.3%.",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "Surprised",
+        "faceClipName": "모델포즈",
+        "totalElapsedTime": 4216
+      },
+      {
+        "segment": " 뭐가 7.3%야? 보이래?",
+        "whileIgnored": [],
+        "whisperInferTime": 788,
+        "llmTime": 889,
+        "llmResponse": "The speaker raises an eyebrow in confusion, asking what the significance of 7.3% is.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "모델포즈",
+        "totalElapsedTime": 1694
+      },
+      {
+        "segment": " 뭐가 7.3%야? 보이래",
+        "whileIgnored": [
+          " 이거 좀 가니시네"
+        ],
+        "whisperInferTime": 1779,
+        "llmTime": 2804,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4583
+      },
+      {
+        "segment": " 이거 너무 꺼내시네",
+        "whileIgnored": [
+          " 그러면",
+          " 뭔가 예여"
+        ],
+        "whisperInferTime": 2837,
+        "llmTime": 2803,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5640
+      },
+      {
+        "segment": " 뭔가 이게 와",
+        "whileIgnored": [
+          " 3%야?",
+          " 세 자리에서 진짜 안 나왔거든?"
+        ],
+        "whisperInferTime": 2367,
+        "llmTime": 2801,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5168
+      },
+      {
+        "segment": " 안나왔거든? 타이밍으로 되는 것도 타이밍으로",
+        "whileIgnored": [
+          " 타이밍 마시고 내가 보기에"
+        ],
+        "whisperInferTime": 3943,
+        "llmTime": 2803,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6746
+      },
+      {
+        "segment": " 내가 보기엔 약간 이런 7.3%같은",
+        "whileIgnored": [
+          " 7.3% 같은 그런 걸 말하면은"
+        ],
+        "whisperInferTime": 2854,
+        "llmTime": 2808,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5662
+      },
+      {
+        "segment": " 트론을 잘 못하는 것 같아",
+        "whileIgnored": [],
+        "whisperInferTime": 1245,
+        "llmTime": 1628,
+        "llmResponse": "The speaker looks down, their tone reflecting disappointment and frustration.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 2881
+      },
+      {
+        "segment": " 제가 못하는 것 같아. 전문적인 것들?",
+        "whileIgnored": [
+          " 일상적으로 되게"
+        ],
+        "whisperInferTime": 2886,
+        "llmTime": 2444,
+        "llmResponse": "The speaker expresses concern about their inability to handle the throne, and they admit that they feel inadequate.\n\nExample:\nRRR : I don't think I'm very good at ruling.\nLast message RRR : I also feel like I'm not very good at it. What kind of expertise do you need?",
+        "llmTimeout": false,
+        "sbertTime": 21,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 5351
+      },
+      {
+        "segment": " 반가워 이런 거",
+        "whileIgnored": [
+          " 그냥 반가워 이런 거는"
+        ],
+        "whisperInferTime": 920,
+        "llmTime": 1252,
+        "llmResponse": "The speaker expresses concern about their inability to handle the throne, and the other person responds with a similar sentiment, ultimately ending in a warm greeting.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "뺨때림",
+        "totalElapsedTime": 2183
+      },
+      {
+        "segment": " 잘할 수도 있는데",
+        "whileIgnored": [],
+        "whisperInferTime": 6432,
+        "llmTime": 2807,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9239
+      },
+      {
+        "segment": " 모션 잘할 수도 있네",
+        "whileIgnored": [],
+        "whisperInferTime": 7379,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7379
+      },
+      {
+        "segment": " 이게 지금 버거가. 이게 모션버거가 있었거든?",
+        "whileIgnored": [],
+        "whisperInferTime": 8811,
+        "llmTime": 581,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9392
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그냥 원큐용.",
+        "whileIgnored": [],
+        "whisperInferTime": 1995,
+        "llmTime": 878,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2873
+      },
+      {
+        "segment": " 그렇지. 없을만한",
+        "whileIgnored": [],
+        "whisperInferTime": 3926,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3926
+      }
+    ]
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕 안녕",
+        "whileIgnored": [
+          " 안녕 안녕 반가워"
+        ],
+        "whisperInferTime": 1966,
+        "llmTime": 2045,
+        "llmResponse": "The speaker greets with a friendly tone, saying \"Hello hello.\"",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 4020
+      },
+      {
+        "segment": " 자고 싶어",
+        "whileIgnored": [
+          " 자고 싶어 졸려",
+          " 자고 싶어 졸려"
+        ],
+        "whisperInferTime": 2388,
+        "llmTime": 2397,
+        "llmResponse": "The speaker says hello, and the last speaker responds with a desire to sleep.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 4793
+      },
+      {
+        "segment": " 이거 봐",
+        "whileIgnored": [
+          " 이거 봐"
+        ],
+        "whisperInferTime": 3422,
+        "llmTime": 2383,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5813
+      },
+      {
+        "segment": " 왜 힘들어",
+        "whileIgnored": [
+          " 아 힘들어 빨리 끝났으면 좋겠어"
+        ],
+        "whisperInferTime": 2920,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5929
+      },
+      {
+        "segment": " 오 좋아",
+        "whileIgnored": [
+          " 대구는 있니? 타이머"
+        ],
+        "whisperInferTime": 3403,
+        "llmTime": 3005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 6416
+      },
+      {
+        "segment": " 무시가 되고 있는 건지는 모르게",
+        "whileIgnored": [
+          " 무시가 되고 있는 건지는 모르겠는데"
+        ],
+        "whisperInferTime": 1444,
+        "llmTime": 3000,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4452
+      },
+      {
+        "segment": " 오오",
+        "whileIgnored": [],
+        "whisperInferTime": 3778,
+        "llmTime": 3001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 6787
+      }
+    ]
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 생존물이 맛있긴 한데",
+        "whileIgnored": [],
+        "whisperInferTime": 2502,
+        "llmTime": 1140,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3658
+      },
+      {
+        "segment": " 마켓스까지 가는 정도는 아니고",
+        "whileIgnored": [],
+        "whisperInferTime": 2019,
+        "llmTime": 823,
+        "llmResponse": "The speaker mentions that the survival food is delicious, but then adds that it's not enough to go all the way to Market Street.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 2858
+      },
+      {
+        "segment": " 날로 한번 제가 발휘해봅니다",
+        "whileIgnored": [],
+        "whisperInferTime": 4532,
+        "llmTime": 350,
+        "llmResponse": "The speaker vows to take action once again.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Hansim",
+        "faceClipName": "그랜절",
+        "totalElapsedTime": 4889
+      },
+      {
+        "segment": " - 당황했어! - 하하하하하하",
+        "whileIgnored": [],
+        "whisperInferTime": 8100,
+        "llmTime": 434,
+        "llmResponse": "The speaker expresses surprise and amusement, laughing at the unexpected turn of events.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Surprised",
+        "faceClipName": "Laugh",
+        "totalElapsedTime": 8543
+      }
+    ]
+  }
+]

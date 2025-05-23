@@ -25,8 +25,11 @@ public class SBERT : MonoBehaviour
 
     // JSON 파일 경로 (절대 경로 예: Application.dataPath 기준)
     private static string ACTMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/ActMotion.json";
+    private static string ACTMOTIONINFO_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/ActMotionInfo.json";
     private static string FACEMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/FaceMotion.json";
 
+    //모션 문장 -> 모션 정보
+    public Dictionary<string, MotionInfo> actMotionInfoList;
 
     void Awake()
     {
@@ -55,6 +58,13 @@ public class SBERT : MonoBehaviour
         tokenizer = new BertTokenizer("sbert.onnx/vocab");
     }
 
+    private void LeadJsons()
+    {
+        actMotionInfoList = JsonFileReader.ReadMotionInfos(ACTMOTIONINFO_FILE_PATH);
+        actMotionList = JsonFileReader.Read(ACTMOTION_FILE_PATH);
+        faceMotionList = JsonFileReader.Read(FACEMOTION_FILE_PATH);
+    }
+
     /// <summary>
     /// 앱 시작 시 기존 모션 문장들을 JSON 파일에서 읽어와 미리 임베딩 벡터를 계산해 저장합니다.
     /// JsonFileReader 클래스는 파일을 읽어 Dictionary&lt;string, string&gt;를 반환합니다.
@@ -62,8 +72,7 @@ public class SBERT : MonoBehaviour
     public void PrecomputeMotionEmbeddings()
     {
         // ActMotion, FaceMotion 파일을 읽어옵니다.
-        actMotionList = JsonFileReader.Read(ACTMOTION_FILE_PATH);
-        faceMotionList = JsonFileReader.Read(FACEMOTION_FILE_PATH);
+        LeadJsons();
 
         // 각 ActMotion 문장에 대해 임베딩을 계산하여 캐시에 저장합니다.
         foreach (var kvp in actMotionList)
@@ -122,6 +131,32 @@ public class SBERT : MonoBehaviour
         return bestScore >= threshold ? bestMatchKey : "No match";
     }
 
+
+    /// <summary>
+    /// inputText와 유사한 actMotion의 MotionInfo 구조체를 반환하는 함수. Matching이 안되면 emotion 멤버가 "No match"라는 MotionInfo를 반환함.
+    /// </summary>
+    /// <param name="inputText"></param>
+    /// <returns></returns>
+    public MotionInfo GetActMotionInfo(string inputText)
+    {
+        string compareResult = CompareWordText(inputText, true);
+        if (compareResult == "No match" || !actMotionInfoList.ContainsKey(compareResult))
+        {
+            return new MotionInfo(null, "No match");
+        }
+
+        return actMotionInfoList[compareResult];
+    }
+
+    /// <summary>
+    /// inputText와 유사한 faceMotion 문자열을 반환.
+    /// </summary>
+    /// <param name="inputText"></param>
+    /// <returns></returns>
+    public string GetFaceMotion(string inputText)
+    {
+        return CompareWordText(inputText, false);
+    }
 
     /// <summary>
     /// 텍스트를 모델을 통해 임베딩 벡터로 변환합니다.

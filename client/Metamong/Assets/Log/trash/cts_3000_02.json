@@ -1,0 +1,100 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그래 그래",
+        "whileIgnored": [
+          " 그래 그래",
+          " 안녕",
+          " 안녕",
+          " 안녕"
+        ],
+        "whisperInferTime": 2436,
+        "llmTime": 3006,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5442
+      },
+      {
+        "segment": " 반가워.",
+        "whileIgnored": [
+          " 반가워"
+        ],
+        "whisperInferTime": 1883,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4887
+      },
+      {
+        "segment": " 반갑다니까",
+        "whileIgnored": [
+          " 반갑다니까"
+        ],
+        "whisperInferTime": 2920,
+        "llmTime": 3005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5925
+      },
+      {
+        "segment": " 처음 타임아웃이 나면",
+        "whileIgnored": [
+          " 처음 타임아웃이 나면은",
+          " 나는"
+        ],
+        "whisperInferTime": 2959,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5962
+      },
+      {
+        "segment": " 그러면은 또 지하여",
+        "whileIgnored": [],
+        "whisperInferTime": 2835,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5838
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 지랄이 나거든요",
+        "whileIgnored": [],
+        "whisperInferTime": 5029,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8031
+      }
+    ]
+  }
+]

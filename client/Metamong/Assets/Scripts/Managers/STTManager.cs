@@ -5,11 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Whisper;
 using Whisper.Utils;
-using System.Threading.Tasks;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Linq;
-using Unity.VisualScripting;
 
 public class STTManager : MonobehaviourSingleton<STTManager>
 {

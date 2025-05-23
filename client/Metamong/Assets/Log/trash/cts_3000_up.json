@@ -1,0 +1,333 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이러면 되는 거고",
+        "whileIgnored": [
+          " 이러면 되는 거고",
+          " 이러면 잘 나와요",
+          " 이러면 잘 나오겠지?"
+        ],
+        "whisperInferTime": 1937,
+        "llmTime": 2617,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4567
+      },
+      {
+        "segment": " 이러면 잘 나오겠지 처음에",
+        "whileIgnored": [],
+        "whisperInferTime": 1970,
+        "llmTime": 2102,
+        "llmResponse": "[Conversation Summary]\nThe speaker EEE expresses confidence that the plan will work well, anticipating a successful outcome.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "설명하다",
+        "totalElapsedTime": 4083
+      },
+      {
+        "segment": " 왜 이렇게 잘 나와?",
+        "whileIgnored": [
+          " 왜 이렇게 잘 나와?",
+          " 다행히 말하고 다시 한번 말해"
+        ],
+        "whisperInferTime": 7929,
+        "llmTime": 2983,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking why the result is so good.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 10925
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 아...",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 아..."
+        ],
+        "whisperInferTime": 3284,
+        "llmTime": 2521,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking why the test coverage is not better.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "의문을표함",
+        "totalElapsedTime": 5816
+      },
+      {
+        "segment": " 다지 다지 다지 다지 다지 다지 다지 다지",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 아..."
+        ],
+        "whisperInferTime": 4168,
+        "llmTime": 3008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7176
+      },
+      {
+        "segment": " 깜짝 깜짝 깜짝깜짝",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸렸어 지금",
+          " 타임에만 하고 테스트 커버가 걸렸어 지금... 지금 타임에만 하고 테스트 커버가 걸렸어 지금... 지금 타임에만 하고 테스트 커버가 걸린 상황이라...",
+          " 걸린 상황이에요 지금... 아..."
+        ],
+        "whisperInferTime": 3252,
+        "llmTime": 2775,
+        "llmResponse": "The speaker's tone is playful and teasing, with a hint of frustration and exasperation as they respond to the repetitive questions.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Surprised",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 6039
+      },
+      {
+        "segment": " 걸린 상황이에요 지금... 아... 들어갑니다...",
+        "whileIgnored": [
+          " 아... 들어가요 타임에만 하고 테스트 커버가 걸린 상황이에요 지금... 아... 들어가요 타임에만 하고 테스트 커버가 걸린 상황이에요 지금... 아... 들어가요 타임에만 하고 테스트 커버가 걸린 상황이에요 지금... 아... 들어가요 타임에만 하고 테스트 커버가 걸린 상황이에요 지금... 아... 들어가요 타임에만 하고 테스트 커버가 걸린다..."
+        ],
+        "whisperInferTime": 956,
+        "llmTime": 2223,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3190
+      },
+      {
+        "segment": " 아... 죄송해요 지금... 아... 또 풀렸어...",
+        "whileIgnored": [
+          " 아... 또 풀렸어요... 타임에만 하고 테스트 커버가 걸린다...",
+          " 아... 들어가요 타임에만 하고 테스트 커버가 걸린다..."
+        ],
+        "whisperInferTime": 573,
+        "llmTime": 2518,
+        "llmResponse": "The speaker apologizes repeatedly, their tone reflecting a mix of frustration and concern, as they explain that the issue has recurred.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3103
+      },
+      {
+        "segment": " 아... 들어가요 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 바퀴차서도 면숭합니다..."
+        ],
+        "whisperInferTime": 612,
+        "llmTime": 1936,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 2551
+      },
+      {
+        "segment": " 아... 들어가요 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 아... 이건 말이 안 된다고 지금...",
+          " 이건 말이 안 된다고 지금... 이용을 하는..."
+        ],
+        "whisperInferTime": 3458,
+        "llmTime": 2110,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5570
+      },
+      {
+        "segment": " 타임에도 지금 이용을 하고 있어요 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 아... 황기찬 선수..."
+        ],
+        "whisperInferTime": 2704,
+        "llmTime": 2097,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4804
+      },
+      {
+        "segment": " 아... 들어가요 타임에만 하고 테스트 커버가 걸린다... 아... 들어가요 타임에만 하고 테스트 커버가 걸린다... 아... 들어가요 타임에만 하고 테스트 커버가 걸린다... 아... 들어가요 타임에만 하고 테스트 커버가 걸린다... 아... 들어가요 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다..."
+        ],
+        "whisperInferTime": 2085,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5088
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다..."
+        ],
+        "whisperInferTime": 19841,
+        "llmTime": 3011,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 22852
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에는"
+        ],
+        "whisperInferTime": 2852,
+        "llmTime": 3012,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5864
+      },
+      {
+        "segment": " 타임: 야! 너 지금 내가 만만해?",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가волnh"
+        ],
+        "whisperInferTime": 7189,
+        "llmTime": 3014,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10203
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [],
+        "whisperInferTime": 3871,
+        "llmTime": 3016,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6887
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다..."
+        ],
+        "whisperInferTime": 3811,
+        "llmTime": 3017,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6828
+      },
+      {
+        "segment": " 이석현 전화가 잘 모르겠어요.",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임을 다"
+        ],
+        "whisperInferTime": 11631,
+        "llmTime": 3041,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14672
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임을",
+        "whileIgnored": [],
+        "whisperInferTime": 16748,
+        "llmTime": 3005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 19753
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [],
+        "whisperInferTime": 3003,
+        "llmTime": 3019,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6022
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [],
+        "whisperInferTime": 5840,
+        "llmTime": 841,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6681
+      },
+      {
+        "segment": " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [],
+        "whisperInferTime": 8001,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8001
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이게 누구야... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다...",
+        "whileIgnored": [
+          " 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 타임에만 하고 테스트 커버가 걸린다... 아..."
+        ],
+        "whisperInferTime": 4555,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7559
+      }
+    ]
+  }
+]

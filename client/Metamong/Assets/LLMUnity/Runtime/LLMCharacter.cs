@@ -254,13 +254,14 @@ namespace LLMUnity
             return true;
         }
 
-        protected virtual async Task<bool> InitNKeep()
+        protected virtual async Task<bool> InitNKeep(CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             if (setNKeepToPrompt && nKeep == -1)
             {
                 if (!CheckTemplate()) return false;
-                string systemPrompt = template.ComputePrompt(new List<ChatMessage>(){chat[0]}, playerName, "", false);
-                List<int> tokens = await Tokenize(systemPrompt);
+                string systemPrompt = template.ComputePrompt(new List<ChatMessage>() { chat[0] }, playerName, "", false);
+                List<int> tokens = await Tokenize(systemPrompt, null, token);
                 if (tokens == null) return false;
                 SetNKeep(tokens);
             }
@@ -285,12 +286,13 @@ namespace LLMUnity
         /// Loads the chat template of the LLMCharacter.
         /// </summary>
         /// <returns></returns>
-        public virtual async Task LoadTemplate()
+        public virtual async Task LoadTemplate(CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             string llmTemplate;
             if (remote)
             {
-                llmTemplate = await AskTemplate();
+                llmTemplate = await AskTemplate(token);
             }
             else
             {
@@ -418,24 +420,26 @@ namespace LLMUnity
             return result.template;
         }
 
-        protected virtual async Task<string> CompletionRequest(string json, Callback<string> callback = null)
+        protected virtual async Task<string> CompletionRequest(string json, Callback<string> callback = null, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             string result = "";
             if (stream)
             {
-                result = await PostRequest<MultiChatResult, string>(json, "completion", MultiChatContent, callback);
+                result = await PostRequest<MultiChatResult, string>(json, "completion", MultiChatContent, callback, token);
             }
             else
             {
-                result = await PostRequest<ChatResult, string>(json, "completion", ChatContent, callback);
+                result = await PostRequest<ChatResult, string>(json, "completion", ChatContent, callback, token);
             }
             return result;
         }
 
-        protected async Task<ChatRequest> PromptWithQuery(string query)
+        protected async Task<ChatRequest> PromptWithQuery(string query, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             ChatRequest result = default;
-            await chatLock.WaitAsync();
+            await chatLock.WaitAsync().WithCancellation(token);
             try
             {
                 AddPlayerMessage(query);
@@ -461,21 +465,26 @@ namespace LLMUnity
         /// <param name="completionCallback">callback function called when the full response has been received</param>
         /// <param name="addToHistory">whether to add the user query to the chat history</param>
         /// <returns>the LLM response</returns>
-        public virtual async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = true)
+        public virtual async Task<string> Chat(string query, Callback<string> callback = null, EmptyCallback completionCallback = null, bool addToHistory = true, CancellationToken token = default)
         {
+            token.ThrowIfCancellationRequested();
             // handle a chat message by the user
             // call the callback function while the answer is received
             // call the completionCallback function when the answer is fully received
-            await LoadTemplate();
+            await LoadTemplate(token);
             if (!CheckTemplate()) return null;
-            if (!await InitNKeep()) return null;
+            token.ThrowIfCancellationRequested();
+            if (!await InitNKeep(token)) return null;
 
-            string json = JsonUtility.ToJson(await PromptWithQuery(query));
-            string result = await CompletionRequest(json, callback);
+            token.ThrowIfCancellationRequested();
+            string json = JsonUtility.ToJson(await PromptWithQuery(query, token));
+            token.ThrowIfCancellationRequested();
+            string result = await CompletionRequest(json, callback, token);
 
             if (addToHistory && result != null)
             {
-                await chatLock.WaitAsync();
+                token.ThrowIfCancellationRequested();
+                await chatLock.WaitAsync().WithCancellation(token);
                 try
                 {
                     AddPlayerMessage(query);
@@ -562,9 +571,10 @@ namespace LLMUnity
         /// Asks the LLM for the chat template to use.
         /// </summary>
         /// <returns>the chat template of the LLM</returns>
-        public virtual async Task<string> AskTemplate()
+        public virtual async Task<string> AskTemplate(CancellationToken token=default)
         {
-            return await PostRequest<TemplateResult, string>("{}", "template", TemplateContent);
+            token.ThrowIfCancellationRequested();
+            return await PostRequest<TemplateResult, string>("{}", "template", TemplateContent, null, token);
         }
 
         protected override void CancelRequestsLocal()
@@ -626,9 +636,9 @@ namespace LLMUnity
             return result;
         }
 
-        protected override async Task<Ret> PostRequestLocal<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null)
+        protected override async Task<Ret> PostRequestLocal<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null, CancellationToken token=default)
         {
-            if (endpoint != "completion") return await base.PostRequestLocal(json, endpoint, getContent, callback);
+            if (endpoint != "completion") return await base.PostRequestLocal(json, endpoint, getContent, callback, token);
 
             while (!llm.failed && !llm.started) await Task.Yield();
 
@@ -653,7 +663,7 @@ namespace LLMUnity
                     }
                     callbackCalled = true;
                 }
-                callResult = await llm.Completion(json, callbackString);
+                callResult = await llm.Completion(json, callbackString, token);
             }
 
             Ret result = ConvertContent(callResult, getContent);

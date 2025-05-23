@@ -2,6 +2,7 @@
 /// @brief File implementing the basic functionality for LLM callers.
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -233,25 +234,27 @@ namespace LLMUnity
             else CancelRequestsLocal();
         }
 
-        protected virtual async Task<Ret> PostRequestLocal<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null)
+        protected virtual async Task<Ret> PostRequestLocal<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             // send a post request to the server and call the relevant callbacks to convert the received content and handle it
             // this function has streaming functionality i.e. handles the answer while it is being received
             while (!llm.failed && !llm.started) await Task.Yield();
             string callResult = null;
+            token.ThrowIfCancellationRequested();
             switch (endpoint)
             {
                 case "tokenize":
-                    callResult = await llm.Tokenize(json);
+                    callResult = await llm.Tokenize(json, token);
                     break;
                 case "detokenize":
-                    callResult = await llm.Detokenize(json);
+                    callResult = await llm.Detokenize(json, token);
                     break;
                 case "embeddings":
-                    callResult = await llm.Embeddings(json);
+                    callResult = await llm.Embeddings(json, token);
                     break;
                 case "slots":
-                    callResult = await llm.Slot(json);
+                    callResult = await llm.Slot(json, token);
                     break;
                 default:
                     LLMUnitySetup.LogError($"Unknown endpoint {endpoint}");
@@ -263,8 +266,9 @@ namespace LLMUnity
             return result;
         }
 
-        protected virtual async Task<Ret> PostRequestRemote<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null)
+        protected virtual async Task<Ret> PostRequestRemote<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             // send a post request to the server and call the relevant callbacks to convert the received content and handle it
             // this function has streaming functionality i.e. handles the answer while it is being received
             if (endpoint == "slots")
@@ -333,10 +337,11 @@ namespace LLMUnity
             return result;
         }
 
-        protected virtual async Task<Ret> PostRequest<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null)
+        protected virtual async Task<Ret> PostRequest<Res, Ret>(string json, string endpoint, ContentCallback<Res, Ret> getContent, Callback<Ret> callback = null, CancellationToken token=default)
         {
-            if (remote) return await PostRequestRemote(json, endpoint, getContent, callback);
-            return await PostRequestLocal(json, endpoint, getContent, callback);
+            token.ThrowIfCancellationRequested();
+            if (remote) return await PostRequestRemote(json, endpoint, getContent, callback, token);
+            return await PostRequestLocal(json, endpoint, getContent, callback, token);
         }
 
         /// <summary>
@@ -345,13 +350,14 @@ namespace LLMUnity
         /// <param name="query">query to tokenise</param>
         /// <param name="callback">callback function called with the result tokens</param>
         /// <returns>list of the tokens</returns>
-        public virtual async Task<List<int>> Tokenize(string query, Callback<List<int>> callback = null)
+        public virtual async Task<List<int>> Tokenize(string query, Callback<List<int>> callback = null, CancellationToken token=default)
         {
+            token.ThrowIfCancellationRequested();
             // handle the tokenization of a message by the user
             TokenizeRequest tokenizeRequest = new TokenizeRequest();
             tokenizeRequest.content = query;
             string json = JsonUtility.ToJson(tokenizeRequest);
-            return await PostRequest<TokenizeResult, List<int>>(json, "tokenize", TokenizeContent, callback);
+            return await PostRequest<TokenizeResult, List<int>>(json, "tokenize", TokenizeContent, callback, token);
         }
 
         /// <summary>

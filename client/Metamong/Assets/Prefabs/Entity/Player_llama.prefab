@@ -5758,6 +5758,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleClipName: IdleAnimation
+  talkingClipName: 
+  isBlocked: 0
+  isMotionPlaying: 0
 --- !u!1 &9140170519348878785
 GameObject:
   m_ObjectHideFlags: 0

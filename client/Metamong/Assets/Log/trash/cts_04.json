@@ -1,0 +1,98 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 4초... 4초가 아예 안 나!",
+        "whileIgnored": [
+          " 4초... 4초가 아예 안나!"
+        ],
+        "whisperInferTime": 3377,
+        "llmTime": 3041,
+        "llmResponse": "The speaker becomes visibly agitated, exclaiming in frustration and despair as they struggle to express their emotions.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Sad_L",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 6429
+      },
+      {
+        "segment": " 진짜야? 진짜?",
+        "whileIgnored": [
+          " 진짜야? 진짜... 데려...",
+          " 데려온 거 맞아?",
+          " 데려온 거 맞아?"
+        ],
+        "whisperInferTime": 1963,
+        "llmTime": 2702,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4665
+      },
+      {
+        "segment": " 타임아웃이 나기도 하고...",
+        "whileIgnored": [
+          " 타임아웃이 나기도 하고 안 나기도 하고 그래요?"
+        ],
+        "whisperInferTime": 1497,
+        "llmTime": 2703,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4200
+      },
+      {
+        "segment": " 어찌 안 날다도 그래야 되거든요. 있어야 돼.",
+        "whileIgnored": [
+          " 이 쪽이 안 날 때도 그래야 되거든요. 있어야 돼.",
+          " 700초가 그렇게 길지 않잖아.",
+          " 700초가 그렇게 길지 않잖아."
+        ],
+        "whisperInferTime": 9505,
+        "llmTime": 2703,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 12208
+      },
+      {
+        "segment": " 계속 넘는 게 이게...",
+        "whileIgnored": [
+          " 계속 넘는 게 이게 우연이야?"
+        ],
+        "whisperInferTime": 4483,
+        "llmTime": 2702,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7185
+      },
+      {
+        "segment": " 너... 확 생겨야지.",
+        "whileIgnored": [
+          " 너... 너 박생 거야 지금?",
+          " 빡센 거야 지금?"
+        ],
+        "whisperInferTime": 3462,
+        "llmTime": 2704,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6166
+      }
+    ]
+  }
+]
