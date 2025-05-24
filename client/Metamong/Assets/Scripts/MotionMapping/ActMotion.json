@@ -11,8 +11,8 @@
   "The speaker, feeling joyful, is expressing their understanding with a delighted 'aha'.": "Aha",
   "The speaker, feeling pleased, is indicating they understood what was said with satisfaction.": "Aha",
   "The speaker, feeling relieved, is acknowledging and understanding the previous statement.": "Aha",
-  "The speaker, feeling relieved, is acknowledging the other person's understanding.": "Aha",
-  "The speaker, feeling relieved, is finally understanding the situation. ": "Aha",
+  "The speaker, feeling neutral, is acknowledging the other person's understanding.": "Aha",
+  "The speaker, feeling pleasure, is finally understanding the situation. ": "Aha",
 
   "The speaker, feeling slightly angry, is softly lamenting their own situation.": "Angry_small",
   "The speaker, feeling slightly annoyed, is repeating what the other person just said": "Angry_small",
@@ -71,6 +71,7 @@
   "The speaker, feeling hungry and slightly annoyed, is questioning someone about eating before coming. ": "DontKnow",
   "The speaker, feeling curious, is asking for an explanation.": "DontKnow",
   "The speaker, feeling curious, is asking for advice.": "DontKnow",
+  "The speaker, feeling curious, is seeking the other person's opinion": "DontKnow",
 
   "The speaker, feeling regretful, is informing that the proposed time slot is not suitable.": "Depressed",
   "The speaker, feeling regretful, is gently declining the other person's suggestion.": "Depressed",
@@ -80,12 +81,12 @@
 
   "The speaker, feeling bored, is talking to themselves absentmindedly.": "Gijigae",
   "The speaker, feeling relaxed and carefree, is suggesting a break.": "Gijigae",
-  "The speaker, feeling tired and stressed, is urging himself to take a break.": "Gijigae",
 
   "The speaker, feeling disappointed, is blaming the other person.": "Hansim",
   "The speaker, feeling annoyed and frustrated, is making a sarcastic comment": "Hansim",
   "The speaker, feeling annoyed, is teasing someone about their Behavior.": "Hansim",
   "The speaker, feeling annoyed and frustrated, is scolding someone": "Hansim",
+  "The speaker, feeling annoyed, is responding with a monosyllable.": "Hansim",
 
   "The speaker, feeling puzzled, is scratching their head thoughtfully.": "HeadScratch",
   "The speaker, feeling relieved and understanding, is finally aware of the truth": "HeadScratch",
@@ -94,6 +95,7 @@
   "The speaker, feeling neutral but cordial, is smiling and waving hello.": "Hello",
   "The speaker, feeling friendly, is greeting someone warmly.": "Hello",
   "The speaker, feeling friendly and welcoming, is saying goodbye to someone.": "Hello",
+  "The speaker, feeling friendly and casual, is introducing himself in a relaxed manner.": "Hello",
 
   "The speaker, feeling hungry, is rubbing their stomach and looking around for food.": "Hungry",
   "The speaker, feeling amused and slightly hungry, is ending the conversation.": "Hungry",
@@ -126,6 +128,7 @@
   "The speaker, feeling firm, is politely rejecting the other person's opinion.": "Nope",
   "The speaker, feeling frustrated and annoyed, is complaining about the situation.": "Nope",
   "The speaker, feeling slightly annoyed, is expressing their dislike for it": "Nope",
+  "The speaker, feeling annoyed, is expressing a subtle disagreement.": "Nope",
 
   "The speaker, feeling neutral, is making an OK sign to indicate agreement.": "OkaySign",
   "The speaker, feeling determined, is committing to the plan.": "OkaySign",
@@ -149,6 +152,7 @@
   "The speaker, feeling relieved, is exhaling deeply and relaxing their shoulders.": "Relieved",
   "The speaker, feeling relieved and grateful, is expressing a sense of good fortune": "Relieved",
   "The speaker, feeling relaxed and content, is taking a moment to pause. ": "Relieved",
+  "The speaker, feeling relieved, is expressing a sense of calm.": "Relieved",
 
   "The speaker, feeling upset, is scolding the other person for their mistake.": "Rebuke",
   "The speaker, feeling angry, is scolding the other person in a stern voice.": "Rebuke",
@@ -166,9 +170,8 @@
   "The speaker, feeling mildly surprised, is raising an eyebrow in astonishment.": "Surprised_small",
   "The speaker, feeling surprised and shocked, is expressing their astonishment.": "Surprised_small",
 
-
-  "The speaker, feeling neutral, is speaking calmly to convey information.": "Talking",
-  "The speaker, feeling curious, is asking for an opinion.": "Talking",
+  "The speaker, feeling neutral, is speaking calmly to convey information.": "Talking", //여기는 약간 애매하게 출력되면 하면 좋을 듯 한디..
+  "The speaker, feeling casual, is continuing the conversation": "Talking",
 
   "The speaker, feeling unsure, is thinking about what to do.": "Thinking",
   "The speaker, feeling thoughtful, is considering their choices.": "Thinking",
@@ -180,10 +183,35 @@
   "The speaker, feeling embarrassed and apologetic, is explaining the situation.": "Explaining",
 
   "The speaker, feeling friendly and considerate, is suggesting a follow-up contact": "CallMe",
+  "The speaker, feeling friendly is inviting the other person to stay in touch.": "CallMe",
+  "The speaker, feeling friendly and polite, is making plans to contact the other person later.": "CallMe",
+  "The speaker, feeling neutral, is suggesting a phone call to someone else. ": "CallMe",
+  "The speaker, feeling happy, is making phone calls.": "CallMe",
+  "The speaker, feeling relieved, is agreeing to communicate later.": "CallMe",
 
-  "2": "ComeMe",
-  "3": "Sleepy",
-  "4": "Listening",
-  "5": "Introduce",
-  "6": "Shouting"
+  "The speaker, feeling impatient, is urging the other person to arrive quickly.": "ComeOn",
+  "The speaker, feeling excited, is saying come this way": "ComeOn",
+  "The speaker, feeling inviting, is suggesting a visit": "ComeOn",
+  "The speaker, feeling friendly, is pointing out their location.": "ComeOn",
+  "The speaker, feeling casual and friendly, is suggesting a change in direction.": "ComeOn",
+
+  "The speaker, feeling tired and sleepy, is yawning.": "Sleepy",
+  "The speaker, feeling tired and stressed, is urging himself to take a break.": "Sleepy",
+  "The speaker, feeling tired and sleepy, is acknowledging their exhaustion.": "Sleepy",
+  "The speaker, feeling tired and slightly sad, is expressing their lack of sleep": "Sleepy",
+  "The speaker, feeling extremely tired and frustrated, is expressing their exhaustion.": "Sleepy",
+
+  "The speaker, feeling frustrated, is asking for a saying again.": "Listening",
+  "The speaker, feeling curious, is asking for more information.": "Listening",
+  "The speaker, feeling frustrated, is complaining about the poor reception.": "Listening",
+  "The speaker, feeling curious, is asking the other person for their opinion. ": "Listening",
+  "The speaker, feeling curious, is asking for an opinion.": "Listening",
+
+  "The speaker, feeling confident, is introducing themselves": "Introduce",
+  "The speaker, feeling friendly, is introducing someone.": "Introduce",
+  "The speaker, feeling excited, is enthusiastically introducing a topic.": "Introduce",
+  "The speaker, feeling neutral, is providing information about the picture": "Introduce",
+
+  "The speaker, feeling playful, is reporting a sudden loud noise in the front": "Shouting",
+  "The speaker, feeling frustrated, is repeatedly shouting in the front direction.": "Shouting"
 }

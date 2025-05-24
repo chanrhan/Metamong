@@ -47,7 +47,7 @@ public class Llama : MonoBehaviour
           "yyy: 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\n" +
           "ttt: 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때?\n" +
           "yyy: 어, 너 거기 가봤어? 거기 어때?\n" +
-          "ttt: 대학교 친구들이랑 같이 갔었는데 먹거리도 다양해서 좋았어\n" +
+          "마지막 발화 ttt: 대학교 친구들이랑 같이 갔었는데 먹거리도 다양해서 좋았어\n" +
           "Output: The speaker, feeling satisfied, is agreeing with the other person.\n\n" +
 
           "ggg: 아, 진짜 너무 심심하다.\n" +
@@ -55,20 +55,20 @@ public class Llama : MonoBehaviour
 
           "aaa: 나 오늘 기분이 너무 좋아\n" +
           "bbb: 왜? 무슨 일 있어?\n" +
-          "aaa: 그냥 기분이 좋아\n" +
+          "마지막 발화 aaa: 그냥 기분이 좋아\n" +
           "Output: The speaker, feeling positive, is casually expressing happiness.\n\n" +
 
           "mmm: 요즘 너무 바빠서 정신이 하나도 없어\n" +
           "jjj: 일이 많아?\n" +
           "mmm: 어, 회의도 많고 보고서도 많아서 정신이 없어\n" +
           "jjj: 힘들겠다, 좀 쉬어야겠네\n" +
-          "mmm: 나도 쉴 수 있었으면 진작에 쉬었지\n" +
+          "마지막 발화 mmm: 나도 쉴 수 있었으면 진작에 쉬었지\n" +
           "Output: The speaker, feeling slightly angry, is quietly lamenting his own situation.\n\n" +
 
           "kun: 나 오늘 학교에서 재밌는 일 있었어\n" +
           "min: 뭔데?\n" +
           "kun: 학교에서 선생님이 걷다가 계단에서 넘어졌어, 너무 웃겨\n" +
-          "min: 너는 그게 웃기니?\n" +
+          "마지막 발화 min: 너는 그게 웃기니?\n" +
           "Output: The speaker, feeling disappointed, is blaming the other person.\n\n" +
 
           "jin: 오늘 쿵푸펜더 나왔는데 보러갈래?\n" +
@@ -76,10 +76,10 @@ public class Llama : MonoBehaviour
           "jin: 그럼 보러가자\n" +
           "gyu: 응, 언제 보러갈래?\n" +
           "jin: 이번 주 토요일 어때?\n" +
-          "gyu: 헐, 그날은 시간 안 되는데\n" +
+          "마지막 발화 gyu: 헐, 그날은 시간 안 되는데\n" +
           "Output: The speaker, feeling regretful, is politely declining the other person's suggestion.\n\n" +
 
-          "sss: 오, 또 야근이라니 정말 좋다!\n" +
+          "마지막 발화 sss: 오, 또 야근이라니 정말 좋다!\n" +
           "Output: The speaker, feeling sarcastic, is ironically praising the extra work.\n\n" +
 
           "전체 대화:\n" +

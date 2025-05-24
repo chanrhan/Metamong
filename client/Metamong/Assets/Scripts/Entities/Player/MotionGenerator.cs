@@ -206,14 +206,14 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         return response;
     }
 
-    public string[] GetMotionKeywords(string motions)
+    public string[] GetMotionKeywords(string motion)
     {
         string[] keywords = new string[2];
-        MotionInfo actMotion = sbert.GetActMotionInfo(motions);
+        MotionInfo actMotion = sbert.GetActMotionInfo(motion);
 
         //keywords[0] = sbert.CompareWordText(motions, true);
         keywords[0] = actMotion.clipNames[UnityEngine.Random.Range(0, actMotion.clipNames.Length)];
-        keywords[1] = sbert.CompareWordText(motions, false);
+        keywords[1] = sbert.CompareWordText(motion, false);
         Debug.Log("DURA : " + keywords[0]);
 
         return keywords;
@@ -263,5 +263,13 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     public void ClearChatLogs()
     {
         chatHistory.Clear();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            chatHistory.Clear();
+        }
     }
 }
