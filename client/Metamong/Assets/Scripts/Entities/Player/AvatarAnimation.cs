@@ -14,6 +14,7 @@ public class AvatarAnimation : MonoBehaviour
 
     private const string TALKING_PARAM = "isTalking";
     private const string WALKING_PARAM = "isWalking";
+    private const string TALKING_VAR_PARA = "TalkingPara";
 
     private Animator anim;
     [SerializeField]
@@ -43,7 +44,11 @@ public class AvatarAnimation : MonoBehaviour
         set=>anim.SetBool(TALKING_PARAM, value);
     }
 
-
+    public int TalkingPara
+    {
+        get=>anim.GetInteger(TALKING_VAR_PARA);
+        set => anim.SetFloat(TALKING_VAR_PARA, value);
+    }
 
     void Awake()
     {

@@ -196,5 +196,507 @@
         "totalElapsedTime": 5064
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 언제 와",
+        "whileIgnored": [
+          " 와 저 개느리네"
+        ],
+        "whisperInferTime": 2069,
+        "llmTime": 2730,
+        "llmResponse": "Output: The speaker, feeling anxious, is asking when the other person will arrive.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Worried",
+        "faceClipName": "Aha",
+        "totalElapsedTime": 4811
+      },
+      {
+        "segment": " 설마... 뭐...",
+        "whileIgnored": [],
+        "whisperInferTime": 5991,
+        "llmTime": 1330,
+        "llmResponse": "Output: The speaker, feeling slightly anxious, is tentatively expressing a thought.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Angry_small",
+        "totalElapsedTime": 7332
+      },
+      {
+        "segment": " 와",
+        "whileIgnored": [
+          " 설마 뭐 개느리네 언제 와",
+          " 너 이리 내 언제 와 말해 좀 터하나",
+          " 너 이리 내 거잖아"
+        ],
+        "whisperInferTime": 1625,
+        "llmTime": 1545,
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is impatiently demanding an answer.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 3180
+      },
+      {
+        "segment": " 너 왜?",
+        "whileIgnored": [
+          " 와... 오이... 바나나무?",
+          " 와 이거 하나는 거 맞나?",
+          " 너 왜 안 돼?"
+        ],
+        "whisperInferTime": 2073,
+        "llmTime": 980,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is questioning the other person's actions.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope",
+        "totalElapsedTime": 3062
+      },
+      {
+        "segment": " 말 말 말",
+        "whileIgnored": [
+          " 이게 지금",
+          " 이게 지금 말을 하고 있으면은 이제",
+          " 지금 말을 하고 있으면 이제",
+          " 말 말하고 있으면은"
+        ],
+        "whisperInferTime": 2158,
+        "llmTime": 1972,
+        "llmResponse": "Output: The speaker, feeling frustrated and impatient, is repeatedly asking the other person to come.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 4142
+      },
+      {
+        "segment": " 왜 저렇게 행동하는지?",
+        "whileIgnored": [
+          " 제스처를 이게 약간",
+          " 그거거든? 말하는 제스처?",
+          " 말하는 제스처인데",
+          " 왜 저렇게 행동하는지 모르겠네"
+        ],
+        "whisperInferTime": 2490,
+        "llmTime": 1219,
+        "llmResponse": "Output: The speaker, feeling puzzled and slightly annoyed, is questioning the other person's behavior.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Hansim",
+        "faceClipName": "Aha",
+        "totalElapsedTime": 3718
+      },
+      {
+        "segment": " 아~",
+        "whileIgnored": [
+          " 왜 저렇게 행동하는지는 모르겠네"
+        ],
+        "whisperInferTime": 6034,
+        "llmTime": 1073,
+        "llmResponse": "Output: The speaker, feeling puzzled and slightly annoyed, is expressing confusion.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Angry_small",
+        "totalElapsedTime": 7118
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 뭐 꿇어보냐?",
+        "whileIgnored": [],
+        "whisperInferTime": 2485,
+        "llmTime": 1325,
+        "llmResponse": "Output: The speaker, feeling curious, is asking for an explanation.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Surprised",
+        "faceClipName": "DontKnow_02",
+        "totalElapsedTime": 3822
+      },
+      {
+        "segment": " 뭘 꿇어보냐고",
+        "whileIgnored": [
+          " 뭐 꿇어보냐고"
+        ],
+        "whisperInferTime": 3473,
+        "llmTime": 963,
+        "llmResponse": "Output: The speaker, feeling playful and curious, is teasing the other person.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Laugh_L",
+        "faceClipName": "Laugh_small",
+        "totalElapsedTime": 4445
+      },
+      {
+        "segment": " 안고라 반대기야.",
+        "whileIgnored": [
+          " 아 뭐 꿇어보냐고",
+          " 아무것도 안 꼈아봤는데 미안해"
+        ],
+        "whisperInferTime": 6940,
+        "llmTime": 555,
+        "llmResponse": "Output: The speaker, feeling annoyed, is arguing with someone.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Hansim",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 7504
+      },
+      {
+        "segment": " 뭐가 미안해? 그니까 뭐가 미안해?",
+        "whileIgnored": [
+          " 뭐가 미안해? 그게 문제야."
+        ],
+        "whisperInferTime": 3977,
+        "llmTime": 1176,
+        "llmResponse": "Output: The speaker, feeling defensive and slightly annoyed, is questioning the other person's apology.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "Aha",
+        "totalElapsedTime": 5164
+      },
+      {
+        "segment": " 또 한글자막 제공 및 자막 제공 및 자막 제공 및 광고를 포함하고 있습니다.",
+        "whileIgnored": [
+          " 한글자막 제공 및 자막 제공 및 자막 제공 및 자막 제공 및 광고를 포함하고 있습니다.",
+          " 고맙습니다."
+        ],
+        "whisperInferTime": 4585,
+        "llmTime": 1151,
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is complaining about the unnecessary repetition of subtitles and ads.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 5746
+      },
+      {
+        "segment": " 뭐 안 되는 데?",
+        "whileIgnored": [
+          " 안녕하십니까.",
+          " 감사합니다.",
+          " 얘들아 나 됐는데",
+          " 뭐 안 되는 데?"
+        ],
+        "whisperInferTime": 964,
+        "llmTime": 1241,
+        "llmResponse": "Output: The speaker, feeling frustrated and helpless, is expressing their inability to do something.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Angry_big",
+        "totalElapsedTime": 2215
+      },
+      {
+        "segment": " 너가...",
+        "whileIgnored": [],
+        "whisperInferTime": 2428,
+        "llmTime": 1055,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly angry, is expressing their dissatisfaction.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Angry_big_02",
+        "totalElapsedTime": 3494
+      },
+      {
+        "segment": " 아니 잠깐만 이거 왜 이러냐?",
+        "whileIgnored": [
+          " 너네네네네네네네네.",
+          " 어 잠깐만 맛있는데?",
+          " 아니 잠깐만 이거 왜 이러냐?"
+        ],
+        "whisperInferTime": 929,
+        "llmTime": 975,
+        "llmResponse": "Output: The speaker, feeling frustrated and curious, is questioning the situation.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "DontKnow",
+        "totalElapsedTime": 1917
+      },
+      {
+        "segment": " - - -",
+        "whileIgnored": [],
+        "whisperInferTime": 4641,
+        "llmTime": 937,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is complaining about something.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope",
+        "totalElapsedTime": 5588
+      },
+      {
+        "segment": " 얘들아 뭐지? 뒤로 왜?",
+        "whileIgnored": [
+          " 너밖에 안 되고 있는 거야.",
+          " 뭐 안 되는 거지?",
+          " 얘들아 뭐지?"
+        ],
+        "whisperInferTime": 2474,
+        "llmTime": 622,
+        "llmResponse": "Output: The speaker, feeling frustrated and curious, is questioning the situation.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "DontKnow",
+        "totalElapsedTime": 3098
+      },
+      {
+        "segment": " 어디? 무리한 에스보트 무리한?",
+        "whileIgnored": [
+          " 아까봐.",
+          " 물 바꿔. 물이 바꿨어."
+        ],
+        "whisperInferTime": 4743,
+        "llmTime": 1015,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is complaining about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 5770
+      },
+      {
+        "segment": " 저한테 말하면",
+        "whileIgnored": [
+          " 배트보트 무대를 바꿨어. 어 진짜? 왜 이렇게 빨라?"
+        ],
+        "whisperInferTime": 3823,
+        "llmTime": 661,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is complaining about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope",
+        "totalElapsedTime": 4486
+      },
+      {
+        "segment": " 뭐지? 뭐지? 뭐지?",
+        "whileIgnored": [
+          " 저한테 말하기만 하면 모두들 형제.",
+          " 정확히 말하면 모델 형태가 같아가지고",
+          " 모델 형태가 같아가지고 모델을 바꿨어.",
+          " 모델 형태가 같아가지고 모델 형태가 바꿨어.",
+          " 뭐지? 뭐지? 뭐지? 뭐지?"
+        ],
+        "whisperInferTime": 1305,
+        "llmTime": 715,
+        "llmResponse": "Output: The speaker, feeling frustrated and impatient, is repeatedly asking the same question.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 2030
+      },
+      {
+        "segment": " -끼벨로베",
+        "whileIgnored": [
+          " 뭐지? 뭐 뭐가...",
+          " 뭐지? 뭐가 바뀌는 거야?"
+        ],
+        "whisperInferTime": 2271,
+        "llmTime": 715,
+        "llmResponse": "Output: The speaker, feeling curious and slightly annoyed, is questioning the sudden change.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "Aha",
+        "totalElapsedTime": 2997
+      },
+      {
+        "segment": " 콘도가 조금 바뀌어. 콘도가 조금 바뀌어가지고.",
+        "whileIgnored": [
+          " 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지?"
+        ],
+        "whisperInferTime": 3211,
+        "llmTime": 761,
+        "llmResponse": "Output: The speaker, feeling curious and slightly annoyed, is questioning the changes in the model.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Hansim",
+        "faceClipName": "Explaining",
+        "totalElapsedTime": 3984
+      },
+      {
+        "segment": " 뭐지? 뭐지? 뭐지? 뭐지?",
+        "whileIgnored": [
+          " 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지?",
+          " 뭐지? 뭐지? 뭐지? 뭐지?"
+        ],
+        "whisperInferTime": 1591,
+        "llmTime": 758,
+        "llmResponse": "Output: The speaker, feeling puzzled and slightly annoyed, is repeatedly asking if something has changed.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "Nope",
+        "totalElapsedTime": 2360
+      },
+      {
+        "segment": " 아. 그러면은... 코미라도 꼭.",
+        "whileIgnored": [
+          " 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지? 뭐지?",
+          " 기밀룹에서 하는 게 맞긴 해.",
+          " 기밀룹에서 하는게 맞긴 해. 아.",
+          " 아 그러면은. 코너가 조금 바뀌었어."
+        ],
+        "whisperInferTime": 855,
+        "llmTime": 846,
+        "llmResponse": "Output: The speaker, feeling relieved and slightly sarcastic, is commenting on the situation with a hint of resignation.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "Aha",
+        "totalElapsedTime": 1711
+      },
+      {
+        "segment": " 지금 프로세스에서 적용을 시켜버린 거야?",
+        "whileIgnored": [],
+        "whisperInferTime": 2673,
+        "llmTime": 827,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is complaining about the sudden changes in the process.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 3512
+      },
+      {
+        "segment": " 아. 아. 아. 아. 아. 아. 아. 아.",
+        "whileIgnored": [
+          " 뭐지? 이제 그런 거 시켜버린 거야. 아. 그러니까.",
+          " 기밀룹에서 브레이스를 판 다음에",
+          " 디벨롭에서 브레이스를 판 다음에. 음."
+        ],
+        "whisperInferTime": 2942,
+        "llmTime": 527,
+        "llmResponse": "Output: The speaker, feeling frustrated and anxious, is repeating themselves in a state of distress.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_03",
+        "totalElapsedTime": 3479
+      },
+      {
+        "segment": " 현재 프로세스는 성공을 했어",
+        "whileIgnored": [],
+        "whisperInferTime": 3450,
+        "llmTime": 796,
+        "llmResponse": "Output: The speaker, feeling relieved and triumphant, is celebrating the success of the current process.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Smile_L",
+        "faceClipName": "Clapping",
+        "totalElapsedTime": 4258
+      },
+      {
+        "segment": " 바꿔버린 거네? 그 S볼트? 코 S볼트로?",
+        "whileIgnored": [],
+        "whisperInferTime": 6954,
+        "llmTime": 789,
+        "llmResponse": "Output: The speaker, feeling relieved and slightly frustrated, is adjusting a process to ensure its success.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "IdleFace",
+        "faceClipName": "DDaBong",
+        "totalElapsedTime": 7755
+      },
+      {
+        "segment": " 할까? 일단 하지마!",
+        "whileIgnored": [
+          " 아. 아. 아. 아. 아. 아. 아. 아. 아. 아. 아. 아. 아. 아. 아."
+        ],
+        "whisperInferTime": 2972,
+        "llmTime": 776,
+        "llmResponse": "Output: The speaker, feeling anxious and frustrated, is trying to stop the process.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope_03",
+        "totalElapsedTime": 3760
+      },
+      {
+        "segment": " 이거만 해보고 잠깐만요",
+        "whileIgnored": [
+          " 일단 하지마 그러면. 일단 하지마. 아. 아. 일단 하지마.",
+          " 아. 아. 일단은 이것만 해보고. 잠깐만요."
+        ],
+        "whisperInferTime": 4479,
+        "llmTime": 820,
+        "llmResponse": "Output: The speaker, feeling anxious and uncertain, is hesitantly suggesting a temporary solution.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "IdleFace",
+        "faceClipName": "Thinking",
+        "totalElapsedTime": 5309
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어이 대미 일로 와봐",
+        "whileIgnored": [
+          " 이리 와봐"
+        ],
+        "whisperInferTime": 2014,
+        "llmTime": 1640,
+        "llmResponse": "Output: The speaker, feeling annoyed, is complaining about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "Nope_02",
+        "totalElapsedTime": 3664
+      },
+      {
+        "segment": " 아",
+        "whileIgnored": [
+          " 나 아아"
+        ],
+        "whisperInferTime": 13903,
+        "llmTime": 805,
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Angry_small",
+        "totalElapsedTime": 14716
+      },
+      {
+        "segment": " 흔드는데",
+        "whileIgnored": [
+          " 아아 내가 말할때는 뜨리네",
+          " 흔드는데"
+        ],
+        "whisperInferTime": 1497,
+        "llmTime": 575,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is struggling to continue speaking.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Angry_L",
+        "faceClipName": "Nope",
+        "totalElapsedTime": 2082
+      }
+    ]
   }
 ]
