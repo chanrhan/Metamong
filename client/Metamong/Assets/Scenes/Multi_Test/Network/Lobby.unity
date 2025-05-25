@@ -2393,15 +2393,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
-      propertyPath: updatePrompt
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: lengthSec
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: enableTokens
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
+      propertyPath: updatePrompt
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830593043218384986, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 2019422155}
-    PlayerPrefab: {fileID: 9124639000001752788, guid: 17f422e49845c36499edae3af95a61d0, type: 3}
+    PlayerPrefab: {fileID: 9124639000001752788, guid: be53985ad75ca544eb0d07a68d506d3c, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: bffabade0d54f4a77acba9540fd3e1bc, type: 2}
