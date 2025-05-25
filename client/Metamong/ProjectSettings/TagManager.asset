@@ -47,3 +47,6 @@ TagManager:
   - name: TextBoxLayer
     uniqueID: 3270500557
     locked: 0
+  - name: Effect
+    uniqueID: 1573996445
+    locked: 0
