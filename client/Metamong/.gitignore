@@ -84,3 +84,4 @@ crashlytics-build.properties
 **/[Aa]ssets/[Ss]treamingAssets/*.gguf
 **/[Aa]ssets/[Ss]treamingAssets/*.bin
 **/[Aa]ssets/[Ss]treamingAssets/*.bin.meta
+**/[Aa]ssets/[Ff]onts/[Bb]itFont/

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Threading;
+using TMPro;
 
 
 public class PlayerController : NetworkCharacter
@@ -10,16 +11,21 @@ public class PlayerController : NetworkCharacter
     [SerializeField] private float speedLimit = 10.0f;      //플레이어 최대 이동속도
     [SerializeField] private float jumpForce = 10.0f;       //플레이어 점프력
     private bool isOnGround = true;                         //플레이어 땅에 닿았는지 여부
+    [SerializeField] private TMP_Text userName;
     
-    private Vector3 currMoveVec = new Vector3(0,0,0);
+    private Vector3 currMoveVec = new Vector3(0, 0, 0);
 
     private void Start()
     {
-        if(IsOwner){
+        
+        if (IsOwner)
+        {
+            userName = GetComponentInChildren<TMP_Text>();
             CameraController.Instance.SetTargetPlayer(gameObject);
             ClientManager.Instance.MyPlayerObject = gameObject;
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
-            transform.position = new Vector3(-10,0,-5);
+            transform.position = new Vector3(-10, 0, -5);
+            userName.text = ClientManager.Instance.ClientInfo.username;
         }
     }
 

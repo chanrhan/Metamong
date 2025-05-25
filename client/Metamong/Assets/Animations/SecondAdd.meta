@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 5c24c58260ce3a0478e254d54d8d6c0a
+<<<<<<<< HEAD:client/Metamong/Assets/Animations/SecondAdd.meta
+guid: b7bae1e969bff004691abf8a78163a36
 folderAsset: yes
+========
+guid: ea7ec5718af01a54680622a7d7a3a29e
+>>>>>>>> origin/features/UI_custom:client/Metamong/Assets/Scenes/MapScene/Museum.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

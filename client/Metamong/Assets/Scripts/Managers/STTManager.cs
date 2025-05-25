@@ -29,6 +29,13 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
         set => onRecord += value;
     }
+
+     public Action<bool> onStopRecord;
+
+    public Action<bool> OnStopRecord
+    {
+        set => onStopRecord += value;
+    }
     
     private bool IsPlatformMacOs = false;
     private bool isRecording = false;
@@ -68,7 +75,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
         _stream.OnResultUpdated += OnResult;
-        _stream.OnSegmentUpdated += OnSegmentUpdated;
+        //_stream.OnSegmentUpdated += OnSegmentUpdated;
         _stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
 
@@ -100,6 +107,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
                 isRecording = false;
                 // Debug.Log("Stop Record");
                 StopRecord();
+                onStopRecord?.Invoke(!isRecording);
             }
             else
             {
@@ -148,12 +156,11 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
-         MotionGenerator.Instance?.Generate(segment);
     }
 
     private void OnSegmentFinished(WhisperResult segment)
     {
-       
+        MotionGenerator.Instance?.Generate(segment);
     }
 
     void OnVoiceDeteched()
