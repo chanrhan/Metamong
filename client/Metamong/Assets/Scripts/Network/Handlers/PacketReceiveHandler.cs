@@ -25,7 +25,7 @@ public class PacketReceiveHandler : PacketHandler
     /// <param name="packet"></param>
     private static void ReceiveChatMessage(Packet packet){
         ClientInfo clientInfo = packet.clientInfo;
-        MotionGenerator.Instance.AddChatLog(clientInfo.username, packet.message);
+        // Llama.Instance.AddChatLog(clientInfo.username, packet.message);
         // 채팅창에 띄우기
 
         Debug.Log("Receive Input Chat");
