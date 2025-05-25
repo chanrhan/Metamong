@@ -7,12 +7,14 @@
 [System.Serializable]
 public struct MotionInfo
 {
+    public double bestScore;
     public string[] clipNames { get; set; }     //관련된 애니메이션 클립 이름 -> 얘를 통해 애니메이션 재생
-    public string emotion { get; set; }     //관련된 이모션 종류-> "기쁨", "슬픔", "놀람", "분노", "공포", "혐오", "중립"
+    public string[] emotionalExept { get; set; }     //관련된 이모션 종류-> "기쁨", "슬픔", "놀람", "분노", "공포", "혐오", "중립"
 
-    public MotionInfo(string[] names, string emotionText)
+    public MotionInfo(string[] names, string[] emotionTexts, double score = 0.0)
     {
+        bestScore = score;
         clipNames = names;
-        emotion = emotionText;
+        emotionalExept = emotionTexts;
     }
 }
