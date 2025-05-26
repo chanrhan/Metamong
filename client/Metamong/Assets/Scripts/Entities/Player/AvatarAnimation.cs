@@ -132,8 +132,8 @@ public class AvatarAnimation : MonoBehaviour
         isBlocked = true;
         isMotionPlaying = true;
         IsTalking = false;
-        anim.Play(faceClipName, 0);
-        anim.Play(actionClipName, 2);
+        anim.Play(actionClipName, 0);
+        anim.Play(faceClipName, 2);
     }
 
     public void StartJump()
