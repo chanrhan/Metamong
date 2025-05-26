@@ -698,5 +698,48 @@
         "totalElapsedTime": 2082
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어... 아유 저...",
+        "whileIgnored": [],
+        "whisperInferTime": 2936,
+        "llmTime": 1226,
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is muttering to themselves.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Hansim",
+        "faceClipName": "Angry_small",
+        "totalElapsedTime": 4174
+      },
+      {
+        "segment": " 야! 안녕!",
+        "whileIgnored": [],
+        "whisperInferTime": 4395,
+        "llmTime": 461,
+        "llmResponse": "Output: The speaker, feeling casual and friendly, is saying goodbye.",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Smile_S",
+        "faceClipName": "Hello_03",
+        "totalElapsedTime": 4865
+      },
+      {
+        "segment": " 알았죠?",
+        "whileIgnored": [],
+        "whisperInferTime": 918,
+        "llmTime": 514,
+        "llmResponse": "Output: The speaker, feeling casual and friendly, is responding to a greeting.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "Introduce",
+        "totalElapsedTime": 1442
+      }
+    ]
   }
 ]
