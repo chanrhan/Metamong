@@ -280,6 +280,7 @@ namespace Whisper
         public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
+            
             // check if task isn't busy
             // if it's still transcribing - just skip it
             // next iteration will handle current and future data
