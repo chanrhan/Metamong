@@ -17,22 +17,22 @@ public class AvatarAnimation : MonoBehaviour
     private const string TALKING_VAR_PARA = "TalkingPara";
 
     private Animator anim;
-    [SerializeField]
-    private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
+    // [SerializeField]
+    // private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
     [SerializeField]
     private bool isMotionPlaying = false; // 모션 실행 중 여부 체크
-    public bool IsBlocked
-    {
-        get => isBlocked;
-        set
-        {
-            isBlocked = value;
-            if (!value)
-            {
-                isMotionPlaying = false;
-            }
-        }
-    }
+    // public bool IsBlocked
+    // {
+    //     get => isBlocked;
+    //     set
+    //     {
+    //         isBlocked = value;
+    //         if (!value)
+    //         {
+    //             isMotionPlaying = false;
+    //         }
+    //     }
+    // }
     public bool IsMotionPlaying
     {
         get => isMotionPlaying;
@@ -78,11 +78,10 @@ public class AvatarAnimation : MonoBehaviour
     /// </summary>
     private void UpdateIdleTransition()
     {
-        if (isBlocked)
+        if (isMotionPlaying)
         {
             if (IsDefaultAnimBool())
             {
-                isBlocked = false;
                 isMotionPlaying = false;
                 IsTalking = false;
                 return;
@@ -97,7 +96,7 @@ public class AvatarAnimation : MonoBehaviour
                 {
                     Debug.Log("[chan] Idle");
                     anim.Play(idleClipName);
-                    isBlocked = false;
+                    // isBlocked = false;
                     isMotionPlaying = false;
                     IsTalking = false;
                 }
@@ -129,11 +128,11 @@ public class AvatarAnimation : MonoBehaviour
     public void PlayFaceAndActionAnimation(string faceClipName, string actionClipName)
     {
         Debug.Log($"[chan] Play : {actionClipName}, Face: {faceClipName}");
-        isBlocked = true;
+        // isBlocked = true;
         isMotionPlaying = true;
         IsTalking = false;
-        anim.Play(actionClipName, 0);
-        anim.Play(faceClipName, 2);
+        anim.Play(faceClipName, 0);
+        anim.Play(actionClipName, 2);
     }
 
     public void StartJump()

@@ -3109,7 +3109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
-      value: ju/turbo_fin_22
+      value: chan/parallel_1
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: llmTimeoutLimit
