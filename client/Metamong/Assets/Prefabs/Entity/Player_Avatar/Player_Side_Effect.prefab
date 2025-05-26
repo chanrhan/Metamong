@@ -2653,7 +2653,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -7668,7 +7668,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.45527685, y: 0, z: 0.5482226, w: 0.12241626}
+  m_margin: {x: -0.45527685, y: -0.00011253357, z: 0.5482226, w: 0.12241626}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -13555,13 +13555,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2231817352435815943}
     m_Modifications:
-    - target: {fileID: 2319695528468879414, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 66828085420680344, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637663073606247154, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297716245645856454, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086878225109957286, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098270879039458083, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4271403414653626699, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
-      propertyPath: looping
-      value: 0
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271403414653626699, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5116004999879990123, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13603,6 +13623,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6365626094578500065, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6745551047982585826, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
       propertyPath: m_Name
       value: Effect_Excite
@@ -13610,6 +13634,10 @@ PrefabInstance:
     - target: {fileID: 6745551047982585826, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501060734605250963, guid: db20f5fa5ee344d48b898abc63d53917, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
