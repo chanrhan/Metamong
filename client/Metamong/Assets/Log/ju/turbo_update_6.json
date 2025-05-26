@@ -1,0 +1,201 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 집착해지고",
+        "whileIgnored": [],
+        "whisperInferTime": 2196,
+        "llmTime": 1956,
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing annoyance.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "Smile_S",
+        "actionScore": 1.0000000000000002,
+        "faceScore": 0.8600766746970625,
+        "totalElapsedTime": 4165
+      },
+      {
+        "segment": " 이거는 직장케이지 카페잖아요",
+        "whileIgnored": [],
+        "whisperInferTime": 4090,
+        "llmTime": 0,
+        "llmResponse": "Output: The speaker, feeling casual and familiar, is making a comment about the workplace.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Pointing",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.86041727707743965,
+        "faceScore": 0.8724376536789199,
+        "totalElapsedTime": 4103
+      },
+      {
+        "segment": " - 아, 마. - 오늘 저장서에 왔습니까?",
+        "whileIgnored": [
+          " 신과 함께 어마어마한"
+        ],
+        "whisperInferTime": 9138,
+        "llmTime": 856,
+        "llmResponse": "Output: The speaker, feeling frustrated and annoyed, is impatiently asking a question.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Angry_big_02",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.89035059970302854,
+        "faceScore": 0.8225074436919807,
+        "totalElapsedTime": 10007
+      },
+      {
+        "segment": " 적진 않죠 사실 엄청나게 수익을 얻으시는 상황이고",
+        "whileIgnored": [],
+        "whisperInferTime": 4766,
+        "llmTime": 1514,
+        "llmResponse": "Output: The speaker, feeling envious, is subtly expressing admiration for someone's success.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Nope",
+        "faceClipName": "Surprised",
+        "actionScore": 0.92308145513294149,
+        "faceScore": 0.838259192227291,
+        "totalElapsedTime": 6295
+      },
+      {
+        "segment": " 똑바로 제가 봤을 때.",
+        "whileIgnored": [
+          " 아이고",
+          " 기술적으로는 한 대만 재차는",
+          " 한 대만 재차입니다. 똑바로 지나가서"
+        ],
+        "whisperInferTime": 1773,
+        "llmTime": 1814,
+        "llmResponse": "Output: The speaker, feeling sarcastic and slightly annoyed, is making a witty remark with a touch of irony.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Pleasure_small",
+        "faceClipName": "Laugh_L",
+        "actionScore": 0.81969099106954557,
+        "faceScore": 0.74900565070095493,
+        "totalElapsedTime": 3604
+      },
+      {
+        "segment": " 제 명의도 대차는 한 대예요.",
+        "whileIgnored": [
+          " 진짜 띠띠띠띠띠띠"
+        ],
+        "whisperInferTime": 5685,
+        "llmTime": 1470,
+        "llmResponse": "Output: The speaker, feeling excited and triumphant, is proudly sharing their success story.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Pointing",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.89555707848997734,
+        "faceScore": 0.87339562092674561,
+        "totalElapsedTime": 7170
+      },
+      {
+        "segment": " 아니 그래서 내가 못 찾았다",
+        "whileIgnored": [
+          " -네.. 느낌 처음으로 했잖아요",
+          " - -",
+          " -모땡해"
+        ],
+        "whisperInferTime": 11362,
+        "llmTime": 1436,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is explaining their situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Explaining",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.92273768545146617,
+        "faceScore": 0.79765601104234574,
+        "totalElapsedTime": 12811
+      },
+      {
+        "segment": " 한대는 회사차 한대는 본인차다",
+        "whileIgnored": [
+          " 지금 찍히는거 다",
+          " 어깨 끝때야",
+          " 한대는 와이프차고 한대는 회사차"
+        ],
+        "whisperInferTime": 622,
+        "llmTime": 1394,
+        "llmResponse": "Output: The speaker, feeling relieved and slightly annoyed, is explaining the situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Explaining",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.88181315386593528,
+        "faceScore": 0.84480427270289793,
+        "totalElapsedTime": 2030
+      },
+      {
+        "segment": " 근데 실제로 사용하시는",
+        "whileIgnored": [
+          " 그 회사 직원이",
+          " 두 배로 해가지고",
+          " 비교를 해가지고 해줄 수 있어"
+        ],
+        "whisperInferTime": 5108,
+        "llmTime": 862,
+        "llmResponse": "Output: The speaker, feeling frustrated and sarcastic, is complaining about a situation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Nope",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.9791599781950614,
+        "faceScore": 0.79192267278086448,
+        "totalElapsedTime": 5982
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 타고들게 하는 사람은 누구지 마세요",
+        "whileIgnored": [],
+        "whisperInferTime": 3753,
+        "llmTime": 1679,
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is warning someone about a potential problem.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Hansim",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.93175458535681832,
+        "faceScore": 0.84220745672626185,
+        "totalElapsedTime": 5446
+      },
+      {
+        "segment": " 타고들게 하는 사람은 누구지 마세요",
+        "whileIgnored": [],
+        "whisperInferTime": 5423,
+        "llmTime": 0,
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is warning someone about a potential problem.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Hansim",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.93175458535681832,
+        "faceScore": 0.84220745672626185,
+        "totalElapsedTime": 5426
+      }
+    ]
+  }
+]

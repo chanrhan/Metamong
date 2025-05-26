@@ -1,0 +1,263 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 그럼 아방구는 맡았는데",
+        "whileIgnored": [],
+        "whisperInferTime": 2245,
+        "llmTime": 1935,
+        "llmResponse": "Output: The speaker, feeling relieved, is taking responsibility.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Clapping",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.94565751933800091,
+        "faceScore": 0.871636813206311,
+        "totalElapsedTime": 4192
+      },
+      {
+        "segment": " 아 지금요?",
+        "whileIgnored": [
+          " 그럼 아방궁은 맞다는 얘기로 받아드리겠습니다.",
+          " 다다오는 새우가..."
+        ],
+        "whisperInferTime": 1607,
+        "llmTime": 667,
+        "llmResponse": "Output: The speaker, feeling impatient, is asking for immediate attention.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.9134955581540537,
+        "faceScore": 0.771487979866863,
+        "totalElapsedTime": 2286
+      },
+      {
+        "segment": " 집카페를 가려하면 보시죠",
+        "whileIgnored": [
+          " 아 또"
+        ],
+        "whisperInferTime": 3630,
+        "llmTime": 975,
+        "llmResponse": "Output: The speaker, feeling casual and inviting, is suggesting a visit to the house café.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "ComeOn",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.9294915674174099,
+        "faceScore": 0.84059500477822935,
+        "totalElapsedTime": 4617
+      },
+      {
+        "segment": " -이거는 집착해진 카페죠.",
+        "whileIgnored": [
+          " -끝이 좀."
+        ],
+        "whisperInferTime": 3138,
+        "llmTime": 916,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically commenting on the cafe's obsession with itself.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.88765435098080558,
+        "faceScore": 0.76767026824071616,
+        "totalElapsedTime": 4066
+      },
+      {
+        "segment": " 아 또",
+        "whileIgnored": [
+          " 한 번 더",
+          " 한 번"
+        ],
+        "whisperInferTime": 595,
+        "llmTime": 1268,
+        "llmResponse": "Output: The speaker, feeling frustrated and impatient, is repeating themselves.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Angry_big_02",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.900844618115187,
+        "faceScore": 0.81801936329498781,
+        "totalElapsedTime": 1876
+      },
+      {
+        "segment": " 안녕하세요.",
+        "whileIgnored": [
+          " 이거 적진 않죠 사실"
+        ],
+        "whisperInferTime": 10190,
+        "llmTime": 1597,
+        "llmResponse": "Output: The speaker, feeling sarcastic and slightly annoyed, is making a casual greeting.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 21,
+        "actionClipName": "ComeOn",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.87261753439717815,
+        "faceScore": 0.81300398489151371,
+        "totalElapsedTime": 11808
+      },
+      {
+        "segment": " 사는 한대도 있습니까?",
+        "whileIgnored": [
+          " 제가 사진 참고해야죠"
+        ],
+        "whisperInferTime": 4194,
+        "llmTime": 1538,
+        "llmResponse": "Output: The speaker, feeling frustrated and sarcastic, is making a joke about the situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Nope",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.89332330207323718,
+        "faceScore": 0.82944126104846261,
+        "totalElapsedTime": 5746
+      },
+      {
+        "segment": " 그 회사의",
+        "whileIgnored": [
+          " 아니 있지만 실제 사용하는 차량",
+          " 유용하는 차량 말씀드리는 겁니다",
+          " 하나는 와이프",
+          " 하나는 회사"
+        ],
+        "whisperInferTime": 3641,
+        "llmTime": 1422,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is making a humorous comment.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Hansim",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.88665646447766255,
+        "faceScore": 0.76439661662060721,
+        "totalElapsedTime": 5076
+      },
+      {
+        "segment": " -필지를 사용하는 사람은 누구죠?",
+        "whileIgnored": [
+          " 그 회사의 직원이 누구있죠?",
+          " 두 분이 누구있죠?",
+          " '근데 식수'입니다."
+        ],
+        "whisperInferTime": 2138,
+        "llmTime": 1222,
+        "llmResponse": "Output: The speaker, feeling annoyed, is sarcastically pointing out the obvious.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Pointing",
+        "faceClipName": "Hansim",
+        "actionScore": 0.91809379717625761,
+        "faceScore": 0.79674908763157626,
+        "totalElapsedTime": 3375
+      },
+      {
+        "segment": " 어떻게든 이거 빼막이잖니요",
+        "whileIgnored": [
+          " - 상관순아는 누구죠? - 제가 출퇴근할 때",
+          " 잡을 때 좋다고 있어",
+          " 파고들게 하지 마세요"
+        ],
+        "whisperInferTime": 3064,
+        "llmTime": 1625,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is trying to find a way to avoid something.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 18,
+        "actionClipName": "LetsEating",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.81403353303397186,
+        "faceScore": 0.76089566181740176,
+        "totalElapsedTime": 4707
+      },
+      {
+        "segment": " 2분 5분",
+        "whileIgnored": [],
+        "whisperInferTime": 3619,
+        "llmTime": 1510,
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is complaining about the situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Nope",
+        "faceClipName": "Hansim",
+        "actionScore": 0.86141642470280977,
+        "faceScore": 0.87516366555289615,
+        "totalElapsedTime": 5145
+      },
+      {
+        "segment": " 그러면 아방궁은 맞다는 얘기로 받아들여서",
+        "whileIgnored": [
+          " 성남 분당의 어마어마한 크기의 아방공 보여주기 시작합니다.",
+          " 보여주십니까? 어마어마하지 않습니까?",
+          " 어마어마하지 않습니다",
+          " 어마어마하지 않습니다",
+          " -그렇습니다.",
+          " 아방궁은 맞닿냐"
+        ],
+        "whisperInferTime": 1440,
+        "llmTime": 888,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is making a humorous comment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "DDaBong",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.886075317717116,
+        "faceScore": 0.76439661662060721,
+        "totalElapsedTime": 2331
+      },
+      {
+        "segment": " 네.",
+        "whileIgnored": [
+          " 그럼 아방궁은 맞다는 얘기로 받아들이겠습니다.",
+          " 고맙습니다.",
+          " 하하하",
+          " 다방동에서 살고 가시고요"
+        ],
+        "whisperInferTime": 1885,
+        "llmTime": 1152,
+        "llmResponse": "Output: The speaker, feeling amused and satisfied, is agreeing with the other person in a lighthearted tone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "OkaySign",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.87420567484311806,
+        "faceScore": 0.78785226342163484,
+        "totalElapsedTime": 3051
+      },
+      {
+        "segment": " 자료화면 보시죠.",
+        "whileIgnored": [
+          " 집안행 왜곡하지?",
+          " 그냥 퀴즈 카페를 차렸다는 이야기",
+          " -차렸다는 이야기가 있어요.",
+          " 아기가 있어요. 자료화면"
+        ],
+        "whisperInferTime": 926,
+        "llmTime": 706,
+        "llmResponse": "Output: The speaker, feeling playful and slightly sarcastic, is teasingly offering to show the data.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.84693149022736158,
+        "faceScore": 0.78441287169615836,
+        "totalElapsedTime": 1647
+      }
+    ]
+  }
+]

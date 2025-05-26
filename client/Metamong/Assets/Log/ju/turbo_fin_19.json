@@ -1,0 +1,123 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 100.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 실제 사용하는 차량 말씀",
+        "whileIgnored": [],
+        "whisperInferTime": 2694,
+        "llmTime": 1534,
+        "llmResponse": "Output: The speaker, feeling neutral, is casually discussing a practical topic.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.86262217687608544,
+        "faceScore": 0.75829176225883077,
+        "totalElapsedTime": 4243
+      },
+      {
+        "segment": " 그 회사에 직원이 누구 있죠?",
+        "whileIgnored": [],
+        "whisperInferTime": 8198,
+        "llmTime": 769,
+        "llmResponse": "Output: The speaker, feeling curious, is asking about the company's employees.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.95043917784098153,
+        "faceScore": 0.7931364000797595,
+        "totalElapsedTime": 8978
+      },
+      {
+        "segment": " 실제로 사는 상황은 누구죠 제가",
+        "whileIgnored": [],
+        "whisperInferTime": 3650,
+        "llmTime": 667,
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing their disappointment.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.99352722717611974,
+        "faceScore": 0.847146200595489,
+        "totalElapsedTime": 4329
+      },
+      {
+        "segment": " - 잡고 파고들게 하지 마세요. - 움직이 랭크 빼앗겨, 움직이 랭크요, 사용시켜야지. - 성남 분당의 어마어마한 크기의 아방공, 보여중이십니까? - 어마어마하지 않습니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 11745,
+        "llmTime": 1945,
+        "llmResponse": "Output: The speaker, feeling amused and slightly annoyed, is making a humorous comment about the absurdity of the situation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 29,
+        "actionClipName": "Hungry",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.86935760556309982,
+        "faceScore": 0.82191928297122563,
+        "totalElapsedTime": 13719
+      },
+      {
+        "segment": " 자, 출퇴근 하시고 파고들게 하지 마세요. 움직이네 기호, 움직이네 기호, 사형시켜야지. 성남 분당의 어마어마한 크기의 아방궁, 보유 중이십니까? 어마어마하지 않습니다. 그럼 아방궁은 맞다는 얘기로, 아방궁에서 살고 계시고요. 집안에 히즈카페를 차렸다는 이야기가 있어요. 자료 화면 보시죠.",
+        "whileIgnored": [],
+        "whisperInferTime": 9165,
+        "llmTime": 1700,
+        "llmResponse": "Output: The speaker, feeling sarcastic and critical, is mocking someone's luxurious lifestyle.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Depressed",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.83267597316173525,
+        "faceScore": 0.74793575280087143,
+        "totalElapsedTime": 10878
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 100.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 자꾸 파고들게 하지 마세요 성남 분당의 어마어마한 크기의 아방궁 보유 중이십니까? 어마어마하지 않습니다 그럼 아방궁은 맞다는 얘기로 아방궁에서 살고 계시고요 집안에 키즈카페를 차렸다는 이야기가 있어요 자료화면 보시죠 이건 진짜 키즈카페잖아요 신과 함께로 어마어마한 돈을 맞습니까?",
+        "whileIgnored": [
+          " 가끔 파고들게 하지 마세요 성남 분당의 어마어마한 크기의 아방궁 보유중이십니까? 어마어마하지 않습니다 그럼 아방궁은 맞다는 얘기로 아방궁에서 살고 계시고요 집안에 키즈카페를 차렸다는 이야기가 있어요 자료화면 보시죠 어떻게 된지? 어떻게 된지? 이거는 진짜 키즈카페잖아요"
+        ],
+        "whisperInferTime": 3113,
+        "llmTime": 2053,
+        "llmResponse": "Output: The speaker, feeling annoyed and sarcastic, is repeatedly dismissing the other person's questions.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Rebuke",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.93337014960955555,
+        "faceScore": 0.87609595756705583,
+        "totalElapsedTime": 5182
+      },
+      {
+        "segment": " 자꾸 파고들게 하지 마세요 성남 분당의 어마어마한 크기의 아방궁 보유중이십니까? 어마어마하지 않습니다 그럼 아방궁은 맞다는 얘기로 아방궁에서 살고 계시고요 집안에 키즈카페를 차렸다는 이야기가 있어요 자료화면 보시죠 친과 함께로 어마어마한 돈을 맞습니까?",
+        "whileIgnored": [],
+        "whisperInferTime": 5915,
+        "llmTime": 1205,
+        "llmResponse": "Output: The speaker, feeling annoyed and sarcastic, is repeatedly warning someone not to pry into their personal life.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Hansim",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.90376826123123577,
+        "faceScore": 0.84362367695325613,
+        "totalElapsedTime": 7139
+      }
+    ]
+  }
+]

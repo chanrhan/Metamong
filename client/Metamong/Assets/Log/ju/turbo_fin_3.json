@@ -1,0 +1,111 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 오, 오, 오",
+        "whileIgnored": [],
+        "whisperInferTime": 2326,
+        "llmTime": 2609,
+        "llmResponse": "Output: The speaker, feeling excited and playful, is enthusiastically expressing themselves.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.99585888278335621,
+        "faceScore": 0.82956889241313392,
+        "totalElapsedTime": 4950
+      },
+      {
+        "segment": " 나 쉬면 안 돼요? 직장인들 머릿속으로",
+        "whileIgnored": [
+          " 되게 편하게 사네요",
+          " 평일날 쉬고"
+        ],
+        "whisperInferTime": 1853,
+        "llmTime": 2802,
+        "llmResponse": null,
+        "emotion": "혐오",
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.0,
+        "totalElapsedTime": 4655
+      },
+      {
+        "segment": " 아, 아, 아",
+        "whileIgnored": [],
+        "whisperInferTime": 2871,
+        "llmTime": 1246,
+        "llmResponse": "Output: The speaker, feeling excited and playful, is expressing enthusiasm.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.93497898649933842,
+        "faceScore": 0.82202311140190409,
+        "totalElapsedTime": 4130
+      },
+      {
+        "segment": " 축제적으로 나아피데",
+        "whileIgnored": [],
+        "whisperInferTime": 2113,
+        "llmTime": 717,
+        "llmResponse": "Output: The speaker, feeling excited and celebratory, is enthusiastically greeting someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "Worried",
+        "actionScore": 0.96238658844848846,
+        "faceScore": 0.82206992242528942,
+        "totalElapsedTime": 2845
+      },
+      {
+        "segment": " -뭔가 나의 성분하를...",
+        "whileIgnored": [],
+        "whisperInferTime": 2145,
+        "llmTime": 829,
+        "llmResponse": "Output: The speaker, feeling playful and mischievous, is making a joke.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.96587906041565319,
+        "faceScore": 0.88419183422341763,
+        "totalElapsedTime": 2987
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 야 스콘 맛있겠다",
+        "whileIgnored": [
+          " 아"
+        ],
+        "whisperInferTime": 1610,
+        "llmTime": 1483,
+        "llmResponse": "Output: The speaker, feeling excited and playful, is making a humorous comment.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.88600706959018416,
+        "faceScore": 0.81242524420319984,
+        "totalElapsedTime": 3106
+      }
+    ]
+  }
+]

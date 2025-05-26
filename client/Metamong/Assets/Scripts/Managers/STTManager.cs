@@ -75,8 +75,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
         _stream.OnResultUpdated += OnResult;
-        //_stream.OnSegmentUpdated += OnSegmentUpdated;
-        _stream.OnSegmentFinished += OnSegmentFinished;
+        _stream.OnSegmentUpdated += OnSegmentUpdated;
+        //_stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
 
         // myCharic = ClientManager.Instance.PlayerController;
@@ -156,11 +156,12 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
+        MotionGenerator.Instance?.Generate(segment);
     }
 
     private void OnSegmentFinished(WhisperResult segment)
     {
-        MotionGenerator.Instance?.Generate(segment);
+        
     }
 
     void OnVoiceDeteched()

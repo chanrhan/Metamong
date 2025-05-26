@@ -1,0 +1,61 @@
+[
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 하루 정도 쉬려고 그래서",
+        "whileIgnored": [],
+        "whisperInferTime": 8176,
+        "llmTime": 1490,
+        "llmResponse": "Output: The speaker, feeling relieved, is expressing a desire to rest.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.93434730109307607,
+        "faceScore": 0.7858578044612109,
+        "totalElapsedTime": 9678
+      },
+      {
+        "segment": " 하루정도 쉴려고 그래서",
+        "whileIgnored": [],
+        "whisperInferTime": 21628,
+        "llmTime": 764,
+        "llmResponse": "Output: The speaker, feeling relieved, is expressing a desire to take a break.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Sleepy",
+        "faceClipName": "Surprised",
+        "actionScore": 0.91142809599164554,
+        "faceScore": 0.76395827094439628,
+        "totalElapsedTime": 22407
+      }
+    ]
+  },
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 치는 사람이 없어요",
+        "whileIgnored": [],
+        "whisperInferTime": 10199,
+        "llmTime": 958,
+        "llmResponse": "Output: The speaker, feeling frustrated, is complaining about the lack of people to play with.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Listening",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.90664744994140212,
+        "faceScore": 0.78576668649149362,
+        "totalElapsedTime": 11169
+      }
+    ]
+  }
+]

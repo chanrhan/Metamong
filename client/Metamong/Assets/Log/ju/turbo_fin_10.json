@@ -1,0 +1,61 @@
+[
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.1,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 야스컴과 같이",
+        "whileIgnored": [],
+        "whisperInferTime": 3201,
+        "llmTime": 2768,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically praising the extra work.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.88022759000781337,
+        "faceScore": 0.78004938171594518,
+        "totalElapsedTime": 5988
+      },
+      {
+        "segment": " 하루정도 쉴려?",
+        "whileIgnored": [],
+        "whisperInferTime": 2523,
+        "llmTime": 680,
+        "llmResponse": "Output: The speaker, feeling relaxed, is suggesting a short break.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "LetsEating",
+        "faceClipName": "Worried",
+        "actionScore": 0.94759868665287761,
+        "faceScore": 0.761469473112595,
+        "totalElapsedTime": 3216
+      }
+    ]
+  },
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.1,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 아, 야스콘바",
+        "whileIgnored": [],
+        "whisperInferTime": 19532,
+        "llmTime": 753,
+        "llmResponse": "Output: The speaker, feeling playful and relaxed, is making a casual comment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89959270442236838,
+        "faceScore": 0.81699180144484784,
+        "totalElapsedTime": 20298
+      }
+    ]
+  }
+]

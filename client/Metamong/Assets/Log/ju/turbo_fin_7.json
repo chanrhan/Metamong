@@ -1,0 +1,103 @@
+[
+  {
+    "stepSec": 0.2,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " - 나 쉬면 안돼요? - 직장인도 멀리터가 있는데",
+        "whileIgnored": [],
+        "whisperInferTime": 4929,
+        "llmTime": 2806,
+        "llmResponse": null,
+        "emotion": "혐오",
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.0,
+        "totalElapsedTime": 7735
+      },
+      {
+        "segment": " -뭔가 국제력으로 나니까.",
+        "whileIgnored": [],
+        "whisperInferTime": 4396,
+        "llmTime": 2001,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is expressing frustration about the international project.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Clapping",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.86059866516564509,
+        "faceScore": 0.73990897761716445,
+        "totalElapsedTime": 6413
+      },
+      {
+        "segment": " 아하!",
+        "whileIgnored": [
+          " - 3분을 샀어요. - 네."
+        ],
+        "whisperInferTime": 3587,
+        "llmTime": 1789,
+        "llmResponse": "Output: The speaker, feeling triumphant, is expressing satisfaction and victory.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Nope",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89593731318239778,
+        "faceScore": 0.82818105396002784,
+        "totalElapsedTime": 5389
+      },
+      {
+        "segment": " 사회사네요",
+        "whileIgnored": [
+          " - 그래서."
+        ],
+        "whisperInferTime": 2018,
+        "llmTime": 1028,
+        "llmResponse": "Output: The speaker, feeling relieved and slightly sarcastic, is commenting on the situation with a hint of irony.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Cold",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.836622930325406,
+        "faceScore": 0.781673465833224,
+        "totalElapsedTime": 3060
+      },
+      {
+        "segment": " 사장님도 월차가 있는데",
+        "whileIgnored": [],
+        "whisperInferTime": 5207,
+        "llmTime": 1875,
+        "llmResponse": "Output: The speaker, feeling relieved and pleased, is sharing good news with the other person.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Hello",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.83170570415852285,
+        "faceScore": 0.79717355847123683,
+        "totalElapsedTime": 7095
+      },
+      {
+        "segment": " -축제로구나 이렇게.",
+        "whileIgnored": [],
+        "whisperInferTime": 3853,
+        "llmTime": 1296,
+        "llmResponse": "Output: The speaker, feeling sarcastic and slightly annoyed, is making a humorous comment about the situation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Hungry",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.84262075902609423,
+        "faceScore": 0.75756377980342526,
+        "totalElapsedTime": 5165
+      }
+    ]
+  }
+]

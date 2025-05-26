@@ -1,0 +1,73 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 되게 편하게 살아요",
+        "whileIgnored": [],
+        "whisperInferTime": 4337,
+        "llmTime": 1492,
+        "llmResponse": "Output: The speaker, feeling content, is expressing satisfaction.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_S",
+        "actionScore": 1.0000000000000002,
+        "faceScore": 0.8600766746970625,
+        "totalElapsedTime": 5844
+      },
+      {
+        "segment": " -왜요? -나 쉬면 안 돼요?",
+        "whileIgnored": [],
+        "whisperInferTime": 4868,
+        "llmTime": 1543,
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing their inability to relax.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.90604225505044189,
+        "faceScore": 0.73368868666810538,
+        "totalElapsedTime": 6424
+      },
+      {
+        "segment": " 월차는 그때 썼잖아요 축제로 날",
+        "whileIgnored": [
+          " 평일에 쉬는 사람이 없으세요?"
+        ],
+        "whisperInferTime": 1707,
+        "llmTime": 1382,
+        "llmResponse": "Output: The speaker, feeling relieved and celebratory, is expressing joy.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "OkaySign",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89612009575287677,
+        "faceScore": 0.85569115241754967,
+        "totalElapsedTime": 3104
+      },
+      {
+        "segment": " 자",
+        "whileIgnored": [
+          " 당일날 인터넷 방송 보는 사람도 있는데"
+        ],
+        "whisperInferTime": 3659,
+        "llmTime": 1394,
+        "llmResponse": "Output: The speaker, feeling relaxed and carefree, is casually mentioning their plans.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Gijigae",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.924820471316138,
+        "faceScore": 0.84274594471395436,
+        "totalElapsedTime": 5067
+      }
+    ]
+  }
+]
