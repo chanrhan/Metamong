@@ -15,6 +15,7 @@ public class FileLogVO
         public string segment;
         public List<string> whileIgnored = new List<string>();
         public long whisperInferTime;
+        public long whisperFinishedInferTime;
         public long llmTime;
         public string llmResponse;
         public string emotion;

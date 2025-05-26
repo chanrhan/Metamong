@@ -199,6 +199,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         {
             segment = text,
             whisperInferTime = whisperResult.inferTime,
+            whisperFinishedInferTime = whisperResult.finsihedInferTime,
             whileIgnored = new List<string>(ignoredSegements),
             llmResponse = _llmResponse,
             emotion = _emotion,

@@ -199,7 +199,6 @@ namespace Whisper
         public static bool start = true;
         public async void AddToStream(AudioChunk chunk)
         {
-
             if (!_isStreaming)
             {
                 LogUtils.Warning("Start streaming first!");
@@ -208,6 +207,7 @@ namespace Whisper
 
             if (_param.UseVad)
             {
+                
                 if(wasFinishedSegment || start){
                     mySW.Restart();
                     LogUtils.Log("스탑워치를 재시작합니다.");
@@ -363,7 +363,8 @@ namespace Whisper
                 var segment = new ArraySegment<float>(buffer, bufferLen - updBufferLen, updBufferLen);
                 _oldBuffer = segment.ToArray();
                 _step = 0;
-                
+
+                res.finsihedInferTime = mySW.ElapsedMilliseconds;
                 OnSegmentFinished?.Invoke(res);
                 LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
                 finishSegmentTimes.Add(mySW.ElapsedMilliseconds);
