@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonobehaviourSingleton<CameraController>
@@ -9,7 +10,8 @@ public class CameraController : MonobehaviourSingleton<CameraController>
     [SerializeField] private Vector3 posOffset;           // 플레이어-카메라 사이의 기본 Position 보정값.
     [SerializeField] private Vector3 rotOffset;           // 초기 회전 보정값 (SetTargetPlayer 호출 시 사용)
 
-    [SerializeField] private float orbitSpeed = 100f;     // 마우스 입력에 따른 회전 속도
+    [SerializeField] private float orbitSpeedX = 1000f;     // 마우스 입력에 따른 회전 속도
+    [SerializeField] private float orbitSpeedy = 10.0f;
     private float currentAngle = 0f;                      // 현재 회전 각도 (Y축 기준)
 
     public Vector3 nowWatchingVec = new Vector3(0.0f, 0.0f, 0.0f);
@@ -17,6 +19,9 @@ public class CameraController : MonobehaviourSingleton<CameraController>
 
     private void LateUpdate()
     {
+       
+        ToggleMouseLock();
+
         if(targetPlayer != null)
         {
             HandleOrbitInput();
@@ -29,11 +34,20 @@ public class CameraController : MonobehaviourSingleton<CameraController>
     /// </summary>
     private void HandleOrbitInput()
     {
-        float mouseX = Input.GetAxis("Mouse X");
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mosueY = Input.GetAxisRaw("Mouse Y");
         // 마우스 입력이 미미할 경우 무시 (원활한 컨트롤을 위함)
         if (Mathf.Abs(mouseX) > 0.01f)
         {
-            currentAngle += mouseX * orbitSpeed * Time.deltaTime;
+            currentAngle += mouseX * orbitSpeedX * Time.deltaTime;
+        }
+
+        if(Mathf.Abs(mosueY) > 0.01f)
+        {
+            /*yFocus += mosueY * orbitSpeedy * Time.deltaTime;
+            yFocus = Mathf.Clamp(yFocus, 0.5f, 10f);*/
+            posOffset.y -= mosueY * orbitSpeedy * Time.deltaTime;
+            posOffset.y = Mathf.Clamp(posOffset.y, 0.3f, 3.5f);
         }
     }
 
@@ -62,5 +76,14 @@ public class CameraController : MonobehaviourSingleton<CameraController>
         currentAngle = 0f;
         // 초기 회전 보정값 적용 (필요 시)
         transform.rotation = Quaternion.Euler(rotOffset);
+    }
+
+    public void ToggleMouseLock()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = !Cursor.visible; // 이스케이프 키로 커서 보이기/숨기기 토글
+            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked; // 커서 잠금 상태 토글
+        }
     }
 }
