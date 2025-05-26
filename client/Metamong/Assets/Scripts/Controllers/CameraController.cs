@@ -94,9 +94,16 @@ public class CameraController : MonobehaviourSingleton<CameraController>
     private void SwitchingViewPos()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
             isThirdView = false;
+            GetComponent<Camera>().cullingMask &= (~LayerMask.GetMask("TextBubble"));
+
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             isThirdView = true;
+            GetComponent<Camera>().cullingMask |= LayerMask.GetMask("TextBubble");
+        }
     }
 
     private void HandleInput_FirstView()
