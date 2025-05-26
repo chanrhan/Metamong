@@ -698,5 +698,43 @@
         "totalElapsedTime": 2082
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 선생님이 된다랄 것 같기 때문에",
+        "whileIgnored": [],
+        "whisperInferTime": 154806,
+        "llmTime": 2808,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 157614
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 24218,
+        "llmTime": 2815,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 27033
+      }
+    ]
   }
 ]
