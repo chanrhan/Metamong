@@ -93,6 +93,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private FileLogVO.LogContextItem waitedMotionLog;
 
     public List<int> newbufferTimeline = new List<int>();
+    public List<bool> inferTimeline = new List<bool>();
     public List<bool> llmTimeline = new List<bool>();
     public List<bool> sbertTimeline = new List<bool>();
     public List<bool> motionTimeline = new List<bool>();
@@ -124,6 +125,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         if (STTManager.Instance.IsRecording)
         {
             newbufferTimeline.Add(whisperStream.NewBufferSzie);
+            inferTimeline.Add(whisperStream.isInfer);
             llmTimeline.Add(onLlama);
             sbertTimeline.Add(onSbert);
             motionTimeline.Add(ClientManager.Instance.PlayerController.IsAnimPlaying);

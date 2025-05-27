@@ -162,6 +162,8 @@ namespace Whisper
             get => _newBuffer.Count;
         }
 
+        public bool isInfer = false;
+
         /// <summary>
         /// Create a new instance of Whisper streaming transcription.
         /// </summary>
@@ -351,15 +353,19 @@ namespace Whisper
             RecordBeforeInfer(segmentId);
             // UnityEngine.Debug.Log($"[ws]({segmentId}) Before infer : {mySW.ElapsedMilliseconds}");
             
+            isInfer = true;
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
                 _param.Channels, _param.InferenceParam);
             
             // append current transcription into temporary output
             var res = await _task;
+            
             var currentSegment = res.Result;
             // LogUtils.Log($"segment text: {currentSegment}\n");
             RecordAfterInfer(segmentId);
+            isInfer = false;
+
             // UnityEngine.Debug.Log($"[ws]({segmentId}) After infer : {mySW.ElapsedMilliseconds}");
 
             var currentOutput = _output + currentSegment;
