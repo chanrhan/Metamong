@@ -38,10 +38,11 @@ public class AvatarAnimation : MonoBehaviour
         get => isMotionPlaying;
         set => isMotionPlaying = value;
     }
+    
     public bool IsTalking
     {
-        get=>anim.GetBool(TALKING_PARAM);
-        set=>anim.SetBool(TALKING_PARAM, value);
+        get => anim.GetBool(TALKING_PARAM);
+        set => anim.SetBool(TALKING_PARAM, value);
     }
 
     public int TalkingPara
@@ -65,7 +66,6 @@ public class AvatarAnimation : MonoBehaviour
         UpdateIdleTransition();
     }
 
-
     private bool IsDefaultAnimBool()
     {
         return anim.GetBool(WALKING_PARAM);
@@ -87,23 +87,18 @@ public class AvatarAnimation : MonoBehaviour
                 return;
             }
 
-            if (isMotionPlaying)
+            AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+
+            // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
+            if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
             {
-                AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-
-                // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
-                if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
-                {
-                    Debug.Log("[chan] Idle");
-                    anim.Play(idleClipName);
-                    // isBlocked = false;
-                    isMotionPlaying = false;
-                    IsTalking = false;
-                }
+                Debug.Log("[chan] Idle");
+                anim.Play(idleClipName);
+                // isBlocked = false;
+                isMotionPlaying = false;
+                IsTalking = false;
             }
-
         }
-
     }
 
 

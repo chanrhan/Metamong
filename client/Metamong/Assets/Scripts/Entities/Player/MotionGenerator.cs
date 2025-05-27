@@ -222,8 +222,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                     FileLogVO.LogContextItem log = new FileLogVO.LogContextItem
                     {
                         segment = waitedWhisperResult.Result,
-                        whisperInferTime = waitedWhisperResult.inferTime,
-                        whisperFinishedInferTime = waitedWhisperResult.finsihedInferTime
+                        // whisperInferTime = waitedWhisperResult.inferTime,
+                        // whisperFinishedInferTime = waitedWhisperResult.finsihedInferTime
                     };
 
                     waitedWhisperResult = null;
@@ -312,8 +312,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         FileLogVO.LogContextItem log = new FileLogVO.LogContextItem
         {
             segment = whisperResult.Result,
-            whisperInferTime = whisperResult.inferTime,
-            whisperFinishedInferTime = whisperResult.finsihedInferTime
+            // whisperInferTime = whisperResult.inferTime,
+            // whisperFinishedInferTime = whisperResult.finsihedInferTime
         };
 
         DoLlama(log);
@@ -378,14 +378,14 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
             log.llmResponse = _llmResponse;
             log.emotion = _emotion;
-            log.llmTime = _llmTime;
+            // log.llmTime = _llmTime;
             log.llmTimeout = _timeout;
-            log.sbertTime = _sbertTime;
+            // log.sbertTime = _sbertTime;
             log.faceClipName = _actionFaceMotionSet.faceClipName;
             log.faceScore = _actionFaceMotionSet.faceScore;
             log.actionClipName = _actionFaceMotionSet.actionClipName;
             log.actionScore = _actionFaceMotionSet.actionScore;
-            log.totalElapsedTime = log.whisperInferTime + _llmTime + _sbertTime;
+            // log.totalElapsedTime = log.whisperInferTime + _llmTime + _sbertTime;
             // 모션 키워드 생성 완료 
 
 
