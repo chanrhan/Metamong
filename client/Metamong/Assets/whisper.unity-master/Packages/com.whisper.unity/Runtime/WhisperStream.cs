@@ -218,13 +218,13 @@ namespace Whisper
             }
             segmentId++;
             RecordAddToStream(segmentId);
-            UnityEngine.Debug.Log($"[ws]({segmentId}) Add To Stream : {chunk.Data}, voice detected : {chunk.IsVoiceDetected}");
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Add To Stream : {chunk.Data}, voice detected : {chunk.IsVoiceDetected}");
 
             RecordUseVad(segmentId, _param.UseVad);
 
             if (_param.UseVad)
             {
-                UnityEngine.Debug.Log($"[ws]({segmentId}) use vad");
+                // UnityEngine.Debug.Log($"[ws]({segmentId}) use vad");
                 if(wasFinishedSegment || start){
                     mySW.Restart();
                     LogUtils.Log("스탑워치를 재시작합니다.");
@@ -233,16 +233,16 @@ namespace Whisper
                 }
                 
                 RecordChunkVoiceDetected(segmentId, chunk.IsVoiceDetected);
+                RecordStep(segmentId, _step);
+
                 if (chunk.IsVoiceDetected)
                 {
-                    
-                     UnityEngine.Debug.Log($"[ws]({segmentId}) chunk voice detected");
+                    //  UnityEngine.Debug.Log($"[ws]({segmentId}) chunk voice detected");
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow();
                 }
                 else
                 {
-                    RecordStep(segmentId, _step);
                     if (_step <= 0)
                     {
                         _oldBuffer = chunk.Data;
@@ -251,9 +251,6 @@ namespace Whisper
 
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow(true);
-                    
-                    
-
                 }
             }
             else
@@ -304,7 +301,7 @@ namespace Whisper
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
             RecordSlidingWindow(segmentId);
-            UnityEngine.Debug.Log($"[ws]({segmentId}) Update SlidingWindow : {mySW.ElapsedMilliseconds}");
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Update SlidingWindow : {mySW.ElapsedMilliseconds}");
 
             // check if task isn't busy
             // if it's still transcribing - just skip it
@@ -349,7 +346,7 @@ namespace Whisper
             _newBuffer.Clear();
 
             RecordBeforeInfer(segmentId);
-            UnityEngine.Debug.Log($"[ws]({segmentId}) Before infer : {mySW.ElapsedMilliseconds}");
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Before infer : {mySW.ElapsedMilliseconds}");
             
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
@@ -360,7 +357,7 @@ namespace Whisper
             var currentSegment = res.Result;
             // LogUtils.Log($"segment text: {currentSegment}\n");
             RecordAfterInfer(segmentId);
-            UnityEngine.Debug.Log($"[ws]({segmentId}) After infer : {mySW.ElapsedMilliseconds}");
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) After infer : {mySW.ElapsedMilliseconds}");
 
             var currentOutput = _output + currentSegment;
 

@@ -36,6 +36,7 @@ public class LogWatchUtils : MonobehaviourSingleton<LogWatchUtils>
         }else{
             whisperStream.RecordAddToStream = (id)=>{
                 currId = id;
+                timelineItem.id = id;
                 timelineItem.addToStreamTime = Time.realtimeSinceStartup;
             };
             whisperStream.RecordUseVad = (id, useVad)=>{
