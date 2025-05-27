@@ -92,7 +92,7 @@ public class AvatarAnimation : MonoBehaviour
             // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
             if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
             {
-                Debug.Log("[chan] Idle");
+                Debug.Log("[aaa] Idle");
                 anim.Play(idleClipName);
                 // isBlocked = false;
                 isMotionPlaying = false;
@@ -122,7 +122,7 @@ public class AvatarAnimation : MonoBehaviour
 
     public void PlayFaceAndActionAnimation(string faceClipName, string actionClipName)
     {
-        Debug.Log($"[chan] Play : {actionClipName}, Face: {faceClipName}");
+        Debug.Log($"[aaa] Play : {actionClipName}, Face: {faceClipName}");
         // isBlocked = true;
         isMotionPlaying = true;
         IsTalking = false;
