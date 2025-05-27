@@ -3059,7 +3059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: numGPULayers
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: embeddingLength

@@ -1550,5 +1550,591 @@
         "faceScore": 0.801079921986513
       }
     ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 미야우",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful, is making a casual joke.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "IdleFace",
+        "actionScore": 0.0,
+        "faceScore": 0.87365132812620561
+      },
+      {
+        "segment": " 미아!",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and affectionate, is calling out to someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.91653092912965961,
+        "faceScore": 0.86514044364197373
+      },
+      {
+        "segment": " 와아 너무 좋아서...",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling extremely excited and thrilled, is expressing intense joy.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Sleepy",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.95095628037332347,
+        "faceScore": 0.85967083095354013
+      },
+      {
+        "segment": " 야...",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling excited and playful, is teasing the other person in a joking manner.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_L",
+        "actionScore": 0.0,
+        "faceScore": 0.7724322428087862
+      },
+      {
+        "segment": " 왜 내가",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling excited and playful, is engaging in a lively conversation with a tone of joy.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Sad_S",
+        "actionScore": 0.0,
+        "faceScore": 0.75139611703502429
+      },
+      {
+        "segment": " 그냥",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and mischievous, is teasingly continuing a conversation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.94463884594658021,
+        "faceScore": 0.80374954237657925
+      },
+      {
+        "segment": " 아아악!",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and angry, is expressing intense emotions.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.81656349168743736
+      },
+      {
+        "segment": " 그래 나도 좋아",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly angry, is expressing a mix of emotions.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.782280789724285
+      },
+      {
+        "segment": " - 너도 좋아. - 이제 졸업사에서 안전생들이.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and relieved, is expressing a mix of emotions about graduation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Angry_big",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.91727246668919682,
+        "faceScore": 0.77069823660436854
+      },
+      {
+        "segment": " 선교생들이 아직 남아있습니다 성불이니까",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly angry, is expressing their emotions in a dramatic manner.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Angry_big",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90457569513278413,
+        "faceScore": 0.79227559551828042
+      },
+      {
+        "segment": " 고리가",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and anxious, is expressing their concerns.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Depressed",
+        "faceClipName": "Surprised",
+        "actionScore": 0.93074642121900986,
+        "faceScore": 0.81914239482571016
+      },
+      {
+        "segment": " 고리가 뭔가 수상한 냄새가 나는 성부를 궁금해하는",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling curious and slightly suspicious, is wondering about the strange smell coming from a mysterious figure.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.726734511871461
+      },
+      {
+        "segment": " 영불",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling curious and slightly suspicious, is inquiring about the mysterious presence.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.75641611431319877
+      },
+      {
+        "segment": " 아.. 네",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is interrupting the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.77964169203861367
+      },
+      {
+        "segment": " -끄이~",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and mischievous, is teasingly making a joke.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92207119208388322,
+        "faceScore": 0.84581720280985839
+      },
+      {
+        "segment": " - 네.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly asking for permission.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Listening",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92638688737549169,
+        "faceScore": 0.84874227826006421
+      },
+      {
+        "segment": " 고맙습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling relieved and polite, is expressing gratitude.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.85569115241754967
+      },
+      {
+        "segment": " 사울",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling relieved and slightly sarcastic, is concluding the conversation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Ashamed",
+        "actionScore": 0.0,
+        "faceScore": 0.79048635449292382
+      },
+      {
+        "segment": " - 아, 사울.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is addressing someone named Saul in a sarcastic tone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Ashamed",
+        "actionScore": 0.0,
+        "faceScore": 0.80510212225993094
+      },
+      {
+        "segment": " 사울",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly referring to someone named Saul.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.76549149989798548
+      },
+      {
+        "segment": " - 시트는 거에요.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is grudgingly agreeing with someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Hansim",
+        "actionScore": 0.0,
+        "faceScore": 0.84102881985587041
+      },
+      {
+        "segment": " 시트에 미용",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is making a joke about the chair.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92457198207129165,
+        "faceScore": 0.834701162192928
+      },
+      {
+        "segment": " 하여",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling relieved and slightly sarcastic, is expressing gratitude.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.8626399732056842
+      },
+      {
+        "segment": " 고맙습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling polite and slightly sarcastic, is thanking someone while making a humorous comment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.66874761624711676
+      },
+      {
+        "segment": " 마, 땡, 요",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling relieved and casual, is wrapping up the conversation.",
+        "emotion": "공포",
+        "llmTimeout": false,
+        "actionClipName": "Relieved",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.90551053794394276,
+        "faceScore": 0.87273452175016175
+      },
+      {
+        "segment": " 아, 땡요 for it",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling casual and relaxed, is making a joke.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "IdleFace",
+        "actionScore": 0.0,
+        "faceScore": 0.8853989427668022
+      },
+      {
+        "segment": " 땡 유포",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly sarcastic, is making a humorous comment.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.9015965220911889,
+        "faceScore": 0.854126308459826
+      },
+      {
+        "segment": " 땡요.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly sarcastic, is ending the conversation with a lighthearted tone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Ashamed",
+        "actionScore": 0.0,
+        "faceScore": 0.7742620902017644
+      },
+      {
+        "segment": " 하늘",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly, is making a humorous comment.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.920601629920332,
+        "faceScore": 0.85757732865951219
+      },
+      {
+        "segment": " 할아이",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly sarcastic, is making a humorous comment.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.9015965220911889,
+        "faceScore": 0.854126308459826
+      },
+      {
+        "segment": " 할아버지",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly respectful, is addressing an elderly person in a lighthearted manner.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.79053902268272269
+      },
+      {
+        "segment": " 하이",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling casual and playful, is ending the conversation with a friendly greeting.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "IdleFace",
+        "actionScore": 0.0,
+        "faceScore": 0.77370872977109129
+      },
+      {
+        "segment": " ~~",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and jokingly sarcastic, is teasing the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.81518636577080861
+      },
+      {
+        "segment": " 이이이이이이이이이이이이이이",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is using a series of repetitive phrases to mock the other person.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.78836723122263774
+      },
+      {
+        "segment": " - -",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is engaging in a lighthearted conversation.",
+        "emotion": "공포",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.78554218548912236
+      },
+      {
+        "segment": " 내게 어떻게 어떻게 부르니?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and slightly annoyed, is teasing someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.81783447283631661
+      },
+      {
+        "segment": " I'm ballin'.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and confident, is jokingly boasting.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.930262717904771,
+        "faceScore": 0.86909938991844182
+      },
+      {
+        "segment": " 고맙습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic and playful, is responding with a mix of frustration and gratitude.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_L",
+        "actionScore": 0.0,
+        "faceScore": 0.75924748779021722
+      },
+      {
+        "segment": " 오할펄링",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and joking around, is using a humorous tone.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.87448749999267283
+      },
+      {
+        "segment": " 의조가 크..",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling surprised and amused, is reacting to a joke.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Surprised",
+        "actionScore": 0.92745086424069811,
+        "faceScore": 0.77852480268856816
+      },
+      {
+        "segment": " 아 내가 올라오는 거 아니야?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and slightly annoyed, is jokingly expressing frustration.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.85299686078633508
+      },
+      {
+        "segment": " - 아아아아아아아아아아아아아아아아아아아아아",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling extremely angry and frustrated, is intensely expressing their emotions.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_L",
+        "actionScore": 0.0,
+        "faceScore": 0.8612400440222151
+      },
+      {
+        "segment": " F가 되어라",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly angry, is urging someone to understand.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.80424330818133927
+      },
+      {
+        "segment": " 아우 혐오",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling disgusted and angry, is expressing strong negative emotions.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.92878194839105621,
+        "faceScore": 0.76995388911722551
+      },
+      {
+        "segment": " 혐오의 아이들만 그냥",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is expressing hatred towards a specific group.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.72710214347750612
+      },
+      {
+        "segment": " 혐오의 아이들만 그냥",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is expressing hatred towards a group of people.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.73295691623517611
+      },
+      {
+        "segment": " 안 들어와지나요?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is asking if the other person has arrived.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_L",
+        "actionScore": 0.0,
+        "faceScore": 0.79556609144335921
+      },
+      {
+        "segment": " 안 들어와지나요? 네?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is asking if someone will join them.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_L",
+        "actionScore": 0.0,
+        "faceScore": 0.80517081005299451
+      },
+      {
+        "segment": " 아 안 들어와 준다고?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is expressing frustration.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.93646744325826381,
+        "faceScore": 0.84372058726120813
+      },
+      {
+        "segment": " 아 안들어와 준다고?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is expressing frustration.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.93646744325826381,
+        "faceScore": 0.84372058726120813
+      },
+      {
+        "segment": " 그리고 김윤상 교수님",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling angry and resentful, is mentioning a professor's name with hostility.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90254783762029467,
+        "faceScore": 0.800811888236994
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 그리고 김유삼뉴스입니다. 잘하면서",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic and critical, is mocking the news program.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.7449854990533098
+      }
+    ]
   }
 ]
