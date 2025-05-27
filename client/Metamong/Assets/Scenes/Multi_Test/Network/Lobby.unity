@@ -181,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Client
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -470,8 +470,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' Enter username'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1038,8 +1038,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Custom
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 6bdfb15cf807424479a0ae593a02efab, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -1584,8 +1584,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' Enter join code'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1820,8 +1820,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Username
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1954,8 +1954,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Join Code (Client Only)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2309,8 +2309,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2569,8 +2569,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Host
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: 67e7a0b8c91ba5842a6ede5359dc573f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 2019422155}
-    PlayerPrefab: {fileID: 9124639000001752788, guid: 17f422e49845c36499edae3af95a61d0, type: 3}
+    PlayerPrefab: {fileID: 9124639000001752788, guid: d0c35e3e1e0b41b438fb9d8ef903d8fb, type: 3}
     Prefabs:
       NetworkPrefabsLists:
       - {fileID: 11400000, guid: bffabade0d54f4a77acba9540fd3e1bc, type: 2}
@@ -2996,7 +2996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: numGPULayers
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: embeddingLength
