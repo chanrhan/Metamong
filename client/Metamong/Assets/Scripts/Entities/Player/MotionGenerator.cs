@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Security.Permissions;
 using System.Threading;
 using System.Threading.Tasks;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -92,13 +93,22 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private float currMotionWaitTime = 0f;
     private FileLogVO.LogContextItem waitedMotionLog;
 
+    public List<bool> vadTimeline = new List<bool>();
     public List<int> newbufferTimeline = new List<int>();
-    public List<bool> inferTimeline = new List<bool>();
-    public List<bool> llmTimeline = new List<bool>();
-    public List<bool> sbertTimeline = new List<bool>();
-    public List<bool> motionTimeline = new List<bool>();
+    public List<int> inferTimeline = new List<int>();
+    public List<int> waitSegTimeline = new List<int>();
     
+    public List<int> llmTimeline = new List<int>();
+    public List<int> sbertTimeline = new List<int>();
+    public List<int> waitMotionTimeline = new List<int>();
+    public List<int> motionTimeline = new List<int>();
 
+    private bool onAnimChanged = false;
+    private bool onInferChanged = false;
+    private bool onLlmChanged = false;
+    private bool onWaitSegChanged = false;
+    private bool onWaitMotionChanged = false;
+    
     // Log
     [Header("Log")]
     [SerializeField]
@@ -106,8 +116,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     private static List<string> ignoredSegements = new List<string>();
     private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
-
-    private WhisperStream whisperStream;
+    public WhisperStream whisperStream;
 
     protected override void Awake()
     {
@@ -115,21 +124,59 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         sbert = GetComponentInChildren<SBERT>();
         llama = GetComponentInChildren<Llama>();
         emotionClassifier = GetComponentInChildren<EmotionClassifier>();
-        STTManager.Instance.OnCreateWhisperStream += (ws)=>{
-            whisperStream = ws;
-        };
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        // Debug.Log(Time.fixedDeltaTime);
+
         if (STTManager.Instance.IsRecording)
         {
+            int p;
+            vadTimeline.Add(whisperStream.isVad);
             newbufferTimeline.Add(whisperStream.NewBufferSzie);
-            inferTimeline.Add(whisperStream.isInfer);
-            llmTimeline.Add(onLlama);
-            sbertTimeline.Add(onSbert);
-            motionTimeline.Add(ClientManager.Instance.PlayerController.IsAnimPlaying);
+
+            p = whisperStream.isInfer ? 1 : 0;
+            if (onInferChanged)
+            {
+                p = -1;
+                onInferChanged = false;
+            }
+            inferTimeline.Add(p);
+
+            p = currSegWaitTime > 0 ? 1 : 0;
+            if (onWaitSegChanged)
+            {
+                p = -1;
+                onWaitSegChanged = false;
+            }
+            waitSegTimeline.Add(p);
+
+            p = onLlama ? 1 : 0;
+            if (onLlmChanged)
+            {
+                p = -1;
+                onLlmChanged = false;
+            }
+            llmTimeline.Add(p);
+
+            p = currMotionWaitTime > 0 ? 1 : 0;
+            if (onWaitMotionChanged)
+            {
+                p = -1;
+                onWaitMotionChanged = false;
+            }
+            waitMotionTimeline.Add(p);
+
+            p = ClientManager.Instance.PlayerController.IsAnimPlaying ? 1 : 0;
+            if (onAnimChanged)
+            {
+                p = -1;
+                onAnimChanged = false;
+            }
+            motionTimeline.Add(p);
         }
+        
     }
 
     public void PlayTakingMotion()
@@ -204,6 +251,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             {
                 if (waitedMotionLog != null)
                 {
+                    onAnimChanged = true;
                     nc.PlayMotion(waitedMotionLog.faceClipName, waitedMotionLog.actionClipName);
                     waitedMotionLog.whileIgnored = ignoredSegements;
                     logContextItems.Add(waitedMotionLog);
@@ -247,6 +295,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         // 1초 내로 끝나지 않을 시, 버림 
         if (onLlama)
         {
+            onWaitSegChanged = true;
             waitedWhisperResult = whisperResult;
             // 코루틴이 실행 중이지 않을 때는 코루틴 실행 
             if (currSegWaitTime == 0f)
@@ -275,6 +324,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         if(onLlama){
             return;
         }
+        onLlmChanged = true;
         onLlama = true;
 
         ActionFaceMotionSet _actionFaceMotionSet = new ActionFaceMotionSet();
@@ -342,6 +392,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             // 모션이 실행중이면, 인터럽트 방지를 위해 입력을 막음 
             if (nc.IsAnimPlaying)
             {
+                onWaitMotionChanged = true;
                 // llama.AddChatLog(ClientManager.Instance.ClientInfo.username, text);
                 // ignoredSegements.Add(text);
                 if (currMotionWaitTime == 0f)
@@ -357,6 +408,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             }
             else
             {
+                onAnimChanged = true;
                 // 모션 애니메이션 실행 
                 nc.PlayMotion(_actionFaceMotionSet.faceClipName, _actionFaceMotionSet.actionClipName);
             }

@@ -89,6 +89,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         // myCharic = ClientManager.Instance.PlayerController;
 
         OnCreateWhisperStream(_stream);
+        MotionGenerator.Instance.whisperStream = _stream;
 
         whisperWrapper = wm.GetWhisperWrapper();
         if (whisperWrapper == null)

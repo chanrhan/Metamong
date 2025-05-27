@@ -192,44 +192,69 @@ public class TimelineLogger : MonobehaviourSingleton<TimelineLogger>
     public void WriteTimeline()
     {
         StringBuilder sb = new StringBuilder();
+        // sb.Append("(__vad_)");
+        foreach (bool v in MotionGenerator.Instance.vadTimeline)
+        {
+            sb.Append(v ? "|" : ".");
+        }
+        sb.Append("\n");
+        // sb.Append("(newbuf)");
         foreach (int v in MotionGenerator.Instance.newbufferTimeline)
         {
             char c;
-            if(v == 0){
+            if (v == 0)
+            {
                 c = '.';
-            }else if(v >= 1000){
+            }
+            else if (v >= 8000)
+            {
                 c = '|';
-            }else if(v >= 500){
+            }
+            else if (v >= 4000)
+            {
                 c = '!';
-            }else {
+            }
+            else
+            {
                 c = ':';
             }
             sb.Append(c);
         }
         sb.Append("\n");
-        foreach (bool v in MotionGenerator.Instance.inferTimeline)
+        // sb.Append("(infer_)");
+        foreach (int v in MotionGenerator.Instance.inferTimeline)
         {
-            sb.Append(v ? "|" : ".");
+            sb.Append(getChar(v));
         }
-        
+
         sb.Append("\n");
-        foreach (bool v in MotionGenerator.Instance.llmTimeline)
+        // sb.Append("(s_wait)");
+        foreach (int v in MotionGenerator.Instance.waitSegTimeline)
         {
-            sb.Append(v ? "|" : ".");
+            sb.Append(getChar(v));
+        }
+
+        sb.Append("\n");
+        // sb.Append("(llama_)");
+        foreach (int v in MotionGenerator.Instance.llmTimeline)
+        {
+            sb.Append(getChar(v));
         }
         sb.Append("\n");
-        foreach (bool v in MotionGenerator.Instance.sbertTimeline)
+        // sb.Append("(m_wait)");
+        foreach (int v in MotionGenerator.Instance.waitMotionTimeline)
         {
-            sb.Append(v ? "|" : ".");
+            sb.Append(getChar(v));
         }
         sb.Append("\n");
-        foreach (bool v in MotionGenerator.Instance.motionTimeline)
+        // sb.Append("(motion)");
+        foreach (int v in MotionGenerator.Instance.motionTimeline)
         {
-            sb.Append(v ? "|" : ".");
+            sb.Append(getChar(v));
         }
         sb.Append("\n");
 
-        string pull_path = Path.Combine(log_path_prefix, "timeline/"+filename + ".txt");
+        string pull_path = Path.Combine(log_path_prefix, "timeline/" + filename + ".txt");
         // Debug.Log("Log Path: " + pull_path);
 
         // if (!Directory.Exists(pull_path))
@@ -238,11 +263,21 @@ public class TimelineLogger : MonobehaviourSingleton<TimelineLogger>
         //     Directory.CreateDirectory(dir);
         // }
 
-        if (!File.Exists(pull_path))
+        File.WriteAllText(pull_path, sb.ToString());
+
+    }
+
+    private char getChar(int v)
+    {
+        switch (v)
         {
-            // Debug.Log("Created new log file : " + pull_path);
-            File.WriteAllText(pull_path, sb.ToString());
-            return;
+            case -1:
+                return '>';
+            case 0:
+                return '.';
+            case 1:
+                return '|';
         }
+        return '.';
     }
 }

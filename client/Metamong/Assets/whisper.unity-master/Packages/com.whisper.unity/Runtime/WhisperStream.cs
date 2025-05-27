@@ -84,7 +84,7 @@ namespace Whisper
         /// If true stream will ignore audio chunks with no detected speech.
         /// </summary>
         public readonly bool UseVad;
-
+       
         public WhisperStreamParams(WhisperParams inferenceParam,
             int frequency, int channels,
             float stepSec = 3f, float keepSec = 0.2f, float lengthSec = 10f,
@@ -94,18 +94,18 @@ namespace Whisper
             InferenceParam = inferenceParam;
             Frequency = frequency;
             Channels = channels;
-            
+
             StepSec = stepSec;
-            StepSamples = (int) (StepSec * Frequency * Channels);
+            StepSamples = (int)(StepSec * Frequency * Channels);
 
             KeepSec = keepSec;
-            KeepSamples = (int) (KeepSec * frequency * channels);
+            KeepSamples = (int)(KeepSec * frequency * channels);
 
             LengthSec = lengthSec;
-            LengthSamples = (int) (LengthSec * frequency * channels);
+            LengthSamples = (int)(LengthSec * frequency * channels);
 
-            StepsCount = Math.Max(1, (int) (LengthSec / StepSec) - 1);
-            
+            StepsCount = Math.Max(1, (int)(LengthSec / StepSec) - 1);
+
             UpdatePrompt = updatePrompt;
             DropOldBuffer = dropOldBuffer;
             UseVad = useVad;
@@ -163,6 +163,9 @@ namespace Whisper
         }
 
         public bool isInfer = false;
+
+        public bool isVad = false;
+
 
         /// <summary>
         /// Create a new instance of Whisper streaming transcription.
@@ -240,6 +243,7 @@ namespace Whisper
                 RecordChunkVoiceDetected(segmentId, chunk.IsVoiceDetected);
                 RecordStep(segmentId, _step);
 
+                isVad = chunk.IsVoiceDetected;
                 if (chunk.IsVoiceDetected)
                 {
                     //  UnityEngine.Debug.Log($"[ws]({segmentId}) chunk voice detected");
