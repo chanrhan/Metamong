@@ -5,6 +5,8 @@ using Whisper.Utils;
 // ReSharper disable once RedundantUsingDirective
 using System.Linq;
 using System.Diagnostics;
+using UnityEngine;
+using PlasticGui;
 
 namespace Whisper
 {
@@ -146,6 +148,16 @@ namespace Whisper
         
         private Task<WhisperResult> _task;
 
+        public Action<int> RecordAddToStream;
+        public Action<int, bool> RecordUseVad;
+        public Action<int, bool> RecordChunkVoiceDetected;
+        public Action<int, int> RecordStep;
+        public Action<int> RecordSlidingWindow;
+        public Action<int> RecordBeforeInfer;
+        public Action<int> RecordAfterInfer;
+        public Action<int> RecordFinished;
+        public Action<int, string> RecordSegment;
+
         /// <summary>
         /// Create a new instance of Whisper streaming transcription.
         /// </summary>
@@ -194,20 +206,25 @@ namespace Whisper
         /// <remarks>
         /// If you set microphone into constructor, it will be called automatically.
         /// </remarks>
-        
+    
         public static bool wasFinishedSegment = false;
         public static bool start = true;
         public async void AddToStream(AudioChunk chunk)
         {
             if (!_isStreaming)
             {
-                LogUtils.Warning("Start streaming first!");
+                LogUtils.Warning($"({segmentId})Start streaming first!");
                 return;
             }
+            segmentId++;
+            RecordAddToStream(segmentId);
+            UnityEngine.Debug.Log($"[ws]({segmentId}) Add To Stream : {chunk.Data}, voice detected : {chunk.IsVoiceDetected}");
+
+            RecordUseVad(segmentId, _param.UseVad);
 
             if (_param.UseVad)
             {
-                
+                UnityEngine.Debug.Log($"[ws]({segmentId}) use vad");
                 if(wasFinishedSegment || start){
                     mySW.Restart();
                     LogUtils.Log("스탑워치를 재시작합니다.");
@@ -215,13 +232,17 @@ namespace Whisper
                     start = false;
                 }
                 
+                RecordChunkVoiceDetected(segmentId, chunk.IsVoiceDetected);
                 if (chunk.IsVoiceDetected)
                 {
+                    
+                     UnityEngine.Debug.Log($"[ws]({segmentId}) chunk voice detected");
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow();
                 }
                 else
                 {
+                    RecordStep(segmentId, _step);
                     if (_step <= 0)
                     {
                         _oldBuffer = chunk.Data;
@@ -274,12 +295,17 @@ namespace Whisper
             // reset stream and drop audio buffer
             Reset();
         }
+
+        private int segmentId = 0;
         
         private Stopwatch mySW =new Stopwatch();
         public List<double> finishSegmentTimes = new List<double>();
         public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
+            RecordSlidingWindow(segmentId);
+            UnityEngine.Debug.Log($"[ws]({segmentId}) Update SlidingWindow : {mySW.ElapsedMilliseconds}");
+
             // check if task isn't busy
             // if it's still transcribing - just skip it
             // next iteration will handle current and future data
@@ -322,7 +348,8 @@ namespace Whisper
             // current data is already copied into local buffer
             _newBuffer.Clear();
 
-            
+            RecordBeforeInfer(segmentId);
+            UnityEngine.Debug.Log($"[ws]({segmentId}) Before infer : {mySW.ElapsedMilliseconds}");
             
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
@@ -331,11 +358,15 @@ namespace Whisper
             // append current transcription into temporary output
             var res = await _task;
             var currentSegment = res.Result;
-            LogUtils.Log($"segment text: {currentSegment}\n");
+            // LogUtils.Log($"segment text: {currentSegment}\n");
+            RecordAfterInfer(segmentId);
+            UnityEngine.Debug.Log($"[ws]({segmentId}) After infer : {mySW.ElapsedMilliseconds}");
+
             var currentOutput = _output + currentSegment;
 
             // send update to user
             res.inferTime = mySW.ElapsedMilliseconds; // chan
+            RecordSegment(segmentId, res.Result);
             OnSegmentUpdated?.Invoke(res);
             OnResultUpdated?.Invoke(currentOutput);
             
@@ -344,7 +375,6 @@ namespace Whisper
             _step++;
             if (forceSegmentEnd || _step >= _param.StepsCount)
             {
-                
                 LogUtils.Verbose($"Stream finished an old segment with total steps of {_step}");
                 _output = currentOutput;
                 stt_result_segments = _output;
@@ -365,6 +395,7 @@ namespace Whisper
                 _step = 0;
 
                 res.finsihedInferTime = mySW.ElapsedMilliseconds;
+                RecordFinished(segmentId);
                 OnSegmentFinished?.Invoke(res);
                 LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
                 finishSegmentTimes.Add(mySW.ElapsedMilliseconds);
@@ -393,6 +424,7 @@ namespace Whisper
         
         private void MicrophoneOnChunkReady(AudioChunk chunk)
         {
+            UnityEngine.Debug.Log("[chan] MicrophoneOnChunkReady");
             AddToStream(chunk);
         }
         

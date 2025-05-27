@@ -45,7 +45,7 @@ public class ActionFaceMotionSet
 /// </summary>
 public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 {
-    [Header("Llama")]
+    [Header("Process")]
     [SerializeField]
     private bool onLlama = false;
 
@@ -79,7 +79,10 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     }
 
     [Header("Parallel")]
+    [SerializeField]
     private float SEG_WAIT_TIME = 1f;
+    [SerializeField]
+    private float MOTION_WAIT_TIME = 0.4f;
     private WhisperResult waitedWhisperResult;
     [SerializeField]
     private float currSegWaitTime = 0f;
@@ -96,9 +99,6 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
 
     
-    
-
-
     protected override void Awake()
     {
         base.Awake();
@@ -135,13 +135,16 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         nc.PlayMotion(actionFaceMotionSet.faceClipName, actionFaceMotionSet.actionClipName);
     }
 
+    // whisper로부터 나온 세그먼트를 대기하는 코루틴 (llama가 실행 중일 때 )
     private IEnumerator WaitSegmentCoroutine()
     {
         currSegWaitTime = 0f;
         while (currSegWaitTime < SEG_WAIT_TIME)
         {
+            // llama 처리가 끝났다면
             if (!onLlama)
             {
+                currSegWaitTime = 0f;
                 if (waitedWhisperResult != null)
                 {
                     FileLogVO.LogContextItem log = new FileLogVO.LogContextItem
@@ -151,6 +154,9 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                         whisperFinishedInferTime = waitedWhisperResult.finsihedInferTime
                     };
 
+                    waitedWhisperResult = null;
+                    
+                    // llama 실행 
                     DoLlama(log);
                 }
                 break;
@@ -166,7 +172,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     {
         NetworkCharacter nc = ClientManager.Instance?.PlayerController;
         currMotionWaitTime = 0f;
-        while (currMotionWaitTime < SEG_WAIT_TIME)
+        while (currMotionWaitTime < MOTION_WAIT_TIME)
         {
             if (!nc.IsAnimPlaying)
             {
@@ -175,8 +181,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                     nc.PlayMotion(waitedMotionLog.faceClipName, waitedMotionLog.actionClipName);
                     waitedMotionLog.whileIgnored = ignoredSegements;
                     logContextItems.Add(waitedMotionLog); 
-                    ignoredSegements.Clear();
                 }
+                ignoredSegements.Clear();
                 break;
             }
             currMotionWaitTime += 0.1f;
@@ -185,8 +191,6 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         currMotionWaitTime = 0f;
         waitedMotionLog = null;
     }
-
-
 
     /// <summary>
     /// 모션을 생성하는 함수, Player / NPC 모두 통용
@@ -210,6 +214,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             return;
         }
 
+        // 어떠한 세그먼트든 무조건 저장함 
         ignoredSegements.Add(whisperResult.Result);
 
         // Llama가 실행 중이면, 일단 저장함
@@ -217,6 +222,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         if (onLlama)
         {
             waitedWhisperResult = whisperResult;
+            // 코루틴이 실행 중이지 않을 때는 코루틴 실행 
             if (currSegWaitTime == 0f)
             {
                 StartCoroutine(WaitSegmentCoroutine());
@@ -240,6 +246,9 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     private async void DoLlama(FileLogVO.LogContextItem log)
     {
+        if(onLlama){
+            return;
+        }
         onLlama = true;
 
         ActionFaceMotionSet _actionFaceMotionSet = new ActionFaceMotionSet();
@@ -324,7 +333,6 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 nc.PlayMotion(_actionFaceMotionSet.faceClipName, _actionFaceMotionSet.actionClipName);
             }
         }
-
 
         // Whisper-Motion 기록용 (Log)
         log.whileIgnored = ignoredSegements;

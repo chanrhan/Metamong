@@ -15,7 +15,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private WhisperManager wm;
     // [SerializeField]
     private MicrophoneRecord microphoneRecord;
-    private WhisperStream _stream;
+    public WhisperStream _stream;
     private WhisperWrapper whisperWrapper;
 
     public OnVadChangedDelegate OnVadChanged
