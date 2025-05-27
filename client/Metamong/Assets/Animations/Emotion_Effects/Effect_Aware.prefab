@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5640031919503511152}
   - component: {fileID: 7727272270098596978}
+  - component: {fileID: 4007912290185257873}
   m_Layer: 0
   m_Name: off
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4007912290185257873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120530657947598467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda69bddb1a17e3458f472f67e29bef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &518036725088776083
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3844068624024872919}
   - component: {fileID: 9219812056357067565}
+  - component: {fileID: 3493393919118836811}
   m_Layer: 0
   m_Name: on
   m_TagString: Untagged
@@ -168,6 +182,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3493393919118836811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518036725088776083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda69bddb1a17e3458f472f67e29bef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8150823342152407673
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5576652117157835212
 Transform:
   m_ObjectHideFlags: 0
@@ -193,9 +219,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8150823342152407673}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.82, y: 0.271, z: 1.556}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalScale: {x: 0.0049999994, y: 0.004999999, z: 0.005}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3844068624024872919}
