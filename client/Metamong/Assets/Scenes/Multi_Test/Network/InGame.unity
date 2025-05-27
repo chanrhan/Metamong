@@ -4560,8 +4560,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b91157584066c74498c758d5b05686d, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: 7b91157584066c74498c758d5b05686d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4585,8 +4585,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10277,7 +10277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1940564328847510853, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: npcName
-      value: "NPC_\uC9C0\uC218"
+      value: "NPC_\uCF54\uB9AC"
       objectReference: {fileID: 0}
     - target: {fileID: 2087415712440016775, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10330,6 +10330,10 @@ PrefabInstance:
     - target: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: m_Name
       value: BasicNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866668544297326293, guid: 895829f3e710645478fb273d981a9424, type: 3}
+      propertyPath: npcActionThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7290581024992755222, guid: 895829f3e710645478fb273d981a9424, type: 3}
       propertyPath: m_fontAsset

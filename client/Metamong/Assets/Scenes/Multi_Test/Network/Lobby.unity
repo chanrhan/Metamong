@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  filename: turbo_2
+  filename: turbo_1
   currId: 0
 --- !u!4 &2098680473
 Transform:
@@ -3111,7 +3111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
-      value: ju/turbo_2
+      value: ju/turbo_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365811733588975527, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: npcActionThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7871937133293059740, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: m_Name

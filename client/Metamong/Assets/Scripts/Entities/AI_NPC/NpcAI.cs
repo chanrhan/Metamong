@@ -104,6 +104,7 @@ public class NpcAI : NetworkCharacter
     /// <param name="message">NPC에게 전달할 메세지</param>
     public override void ListenMessage(GameObject partnerObj, string message)
     {
+
         if (isGeneratingAnswer) return;
         
         StopDailyCoroutine();
@@ -121,6 +122,7 @@ public class NpcAI : NetworkCharacter
 
     public async void GeneratingAnswerAsync(string msg)
     {
+
         //myAnimationController.MyAnimator.SetBool("isThinking", true);
         //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
 
@@ -128,6 +130,8 @@ public class NpcAI : NetworkCharacter
 
         // chatGPT를 통해 응답 생성 
         string response = await chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg);
+
+
 
         // while(chatCompletionWithSummary.IsWaitingForResponse){
         //     Debug.Log("대화 생성 중");
@@ -140,7 +144,7 @@ public class NpcAI : NetworkCharacter
         //talkIndex = (talkIndex + 1) % talkTextArray.Length;
 
         // 모션 생성
-        MotionGenerator.Instance.GenerateNpcMotion(chatCompletionWithSummary.ResponseMotionText, this);
+        MotionGenerator.Instance.GenerateNpcMotion(response, this);
         ChatManager.Instance.InputChat(npcName, response);
     }   
 
@@ -201,6 +205,7 @@ public class NpcAI : NetworkCharacter
     }
     public override void PlayMotion(string faceClipName, string actionClipName)
     {
+        Debug.Log("[aaa] NPC Play");
         avatarAnim.PlayFaceAndActionAnimation(faceClipName, actionClipName);
     }
 

@@ -24,10 +24,15 @@ public class SBERT : MonoBehaviour
     private BertTokenizer tokenizer;
     private string EMOTION = "중립";
 
+    [Header("Threshold")]
     [SerializeField]
     private float actionThreshold = 0.9f;
     [SerializeField]
     private float faceThreshold = 0.75f;
+    [SerializeField]
+    private float npcActionThreshold = 0.6f;
+    [SerializeField]
+    private float npcFaceThreshold = 0.5f;
 
     // 일반 텍스트에 대한 임베딩 캐시
     private Dictionary<string, float[]> embeddingCache = new Dictionary<string, float[]>();
@@ -137,7 +142,7 @@ public class SBERT : MonoBehaviour
     /// 두 텍스트 간의 코사인 유사도를 계산합니다.
     /// (입력 텍스트는 실시간으로 임베딩 벡터로 변환되고, 기존 문장들과 비교할 수 있습니다.)
     /// </summary>
-    public ScoreMotion CompareWordText(string inputText, bool isAct)
+    public ScoreMotion CompareWordText(string inputText, bool isAct, bool isPlayer = true)
     {
         if (string.IsNullOrEmpty(inputText) || inputText == "none")
             return new ScoreMotion("No match", 0.0);
@@ -154,14 +159,18 @@ public class SBERT : MonoBehaviour
                 var embeddings = kvp.Value;
                 var info = actMotionInfoList[motionKey];
 
-                // 감정 제외 체크
-                if (!string.IsNullOrEmpty(info.emotionalExept[0]))
+                if (isPlayer)
                 {
-                    //var excluded = info.emotionalExept.Split(',').Select(e => e.Trim());
-                    var excluded = info.emotionalExept;
-                    if (excluded.Contains(EMOTION))
-                        continue;
+                    // 감정 제외 체크
+                    if (!string.IsNullOrEmpty(info.emotionalExept[0]))
+                    {
+                        //var excluded = info.emotionalExept.Split(',').Select(e => e.Trim());
+                        var excluded = info.emotionalExept;
+                        if (excluded.Contains(EMOTION))
+                            continue;
+                    }
                 }
+                
 
                 // 여러 임베딩 중 최고 유사도 판별
                 foreach (var emb in embeddings)
@@ -195,24 +204,44 @@ public class SBERT : MonoBehaviour
             }
         }
 
-        Debug.Log($"[Yun] Input Text : {inputText}");
-        Debug.Log($"[Yun] Best match: {bestMatchKey} (score: {bestScore})");
-        if (isAct)
+        if (isPlayer)
         {
-            Debug.Log($"EMOTION: {EMOTION} (except: {actMotionInfoList[bestMatchKey].emotionalExept})");
-
-            if (bestScore < actionThreshold)
+            if (isAct)
             {
-                return new ScoreMotion(null, bestScore);
+                Debug.Log($"EMOTION: {EMOTION} (except: {actMotionInfoList[bestMatchKey].emotionalExept})");
+
+                if (bestScore < actionThreshold)
+                {
+                    return new ScoreMotion(null, bestScore);
+                }
+            }
+            else
+            {
+                if (bestScore < faceThreshold)
+                {
+                    return new ScoreMotion(null, bestScore);
+                }
             }
         }
         else
         {
-            if (bestScore < faceThreshold)
+            if (isAct)
             {
-                return new ScoreMotion(null, bestScore);
+
+                if (bestScore < npcActionThreshold)
+                {
+                    return new ScoreMotion(null, bestScore);
+                }
+            }
+            else
+            {
+                if (bestScore < npcFaceThreshold)
+                {
+                    return new ScoreMotion(null, bestScore);
+                }
             }
         }
+        
 
         return new ScoreMotion(bestMatchKey, bestScore);
     }
@@ -222,11 +251,11 @@ public class SBERT : MonoBehaviour
     /// </summary>
     /// <param name="inputText"></param>
     /// <returns></returns>
-    public MotionInfo GetActMotionInfo(string inputText, string emotion)
+    public MotionInfo GetActMotionInfo(string inputText, string emotion, bool isPlayer = true)
     {
         EMOTION = emotion;
 
-        ScoreMotion scoreMotion = CompareWordText(inputText, true);
+        ScoreMotion scoreMotion = CompareWordText(inputText, true, isPlayer);
         if (scoreMotion.motionKey == null || scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
         {
             return new MotionInfo(null, null, 0);

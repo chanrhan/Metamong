@@ -201,7 +201,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         }
         nc.IsAnimPlaying = true;
 
-        ActionFaceMotionSet actionFaceMotionSet = GetMotionKeywords(text);
+        ActionFaceMotionSet actionFaceMotionSet = GetMotionKeywords(text, false);
 
         // 모션 애니메이션 실행 
         nc.PlayMotion(actionFaceMotionSet.faceClipName, actionFaceMotionSet.actionClipName);
@@ -433,11 +433,11 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         return response;
     }
 
-    public ActionFaceMotionSet GetMotionKeywords(string motions)
+    public ActionFaceMotionSet GetMotionKeywords(string motions, bool isPlayer = true)
     {
         // string[] keywords = new string[2];
-        MotionInfo actMotion = sbert.GetActMotionInfo(motions, _emotion); // action
-        ScoreMotion faceMotion = sbert.CompareWordText(motions, false); // face
+        MotionInfo actMotion = sbert.GetActMotionInfo(motions, _emotion, isPlayer); // action
+        ScoreMotion faceMotion = sbert.CompareWordText(motions, false, isPlayer); // face
 
         return new ActionFaceMotionSet
         {
