@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Threading;
 using TMPro;
+using System.Drawing.Text;
 
 
 public class PlayerController : NetworkCharacter
@@ -14,6 +15,7 @@ public class PlayerController : NetworkCharacter
     [SerializeField] private TMP_Text userName;
     
     private Vector3 currMoveVec = new Vector3(0, 0, 0);
+    [SerializeField] private Transform firstViewPos;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class PlayerController : NetworkCharacter
         if (IsOwner)
         {
             userName = GetComponentInChildren<TMP_Text>();
-            CameraController.Instance.SetTargetPlayer(gameObject);
+            CameraController.Instance.SetTargetPlayer(gameObject, firstViewPos);
             ClientManager.Instance.MyPlayerObject = gameObject;
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10, 0, -5);
@@ -34,7 +36,7 @@ public class PlayerController : NetworkCharacter
         if(!IsOwner){
             return;
         }
-        RotateCamara();
+        if(CameraController.Instance.IsThirdView) RotateCamara();
         CheckOnGround();
         if (!ChatManager.Instance.IsTyping)
         {
@@ -78,7 +80,8 @@ public class PlayerController : NetworkCharacter
 
         if (moveVec != Vector3.zero)
         {
-            Vector3 tempVec = CameraController.Instance.nowWatchingVec;
+            Vector3 tempVec
+                = CameraController.Instance.IsThirdView ? CameraController.Instance.nowWatchingVec : transform.forward;
             currMoveVec.x = tempVec.x * moveVec.z + tempVec.z * moveVec.x;
             currMoveVec.z = tempVec.z * moveVec.z - tempVec.x * moveVec.x;
 
@@ -230,13 +233,13 @@ public class PlayerController : NetworkCharacter
     //     }
 
     //     ClientInfo clientInfo = ClientManager.Instance.ClientInfo;
-            
+
     //     ChatManager.Instance.InputChat(clientInfo.username, message);
     //     string response = await Llama.Instance.Chat(clientInfo.username + ": " +message, HandleReply, ReplyCompleted, false);
     //     Llama.Instance.AddChatLog(clientInfo.username,message);
-            
+
     //     Debug.Log("Response: " + response);
-            
+
     //     OnActionTextUpdated?.Invoke(response, default);
     // }
 }

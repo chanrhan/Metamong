@@ -17,10 +17,13 @@ public class FileLogVO
         public long whisperInferTime;
         public long llmTime;
         public string llmResponse;
+        public string emotion;
         public bool llmTimeout = false;
         public long sbertTime;
         public string actionClipName;
         public string faceClipName;
+        public double actionScore;
+        public double faceScore;
         public long totalElapsedTime;
         public override string ToString()
         {

@@ -170,7 +170,7 @@
   "The speaker, feeling mildly surprised, is raising an eyebrow in astonishment.": "Surprised_small",
   "The speaker, feeling surprised and shocked, is expressing their astonishment.": "Surprised_small",
 
-  "The speaker, feeling neutral, is speaking calmly to convey information.": "Talking", //여기는 약간 애매하게 출력되면 하면 좋을 듯 한디..
+  "The speaker, feeling neutral, is speaking calmly to convey information.": "Talking",
   "The speaker, feeling casual, is continuing the conversation": "Talking",
 
   "The speaker, feeling unsure, is thinking about what to do.": "Thinking",

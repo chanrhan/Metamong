@@ -2,26 +2,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Unity.Sentis; // Sentis 관련 API
+using Unity.Sentis;
+using UnityEngine.Internal; // Sentis 관련 API
+
+public struct ScoreMotion
+{
+    public string motionKey; // 모션 키 (예: "HeadScratch", "Hello")
+    public double score;      // 유사도 점수
+
+    public ScoreMotion(string key, double score)
+    {
+        this.motionKey = key;
+        this.score = score;
+    }
+}
 
 public class SBERT : MonoBehaviour
 {
     private Model runtimeModel;
     private Worker worker;
     private BertTokenizer tokenizer;
+    private string EMOTION = "중립";
 
     private float threshold = 0.0f;
 
     // 일반 텍스트에 대한 임베딩 캐시
     private Dictionary<string, float[]> embeddingCache = new Dictionary<string, float[]>();
-
+    Dictionary<string, float[]> precomputedEmbeddings = new Dictionary<string, float[]>();
     // 미리 임베딩할 기존 모션 문장들 (문장 -> 모션 키)
     public Dictionary<string, string> actMotionList = new Dictionary<string, string>();
     public Dictionary<string, string> faceMotionList = new Dictionary<string, string>();
 
     // 미리 계산된 임베딩 벡터 캐시 (문장 -> 임베딩 벡터)
-    public Dictionary<string, float[]> actMotionEmbeddings = new Dictionary<string, float[]>();
-    public Dictionary<string, float[]> faceMotionEmbeddings = new Dictionary<string, float[]>();
+    public Dictionary<string, List<float[]>> actMotionEmbeddings = new Dictionary<string, List<float[]>>();
+    public Dictionary<string, List<float[]>> faceMotionEmbeddings = new Dictionary<string, List<float[]>>();
 
     // JSON 파일 경로 (절대 경로 예: Application.dataPath 기준)
     private static string ACTMOTION_FILE_PATH = Application.dataPath + "/Scripts/MotionMapping/ActMotion.json";
@@ -55,7 +69,7 @@ public class SBERT : MonoBehaviour
         worker = new Worker(runtimeModel, BackendType.CPU);
 
         // Resources 폴더 내의 vocab 파일 경로 (확장자 없이)
-        tokenizer = new BertTokenizer("sbert.onnx/vocab");
+        tokenizer = new BertTokenizer("KR_SBERT_vocab");
     }
 
     private void LeadJsons()
@@ -71,27 +85,48 @@ public class SBERT : MonoBehaviour
     /// </summary>
     public void PrecomputeMotionEmbeddings()
     {
-        // ActMotion, FaceMotion 파일을 읽어옵니다.
         LeadJsons();
 
-        // 각 ActMotion 문장에 대해 임베딩을 계산하여 캐시에 저장합니다.
         foreach (var kvp in actMotionList)
         {
-            string sentence = kvp.Key;
-            if (!actMotionEmbeddings.ContainsKey(sentence))
+            string sentence = kvp.Key;   // 문장
+            string motionKey = kvp.Value; // "HeadScratch", "Hello" 등
+
+            // MotionInfo 확인
+            if (!actMotionInfoList.TryGetValue(motionKey, out MotionInfo info))
             {
-                actMotionEmbeddings[sentence] = GetEmbedding(sentence);
+                Debug.LogWarning($"ActMotionInfo.json에 '{motionKey}' 키가 없습니다.");
+                continue;
             }
+
+            // ▶ 해당 motionKey로 리스트 생성/가져오기
+            if (!actMotionEmbeddings.TryGetValue(motionKey, out var list))
+            {
+                list = new List<float[]>();
+                actMotionEmbeddings[motionKey] = list;
+            }
+
+            // 임베딩 계산 후 추가
+            float[] embedding = GetEmbedding(sentence);
+            list.Add(embedding);
         }
 
-        // 각 FaceMotion 문장에 대해 임베딩을 계산하여 캐시에 저장합니다.
+        // faceMotion은 기존 그대로 유지
         foreach (var kvp in faceMotionList)
         {
-            string sentence = kvp.Key;
-            if (!faceMotionEmbeddings.ContainsKey(sentence))
+            string sentence = kvp.Key;   // 문장
+            string motionKey = kvp.Value; // 표정
+
+            // ▶ 해당 motionKey로 리스트 생성/가져오기
+            if (!faceMotionEmbeddings.TryGetValue(motionKey, out var list))
             {
-                faceMotionEmbeddings[sentence] = GetEmbedding(sentence);
+                list = new List<float[]>();
+                faceMotionEmbeddings[motionKey] = list;
             }
+
+            // 임베딩 계산 후 추가
+            float[] embedding = GetEmbedding(sentence);
+            list.Add(embedding);
         }
     }
 
@@ -99,53 +134,91 @@ public class SBERT : MonoBehaviour
     /// 두 텍스트 간의 코사인 유사도를 계산합니다.
     /// (입력 텍스트는 실시간으로 임베딩 벡터로 변환되고, 기존 문장들과 비교할 수 있습니다.)
     /// </summary>
-    public string CompareWordText(string inputText, bool isAct)
+    public ScoreMotion CompareWordText(string inputText, bool isAct)
     {
-        if (inputText == "none")
-        {
-            return "No match";
-        }
+        if (string.IsNullOrEmpty(inputText) || inputText == "none")
+            return new ScoreMotion("No match", 0.0);
 
-        float[] inputEmbedding = GetEmbedding(inputText);
-
-        // 카테고리에 따라 미리 계산된 임베딩 딕셔너리를 선택합니다.
-        Dictionary<string, float[]> precomputedEmbeddings = isAct ? actMotionEmbeddings : faceMotionEmbeddings;
-
+        var inputEmbedding = GetEmbedding(inputText);
         double bestScore = -1.0;
-        string bestMatchSentence = string.Empty;
-        string bestMatchKey = string.Empty;
+        string bestMatchKey = "No match";
 
-        // 미리 계산된 각 문장에 대해 코사인 유사도를 계산합니다.
-        foreach (KeyValuePair<string, float[]> kvp in precomputedEmbeddings)
+        if (isAct)
         {
-            double score = CosineSimilarity(inputEmbedding, kvp.Value);
-            if (score > bestScore)
+            foreach (var kvp in actMotionEmbeddings)
             {
-                bestScore = score;
-                bestMatchSentence = kvp.Key;
-                bestMatchKey = isAct ? actMotionList[kvp.Key] : faceMotionList[kvp.Key];
+                string motionKey = kvp.Key;
+                var embeddings = kvp.Value;
+                var info = actMotionInfoList[motionKey];
+
+                // 감정 제외 체크
+                if (!string.IsNullOrEmpty(info.emotionalExept[0]))
+                {
+                    //var excluded = info.emotionalExept.Split(',').Select(e => e.Trim());
+                    var excluded = info.emotionalExept;
+                    if (excluded.Contains(EMOTION))
+                        continue;
+                }
+
+                // 여러 임베딩 중 최고 유사도 판별
+                foreach (var emb in embeddings)
+                {
+                    double score = CosineSimilarity(inputEmbedding, emb);
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+                        bestMatchKey = motionKey;
+                    }
+                }
             }
         }
-        Debug.Log($"Best match Sentence :{inputText} => {bestMatchSentence} ({bestScore})");
-        // 쓰레시홀드가 여기있어요
-        return bestScore >= threshold ? bestMatchKey : "No match";
-    }
+        else
+        {
+            foreach (var kvp in faceMotionEmbeddings)
+            {
+                string motionKey = kvp.Key;
+                var embeddings = kvp.Value;
 
+                // 여러 임베딩 중 최고 유사도 판별
+                foreach (var emb in embeddings)
+                {
+                    double score = CosineSimilarity(inputEmbedding, emb);
+                    if (score > bestScore)
+                    {
+                        bestScore = score;
+                        bestMatchKey = motionKey;
+                    }
+                }
+            }
+        }
+
+        Debug.Log($"[Yun] Input Text : {inputText}");
+        Debug.Log($"[Yun] Best match: {bestMatchKey} (score: {bestScore})");
+        if (isAct)
+            Debug.Log($"EMOTION: {EMOTION} (except: {actMotionInfoList[bestMatchKey].emotionalExept})");
+
+        return new ScoreMotion(bestMatchKey, bestScore);
+    }
 
     /// <summary>
     /// inputText와 유사한 actMotion의 MotionInfo 구조체를 반환하는 함수. Matching이 안되면 emotion 멤버가 "No match"라는 MotionInfo를 반환함.
     /// </summary>
     /// <param name="inputText"></param>
     /// <returns></returns>
-    public MotionInfo GetActMotionInfo(string inputText)
+    public MotionInfo GetActMotionInfo(string inputText, string emotion)
     {
-        string compareResult = CompareWordText(inputText, true);
-        if (compareResult == "No match" || !actMotionInfoList.ContainsKey(compareResult))
+        EMOTION = emotion;
+
+        ScoreMotion scoreMotion = CompareWordText(inputText, true);
+        if (scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
         {
-            return new MotionInfo(null, "No match");
+            return new MotionInfo(null, null, 0);
         }
 
-        return actMotionInfoList[compareResult];
+        MotionInfo motionInfo = actMotionInfoList[scoreMotion.motionKey];
+        motionInfo.bestScore = scoreMotion.score; // 유사도 점수 업데이트
+
+        return motionInfo;
     }
 
     /// <summary>
@@ -153,10 +226,10 @@ public class SBERT : MonoBehaviour
     /// </summary>
     /// <param name="inputText"></param>
     /// <returns></returns>
-    public string GetFaceMotion(string inputText)
-    {
-        return CompareWordText(inputText, false);
-    }
+    // public string GetFaceMotion(string inputText)
+    // {
+    //     return CompareWordText(inputText, false);
+    // }
 
     /// <summary>
     /// 텍스트를 모델을 통해 임베딩 벡터로 변환합니다.
@@ -176,6 +249,17 @@ public class SBERT : MonoBehaviour
         int[] tokenIds = tokenizer.Tokenize(text);
         int[] attentionMask = tokenizer.GetAttentionMask(tokenIds);
         int length = tokenIds.Length;
+
+        // // "input_ids" 텐서 생성 (배치 크기 1, 길이: tokenIds.Length)
+        // Tensor<int> inputIdsTensor = new Tensor<int>(
+        //     new TensorShape(1, length),
+        //     tokenIds);
+
+        // // "attention_mask" 텐서 생성 (배치 크기 1)
+        // // "input_ids" 정수형 텐서 생성 (배치 크기 1, 길이: tokenIds.Length)
+        // Tensor<int> attentionMaskTensor = new Tensor<int>(
+        //     new TensorShape(1, length),
+        //     attentionMask);
 
         // "input_ids" 텐서 생성 (배치 크기 1, 길이: tokenIds.Length)
         Tensor<float> inputIdsTensor = new Tensor<float>(
