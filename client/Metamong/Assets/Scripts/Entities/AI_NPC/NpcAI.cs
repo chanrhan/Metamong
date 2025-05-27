@@ -21,6 +21,9 @@ public class NpcAI : NetworkCharacter
     public bool isMessageListened = false;
     public GameObject detectedPlayer;
 
+    [SerializeField]
+    private float npcChatMinInterval = 2f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -114,6 +117,23 @@ public class NpcAI : NetworkCharacter
         GeneratingAnswerAsync(message);
     }
 
+    private float currTime = 0f;
+    private bool isChatBlocked = false;
+
+    private IEnumerator ChatBlockCoroutine()
+    {
+        currTime = 0f;
+        isChatBlocked = true;
+        while (currTime < npcChatMinInterval)
+        {
+            currTime += 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        currTime = 0f;
+        isChatBlocked = false;
+    }
+
+
     /// <summary>
     /// 대답을 생성하는 코루틴. 5초간 대기 후 대답을 생성함. 그 후 SendMessageToOthers()를 호출함.
     /// </summary>
@@ -122,7 +142,10 @@ public class NpcAI : NetworkCharacter
 
     public async void GeneratingAnswerAsync(string msg)
     {
-
+        if (isChatBlocked)
+        {
+            return;
+        }
         //myAnimationController.MyAnimator.SetBool("isThinking", true);
         //myAnimationController.MyAnimator.Play("ThinkingStart", 0);
 
@@ -130,8 +153,8 @@ public class NpcAI : NetworkCharacter
 
         // chatGPT를 통해 응답 생성 
         string response = await chatCompletionWithSummary.RequestChatCompletionAndMaybeSummarize(msg);
-
-
+        StartCoroutine(ChatBlockCoroutine());
+        
 
         // while(chatCompletionWithSummary.IsWaitingForResponse){
         //     Debug.Log("대화 생성 중");
