@@ -3059,7 +3059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: numGPULayers
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2144233696955809316, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: embeddingLength
@@ -3109,9 +3109,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4252114693546220683, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: maxChatLogLength
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
       value: ju/turbo_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365811733588975527, guid: 95694af0d751c4eb49758832569655a6, type: 3}
+      propertyPath: actionThreshold
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5365811733588975527, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: npcActionThreshold
