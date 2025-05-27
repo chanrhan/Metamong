@@ -24,7 +24,7 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
         set
         {
             avatarAnim.IsTalking = value;
-            avatarAnim.TalkingPara = value ? Random.Range(0, 3) : -1;
+            avatarAnim.TalkingPara = value ? Random.Range(0, 2) : -1;
         }
     }
 
