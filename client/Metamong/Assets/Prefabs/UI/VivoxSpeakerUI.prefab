@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Speaker Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
-  m_sharedMaterial: {fileID: 2895630063558157399, guid: e038cddb4912d6e40a1b33b4f2763f84, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7b91157584066c74498c758d5b05686d, type: 2}
+  m_sharedMaterial: {fileID: 2895630063558157399, guid: 7b91157584066c74498c758d5b05686d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
