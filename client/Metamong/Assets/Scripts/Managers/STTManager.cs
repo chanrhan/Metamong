@@ -147,7 +147,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
         microphoneRecord.StopRecord();
         MotionGenerator.Instance?.Log();
-        LogWatchUtils.Instance.WriteFile();
+        TimelineLogger.Instance.WriteFile();
     }
 
     private void OnResult(string result){

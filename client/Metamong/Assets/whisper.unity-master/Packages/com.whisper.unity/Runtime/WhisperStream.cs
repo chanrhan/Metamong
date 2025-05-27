@@ -158,6 +158,10 @@ namespace Whisper
         public Action<int> RecordFinished;
         public Action<int, string> RecordSegment;
 
+        public int NewBufferSzie{
+            get => _newBuffer.Count;
+        }
+
         /// <summary>
         /// Create a new instance of Whisper streaming transcription.
         /// </summary>

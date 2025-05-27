@@ -92,6 +92,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private float currMotionWaitTime = 0f;
     private FileLogVO.LogContextItem waitedMotionLog;
 
+    public List<int> newbufferTimeline = new List<int>();
     public List<bool> llmTimeline = new List<bool>();
     public List<bool> sbertTimeline = new List<bool>();
     public List<bool> motionTimeline = new List<bool>();
@@ -105,19 +106,24 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private static List<string> ignoredSegements = new List<string>();
     private List<FileLogVO.LogContextItem> logContextItems = new List<FileLogVO.LogContextItem>();
 
-    
+    private WhisperStream whisperStream;
+
     protected override void Awake()
     {
         base.Awake();
         sbert = GetComponentInChildren<SBERT>();
         llama = GetComponentInChildren<Llama>();
         emotionClassifier = GetComponentInChildren<EmotionClassifier>();
+        STTManager.Instance.OnCreateWhisperStream += (ws)=>{
+            whisperStream = ws;
+        };
     }
 
     void Update()
     {
         if (STTManager.Instance.IsRecording)
         {
+            newbufferTimeline.Add(whisperStream.NewBufferSzie);
             llmTimeline.Add(onLlama);
             sbertTimeline.Add(onSbert);
             motionTimeline.Add(ClientManager.Instance.PlayerController.IsAnimPlaying);

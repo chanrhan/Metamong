@@ -20,7 +20,7 @@ public class LogTimelineItem
     public int dup = 0;
 }
 
-public class LogWatchUtils : MonobehaviourSingleton<LogWatchUtils>
+public class TimelineLogger : MonobehaviourSingleton<TimelineLogger>
 {
     [SerializeField]
     private string filename;
@@ -192,6 +192,27 @@ public class LogWatchUtils : MonobehaviourSingleton<LogWatchUtils>
     public void WriteTimeline()
     {
         StringBuilder sb = new StringBuilder();
+        foreach (int v in MotionGenerator.Instance.newbufferTimeline)
+        {
+            char c;
+            if(v == 0){
+                c = 'F';
+            }else if(v >= 100){
+                c = 'A';
+            }else if(v >= 80){
+                c = 'B';
+            }else if(v >= 60){
+                c = 'C';
+            }else if(v >= 40){
+                c = 'D';
+            }else if(v >= 20){
+                c = 'E';
+            }else {
+                c = 'X';
+            }
+            sb.Append(c);
+        }
+        sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.llmTimeline)
         {
             sb.Append(v ? "+" : "-");
