@@ -196,21 +196,20 @@ public class TimelineLogger : MonobehaviourSingleton<TimelineLogger>
         {
             char c;
             if(v == 0){
-                c = 'F';
-            }else if(v >= 100){
-                c = 'A';
-            }else if(v >= 80){
-                c = 'B';
-            }else if(v >= 60){
-                c = 'C';
-            }else if(v >= 40){
-                c = 'D';
-            }else if(v >= 20){
-                c = 'E';
+                c = '_';
+            }else if(v >= 1000){
+                c = '^';
+            }else if(v >= 500){
+                c = '=';
             }else {
-                c = 'X';
+                c = '-';
             }
             sb.Append(c);
+        }
+        sb.Append("\n");
+        foreach (bool v in MotionGenerator.Instance.inferTimeline)
+        {
+            sb.Append(v ? "+" : "-");
         }
         sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.llmTimeline)
