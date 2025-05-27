@@ -1,0 +1,151 @@
+[
+  {
+    "stepSec": 0.1,
+    "keepSec": 1.0,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " -뭔가 오늘 쉬는 사람이 없어요.",
+        "whileIgnored": [],
+        "whisperInferTime": 3254,
+        "llmTime": 1687,
+        "llmResponse": "Output: The speaker, feeling frustrated, is commenting on the lack of people taking a break today.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Cold",
+        "faceClipName": "Surprised",
+        "actionScore": 0.88871115181393212,
+        "faceScore": 0.79332991889211135,
+        "totalElapsedTime": 4955
+      },
+      {
+        "segment": " 7일날 인터넷 쓰잖아요",
+        "whileIgnored": [],
+        "whisperInferTime": 3630,
+        "llmTime": 638,
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is mentioning a specific detail.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90267814299945359,
+        "faceScore": 0.78519654392732285,
+        "totalElapsedTime": 4281
+      },
+      {
+        "segment": " 하루정도 쉴려고 그래서",
+        "whileIgnored": [],
+        "whisperInferTime": 7544,
+        "llmTime": 748,
+        "llmResponse": "Output: The speaker, feeling slightly frustrated, is expressing a desire to take a break.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Sleepy",
+        "faceClipName": "Surprised",
+        "actionScore": 0.89121865038390657,
+        "faceScore": 0.73967420900685243,
+        "totalElapsedTime": 8306
+      },
+      {
+        "segment": " - 환하게 사네요.",
+        "whileIgnored": [],
+        "whisperInferTime": 2674,
+        "llmTime": 796,
+        "llmResponse": "Output: The speaker, feeling cheerful and relaxed, is enjoying their day off.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Agreement",
+        "faceClipName": "Laugh_L",
+        "actionScore": 0.93373542557811462,
+        "faceScore": 0.792893971172896,
+        "totalElapsedTime": 3489
+      }
+    ]
+  },
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " -축제로 올라갈 때.",
+        "whileIgnored": [],
+        "whisperInferTime": 5163,
+        "llmTime": 2391,
+        "llmResponse": "Output: The speaker, feeling excited, is looking forward to an event.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.91262616373959393,
+        "faceScore": 0.76916157468302693,
+        "totalElapsedTime": 7569
+      },
+      {
+        "segment": " -끝방송 보내는데 왜?",
+        "whileIgnored": [],
+        "whisperInferTime": 2356,
+        "llmTime": 742,
+        "llmResponse": "Output: The speaker, feeling disappointed and slightly frustrated, is ending the broadcast.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Aha",
+        "faceClipName": "Hansim",
+        "actionScore": 0.86406047275636733,
+        "faceScore": 0.86693083141683269,
+        "totalElapsedTime": 3112
+      },
+      {
+        "segment": " 그래서 잘 됐지만",
+        "whileIgnored": [],
+        "whisperInferTime": 8044,
+        "llmTime": 1297,
+        "llmResponse": "Output: The speaker, feeling relieved and satisfied, is summarizing the successful event.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hungry",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.87965830711966264,
+        "faceScore": 0.84210358416608455,
+        "totalElapsedTime": 9356
+      },
+      {
+        "segment": " 편하게 사네요",
+        "whileIgnored": [],
+        "whisperInferTime": 1527,
+        "llmTime": 619,
+        "llmResponse": "Output: The speaker, feeling relieved and content, is expressing satisfaction.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "OkaySign",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89612009575287677,
+        "faceScore": 0.85569115241754967,
+        "totalElapsedTime": 2158
+      },
+      {
+        "segment": " - 네? - 푸는 사람이 오고 벌차는",
+        "whileIgnored": [],
+        "whisperInferTime": 7208,
+        "llmTime": 712,
+        "llmResponse": "Output: The speaker, feeling annoyed, is complaining about the situation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "BadSmell",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.98208194048578823,
+        "faceScore": 0.83436946111958044,
+        "totalElapsedTime": 7931
+      }
+    ]
+  }
+]

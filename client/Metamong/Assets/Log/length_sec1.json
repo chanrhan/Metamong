@@ -3994,5 +3994,154 @@
         "totalElapsedTime": 5246
       }
     ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 일단 했던거지",
+        "whileIgnored": [],
+        "whisperInferTime": 3243,
+        "llmTime": 2642,
+        "llmResponse": "Output: The speaker, feeling neutral, is simply stating a fact.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.94074740823181369,
+        "faceScore": 0.8472957464932579,
+        "totalElapsedTime": 5897
+      },
+      {
+        "segment": " 플러스로 모든 캐릭터에 적용",
+        "whileIgnored": [],
+        "whisperInferTime": 2868,
+        "llmTime": 785,
+        "llmResponse": "Output: The speaker, feeling neutral, is simply stating a fact.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.94074740823181369,
+        "faceScore": 0.8472957464932579,
+        "totalElapsedTime": 3655
+      },
+      {
+        "segment": " 이제 물이 사라졌다.",
+        "whileIgnored": [],
+        "whisperInferTime": 3781,
+        "llmTime": 876,
+        "llmResponse": "Output: The speaker, feeling relieved, is expressing a sense of accomplishment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Relieved",
+        "faceClipName": "Surprised",
+        "actionScore": 0.991619463897495,
+        "faceScore": 0.77260414505978725,
+        "totalElapsedTime": 4668
+      },
+      {
+        "segment": " 저 경고창 뜨는",
+        "whileIgnored": [],
+        "whisperInferTime": 6235,
+        "llmTime": 1583,
+        "llmResponse": "Output: The speaker, feeling relieved, is commenting on the removal of a warning message.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "HurryUp",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.88636699236828953,
+        "faceScore": 0.82931349966783963,
+        "totalElapsedTime": 7830
+      },
+      {
+        "segment": " 폰트 폰트가",
+        "whileIgnored": [
+          " 물건은 발면서 겨우 샀던 것 같은데"
+        ],
+        "whisperInferTime": 4246,
+        "llmTime": 1527,
+        "llmResponse": "Output: The speaker, feeling relieved and slightly annoyed, is commenting on the font.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Cold",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.95093973150066591,
+        "faceScore": 0.89234640927849151,
+        "totalElapsedTime": 5786
+      },
+      {
+        "segment": " 내용을 보여줬다가",
+        "whileIgnored": [
+          " 폰트가 저게 뭐 때문이냐면"
+        ],
+        "whisperInferTime": 3562,
+        "llmTime": 1617,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is explaining the reason for a problem.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Nope",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.891820482456688,
+        "faceScore": 0.74543092235837483,
+        "totalElapsedTime": 5194
+      },
+      {
+        "segment": " STD 결과물을 부를 수 있지",
+        "whileIgnored": [
+          " 거기를 없애면",
+          " 로직이 안 풀러가"
+        ],
+        "whisperInferTime": 1720,
+        "llmTime": 1705,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is explaining the problem with a logical error.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Sleepy",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.88981453625251394,
+        "faceScore": 0.76966228881629584,
+        "totalElapsedTime": 3441
+      },
+      {
+        "segment": " 안굴러가서 내가 유학",
+        "whileIgnored": [],
+        "whisperInferTime": 2672,
+        "llmTime": 1668,
+        "llmResponse": "Output: The speaker, feeling frustrated and disappointed, is expressing their inability to continue.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Clapping",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.8766386102250614,
+        "faceScore": 0.74969782881269442,
+        "totalElapsedTime": 4352
+      },
+      {
+        "segment": " 유아이 밖으로 빼놨어 거기 지금도",
+        "whileIgnored": [],
+        "whisperInferTime": 2268,
+        "llmTime": 1077,
+        "llmResponse": "Output: The speaker, feeling frustrated and slightly annoyed, is explaining a technical issue.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Nope",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.86250305501312008,
+        "faceScore": 0.79978344389827016,
+        "totalElapsedTime": 3361
+      }
+    ]
   }
 ]

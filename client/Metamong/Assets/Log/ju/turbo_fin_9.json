@@ -1,0 +1,84 @@
+[
+  {
+    "stepSec": 0.1,
+    "keepSec": 0.1,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 네.",
+        "whileIgnored": [],
+        "whisperInferTime": 5166,
+        "llmTime": 2071,
+        "llmResponse": "Output: The speaker, feeling neutral, is agreeing with the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Agreement",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.92876049607569111,
+        "faceScore": 0.77162602818097248,
+        "totalElapsedTime": 7254
+      },
+      {
+        "segment": " 하루 정도 실행하고 그래서.",
+        "whileIgnored": [],
+        "whisperInferTime": 6552,
+        "llmTime": 660,
+        "llmResponse": "Output: The speaker, feeling neutral, is casually ending the conversation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.90418570131360787,
+        "faceScore": 0.82091680482237084,
+        "totalElapsedTime": 7223
+      },
+      {
+        "segment": " -끝하네요.",
+        "whileIgnored": [],
+        "whisperInferTime": 3120,
+        "llmTime": 679,
+        "llmResponse": "Output: The speaker, feeling relieved, is ending the conversation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 9,
+        "actionClipName": "Clapping",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.9370601413152666,
+        "faceScore": 0.85278352908041533,
+        "totalElapsedTime": 3808
+      },
+      {
+        "segment": " -이건 정말 없어요.",
+        "whileIgnored": [],
+        "whisperInferTime": 6720,
+        "llmTime": 666,
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing disappointment and annoyance.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "ComeOn",
+        "faceClipName": "Hansim",
+        "actionScore": 0.86763729564327863,
+        "faceScore": 0.80407401672045087,
+        "totalElapsedTime": 7400
+      },
+      {
+        "segment": " 수성분을 잘...",
+        "whileIgnored": [],
+        "whisperInferTime": 4211,
+        "llmTime": 913,
+        "llmResponse": "Output: The speaker, feeling disappointed and frustrated, is expressing their negative emotions.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Angry_big_02",
+        "faceClipName": "Hansim",
+        "actionScore": 0.90267131861336292,
+        "faceScore": 0.818090248829599,
+        "totalElapsedTime": 5137
+      }
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 어마어마하지 않습니까?",
+        "whileIgnored": [],
+        "whisperInferTime": 7229,
+        "llmTime": 1302,
+        "llmResponse": "Output: The speaker, feeling astonished, is expressing surprise.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "HeadScratch",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.99229755155935406,
+        "faceScore": 0.8600766746970625,
+        "totalElapsedTime": 8543
+      },
+      {
+        "segment": " -이거 생각했다는 이야기가 있어요.",
+        "whileIgnored": [
+          " 간단히 얘기 없습니다."
+        ],
+        "whisperInferTime": 4644,
+        "llmTime": 920,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is expressing annoyance at the lack of straightforward communication.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 19,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.85529442579142856,
+        "faceScore": 0.74992732696348341,
+        "totalElapsedTime": 5583
+      },
+      {
+        "segment": " 손을 거셨어요 맞습니까?",
+        "whileIgnored": [],
+        "whisperInferTime": 9192,
+        "llmTime": 839,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically agreeing with the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Agreement",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90363508303095275,
+        "faceScore": 0.74766942397687686,
+        "totalElapsedTime": 10044
+      },
+      {
+        "segment": " 명의로 된 차는 한대",
+        "whileIgnored": [],
+        "whisperInferTime": 15192,
+        "llmTime": 766,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically commenting on the car.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.88958643740116083,
+        "faceScore": 0.77410781212546,
+        "totalElapsedTime": 15969
+      },
+      {
+        "segment": " 말씀드리는 겁니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 4645,
+        "llmTime": 1227,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically expressing their point.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "Surprised",
+        "actionScore": 0.92975406571266628,
+        "faceScore": 0.81636499218169767,
+        "totalElapsedTime": 5886
+      },
+      {
+        "segment": " 한 대요",
+        "whileIgnored": [
+          " 와이프 챔피언"
+        ],
+        "whisperInferTime": 3084,
+        "llmTime": 1261,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically agreeing with the other person.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "sbertTime": 5,
+        "actionClipName": "Agreement",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90363508303095275,
+        "faceScore": 0.74766942397687686,
+        "totalElapsedTime": 4350
+      },
+      {
+        "segment": " 제가 좋게 은하테스",
+        "whileIgnored": [
+          " 회사의 직원이"
+        ],
+        "whisperInferTime": 4135,
+        "llmTime": 715,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically praising the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Listening",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.85509165192020653,
+        "faceScore": 0.76615386570605548,
+        "totalElapsedTime": 4863
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 어디에 있는 격감",
+        "whileIgnored": [],
+        "whisperInferTime": 2958,
+        "llmTime": 689,
+        "llmResponse": "Output: The speaker, feeling sarcastic and annoyed, is making a witty remark.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 23,
+        "actionClipName": "Hansim",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.86716028514327559,
+        "faceScore": 0.76298553991402784,
+        "totalElapsedTime": 3670
+      }
+    ]
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " キキちゃん",
+        "whileIgnored": [],
+        "whisperInferTime": 3265,
+        "llmTime": 2808,
+        "llmResponse": null,
+        "emotion": "행복",
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": 0.0,
+        "totalElapsedTime": 6073
+      },
+      {
+        "segment": " 何か好き?",
+        "whileIgnored": [],
+        "whisperInferTime": 2881,
+        "llmTime": 849,
+        "llmResponse": "Output: The speaker, feeling neutral, is asking about someone's preferences.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.94202737245183654,
+        "faceScore": 0.835470495596781,
+        "totalElapsedTime": 3745
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 제가 아직 거울을 덜어낸 건가?",
+        "whileIgnored": [],
+        "whisperInferTime": 5195,
+        "llmTime": 2352,
+        "llmResponse": "Output: The speaker, feeling self-deprecating and humorous, is making a witty remark about themselves.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Pointing",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.873896721364551,
+        "faceScore": 0.7888056512094942,
+        "totalElapsedTime": 7559
+      }
+    ]
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 왜 그런고잉?",
+        "whileIgnored": [],
+        "whisperInferTime": 2356,
+        "llmTime": 2145,
+        "llmResponse": "Output: The speaker, feeling curious, is asking for an explanation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.988082122132495,
+        "faceScore": 0.83484170410946656,
+        "totalElapsedTime": 4516
+      },
+      {
+        "segment": " 고음을 잘 믿는데",
+        "whileIgnored": [
+          " 파이널 섹스 2 세곤드 테스트",
+          " 지금은 된다"
+        ],
+        "whisperInferTime": 3186,
+        "llmTime": 738,
+        "llmResponse": "Output: The speaker, feeling confident, is reassuring the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.933640771815327,
+        "faceScore": 0.74706742489533839,
+        "totalElapsedTime": 3934
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 하루 정도 쉬려고 그래",
+        "whileIgnored": [],
+        "whisperInferTime": 2359,
+        "llmTime": 2721,
+        "llmResponse": "Output: The speaker, feeling relaxed, is casually mentioning a plan to take it easy.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.9071745726268885,
+        "faceScore": 0.78258180896436513,
+        "totalElapsedTime": 5096
+      },
+      {
+        "segment": " 직장님도 월차",
+        "whileIgnored": [
+          " 편하게 사네요"
+        ],
+        "whisperInferTime": 3823,
+        "llmTime": 1741,
+        "llmResponse": "Output: The speaker, feeling relaxed, is casually mentioning a work-related matter.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.93002379946763691,
+        "faceScore": 0.80250666749687782,
+        "totalElapsedTime": 5578
+      },
+      {
+        "segment": " - 산해방잖아요. - 산해방을",
+        "whileIgnored": [
+          " -끝신의 잘 못했어요. -네, 끝."
+        ],
+        "whisperInferTime": 3933,
+        "llmTime": 949,
+        "llmResponse": "Output: The speaker, feeling relaxed and playful, is jokingly teasing someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 21,
+        "actionClipName": "Relieved",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89157770521304491,
+        "faceScore": 0.8095183066714946,
+        "totalElapsedTime": 4903
+      },
+      {
+        "segment": " 자",
+        "whileIgnored": [],
+        "whisperInferTime": 3276,
+        "llmTime": 2772,
+        "llmResponse": "Output: The speaker, feeling relaxed and slightly sarcastic, is ending the conversation with a casual tone.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Hungry",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.81341526423894928,
+        "faceScore": 0.74935754980742975,
+        "totalElapsedTime": 6064
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 1.5,
+    "logContextItems": [
+      {
+        "segment": " 한글자막 by 한효정",
+        "whileIgnored": [
+          " 야 스콘 맛있겠다"
+        ],
+        "whisperInferTime": 1740,
+        "llmTime": 1060,
+        "llmResponse": "Output: The speaker, feeling relaxed and slightly sarcastic, is commenting on the pleasantness of the situation.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Sleepy",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.8778444035562567,
+        "faceScore": 0.84426077480015249,
+        "totalElapsedTime": 2815
+      }
+    ]
+  }
+]

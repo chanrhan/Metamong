@@ -17,31 +17,32 @@ public class AvatarAnimation : MonoBehaviour
     private const string TALKING_VAR_PARA = "TalkingPara";
 
     private Animator anim;
-    [SerializeField]
-    private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
+    // [SerializeField]
+    // private bool isBlocked = false; // 애니메이션 입력 방지 변수, Block인 경우에는 애니메이션 인터럽트가 발생하지 않는다 
     [SerializeField]
     private bool isMotionPlaying = false; // 모션 실행 중 여부 체크
-    public bool IsBlocked
-    {
-        get => isBlocked;
-        set
-        {
-            isBlocked = value;
-            if (!value)
-            {
-                isMotionPlaying = false;
-            }
-        }
-    }
+    // public bool IsBlocked
+    // {
+    //     get => isBlocked;
+    //     set
+    //     {
+    //         isBlocked = value;
+    //         if (!value)
+    //         {
+    //             isMotionPlaying = false;
+    //         }
+    //     }
+    // }
     public bool IsMotionPlaying
     {
         get => isMotionPlaying;
         set => isMotionPlaying = value;
     }
+    
     public bool IsTalking
     {
-        get=>anim.GetBool(TALKING_PARAM);
-        set=>anim.SetBool(TALKING_PARAM, value);
+        get => anim.GetBool(TALKING_PARAM);
+        set => anim.SetBool(TALKING_PARAM, value);
     }
 
     public int TalkingPara
@@ -65,7 +66,6 @@ public class AvatarAnimation : MonoBehaviour
         UpdateIdleTransition();
     }
 
-
     private bool IsDefaultAnimBool()
     {
         return anim.GetBool(WALKING_PARAM);
@@ -78,33 +78,36 @@ public class AvatarAnimation : MonoBehaviour
     /// </summary>
     private void UpdateIdleTransition()
     {
-        if (isBlocked)
+        if (isMotionPlaying)
         {
+            // if (IsDefaultAnimBool())
+            // {
+            //     isMotionPlaying = false;
+            //     IsTalking = false;
+            //     return;
+            // }
+
+            AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+
+            // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
             if (IsDefaultAnimBool())
             {
-                isBlocked = false;
+                Debug.Log($"[aaa 11 : {Time.realtimeSinceStartup}] Idle n_time : {state.normalizedTime}");
+                anim.Play(idleClipName);
+                // isBlocked = false;
                 isMotionPlaying = false;
                 IsTalking = false;
-                return;
             }
 
-            if (isMotionPlaying)
+            if (state.normalizedTime >= 0.95f)
             {
-                AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-
-                // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
-                if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
-                {
-                    Debug.Log("[chan] Idle");
-                    anim.Play(idleClipName);
-                    isBlocked = false;
-                    isMotionPlaying = false;
-                    IsTalking = false;
-                }
+                Debug.Log($"[aaa 22 : {Time.realtimeSinceStartup}] Idle n_time : {state.normalizedTime}");
+                anim.Play(idleClipName);
+                // isBlocked = false;
+                isMotionPlaying = false;
+                IsTalking = false;
             }
-
         }
-
     }
 
 
@@ -128,12 +131,12 @@ public class AvatarAnimation : MonoBehaviour
 
     public void PlayFaceAndActionAnimation(string faceClipName, string actionClipName)
     {
-        Debug.Log($"[chan] Play : {actionClipName}, Face: {faceClipName}");
-        isBlocked = true;
+        Debug.Log($"[aaa : {Time.realtimeSinceStartup}] Play : {actionClipName}, Face: {faceClipName}");
+        // isBlocked = true;
         isMotionPlaying = true;
         IsTalking = false;
-        anim.Play(faceClipName, 0);
-        anim.Play(actionClipName, 2);
+        anim.Play(actionClipName, 0);
+        anim.Play(faceClipName, 2);
     }
 
     public void StartJump()

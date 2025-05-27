@@ -1,0 +1,56 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 하루 종일 쉬면 먹어서",
+        "whileIgnored": [],
+        "whisperInferTime": 2301,
+        "llmTime": 2199,
+        "llmResponse": "Output: The speaker, feeling relaxed and content, is casually mentioning a plan.",
+        "emotion": "놀람",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Relieved",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.91406690169562232,
+        "faceScore": 0.845821911685949,
+        "totalElapsedTime": 4516
+      },
+      {
+        "segment": " 평일 날 쉬는 사람이 어디 있어요?",
+        "whileIgnored": [
+          " 되게 편하게 사네요"
+        ],
+        "whisperInferTime": 6244,
+        "llmTime": 1220,
+        "llmResponse": "Output: The speaker, feeling amused and slightly annoyed, is sarcastically commenting on the rarity of having a day off.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hungry",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.8631386589215283,
+        "faceScore": 0.82599727208009954,
+        "totalElapsedTime": 7479
+      },
+      {
+        "segment": " 괜찮은데...",
+        "whileIgnored": [],
+        "whisperInferTime": 9263,
+        "llmTime": 1410,
+        "llmResponse": "Output: The speaker, feeling relaxed and content, is casually expressing satisfaction.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Gijigae",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.89868410027727486,
+        "faceScore": 0.85308072592758866,
+        "totalElapsedTime": 10686
+      }
+    ]
+  }
+]

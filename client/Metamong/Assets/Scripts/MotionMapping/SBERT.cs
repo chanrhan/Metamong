@@ -24,7 +24,10 @@ public class SBERT : MonoBehaviour
     private BertTokenizer tokenizer;
     private string EMOTION = "중립";
 
-    private float threshold = 0.0f;
+    [SerializeField]
+    private float actionThreshold = 0.9f;
+    [SerializeField]
+    private float faceThreshold = 0.75f;
 
     // 일반 텍스트에 대한 임베딩 캐시
     private Dictionary<string, float[]> embeddingCache = new Dictionary<string, float[]>();
@@ -195,7 +198,21 @@ public class SBERT : MonoBehaviour
         Debug.Log($"[Yun] Input Text : {inputText}");
         Debug.Log($"[Yun] Best match: {bestMatchKey} (score: {bestScore})");
         if (isAct)
+        {
             Debug.Log($"EMOTION: {EMOTION} (except: {actMotionInfoList[bestMatchKey].emotionalExept})");
+
+            if (bestScore < actionThreshold)
+            {
+                return new ScoreMotion(null, bestScore);
+            }
+        }
+        else
+        {
+            if (bestScore < faceThreshold)
+            {
+                return new ScoreMotion(null, bestScore);
+            }
+        }
 
         return new ScoreMotion(bestMatchKey, bestScore);
     }
@@ -210,7 +227,7 @@ public class SBERT : MonoBehaviour
         EMOTION = emotion;
 
         ScoreMotion scoreMotion = CompareWordText(inputText, true);
-        if (scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
+        if (scoreMotion.motionKey == null || scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
         {
             return new MotionInfo(null, null, 0);
         }

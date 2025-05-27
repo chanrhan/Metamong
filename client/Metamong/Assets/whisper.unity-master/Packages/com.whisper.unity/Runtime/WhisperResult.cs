@@ -12,6 +12,7 @@ namespace Whisper
         public readonly int LanguageId;
         public readonly string Language;
         public long inferTime;
+        public long finsihedInferTime;
 
         public WhisperResult(List<WhisperSegment> segments, int languageId)
         {

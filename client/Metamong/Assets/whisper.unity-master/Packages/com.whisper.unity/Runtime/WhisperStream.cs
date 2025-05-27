@@ -5,6 +5,8 @@ using Whisper.Utils;
 // ReSharper disable once RedundantUsingDirective
 using System.Linq;
 using System.Diagnostics;
+using UnityEngine;
+using PlasticGui;
 
 namespace Whisper
 {
@@ -82,7 +84,7 @@ namespace Whisper
         /// If true stream will ignore audio chunks with no detected speech.
         /// </summary>
         public readonly bool UseVad;
-
+       
         public WhisperStreamParams(WhisperParams inferenceParam,
             int frequency, int channels,
             float stepSec = 3f, float keepSec = 0.2f, float lengthSec = 10f,
@@ -92,18 +94,18 @@ namespace Whisper
             InferenceParam = inferenceParam;
             Frequency = frequency;
             Channels = channels;
-            
+
             StepSec = stepSec;
-            StepSamples = (int) (StepSec * Frequency * Channels);
+            StepSamples = (int)(StepSec * Frequency * Channels);
 
             KeepSec = keepSec;
-            KeepSamples = (int) (KeepSec * frequency * channels);
+            KeepSamples = (int)(KeepSec * frequency * channels);
 
             LengthSec = lengthSec;
-            LengthSamples = (int) (LengthSec * frequency * channels);
+            LengthSamples = (int)(LengthSec * frequency * channels);
 
-            StepsCount = Math.Max(1, (int) (LengthSec / StepSec) - 1);
-            
+            StepsCount = Math.Max(1, (int)(LengthSec / StepSec) - 1);
+
             UpdatePrompt = updatePrompt;
             DropOldBuffer = dropOldBuffer;
             UseVad = useVad;
@@ -145,6 +147,25 @@ namespace Whisper
         private bool _isStreaming;
         
         private Task<WhisperResult> _task;
+
+        public Action<int> RecordAddToStream;
+        public Action<int, bool> RecordUseVad;
+        public Action<int, bool> RecordChunkVoiceDetected;
+        public Action<int, int> RecordStep;
+        public Action<int> RecordSlidingWindow;
+        public Action<int> RecordBeforeInfer;
+        public Action<int> RecordAfterInfer;
+        public Action<int> RecordFinished;
+        public Action<int, string> RecordSegment;
+
+        public int NewBufferSzie{
+            get => _newBuffer.Count;
+        }
+
+        public bool isInfer = false;
+
+        public bool isVad = false;
+
 
         /// <summary>
         /// Create a new instance of Whisper streaming transcription.
@@ -194,20 +215,24 @@ namespace Whisper
         /// <remarks>
         /// If you set microphone into constructor, it will be called automatically.
         /// </remarks>
-        
+    
         public static bool wasFinishedSegment = false;
         public static bool start = true;
         public async void AddToStream(AudioChunk chunk)
         {
-
             if (!_isStreaming)
             {
-                LogUtils.Warning("Start streaming first!");
+                LogUtils.Warning($"({segmentId})Start streaming first!");
                 return;
             }
+            RecordAddToStream(segmentId);
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Add To Stream : {chunk.Data}, voice detected : {chunk.IsVoiceDetected}");
+
+            RecordUseVad(segmentId, _param.UseVad);
 
             if (_param.UseVad)
             {
+                // UnityEngine.Debug.Log($"[ws]({segmentId}) use vad");
                 if(wasFinishedSegment || start){
                     mySW.Restart();
                     LogUtils.Log("스탑워치를 재시작합니다.");
@@ -215,8 +240,13 @@ namespace Whisper
                     start = false;
                 }
                 
+                RecordChunkVoiceDetected(segmentId, chunk.IsVoiceDetected);
+                RecordStep(segmentId, _step);
+
+                isVad = chunk.IsVoiceDetected;
                 if (chunk.IsVoiceDetected)
                 {
+                    //  UnityEngine.Debug.Log($"[ws]({segmentId}) chunk voice detected");
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow();
                 }
@@ -230,9 +260,6 @@ namespace Whisper
 
                     _newBuffer.AddRange(chunk.Data);
                     await UpdateSlidingWindow(true);
-                    
-                    
-
                 }
             }
             else
@@ -274,13 +301,17 @@ namespace Whisper
             // reset stream and drop audio buffer
             Reset();
         }
+
+        private int segmentId = 0;
         
         private Stopwatch mySW =new Stopwatch();
         public List<double> finishSegmentTimes = new List<double>();
         public string stt_result_segments;
         private async Task UpdateSlidingWindow(bool forceSegmentEnd = false)
         {
-            
+            RecordSlidingWindow(segmentId);
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Update SlidingWindow : {mySW.ElapsedMilliseconds}");
+
             // check if task isn't busy
             // if it's still transcribing - just skip it
             // next iteration will handle current and future data
@@ -323,29 +354,41 @@ namespace Whisper
             // current data is already copied into local buffer
             _newBuffer.Clear();
 
+            RecordBeforeInfer(segmentId);
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) Before infer : {mySW.ElapsedMilliseconds}");
             
-            
+            isInfer = true;
             // start transcribing sliding window content
             _task = _wrapper.GetTextAsync(buffer, _param.Frequency, 
                 _param.Channels, _param.InferenceParam);
             
             // append current transcription into temporary output
             var res = await _task;
+            
             var currentSegment = res.Result;
-            LogUtils.Log($"segment text: {currentSegment}\n");
+            // LogUtils.Log($"segment text: {currentSegment}\n");
+            RecordAfterInfer(segmentId);
+            isInfer = false;
+
+            // UnityEngine.Debug.Log($"[ws]({segmentId}) After infer : {mySW.ElapsedMilliseconds}");
+
             var currentOutput = _output + currentSegment;
 
             // send update to user
             res.inferTime = mySW.ElapsedMilliseconds; // chan
+            
+            RecordSegment(segmentId, res.Result);
             OnSegmentUpdated?.Invoke(res);
             OnResultUpdated?.Invoke(currentOutput);
+
+            segmentId++;
+
             
             // check if finished working on current chunk
             // TODO: when VAD active divide only by silence?
             _step++;
             if (forceSegmentEnd || _step >= _param.StepsCount)
             {
-                
                 LogUtils.Verbose($"Stream finished an old segment with total steps of {_step}");
                 _output = currentOutput;
                 stt_result_segments = _output;
@@ -364,12 +407,13 @@ namespace Whisper
                 var segment = new ArraySegment<float>(buffer, bufferLen - updBufferLen, updBufferLen);
                 _oldBuffer = segment.ToArray();
                 _step = 0;
-                
+
+                res.finsihedInferTime = mySW.ElapsedMilliseconds;
+                // RecordFinished(segmentId);
                 OnSegmentFinished?.Invoke(res);
                 LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
                 finishSegmentTimes.Add(mySW.ElapsedMilliseconds);
-                wasFinishedSegment = true;
-                
+                wasFinishedSegment = true;   
             }
             else
             {
@@ -393,6 +437,7 @@ namespace Whisper
         
         private void MicrophoneOnChunkReady(AudioChunk chunk)
         {
+            UnityEngine.Debug.Log("[chan] MicrophoneOnChunkReady");
             AddToStream(chunk);
         }
         

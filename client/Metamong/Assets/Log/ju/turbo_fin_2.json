@@ -1,0 +1,26 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " -뭐야? -뭐야?",
+        "whileIgnored": [
+          " - 아, 깜짝이야."
+        ],
+        "whisperInferTime": 3891,
+        "llmTime": 1563,
+        "llmResponse": "Output: The speaker, feeling surprised and curious, is reacting to unexpected news.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised_small_02",
+        "faceClipName": "Surprised",
+        "actionScore": 0.87519491328671684,
+        "faceScore": 0.76004813908521085,
+        "totalElapsedTime": 5467
+      }
+    ]
+  }
+]

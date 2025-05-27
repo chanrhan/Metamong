@@ -14,17 +14,18 @@ public class FileLogVO
     {
         public string segment;
         public List<string> whileIgnored = new List<string>();
-        public long whisperInferTime;
-        public long llmTime;
+        // public long whisperInferTime;
+        // public long whisperFinishedInferTime;
+        // public long llmTime;
         public string llmResponse;
         public string emotion;
         public bool llmTimeout = false;
-        public long sbertTime;
+        // public long sbertTime;
         public string actionClipName;
         public string faceClipName;
         public double actionScore;
         public double faceScore;
-        public long totalElapsedTime;
+        // public long totalElapsedTime;
         public override string ToString()
         {
             return "seg: " + segment + ", action: " + actionClipName + ", face: " + faceClipName;

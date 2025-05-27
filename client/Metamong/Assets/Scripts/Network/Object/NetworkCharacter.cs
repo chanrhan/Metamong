@@ -12,10 +12,10 @@ public abstract class NetworkCharacter : NetworkBehaviour, IListenable
     protected Rigidbody myRigid;
     protected Collider myCollider;
 
-    public bool IsAnimationBlocked
+    public bool IsAnimPlaying
     {
-        get => avatarAnim.IsBlocked;
-        set => avatarAnim.IsBlocked = value;
+        get => avatarAnim.IsMotionPlaying;
+        set => avatarAnim.IsMotionPlaying = value;
     }
     public bool IsTalking
     {

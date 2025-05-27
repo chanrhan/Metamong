@@ -15,7 +15,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private WhisperManager wm;
     // [SerializeField]
     private MicrophoneRecord microphoneRecord;
-    private WhisperStream _stream;
+    public WhisperStream _stream;
     private WhisperWrapper whisperWrapper;
 
     public OnVadChangedDelegate OnVadChanged
@@ -39,6 +39,12 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     
     private bool IsPlatformMacOs = false;
     private bool isRecording = false;
+    public bool IsRecording
+    {
+        get => isRecording;
+    }
+
+    public Action<WhisperStream> OnCreateWhisperStream;
 
     protected async override void Awake()
     {
@@ -74,12 +80,16 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         {
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
+        
         _stream.OnResultUpdated += OnResult;
-        //_stream.OnSegmentUpdated += OnSegmentUpdated;
-        _stream.OnSegmentFinished += OnSegmentFinished;
+        _stream.OnSegmentUpdated += OnSegmentUpdated;
+        //_stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
 
         // myCharic = ClientManager.Instance.PlayerController;
+
+        OnCreateWhisperStream(_stream);
+        MotionGenerator.Instance.whisperStream = _stream;
 
         whisperWrapper = wm.GetWhisperWrapper();
         if (whisperWrapper == null)
@@ -138,6 +148,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
         microphoneRecord.StopRecord();
         MotionGenerator.Instance?.Log();
+        TimelineLogger.Instance.WriteFile();
     }
 
     private void OnResult(string result){
@@ -156,11 +167,12 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentUpdated(WhisperResult segment)
     {
+        MotionGenerator.Instance?.Generate(segment);
     }
 
     private void OnSegmentFinished(WhisperResult segment)
     {
-        MotionGenerator.Instance?.Generate(segment);
+        
     }
 
     void OnVoiceDeteched()
