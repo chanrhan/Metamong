@@ -83,14 +83,14 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     [Header("Parallel")]
     [SerializeField]
-    private float SEG_WAIT_TIME = 1f;
+    private int SEG_WAIT_FRAME = 50; // fixedUpdate 기준 
     [SerializeField]
-    private float MOTION_WAIT_TIME = 0.4f;
+    private int MOTION_WAIT_FRAME = 20; 
     private WhisperResult waitedWhisperResult;
     [SerializeField]
-    private float currSegWaitTime = 0f;
+    private int currSegWaitTime = 0;
     [SerializeField]
-    private float currMotionWaitTime = 0f;
+    private int currMotionWaitTime = 0;
     private FileLogVO.LogContextItem waitedMotionLog;
 
     public List<bool> vadTimeline = new List<bool>();
@@ -210,13 +210,13 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     // whisper로부터 나온 세그먼트를 대기하는 코루틴 (llama가 실행 중일 때 )
     private IEnumerator WaitSegmentCoroutine()
     {
-        currSegWaitTime = 0f;
-        while (currSegWaitTime < SEG_WAIT_TIME)
+        currSegWaitTime = 0;
+        while (currSegWaitTime < SEG_WAIT_FRAME)
         {
             // llama 처리가 끝났다면
             if (!onLlama)
             {
-                currSegWaitTime = 0f;
+                currSegWaitTime = 0;
                 if (waitedWhisperResult != null)
                 {
                     FileLogVO.LogContextItem log = new FileLogVO.LogContextItem
@@ -233,10 +233,10 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 }
                 break;
             }
-            currSegWaitTime += 0.1f;
-            yield return new WaitForSeconds(0.1f);
+            currSegWaitTime++;
+            yield return new WaitForFixedUpdate();
         }
-        currSegWaitTime = 0f;
+        currSegWaitTime = 0;
         waitedWhisperResult = null;
     }
     
@@ -244,8 +244,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private IEnumerator WaitMotionCoroutine()
     {
         NetworkCharacter nc = ClientManager.Instance?.PlayerController;
-        currMotionWaitTime = 0f;
-        while (currMotionWaitTime < MOTION_WAIT_TIME)
+        currMotionWaitTime = 0;
+        while (currMotionWaitTime < MOTION_WAIT_FRAME)
         {
             if (!nc.IsAnimPlaying)
             {
@@ -259,10 +259,10 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 ignoredSegements.Clear();
                 break;
             }
-            currMotionWaitTime += 0.1f;
-            yield return new WaitForSeconds(0.1f);
+            currMotionWaitTime++;
+            yield return new WaitForFixedUpdate();
         }
-        currMotionWaitTime = 0f;
+        currMotionWaitTime = 0;
         waitedMotionLog = null;
     }
 
@@ -304,7 +304,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             }
             else
             {
-                currSegWaitTime = 0f;
+                currSegWaitTime = 0;
             }
             return;
         }
@@ -401,7 +401,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 }
                 else
                 {
-                    currMotionWaitTime = 0f;
+                    currMotionWaitTime = 0;
                 }
                 waitedMotionLog = log;
                 return;

@@ -3887,5 +3887,374 @@
         "faceScore": 0.83841335737895051
       }
     ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕하세요",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is greeting someone.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "DDaBong",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.94412546020113108,
+        "faceScore": 0.865400386973035
+      },
+      {
+        "segment": " 팀장 박기찬",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and respectful, is addressing the team leader.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Surprised_small_02",
+        "faceClipName": "Surprised",
+        "actionScore": 0.84318717277099009,
+        "faceScore": 0.72997540290994656
+      },
+      {
+        "segment": " L팀의 졸업설계 최종자표",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is presenting the final results.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Depressed",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.87122075901991547,
+        "faceScore": 0.79832126376227786
+      },
+      {
+        "segment": " 해양자의 말을 아바타의 모집으로",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is providing information in a formal tone.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.87877183485297894,
+        "faceScore": 0.74579653346341512
+      },
+      {
+        "segment": " 오늘 발표한 커스텀은",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and professional, is summarizing the main points of their presentation.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.85852721680599975,
+        "faceScore": 0.81834719852147386
+      },
+      {
+        "segment": " 다음에 목차대로 진행하겠습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling determined, is outlining the next steps according to the agenda.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "BulAn",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.84830541190724917,
+        "faceScore": 0.75451718833686787
+      },
+      {
+        "segment": " 저희 팀원들을 소개하겠습니다",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the team members.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Shouting",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.86392659058205823,
+        "faceScore": 0.69238704881002533
+      },
+      {
+        "segment": " 팀은 총 4명으로",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and organized, is introducing the team members.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Hansim",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.84295109484851427,
+        "faceScore": 0.69238704881002533
+      },
+      {
+        "segment": " 각자의 기술적 강점을",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the team members.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Shouting",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.86392659058205823,
+        "faceScore": 0.69238704881002533
+      },
+      {
+        "segment": " 이제 본격",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the team members.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Hansim",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.84295109484851427,
+        "faceScore": 0.69238704881002533
+      },
+      {
+        "segment": " 메타버스에서",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and prepared, is about to start discussing the topic.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "BulAn",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.82846692026560287,
+        "faceScore": 0.7721648128645191
+      },
+      {
+        "segment": " 의사소통을 위해서는 단순",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is explaining the importance of effective communication in a meta-universe.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Explaining",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.88938328693002333,
+        "faceScore": 0.71485087235243383
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 말해놔 텍스트 들으시기 보시기",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is giving a brief explanation and then cutting it off.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Angry_small",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.883565982899108,
+        "faceScore": 0.78335845182453456
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕하십니까",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling polite and formal, is greeting someone.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Hello_02",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.915408771528911,
+        "faceScore": 0.75214458668060868
+      },
+      {
+        "segment": " 말해 아바타의 모습으로 변환하는",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling playful and curious, is making a joke about the avatar transformation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.908399029373301,
+        "faceScore": 0.82289624036695863
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕하십니까.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically greeting the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Pleasure_big",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.86220717109256584,
+        "faceScore": 0.76610769759202624
+      },
+      {
+        "segment": " 팀장 박희창이라고 합니다",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically introducing themselves as a different person.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.87703178248323488,
+        "faceScore": 0.76587758235537262
+      },
+      {
+        "segment": " 이번 절업설계 최종 작품 주제는",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the final project topic.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Pointing",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.82109853326869064,
+        "faceScore": 0.76675314773007608
+      },
+      {
+        "segment": " 발표는 다음에 목차들을 진행하겠습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the topic of their presentation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "BulAn",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.87171904735282124,
+        "faceScore": 0.75220120827266168
+      },
+      {
+        "segment": " 가겠습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and professional, is concluding the presentation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.8350578369010202,
+        "faceScore": 0.87855879201876974
+      },
+      {
+        "segment": " 팀은 총 4명으로 구성되어",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is providing information about the team.",
+        "emotion": "공포",
+        "llmTimeout": false,
+        "actionClipName": "Introduce",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.9283171561719874,
+        "faceScore": 0.73494052111099806
+      },
+      {
+        "segment": " 기술적 강점을 바탕으로",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and professional, is introducing the team members.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Talking",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.84471670355934447,
+        "faceScore": 0.80741989299738415
+      },
+      {
+        "segment": " 이제 본격적으로",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and prepared, is about to start the main presentation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.85045514081139839,
+        "faceScore": 0.80890727696284515
+      },
+      {
+        "segment": " 선정 배경에 대해 말씀드리겠습니다.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling formal and professional, is introducing the team members and their roles.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Shouting",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.83381951552936118,
+        "faceScore": 0.67675351054816457
+      },
+      {
+        "segment": " 원활한 의사소통을 위해서는",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling professional and serious, is emphasizing the importance of effective communication in a metaverse setting.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.79927104614217737,
+        "faceScore": 0.68133931339867815
+      },
+      {
+        "segment": " 텍스트 등의 언어적팬만",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is providing information about the importance of linguistic features in facilitating smooth communication.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Shouting",
+        "faceClipName": "Worried",
+        "actionScore": 0.80182675710974327,
+        "faceScore": 0.60854835923455908
+      },
+      {
+        "segment": " 더 깊고",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling thoughtful, is emphasizing the importance of emotional depth in communication.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Scare",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.84967361980021083,
+        "faceScore": 0.68174602072198609
+      },
+      {
+        "segment": " 이미 상용화된 타 플랫폼에서",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling professional and informative, is discussing the importance of emotional expression in communication.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "LoveYou",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.87094925173489912,
+        "faceScore": 0.70048361210983945
+      },
+      {
+        "segment": " 일을 표현하기 위한",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling serious and professional, is emphasizing the importance of nuanced expressions in communication.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Surprised_small",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.83255202096547487,
+        "faceScore": 0.68983002862782827
+      },
+      {
+        "segment": " 관련 논문들에서도",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling confident and professional, is summarizing the importance of emotional expression in legal expressions.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "DontKnow",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.86564365993018666,
+        "faceScore": 0.79466512783619914
+      },
+      {
+        "segment": " 기관화 표현이 한다고 나와요.",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling neutral, is summarizing the necessity of various means for expressing work on different platforms.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Scare",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.86303841173664153,
+        "faceScore": 0.76610887631220626
+      }
+    ]
   }
 ]
