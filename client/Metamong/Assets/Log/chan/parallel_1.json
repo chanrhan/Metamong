@@ -4256,5 +4256,191 @@
         "faceScore": 0.76610887631220626
       }
     ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 같이 증가하는 게 무서워 이거",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling fearful, is expressing anxiety.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "DDaBong",
+        "faceClipName": "Smile_S",
+        "actionScore": 1.0000000000000002,
+        "faceScore": 0.86007668429006356
+      },
+      {
+        "segment": " 퍼블링으로는구나",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling relieved, is expressing a sense of accomplishment.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.91713210117043065,
+        "faceScore": 0.77260398836559185
+      },
+      {
+        "segment": " 여기 있네",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling excited and relieved, is celebrating a discovery.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Clapping",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.96945925745731942,
+        "faceScore": 0.82701752153736563
+      },
+      {
+        "segment": " 이거 이거",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling excited and thrilled, is enthusiastically reacting to something.",
+        "emotion": "공포",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Ashamed",
+        "actionScore": 0.0,
+        "faceScore": 0.778002425137862
+      },
+      {
+        "segment": " 이 차...",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling excited and satisfied, is enthusiastically talking about finding something.",
+        "emotion": "슬픔",
+        "llmTimeout": false,
+        "actionClipName": "DDaBong_03",
+        "faceClipName": "Smile_L",
+        "actionScore": 0.91573602181130231,
+        "faceScore": 0.806938457832322
+      },
+      {
+        "segment": " 오 내걸로 뭐야",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling excited and curious, is enthusiastically examining something.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.81160802503706175
+      },
+      {
+        "segment": " -볶... -세에 대왕.",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly addressing someone with a nickname.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Smile_S",
+        "actionScore": 0.0,
+        "faceScore": 0.81220588022797624
+      },
+      {
+        "segment": " 오~",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly making a comment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.94344578221773034,
+        "faceScore": 0.86363159460710137
+      },
+      {
+        "segment": " 일단 2080가 프리스",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling frustrated and sarcastic, is making a joke about the situation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Angry_S",
+        "actionScore": 0.0,
+        "faceScore": 0.82944115907275462
+      },
+      {
+        "segment": " - -",
+        "whileIgnored": [
+          " - 오오오오오오오",
+          " 그럼요",
+          " 됐다"
+        ],
+        "llmResponse": "Output: The speaker, feeling sarcastic and slightly annoyed, is making a humorous comment.",
+        "emotion": "공포",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": -1.0
+      }
+    ]
+  },
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 그럼요",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic and mocking, is teasing someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": -1.0
+      },
+      {
+        "segment": " 다?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling sarcastic and playful, is teasing the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": null,
+        "actionScore": 0.0,
+        "faceScore": -1.0
+      }
+    ]
   }
 ]

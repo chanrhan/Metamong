@@ -203,14 +203,14 @@ public class SBERT : MonoBehaviour
 
             if (bestScore < actionThreshold)
             {
-                return new ScoreMotion(null, -1);
+                return new ScoreMotion(null, bestScore);
             }
         }
         else
         {
             if (bestScore < faceThreshold)
             {
-                return new ScoreMotion(null, -1);
+                return new ScoreMotion(null, bestScore);
             }
         }
 
@@ -227,7 +227,7 @@ public class SBERT : MonoBehaviour
         EMOTION = emotion;
 
         ScoreMotion scoreMotion = CompareWordText(inputText, true);
-        if (scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
+        if (scoreMotion.motionKey == null || scoreMotion.motionKey == "No match" || !actMotionInfoList.ContainsKey(scoreMotion.motionKey))
         {
             return new MotionInfo(null, null, 0);
         }

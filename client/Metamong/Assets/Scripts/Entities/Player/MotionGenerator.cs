@@ -441,7 +441,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
         return new ActionFaceMotionSet
         {
-            actionClipName = actMotion.clipNames[UnityEngine.Random.Range(0, actMotion.clipNames.Length)],
+            actionClipName = actMotion.clipNames?[UnityEngine.Random.Range(0, actMotion.clipNames.Length)],
             faceClipName = faceMotion.motionKey,
             actionScore = actMotion.bestScore,
             faceScore = faceMotion.score
