@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Whisper;
@@ -20,7 +21,6 @@ public class LogWatchUtils : MonobehaviourSingleton<LogWatchUtils>
     [SerializeField]
     private string filename;
     private List<LogTimelineItem> timeline = new List<LogTimelineItem>();
-
     private WhisperStream whisperStream;
 
     [SerializeField]
@@ -28,77 +28,126 @@ public class LogWatchUtils : MonobehaviourSingleton<LogWatchUtils>
 
     private LogTimelineItem timelineItem = new LogTimelineItem();
 
+    private float _startTime = 0f;
+
     void Start()
+    {
+        STTManager.Instance.OnCreateWhisperStream += Init;
+    }
+
+    private void Init(WhisperStream whisperStream)
     {
         whisperStream = STTManager.Instance._stream;      
         if(whisperStream == null){
             UnityEngine.Debug.LogWarning("No whisper stream");
         }else{
             whisperStream.RecordAddToStream = (id)=>{
-                currId = id;
-                timelineItem.id = id;
-                timelineItem.addToStreamTime = Time.realtimeSinceStartup;
-            };
-            whisperStream.RecordUseVad = (id, useVad)=>{
-                if(currId != id){
-                    return;
+                if (id <= 1)
+                {
+                    _startTime = Time.realtimeSinceStartup;
                 }
-                timelineItem.useVad = useVad;
+                currId = id;
+                timeline.Add(new LogTimelineItem
+                {
+                    id = id,
+                    addToStreamTime = Time.realtimeSinceStartup - _startTime 
+                });
+            };
+            whisperStream.RecordUseVad = (id, useVad)=>
+            {
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.useVad = useVad;
+                }
             };
             whisperStream.RecordChunkVoiceDetected = (id, value)=>{
-                if(currId != id){
-                    return;
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.chunkVoiceDetected = value;
                 }
-                timelineItem.chunkVoiceDetected = value;
             };
             whisperStream.RecordStep = (id, step)=>{
-                if(currId != id){
-                    return;
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.step = step;
                 }
-                timelineItem.step = step;
             };
             whisperStream.RecordSlidingWindow = (id)=>{
-                if(currId != id){
-                    return;
-                }
-                timelineItem.slidingWindowTime = Time.realtimeSinceStartup;
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.slidingWindowTime = Time.realtimeSinceStartup - _startTime;
+                } 
             };
             whisperStream.RecordBeforeInfer = (id)=>{
-                if(currId != id){
-                    return;
-                }
-                timelineItem.beforeInferTime = Time.realtimeSinceStartup;
+                
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.beforeInferTime =  Time.realtimeSinceStartup - _startTime;
+                } 
             };
             whisperStream.RecordAfterInfer = (id)=>{
-                if(currId != id){
-                    return;
-                }
-                timelineItem.afterInferTime = Time.realtimeSinceStartup;
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.afterInferTime =  Time.realtimeSinceStartup - _startTime;
+                } 
             };
             whisperStream.RecordFinished = (id)=>{
-                if(currId != id){
-                    return;
-                }
-                timelineItem.finishTime = Time.realtimeSinceStartup;
+               LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.finishTime =  Time.realtimeSinceStartup - _startTime;
+                } 
             };
             whisperStream.RecordSegment = (id, seg)=>{
-                if(currId != id){
-                    return;
-                }
-                timelineItem.segment = seg;
-                AddTimeline();
+                LogTimelineItem item = timeline.Find((v) =>
+                {
+                    return v.id == id;
+                });
+                if (item != null)
+                {
+                    item.segment = seg;
+                } 
+                // AddTimeline();
             };
         }
     }
+    
+    // public void AddTimeline()
+    // {
+    //     timeline.Add(timelineItem);
+    //     WriteFile();
+    // }
 
-    public void AddTimeline()
+    public void WriteFile()
     {
-        timeline.Add(timelineItem);
-        WriteFile();
-    }
-
-    public void WriteFile(){
-        FileLogUtils.Overwrite(timelineItem, "timeline/"+filename);
+        FileLogUtils.OverwriteRange(timeline, "timeline/" + filename);
         timeline.Clear();
     }
 }

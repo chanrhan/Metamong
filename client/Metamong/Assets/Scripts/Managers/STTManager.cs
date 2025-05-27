@@ -40,6 +40,8 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     private bool IsPlatformMacOs = false;
     private bool isRecording = false;
 
+    public Action<WhisperStream> OnCreateWhisperStream;
+
     protected async override void Awake()
     {
         base.Awake();
@@ -74,12 +76,15 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         {
             throw new Exception("CreateStream returned Invalid Value: " + _stream);
         }
+        
         _stream.OnResultUpdated += OnResult;
         _stream.OnSegmentUpdated += OnSegmentUpdated;
         //_stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
 
         // myCharic = ClientManager.Instance.PlayerController;
+
+        OnCreateWhisperStream(_stream);
 
         whisperWrapper = wm.GetWhisperWrapper();
         if (whisperWrapper == null)
@@ -138,6 +143,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     {
         microphoneRecord.StopRecord();
         MotionGenerator.Instance?.Log();
+        LogWatchUtils.Instance.WriteFile();
     }
 
     private void OnResult(string result){
