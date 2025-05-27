@@ -216,7 +216,6 @@ namespace Whisper
                 LogUtils.Warning($"({segmentId})Start streaming first!");
                 return;
             }
-            segmentId++;
             RecordAddToStream(segmentId);
             // UnityEngine.Debug.Log($"[ws]({segmentId}) Add To Stream : {chunk.Data}, voice detected : {chunk.IsVoiceDetected}");
 
@@ -363,9 +362,13 @@ namespace Whisper
 
             // send update to user
             res.inferTime = mySW.ElapsedMilliseconds; // chan
+            
             RecordSegment(segmentId, res.Result);
             OnSegmentUpdated?.Invoke(res);
             OnResultUpdated?.Invoke(currentOutput);
+
+            segmentId++;
+
             
             // check if finished working on current chunk
             // TODO: when VAD active divide only by silence?
@@ -392,12 +395,11 @@ namespace Whisper
                 _step = 0;
 
                 res.finsihedInferTime = mySW.ElapsedMilliseconds;
-                RecordFinished(segmentId);
+                // RecordFinished(segmentId);
                 OnSegmentFinished?.Invoke(res);
                 LogUtils.Log($"세그먼트가 끝나기 까지 {mySW.ElapsedMilliseconds} ms가 걸렸습니다.");
                 finishSegmentTimes.Add(mySW.ElapsedMilliseconds);
-                wasFinishedSegment = true;
-                
+                wasFinishedSegment = true;   
             }
             else
             {

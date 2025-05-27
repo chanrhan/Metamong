@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  filename: test_3
+  filename: test_7
   currId: 0
 --- !u!4 &2098680473
 Transform:

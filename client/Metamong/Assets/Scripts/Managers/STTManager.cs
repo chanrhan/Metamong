@@ -39,6 +39,10 @@ public class STTManager : MonobehaviourSingleton<STTManager>
     
     private bool IsPlatformMacOs = false;
     private bool isRecording = false;
+    public bool IsRecording
+    {
+        get => isRecording;
+    }
 
     public Action<WhisperStream> OnCreateWhisperStream;
 

@@ -48,6 +48,8 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     [Header("Process")]
     [SerializeField]
     private bool onLlama = false;
+    [SerializeField]
+    private bool onSbert = false;
 
     [Header("Timeout")]
     [SerializeField]
@@ -90,6 +92,11 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
     private float currMotionWaitTime = 0f;
     private FileLogVO.LogContextItem waitedMotionLog;
 
+    public List<bool> llmTimeline = new List<bool>();
+    public List<bool> sbertTimeline = new List<bool>();
+    public List<bool> motionTimeline = new List<bool>();
+    
+
     // Log
     [Header("Log")]
     [SerializeField]
@@ -105,6 +112,16 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         sbert = GetComponentInChildren<SBERT>();
         llama = GetComponentInChildren<Llama>();
         emotionClassifier = GetComponentInChildren<EmotionClassifier>();
+    }
+
+    void Update()
+    {
+        if (STTManager.Instance.IsRecording)
+        {
+            llmTimeline.Add(onLlama);
+            sbertTimeline.Add(onSbert);
+            motionTimeline.Add(ClientManager.Instance.PlayerController.IsAnimPlaying);
+        }
     }
 
     public void PlayTakingMotion()
@@ -168,6 +185,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         waitedWhisperResult = null;
     }
     
+    
     private IEnumerator WaitMotionCoroutine()
     {
         NetworkCharacter nc = ClientManager.Instance?.PlayerController;
@@ -180,7 +198,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 {
                     nc.PlayMotion(waitedMotionLog.faceClipName, waitedMotionLog.actionClipName);
                     waitedMotionLog.whileIgnored = ignoredSegements;
-                    logContextItems.Add(waitedMotionLog); 
+                    logContextItems.Add(waitedMotionLog);
                 }
                 ignoredSegements.Clear();
                 break;
@@ -293,9 +311,11 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
                 return;
             }
             TimerUtils.Start();
+            onSbert = true;
             // SBert를 통해 모션 키워드 추출 
             // 0번 인덱스: face Clip / 1번 인덱스: action Clip
             _actionFaceMotionSet = GetMotionKeywords(_llmResponse);
+            onSbert = false;
             _sbertTime = TimerUtils.LogAndReset(false);
 
             log.llmResponse = _llmResponse;
@@ -311,7 +331,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             // 모션 키워드 생성 완료 
 
 
-            // 모션이 실행중이면, 처리 자원 낭비 방지를 위해 입력을 막음 
+            // 모션이 실행중이면, 인터럽트 방지를 위해 입력을 막음 
             if (nc.IsAnimPlaying)
             {
                 // llama.AddChatLog(ClientManager.Instance.ClientInfo.username, text);
