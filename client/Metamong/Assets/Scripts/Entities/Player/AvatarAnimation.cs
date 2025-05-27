@@ -80,19 +80,28 @@ public class AvatarAnimation : MonoBehaviour
     {
         if (isMotionPlaying)
         {
-            if (IsDefaultAnimBool())
-            {
-                isMotionPlaying = false;
-                IsTalking = false;
-                return;
-            }
+            // if (IsDefaultAnimBool())
+            // {
+            //     isMotionPlaying = false;
+            //     IsTalking = false;
+            //     return;
+            // }
 
             AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
 
             // 트리거가 있는 애니메이션 변수가 True가 되거나, 애니메이션 실행이 거의 완료되었을 경우, Idle로 복귀 
-            if (IsDefaultAnimBool() || state.normalizedTime >= 0.95f)
+            if (IsDefaultAnimBool())
             {
-                Debug.Log("[aaa] Idle");
+                Debug.Log($"[aaa 11 : {Time.realtimeSinceStartup}] Idle n_time : {state.normalizedTime}");
+                anim.Play(idleClipName);
+                // isBlocked = false;
+                isMotionPlaying = false;
+                IsTalking = false;
+            }
+
+            if (state.normalizedTime >= 0.95f)
+            {
+                Debug.Log($"[aaa 22 : {Time.realtimeSinceStartup}] Idle n_time : {state.normalizedTime}");
                 anim.Play(idleClipName);
                 // isBlocked = false;
                 isMotionPlaying = false;
@@ -122,12 +131,12 @@ public class AvatarAnimation : MonoBehaviour
 
     public void PlayFaceAndActionAnimation(string faceClipName, string actionClipName)
     {
-        Debug.Log($"[aaa] Play : {actionClipName}, Face: {faceClipName}");
+        Debug.Log($"[aaa : {Time.realtimeSinceStartup}] Play : {actionClipName}, Face: {faceClipName}");
         // isBlocked = true;
         isMotionPlaying = true;
         IsTalking = false;
-        anim.Play(faceClipName, 0);
-        anim.Play(actionClipName, 2);
+        anim.Play(actionClipName, 0);
+        anim.Play(faceClipName, 2);
     }
 
     public void StartJump()
