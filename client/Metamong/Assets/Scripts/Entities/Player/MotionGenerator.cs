@@ -321,6 +321,7 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
 
     public void SendMessageOther(string text)
     {
+        llama.AddChatLog(ClientManager.Instance.ClientInfo.username, text);
         NetworkCharacter nc = ClientManager.Instance?.PlayerController;
 
         // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)

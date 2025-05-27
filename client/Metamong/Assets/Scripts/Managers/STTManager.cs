@@ -83,7 +83,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
         
         _stream.OnResultUpdated += OnResult;
         _stream.OnSegmentUpdated += OnSegmentUpdated;
-        //_stream.OnSegmentFinished += OnSegmentFinished;
+        _stream.OnSegmentFinished += OnSegmentFinished;
         // _stream.OnStreamFinished += OnFinished;
 
         // myCharic = ClientManager.Instance.PlayerController;
