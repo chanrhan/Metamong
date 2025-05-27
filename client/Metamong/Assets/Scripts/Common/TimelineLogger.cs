@@ -196,35 +196,36 @@ public class TimelineLogger : MonobehaviourSingleton<TimelineLogger>
         {
             char c;
             if(v == 0){
-                c = '_';
+                c = '.';
             }else if(v >= 1000){
-                c = '^';
+                c = '|';
             }else if(v >= 500){
-                c = '=';
+                c = '!';
             }else {
-                c = '-';
+                c = ':';
             }
             sb.Append(c);
         }
         sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.inferTimeline)
         {
-            sb.Append(v ? "+" : "-");
+            sb.Append(v ? "|" : ".");
         }
+        
         sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.llmTimeline)
         {
-            sb.Append(v ? "+" : "-");
+            sb.Append(v ? "|" : ".");
         }
         sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.sbertTimeline)
         {
-            sb.Append(v ? "+" : "-");
+            sb.Append(v ? "|" : ".");
         }
         sb.Append("\n");
         foreach (bool v in MotionGenerator.Instance.motionTimeline)
         {
-            sb.Append(v ? "+" : "-");
+            sb.Append(v ? "|" : ".");
         }
         sb.Append("\n");
 
