@@ -6241,14 +6241,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 120
       objectReference: {fileID: 0}
-    - target: {fileID: 1756127989329733130, guid: 804e7280b754ef14f85c6a49a7680529, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.046
-      objectReference: {fileID: 0}
-    - target: {fileID: 1756127989329733130, guid: 804e7280b754ef14f85c6a49a7680529, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.082
-      objectReference: {fileID: 0}
     - target: {fileID: 2479295406009537560, guid: 804e7280b754ef14f85c6a49a7680529, type: 3}
       propertyPath: m_Name
       value: Effect_Surprised
