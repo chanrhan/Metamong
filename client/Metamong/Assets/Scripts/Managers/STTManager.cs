@@ -172,7 +172,7 @@ public class STTManager : MonobehaviourSingleton<STTManager>
 
     private void OnSegmentFinished(WhisperResult segment)
     {
-        
+        MotionGenerator.Instance?.SendMessageOther(segment.Result);
     }
 
     void OnVoiceDeteched()

@@ -319,9 +319,18 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         DoLlama(log);
     }
 
+    public void SendMessageOther(string text)
+    {
+        NetworkCharacter nc = ClientManager.Instance?.PlayerController;
+
+        // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
+        nc.SendMessageToOthers(text);
+    }
+
     private async void DoLlama(FileLogVO.LogContextItem log)
     {
-        if(onLlama){
+        if (onLlama)
+        {
             return;
         }
         onLlmChanged = true;
@@ -335,13 +344,13 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
         string text = log.segment;
         NetworkCharacter nc = ClientManager.Instance?.PlayerController;
 
-        // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
-        nc.SendMessageToOthers(text);
+        // // 주변 플레이어/NPC에게 메세지 전송 (이거는 이 함수랑 분리해야될거같은데, 일단 나중에 20250504)
+        // nc.SendMessageToOthers(text);
         _emotion = emotionClassifier.Predict(text);
 
         cts = new CancellationTokenSource();
         cts.CancelAfter(llmTimeoutLimit);
-        
+
         TimerUtils.Start();
         try
         {
@@ -387,6 +396,13 @@ public class MotionGenerator : MonobehaviourSingleton<MotionGenerator>
             log.actionScore = _actionFaceMotionSet.actionScore;
             // log.totalElapsedTime = log.whisperInferTime + _llmTime + _sbertTime;
             // 모션 키워드 생성 완료 
+
+            if (_actionFaceMotionSet == null || string.IsNullOrWhiteSpace(_actionFaceMotionSet.actionClipName))
+            {
+                nc.IsAnimPlaying = false;
+                logContextItems.Add(log);
+                return;
+            }
 
 
             // 모션이 실행중이면, 인터럽트 방지를 위해 입력을 막음 
