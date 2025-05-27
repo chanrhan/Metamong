@@ -1,0 +1,178 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 1.0,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " AM",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling neutral, is making a casual comment.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "IdleFace",
+        "actionScore": 0.0,
+        "faceScore": 0.87365132812620561
+      },
+      {
+        "segment": " 이거...",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling frustrated, is expressing their annoyance.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.99352722717611974,
+        "faceScore": 0.847146200595489
+      },
+      {
+        "segment": " - 빨리 수정해야겠다. - 벌써 일어났어.",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling anxious and slightly annoyed, is correcting themselves in a hurry.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Worried",
+        "actionScore": 0.0,
+        "faceScore": 0.795634191468434
+      },
+      {
+        "segment": " 너 아무리 봐도 이렇게 대충 올려놨는데",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is criticizing someone's careless behavior.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": "Rebuke",
+        "faceClipName": "Hansim",
+        "actionScore": 0.95116958044012856,
+        "faceScore": 0.86603874178505014
+      },
+      {
+        "segment": " 대체 몰랐던 사람?",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is expressing their disappointment.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Angry_big_02",
+        "faceClipName": "Hansim",
+        "actionScore": 0.95706791333470476,
+        "faceScore": 0.86883502424350256
+      },
+      {
+        "segment": " - 아 잠깐만.",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is taking a brief pause to calm down.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "Hansim",
+        "actionScore": 0.0,
+        "faceScore": 0.83135638595022721
+      },
+      {
+        "segment": " 주욱봅트 사진",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is sarcastically commenting on someone's careless behavior.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": "Hansim",
+        "faceClipName": "Hansim",
+        "actionScore": 0.94495182630802366,
+        "faceScore": 0.86370274241165146
+      },
+      {
+        "segment": " 야 답",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is sarcastically responding to the situation.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "Rebuke",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.9459487591939223,
+        "faceScore": 0.878465843963628
+      },
+      {
+        "segment": " 야 다 부하니어!",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly asking if someone is their subordinate.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Listening",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.90158608704131926,
+        "faceScore": 0.80029711035981577
+      },
+      {
+        "segment": " 예에",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly asking a question.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Listening",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92842473205102893,
+        "faceScore": 0.86555065976405343
+      },
+      {
+        "segment": " 아멘",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling solemn and respectful, is concluding a ritual with a final affirmation.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": null,
+        "faceClipName": "IdleFace",
+        "actionScore": 0.0,
+        "faceScore": 0.78024556418834268
+      },
+      {
+        "segment": " 아니 내가",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling indifferent, is dismissing the other person's comment.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "actionClipName": "Hansim",
+        "faceClipName": null,
+        "actionScore": 0.90972815146888342,
+        "faceScore": 0.74489573035082512
+      },
+      {
+        "segment": " 내가 상관있어 아 저거 상관있어 저거 상관있어 저거 상관있어",
+        "whileIgnored": [
+          " 저거랑 상관있어 니가 상관있어"
+        ],
+        "llmResponse": "Output: The speaker, feeling annoyed and frustrated, is repeatedly emphasizing the importance of something.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Rebuke",
+        "faceClipName": "Angry_L",
+        "actionScore": 0.93118087105898384,
+        "faceScore": 0.85541319050791931
+      }
+    ]
+  }
+]
