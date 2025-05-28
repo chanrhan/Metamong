@@ -32,11 +32,16 @@ public class PlayerController : NetworkCharacter
         }
         else
         {
+            Debug.Log($"ccc start : {OwnerClientId}");
             int i = 0;
             foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
             {
+                Debug.Log($"ccc : {i}");
+
                 if (i == (int)OwnerClientId)
                 {
+                Debug.Log($"ccc name : {participant.DisplayName}");
+
                     userName.text = participant.DisplayName;
                     break;
                 }
