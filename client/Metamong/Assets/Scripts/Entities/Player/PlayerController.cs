@@ -35,34 +35,34 @@ public class PlayerController : NetworkCharacter
 
         }
         
-        Debug.Log($"ccc client id : {OwnerClientId}");
+        // Debug.Log($"ccc client id : {OwnerClientId}");
 
-        int i = 0;
-        foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
-        {
-            Debug.Log($"ccc name[{i}] : {participant.DisplayName}");
+        // int i = 0;
+        // foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+        // {
+        //     Debug.Log($"ccc name[{i}] : {participant.DisplayName}");
 
 
-            if (i == (int)ClientManager.Instance.ClientInfo.clientId)
-            {
-                Debug.Log($"ccc name[{i}] : Myself");
+        //     if (i == (int)ClientManager.Instance.ClientInfo.clientId)
+        //     {
+        //         Debug.Log($"ccc name[{i}] : Myself");
                 
-                userName.text = participant.DisplayName;
-            }
-            else
-            {
-                Debug.Log($"ccc name[{i}] : Not me");
+        //         userName.text = participant.DisplayName;
+        //     }
+        //     else
+        //     {
+        //         Debug.Log($"ccc name[{i}] : Not me");
 
-                if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
-                {
-                    PlayerController pc = no.GetComponent<PlayerController>();
-                    Debug.Log($"ccc name[{i}] : {pc} : add name tag");
+        //         if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
+        //         {
+        //             PlayerController pc = no.GetComponent<PlayerController>();
+        //             Debug.Log($"ccc name[{i}] : {pc} : add name tag");
 
-                    pc.AddNameTag(participant.DisplayName);
-                }
-            }
-            ++i;
-        }
+        //             pc.AddNameTag(participant.DisplayName);
+        //         }
+        //     }
+        //     ++i;
+        // }
     }
 
     public void AddNameTag(string name) {
