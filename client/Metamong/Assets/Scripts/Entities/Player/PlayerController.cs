@@ -29,24 +29,23 @@ public class PlayerController : NetworkCharacter
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10, 0, -5);
             userName.text = ClientManager.Instance.ClientInfo.username;
-        }
-        else
-        {
-            Debug.Log($"ccc start : {OwnerClientId}");
-            int i = 0;
-            foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
-            {
-                Debug.Log($"ccc : {i}");
 
-                if (i == (int)OwnerClientId)
-                {
+
+        }
+        
+        int i = 0;
+        foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+        {
+            Debug.Log($"ccc : {i}");
+
+            if (i == (int)OwnerClientId)
+            {
                 Debug.Log($"ccc name : {participant.DisplayName}");
 
-                    userName.text = participant.DisplayName;
-                    break;
-                }
-                ++i;
+                userName.text = participant.DisplayName;
+                break;
             }
+            ++i;
         }
     }
 
