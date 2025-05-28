@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
 using Unity.Services.Vivox;
 using UnityEngine;
 
@@ -27,6 +28,18 @@ public class VoiceChannelUI : MonoBehaviour
             // else{
             //     vivoxSpeakerUIs[i].DisplayOff();
             // }
+            if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
+            {
+                if (no.TryGetComponent(out PlayerController pc))
+                {
+                    no.gameObject.GetComponent<PlayerController>().AddNameTag(participant.DisplayName);
+                }
+                else
+                {
+                    Debug.Log($"User Not Found : {i}");
+                }
+               
+            }
             ++i;
         }
 

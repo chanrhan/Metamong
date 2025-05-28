@@ -36,22 +36,22 @@ public class CustomNetworkManager : NetworkManager
     private void OnClientJoined(ulong clientId)
     {
         Debug.Log($"Client [{clientId}] Connected!");
-        int i = 0;
-        foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
-        {
-            Debug.Log($"ccc i : {i}");
-            if (i == (int)clientId)
-            {
-                if (TryGetNetworkObjectByClientId(clientId, out NetworkObject no))
-                {
-            Debug.Log($"ccc no : {no}");
+        // int i = 0;
+        // foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+        // {
+        //     Debug.Log($"ccc i : {i}");
+        //     if (i == (int)clientId)
+        //     {
+        //         if (TryGetNetworkObjectByClientId(clientId, out NetworkObject no))
+        //         {
+        //     Debug.Log($"ccc no : {no}");
 
-                    no.GetComponent<PlayerController>()?.AddNameTag(participant.DisplayName);
-                }
-            }
+        //             no.GetComponent<PlayerController>()?.AddNameTag(participant.DisplayName);
+        //         }
+        //     }
            
-            ++i;
-        }
+        //     ++i;
+        // }
     }
 
     private void OnClientDisconnected(ulong clientId){
