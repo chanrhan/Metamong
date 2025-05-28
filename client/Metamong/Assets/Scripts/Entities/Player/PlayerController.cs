@@ -43,7 +43,7 @@ public class PlayerController : NetworkCharacter
             Debug.Log($"ccc name[{i}] : {participant.DisplayName}");
 
 
-            if (i == (int)OwnerClientId)
+            if (i == (int)ClientManager.Instance.ClientInfo.clientId)
             {
                 Debug.Log($"ccc name[{i}] : Myself");
                 
@@ -55,9 +55,10 @@ public class PlayerController : NetworkCharacter
 
                 if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
                 {
-                Debug.Log($"ccc name[{i}] : add name tag");
+                    PlayerController pc = no.GetComponent<PlayerController>();
+                    Debug.Log($"ccc name[{i}] : {pc} : add name tag");
 
-                    no.GetComponent<PlayerController>().AddNameTag(participant.DisplayName);
+                    pc.AddNameTag(participant.DisplayName);
                 }
             }
             ++i;
