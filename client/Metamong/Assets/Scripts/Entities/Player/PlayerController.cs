@@ -35,21 +35,28 @@ public class PlayerController : NetworkCharacter
 
         }
         
+        Debug.Log($"ccc client id : {OwnerClientId}");
+
         int i = 0;
         foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
         {
-            Debug.Log($"ccc : {i}");
+            Debug.Log($"ccc name[{i}] : {participant.DisplayName}");
+
 
             if (i == (int)OwnerClientId)
             {
-                Debug.Log($"ccc name : {participant.DisplayName}");
-
+                Debug.Log($"ccc name[{i}] : Myself");
+                
                 userName.text = participant.DisplayName;
             }
             else
             {
+                Debug.Log($"ccc name[{i}] : Not me");
+
                 if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
                 {
+                Debug.Log($"ccc name[{i}] : add name tag");
+
                     no.GetComponent<PlayerController>().AddNameTag(participant.DisplayName);
                 }
             }
