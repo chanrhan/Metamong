@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using TMPro;
 using System.Drawing.Text;
+using Unity.Services.Vivox;
 
 
 public class PlayerController : NetworkCharacter
@@ -19,7 +20,7 @@ public class PlayerController : NetworkCharacter
 
     private void Start()
     {
-        
+
         if (IsOwner)
         {
             userName = GetComponentInChildren<TMP_Text>();
@@ -28,6 +29,19 @@ public class PlayerController : NetworkCharacter
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10, 0, -5);
             userName.text = ClientManager.Instance.ClientInfo.username;
+        }
+        else
+        {
+            int i = 0;
+            foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+            {
+                if (i == (int)OwnerClientId)
+                {
+                    userName.text = participant.DisplayName;
+                    break;
+                }
+                ++i;
+            }
         }
     }
 
