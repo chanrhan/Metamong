@@ -4,6 +4,8 @@ using System.Threading;
 using TMPro;
 using System.Drawing.Text;
 using Unity.Services.Vivox;
+using Unity.Netcode;
+using UnityEditor.Purchasing;
 
 
 public class PlayerController : NetworkCharacter
@@ -43,18 +45,28 @@ public class PlayerController : NetworkCharacter
                 Debug.Log($"ccc name : {participant.DisplayName}");
 
                 userName.text = participant.DisplayName;
-                break;
+            }
+            else
+            {
+                if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
+                {
+                    no.GetComponent<PlayerController>().AddNameTag(participant.DisplayName);
+                }
             }
             ++i;
         }
     }
 
+    public void AddNameTag(string name) {
+        userName.text = name;
+    }
+
     private void FixedUpdate()
     {
-        if(!IsOwner){
+        if (!IsOwner) {
             return;
         }
-        if(CameraController.Instance.IsThirdView) RotateCamara();
+        if (CameraController.Instance.IsThirdView) RotateCamara();
         CheckOnGround();
         if (!ChatManager.Instance.IsTyping)
         {
