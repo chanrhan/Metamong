@@ -3,6 +3,9 @@ using System;
 using System.Threading;
 using TMPro;
 using System.Drawing.Text;
+using Unity.Services.Vivox;
+using Unity.Netcode;
+using UnityEditor.Purchasing;
 
 
 public class PlayerController : NetworkCharacter
@@ -19,7 +22,7 @@ public class PlayerController : NetworkCharacter
 
     private void Start()
     {
-        
+
         if (IsOwner)
         {
             userName = GetComponentInChildren<TMP_Text>();
@@ -28,15 +31,50 @@ public class PlayerController : NetworkCharacter
             ClientManager.Instance.ClientInfo.clientId = OwnerClientId;
             transform.position = new Vector3(-10, 0, -5);
             userName.text = ClientManager.Instance.ClientInfo.username;
+
+
         }
+        
+        // Debug.Log($"ccc client id : {OwnerClientId}");
+
+        // int i = 0;
+        // foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+        // {
+        //     Debug.Log($"ccc name[{i}] : {participant.DisplayName}");
+
+
+        //     if (i == (int)ClientManager.Instance.ClientInfo.clientId)
+        //     {
+        //         Debug.Log($"ccc name[{i}] : Myself");
+                
+        //         userName.text = participant.DisplayName;
+        //     }
+        //     else
+        //     {
+        //         Debug.Log($"ccc name[{i}] : Not me");
+
+        //         if (CustomNetworkManager.Instance.TryGetNetworkObjectByClientId((ulong)i, out NetworkObject no))
+        //         {
+        //             PlayerController pc = no.GetComponent<PlayerController>();
+        //             Debug.Log($"ccc name[{i}] : {pc} : add name tag");
+
+        //             pc.AddNameTag(participant.DisplayName);
+        //         }
+        //     }
+        //     ++i;
+        // }
+    }
+
+    public void AddNameTag(string name) {
+        userName.text = name;
     }
 
     private void FixedUpdate()
     {
-        if(!IsOwner){
+        if (!IsOwner) {
             return;
         }
-        if(CameraController.Instance.IsThirdView) RotateCamara();
+        if (CameraController.Instance.IsThirdView) RotateCamara();
         CheckOnGround();
         if (!ChatManager.Instance.IsTyping)
         {

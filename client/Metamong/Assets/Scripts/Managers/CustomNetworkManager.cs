@@ -5,6 +5,7 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity.Services.Vivox;
 
 /// <summary>
 /// Netcode 통신의 중추.
@@ -32,8 +33,25 @@ public class CustomNetworkManager : NetworkManager
     /// 클라이언트 접속 시, 콜백되는 함수 
     /// </summary>
     /// <param name="clientId"></param>
-    private void OnClientJoined(ulong clientId){
+    private void OnClientJoined(ulong clientId)
+    {
         Debug.Log($"Client [{clientId}] Connected!");
+        // int i = 0;
+        // foreach (VivoxParticipant participant in VivoxManager.Instance.JoinedParticipants)
+        // {
+        //     Debug.Log($"ccc i : {i}");
+        //     if (i == (int)clientId)
+        //     {
+        //         if (TryGetNetworkObjectByClientId(clientId, out NetworkObject no))
+        //         {
+        //     Debug.Log($"ccc no : {no}");
+
+        //             no.GetComponent<PlayerController>()?.AddNameTag(participant.DisplayName);
+        //         }
+        //     }
+           
+        //     ++i;
+        // }
     }
 
     private void OnClientDisconnected(ulong clientId){
