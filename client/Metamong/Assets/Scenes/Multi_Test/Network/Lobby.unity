@@ -2394,7 +2394,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: keepSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: stepSec
@@ -2402,7 +2402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: lengthSec
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 446641341039876370, guid: e37e01ba43bfa42de86c6184661a9d9f, type: 3}
       propertyPath: modelPath
@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  filename: turbo_1
+  filename: turbo_3
   currId: 0
 --- !u!4 &2098680473
 Transform:
@@ -3115,7 +3115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892235020902741098, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: logFileName
-      value: ju/turbo_1
+      value: ju/turbo_3
       objectReference: {fileID: 0}
     - target: {fileID: 5365811733588975527, guid: 95694af0d751c4eb49758832569655a6, type: 3}
       propertyPath: actionThreshold
