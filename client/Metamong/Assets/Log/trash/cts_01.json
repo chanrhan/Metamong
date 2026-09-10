@@ -1,0 +1,101 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 야 이제 할 곳은 없다",
+        "whileIgnored": [
+          " 야 이제 할 말은 없다 야",
+          " 이거 봐라",
+          " 이거 봐라"
+        ],
+        "whisperInferTime": 1944,
+        "llmTime": 4008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 5952
+      },
+      {
+        "segment": " 한번 말을 해보거라",
+        "whileIgnored": [
+          " 한번 말을 해보거라"
+        ],
+        "whisperInferTime": 4938,
+        "llmTime": 4004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 8942
+      },
+      {
+        "segment": " 그러니까 모션을 중간에 출력을",
+        "whileIgnored": [
+          " 그러니까 모션을 중간에 출력을 해야 하는데",
+          " 왜"
+        ],
+        "whisperInferTime": 7979,
+        "llmTime": 4008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 11987
+      },
+      {
+        "segment": " 많은 상황이 보기에는 너무",
+        "whileIgnored": [
+          " 많은 사람이 보기에는 너무 참"
+        ],
+        "whisperInferTime": 5909,
+        "llmTime": 4013,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 9922
+      },
+      {
+        "segment": " 아~떼래요~",
+        "whileIgnored": [
+          " 나 때는 어른이 봐라",
+          " 말하면 그냥 거부한 거",
+          " 말하면 그냥 거분거분하게",
+          " 그냥 모션치 하고 그랬는데",
+          " 그냥 멋은 채 하고 그랬는데"
+        ],
+        "whisperInferTime": 6503,
+        "llmTime": 4004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 10507
+      },
+      {
+        "segment": " 해 놀지 잘",
+        "whileIgnored": [
+          " 이게 참 편하다 그냥",
+          " 아 이게 참 편하다 그냥"
+        ],
+        "whisperInferTime": 977,
+        "llmTime": 4005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4982
+      }
+    ]
+  }
+]

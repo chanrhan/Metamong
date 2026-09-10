@@ -1,0 +1,207 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아아 안녕하세요",
+        "whileIgnored": [
+          " 아 안녕하세요 반가워요",
+          " 반가워요",
+          " 정말 반가워요"
+        ],
+        "whisperInferTime": 1946,
+        "llmTime": 2561,
+        "llmResponse": "[Example]\nXXX : Hello\nOutput : The speaker greets with a warm and friendly tone.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4518
+      },
+      {
+        "segment": " 반가워요",
+        "whileIgnored": [],
+        "whisperInferTime": 882,
+        "llmTime": 2319,
+        "llmResponse": "[Example]\nXXX : Hello\nLast message XXX : Glad to see you.\n\n---",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_L",
+        "faceClipName": "손위로흔들며인사",
+        "totalElapsedTime": 3211
+      },
+      {
+        "segment": " 오케이 잘하고 있어요 아주",
+        "whileIgnored": [
+          " 오케이 잘하고 있어요 아주"
+        ],
+        "whisperInferTime": 3932,
+        "llmTime": 2995,
+        "llmResponse": "[Example]\nXXX : Hello\nXXX : Nice to meet you\nLast speaker XXX : Okay, doing well, thanks.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Sad_L",
+        "faceClipName": "허리숙여인사",
+        "totalElapsedTime": 6938
+      },
+      {
+        "segment": " 이게 또 선인사가 되는",
+        "whileIgnored": [
+          " 이게 또 선인사가 되면은",
+          " 잘 되는거고"
+        ],
+        "whisperInferTime": 5465,
+        "llmTime": 2581,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 8057
+      },
+      {
+        "segment": " 아 나 너무 슬픈데",
+        "whileIgnored": [
+          " 어 나 너무 슬픈데 어떡하지"
+        ],
+        "whisperInferTime": 2459,
+        "llmTime": 2517,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4978
+      },
+      {
+        "segment": " 나 너무 슬퍼 이거",
+        "whileIgnored": [
+          " 나 너무 슬퍼 이거 진짜 어떻게"
+        ],
+        "whisperInferTime": 3425,
+        "llmTime": 2697,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6133
+      },
+      {
+        "segment": " 반갑질 않고",
+        "whileIgnored": [
+          " 반갑질 않고 그냥"
+        ],
+        "whisperInferTime": 7415,
+        "llmTime": 2399,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 9816
+      },
+      {
+        "segment": " 짜증나 그리고 막",
+        "whileIgnored": [
+          " 짜증나 그리고 막 화가 나",
+          " 화가 나",
+          " 화가 나"
+        ],
+        "whisperInferTime": 6404,
+        "llmTime": 2984,
+        "llmResponse": "The speaker's tone turns bitter and frustrated, their words dripping with annoyance as they express relief that the encounter is over.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 9399
+      },
+      {
+        "segment": " 아 화가 난 화가 난",
+        "whileIgnored": [
+          " 나 화가 나 막 그치 그치"
+        ],
+        "whisperInferTime": 3015,
+        "llmTime": 2506,
+        "llmResponse": "The speaker's tone turns bitter and frustrated, their words dripping with annoyance and irritation.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 5532
+      },
+      {
+        "segment": " 잘 되는데 너무",
+        "whileIgnored": [
+          " 잘 되는데 너무",
+          " 지금 전공지식",
+          " 지금 전공지식처럼"
+        ],
+        "whisperInferTime": 3412,
+        "llmTime": 2808,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6222
+      },
+      {
+        "segment": " 비동기 함수 베서",
+        "whileIgnored": [
+          " 비 동기 함수 메서드와",
+          " 어싱크와 웬 애니",
+          " 어싱크와 웬 애니 이런거",
+          " 이런거를 쓰다보니까"
+        ],
+        "whisperInferTime": 950,
+        "llmTime": 3164,
+        "llmResponse": "The speaker's tone shifts from friendly to annoyed, reflecting a mix of concern and frustration as they mention being upset about something.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4127
+      },
+      {
+        "segment": " 이런걸 쓰다 보니까 아",
+        "whileIgnored": [
+          " 아 너무 잘 안되요",
+          " 아 너무 잘 안되는구나"
+        ],
+        "whisperInferTime": 1409,
+        "llmTime": 2855,
+        "llmResponse": "The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 4267
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 라고 판단할 수 있어요",
+        "whileIgnored": [
+          " 라고 판단할 수 있어요"
+        ],
+        "whisperInferTime": 928,
+        "llmTime": 2622,
+        "llmResponse": "The speaker expresses concern and sympathy, asking if everything is okay while acknowledging the emotional pain and frustration expressed by the other person.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3563
+      }
+    ]
+  }
+]

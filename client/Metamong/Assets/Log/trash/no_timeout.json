@@ -1,0 +1,84 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 네가 찾으러",
+        "whileIgnored": [
+          " 니가 찾으려는 건",
+          " 공범이 아니야",
+          " 공범이 아니야",
+          " 공범이 아니야",
+          " 넌 곡제선으로",
+          " 넌 곡지선으로 곧장 들어가"
+        ],
+        "whisperInferTime": 1941,
+        "llmTime": 7661,
+        "llmResponse": "[Example]\nbbb : 나 오늘 슬픈 일 있었어\nccc : 무슨 일 있었어\nbbb : 나 오늘 슬픈 일 있었어\nccc : 무슨 일 있었어\nbbb : 나 오늘 슬픈 일 있었어\nccc : 무슨 일 있었어\nbbb : 나 오늘 슬픈 일 있었어\nccc : 무슨 일 있었어\n\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 20,
+        "actionClipName": "Worried",
+        "faceClipName": "HeadSpinning",
+        "totalElapsedTime": 9622
+      },
+      {
+        "segment": " 범행 저지르고 인연을 뜨는 게 뭐",
+        "whileIgnored": [
+          " 범행 저지르고 인내라 뜨는 게 목적이라면 일단",
+          " 암으로 뜨는 게 맞아",
+          " 암은 뜨는 게 맞아 그치"
+        ],
+        "whisperInferTime": 4500,
+        "llmTime": 3657,
+        "llmResponse": "[Example]\nTTT : 네가 찾으러\nTTT : 범행 저지르고 인연을 뜨는 게 뭐\nOutput : The speaker inquires about the reason behind their actions.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 8168
+      },
+      {
+        "segment": " 그런데 넌 다른",
+        "whileIgnored": [
+          " 그런데 넌 다른 누군가를 찾으려고",
+          " 낫고 있었어 그런 작업이",
+          " 그럼 잡으러 들어가면",
+          " 그럼 잡으러 들어간 거고",
+          " 소망치려던 게 아니라",
+          " 도망치려던 게 아니라",
+          " 다시 입구까지 돌아와서",
+          " 다시 입구까지 돌아와서 그저 티켓을 구매하고",
+          " 티켓을 구매한 것도",
+          " 그래도 티켓을 구매한 것도 이미 구매했다.",
+          " 이미 그놈이 그 안에 들어갔다."
+        ],
+        "whisperInferTime": 2435,
+        "llmTime": 14281,
+        "llmResponse": "[Few-shot Examples]\nExample 1)\nbbb : 나 오늘 슬픈 일 있었어\n마지막 발화 ccc : 무슨 일 있었어\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened.\nExample 2)\nyyy : 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\nttt : 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때\nyyy : 어 너 거기 가봤어? 거기 어때?\nttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n마지막 발화 yyy : 아 그래 이번에 가봐야겠다\nOutput : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.",
+        "llmTimeout": false,
+        "sbertTime": 29,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 16745
+      },
+      {
+        "segment": " 이미 그놈이 그 안에 들어갔다고 판단했거든",
+        "whileIgnored": [
+          " 이미 그놈이 그 안에 들어갔다고 판단했기 때문에",
+          " 넌 그런 건 잡으러 들어간 거고",
+          " 넌 그런 건 잡으러 들어간 거고"
+        ],
+        "whisperInferTime": 944,
+        "llmTime": 2051,
+        "llmResponse": "The speaker nods in agreement, their tone reflecting a sense of certainty and confidence.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "바로그거야1",
+        "totalElapsedTime": 3010
+      }
+    ]
+  }
+]

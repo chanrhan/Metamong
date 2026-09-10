@@ -1,0 +1,80 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 반가워요~ 안녕~",
+        "whileIgnored": [
+          " 안녕~ 반가~ 반가~ 반가~"
+        ],
+        "whisperInferTime": 1961,
+        "llmTime": 5008,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 3,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 6972
+      },
+      {
+        "segment": " 와~ 오랜만이야~",
+        "whileIgnored": [
+          " 오랜만이야~",
+          " 오랜만이야~ 타임아웃이 또",
+          " 잘 어울리는 것 같은데",
+          " 잘 어울리는 것 같은데 기회가 드니까",
+          " 잘 되다가 안되네~",
+          " 잘 되다가 안 되네~ 기회가 드리는 게 잘 되다가 안 되네~"
+        ],
+        "whisperInferTime": 5930,
+        "llmTime": 5004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 3,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 10937
+      },
+      {
+        "segment": " 대단한 거~ 안 되네~",
+        "whileIgnored": [
+          " 대단한 거~ 안 되네~",
+          " 대자가 아닌 거~ 안 되네~ 아이씨~",
+          " 참 사람 줄 알았더니만~",
+          " 참 사람 줄 알았더니만~"
+        ],
+        "whisperInferTime": 3468,
+        "llmTime": 5004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 3,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 8475
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아~",
+        "whileIgnored": [
+          " 아~"
+        ],
+        "whisperInferTime": 3398,
+        "llmTime": 5002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 3,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 8403
+      }
+    ]
+  }
+]

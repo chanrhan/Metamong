@@ -1,0 +1,74 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어 그래 반갑고",
+        "whileIgnored": [
+          " 어 그래. 반갑고. 어 그래 그래."
+        ],
+        "whisperInferTime": 1951,
+        "llmTime": 1910,
+        "llmResponse": "The speaker smiles warmly and greets with a friendly tone.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3871
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 어어. 그래 그래.",
+        "whileIgnored": [
+          " 그래 그래. 옷은 어 잘 나와.",
+          " 그래 그래. 옷은 오 잘 나와. 좋아.",
+          " 좋아. 처음에 잘 나오고.",
+          " 좋아. 처음에 잘 나오고.",
+          " 어? 이런 떠서 근데.",
+          " 어? 내 말 안 듣고 있니?",
+          " 어? 내 말 안 듣고 있니?",
+          " 입력도 안 되는?",
+          " 입력도 안 되니?",
+          " 입력도 안 되니?",
+          " 아. 인포.",
+          " 아. 인포도 안 뜨니?",
+          " 뭔가 뜨긴 하는데.",
+          " 뭔가 뜨긴 하는데?",
+          " 뭔가 뜨긴 하는데?",
+          " 뭔가 뜨긴 하는데?",
+          " 뭔가 뜨긴 하는데?",
+          " 뭔가 뜨긴 하는데?",
+          " 뭐가 뜨는 거니?",
+          " 오케이. 뭐가 되긴 하는데? 여기.",
+          " 오케이. 뭐가 뜨긴 하는데? 여기 입력이 안 돼?",
+          " 여기 입력이 안 되는구나?",
+          " 입력이 안 되는구나? 오케이.",
+          " 오케이. 너 오류가 떴네?",
+          " 오케이. 너 오류가 떴네?",
+          " 아 아까 길이 지웠다. 아까.",
+          " 어? 아까 길리 지웠다. 아까 빨간색 썼는데. 그러니까.",
+          " 그니까 왜죠? 아 슈퍼아.",
+          " 그니까 왜죠? 아 슈바! 아까 지금.",
+          " 아 슈바! 이거까지 지웠지 몰랐지?",
+          " 어어 그래 그래."
+        ],
+        "whisperInferTime": 1950,
+        "llmTime": 48390,
+        "llmResponse": "The speaker greets warmly, and the other responds with a casual, friendly tone.",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Sad_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 50353
+      }
+    ]
+  }
+]

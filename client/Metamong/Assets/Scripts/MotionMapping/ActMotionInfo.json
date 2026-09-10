@@ -1,0 +1,221 @@
+{
+  "Agreement": {
+    "clipNames": [ "Agreement" ],
+    "emotionalExept": [ "혐오", "슬픔", "분노" ]
+  },
+
+  "Aha": {
+    "clipNames": [ "Aha" ],
+    "emotionalExept": [ "공포" ]
+  },
+
+  "Angry_small": {
+    "clipNames": [ "Angry_small" ],
+    "emotionalExept": [ "행복", "공포" ]
+  },
+
+  "Angry_big": {
+    "clipNames": [ "Angry_big", "Angry_big_02" ],
+    "emotionalExept": [ "행복", "공포" ]
+  },
+
+  "BadLaugh": {
+    "clipNames": [ "BadLaugh" ],
+    "emotionalExept": [ "슬픔", "공포" ]
+  },
+
+  "BadSmell": {
+    "clipNames": [ "BadSmell" ],
+    "emotionalExept": [ "행복", "슬픔", "놀람" ]
+  },
+
+  "BulAn": {
+    "clipNames": [ "BulAn" ],
+    "emotionalExept": [ "분노" ]
+  },
+
+  "ByamGulgi": {
+    "clipNames": [ "ByamGulgi" ],
+    "emotionalExept": [ "슬픔", "공포" ]
+  },
+  "Clapping": {
+    "clipNames": [ "Clapping" ],
+    "emotionalExept": [ "공포", "슬픔" ]
+  },
+
+  "Cold": {
+    "clipNames": [ "Cold" ],
+    "emotionalExept": [ "분노" ]
+  },
+
+  "Cry": {
+    "clipNames": [ "Cry" ],
+    "emotionalExept": [ "혐오", "행복", "놀람" ]
+  },
+  "DDaBong": {
+    "clipNames": [ "DDaBong", "DDaBong_02", "DDaBong_03" ],
+    "emotionalExept": [ "분노", "공포", "혐오" ]
+  },
+
+  "Displeasure": {
+    "clipNames": [ "Displeasure" ],
+    "emotionalExept": [ "행복", "놀람", "혐오" ]
+  },
+
+  "DontKnow": {
+    "clipNames": [ "DontKnow" ],
+    "emotionalExept": [ "슬픔" ]
+  },
+
+  "Depressed": {
+    "clipNames": [ "Depressed" ],
+    "emotionalExept": [ "슬픔" ]
+  },
+
+  "Gijigae": {
+    "clipNames": [ "Gijigae" ],
+    "emotionalExept": [ "슬픔", "공포", "혐오", "놀람" ]
+  },
+
+  "HurryUp": {
+    "clipNames": [ "HurryUp" ],
+    "emotionalExept": [ "공포", "혐오", "행복" ]
+  },
+
+  "Hansim": {
+    "clipNames": [ "Hansim" ],
+    "emotionalExept": [ "행복" ]
+  },
+
+  "HeadScratch": {
+    "clipNames": [ "HeadScratch" ],
+    "emotionalExept": [ "공포", "슬픔", "행복" ]
+  },
+
+  "Hello": {
+    "clipNames": [ "Hello", "Hello_02", "Hello_03" ],
+    "emotionalExept": [ "공포" ]
+  },
+
+  "Hungry": {
+    "clipNames": [ "Hungry" ],
+    "emotionalExept": [ "공포", "놀람", "행복" ]
+  },
+
+  "Laugh_big": {
+    "clipNames": [ "Laugh_big" ],
+    "emotionalExept": [ "공포", "슬픔" ]
+  },
+
+  "Laugh_small": {
+    "clipNames": [ "Laugh_small" ],
+    "emotionalExept": [ "슬픔", "공포" ]
+  },
+
+  "LetsEating": {
+    "clipNames": [ "LetsEating" ],
+    "emotionalExept": [ "공포" ]
+  },
+
+  "LoveYou": {
+    "clipNames": [ "LoveYou" ],
+    "emotionalExept": [ "혐오", "슬픔" ]
+  },
+
+  "Nope": {
+    "clipNames": [ "Nope" ],
+    "emotionalExept": [ "놀람" ]
+  },
+
+  "OkaySign": {
+    "clipNames": [ "OkaySign" ],
+    "emotionalExept": [ "혐오", "공포" ]
+  },
+
+  "Pleasure_big": {
+    "clipNames": [ "Pleasure_big" ],
+    "emotionalExept": [ "슬픔" ]
+  },
+
+  "Pleasure_small": {
+    "clipNames": [ "Pleasure_small" ],
+    "emotionalExept": [ "슬픔" ]
+  },
+
+  "Pointing": {
+    "clipNames": [ "Pointing" ],
+    "emotionalExept": [ "행복", "공포" ]
+  },
+
+  "Relieved": {
+    "clipNames": [ "Relieved" ],
+    "emotionalExept": [ "분노", "혐오" ]
+  },
+
+  "Rebuke": {
+    "clipNames": [ "Rebuke" ],
+    "emotionalExept": [ "행복" ]
+  },
+
+  "Scare": {
+    "clipNames": [ "Scare" ],
+    "emotionalExept": [ "행복", "분노" ]
+  },
+
+  "SoHot": {
+    "clipNames": [ "SoHot" ],
+    "emotionalExept": [ "슬픔", "공포", "놀람" ]
+  },
+
+  "Surprised_big": {
+    "clipNames": [ "Surprised_big" ],
+    "emotionalExept": [ "슬픔", "분노" ]
+  },
+
+  "Surprised_small": {
+    "clipNames": [ "Surprised_small", "Surprised_small_02" ],
+    "emotionalExept": [ "슬픔" ]
+  },
+
+  "Talking": {
+    "clipNames": [ "Talking" ],
+    "emotionalExept": [ "공포" ]
+  },
+
+  "Thinking": {
+    "clipNames": [ "Thinking" ],
+    "emotionalExept": [ "공포", "슬픔" ]
+  },
+
+  "Explaining": {
+    "clipNames": [ "Explaining" ],
+    "emotionalExept": [ "공포", "슬픔", "혐오" ]
+  },
+
+  "CallMe": {
+    "clipNames": [ "CallMe" ],
+    "emotionalExept": [ "중립" ]
+  },
+  "ComeOn": {
+    "clipNames": [ "ComeOn" ],
+    "emotionalExept": [ "중립" ]
+  },
+  "Sleepy": {
+    "clipNames": [ "Sleepy" ],
+    "emotionalExept": [ "중립" ]
+  },
+
+  "Listening": {
+    "clipNames": [ "Listening" ],
+    "emotionalExept": [ "중립" ]
+  },
+  "Introduce": {
+    "clipNames": [ "Introduce" ],
+    "emotionalExept":[ "중립" ]
+  },
+
+  "Shouting": {
+    "clipNames": [ "Shouting" ],
+    "emotionalExept": [ "중립" ]
+  }
+}

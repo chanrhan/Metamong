@@ -1,0 +1,42 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.5,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 안녕하십니까",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling polite and formal, is greeting someone.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "actionClipName": "Hello",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.915408771528911,
+        "faceScore": 0.75214458668060868
+      },
+      {
+        "segment": " 주제는 사용자의 마음",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling emotional, is expressing the theme of their final work.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "actionClipName": "ByamGulgi",
+        "faceClipName": "Surprised",
+        "actionScore": 0.91603557220124032,
+        "faceScore": 0.76342406060435775
+      },
+      {
+        "segment": " 뭔가 이상한데?",
+        "whileIgnored": [],
+        "llmResponse": "Output: The speaker, feeling puzzled, is expressing a sense of unease.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "actionClipName": "Relieved",
+        "faceClipName": "Surprised",
+        "actionScore": 0.99161948224362884,
+        "faceScore": 0.77260398836559185
+      }
+    ]
+  }
+]

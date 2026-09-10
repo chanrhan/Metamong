@@ -1,0 +1,97 @@
+[
+  {
+    "stepSec": 0.2,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 평일날 쉬고",
+        "whileIgnored": [],
+        "whisperInferTime": 3126,
+        "llmTime": 1368,
+        "llmResponse": "Output: The speaker, feeling relieved, is expressing gratitude for having a day off.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Hello_02",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.86731337724702662,
+        "faceScore": 0.73268348233056013,
+        "totalElapsedTime": 4510
+      },
+      {
+        "segment": " 멀차가 있는데",
+        "whileIgnored": [],
+        "whisperInferTime": 3619,
+        "llmTime": 1275,
+        "llmResponse": "Output: The speaker, feeling neutral, is casually mentioning a plan.",
+        "emotion": "혐오",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92664438637519508,
+        "faceScore": 0.79719644422309743,
+        "totalElapsedTime": 4905
+      },
+      {
+        "segment": " 당일날 인터넷 방송 보는 사람",
+        "whileIgnored": [
+          " 벌차는 그때 쓰면"
+        ],
+        "whisperInferTime": 2610,
+        "llmTime": 1260,
+        "llmResponse": "Output: The speaker, feeling neutral, is casually mentioning a detail.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Surprised_big",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.92664438637519508,
+        "faceScore": 0.79719644422309743,
+        "totalElapsedTime": 3882
+      },
+      {
+        "segment": " 자...",
+        "whileIgnored": [
+          " 근데 왜"
+        ],
+        "whisperInferTime": 2571,
+        "llmTime": 1191,
+        "llmResponse": "Output: The speaker, feeling annoyed, is interrupting someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "BadLaugh",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.9267752672016828,
+        "faceScore": 0.84017330733226647,
+        "totalElapsedTime": 3772
+      }
+    ]
+  },
+  {
+    "stepSec": 0.2,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " -괜찮아요. -왜요?",
+        "whileIgnored": [
+          " 가장 쉬는 거고요."
+        ],
+        "whisperInferTime": 3185,
+        "llmTime": 2440,
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is responding to the other person's question with a hint of frustration.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "LoveYou",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.83525470257255152,
+        "faceScore": 0.74805442422686264,
+        "totalElapsedTime": 5641
+      }
+    ]
+  }
+]

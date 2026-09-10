@@ -1,0 +1,217 @@
+{
+  "The speaker, feeling neutral, is calmly acknowledging the other person.": "Agreement",
+  "The speaker, feeling satisfied, is warmly acknowledging the other person.": "Agreement",
+  "The speaker, feeling pleased, is enthusiastically agreeing with the other person.": "Agreement",
+  "The speaker, feeling impressed, is complimenting the achievement.": "Agreement",
+  "The speaker, feeling nostalgic, is reminiscing about the past.": "Agreement",
+  "The speaker, feeling sympathetic, is expressing understanding.": "Agreement",
+  "The speaker, feeling relaxed, is expressing a enjoying the rain.": "Agreement",
+  "The speaker, feeling satisfied and content, is enjoying a meal.": "Agreement",
+
+  "The speaker, feeling joyful, is expressing their understanding with a delighted 'aha'.": "Aha",
+  "The speaker, feeling pleased, is indicating they understood what was said with satisfaction.": "Aha",
+  "The speaker, feeling relieved, is acknowledging and understanding the previous statement.": "Aha",
+  "The speaker, feeling neutral, is acknowledging the other person's understanding.": "Aha",
+  "The speaker, feeling pleasure, is finally understanding the situation. ": "Aha",
+
+  "The speaker, feeling slightly angry, is softly lamenting their own situation.": "Angry_small",
+  "The speaker, feeling slightly annoyed, is repeating what the other person just said": "Angry_small",
+  "The speaker, feeling slightly annoyed, is expressing mild frustration. ": "Angry_small",
+  "The speaker, feeling angry and resentful, is expressing a strong negative emotion": "Angry_small",
+
+  "The speaker, feeling furious, is shouting angrily at the other person.": "Angry_big",
+  "The speaker, feeling frustrated and annoyed, is expressing their dissatisfaction.": "Angry_big",
+  "The speaker, feeling annoyed and frustrated, is expressing their genuine irritation.": "Angry_big",
+  "The speaker, feeling frustrated and annoyed, is scolding someone": "Angry_big",
+
+  "The speaker, feeling mockingly amused, is laughing to tease the other person.": "BadLaugh",
+  "The speaker, feeling disgusted, is laughing mockingly at the other person.": "BadLaugh",
+  "The speaker, feeling playful, is laughing at someone's outfit.": "BadLaugh",
+
+  "The speaker, feeling disgusted, is wrinkling their nose to signal an unpleasant smell.": "BadSmell",
+  "The speaker, feeling disgusted, is recoiling to avoid an unpleasant odor.": "BadSmell",
+  "The speaker, feeling annoyed, is complaining about the smell. ": "BadSmell",
+
+  "The speaker, feeling anxious, is fidgeting and glancing around nervously.": "BulAn",
+  "The speaker, feeling anxious, is worried about getting scolded by the teacher.": "BulAn",
+  "The speaker, feeling anxious and worried, is expressing their concern about the other person's late arrival": "BulAn",
+
+  "The speaker, feeling contemplative, is scratching their cheek with a finger.": "ByamGulgi",
+  "The speaker, feeling embarrassed, is expressing their shame.": "ByamGulgi",
+  "The speaker, feeling embarrassed and ashamed, is acknowledging their own awkwardness": "ByamGulgi",
+
+  "The speaker, feeling joyful, is applauding enthusiastically.": "Clapping",
+  "The speaker, feeling excited and proud, is celebrating their achievement.": "Clapping",
+  "The speaker, feeling joyful and celebratory, is congratulating someone.": "Clapping",
+  "The speaker, feeling angry and celebratory, is expressing their frustration with applause.": "Clapping",
+  "The speaker, feeling impressed, is complimenting the artwork. ": "Clapping",
+
+  "The speaker, feeling cold, is shivering and pulling their jacket tighter.": "Cold",
+  "The speaker, feeling cold, is reflecting on the arrival of winter.": "Cold",
+  "The speaker, feeling slightly annoyed, is complaining about the air conditioner being too strong": "Cold",
+  "The speaker, feeling relaxed and slightly annoyed, is commenting on the air conditioner.": "Cold",
+
+  "The speaker, feeling sad, is wiping away tears while sobbing softly.": "Cry",
+  "The speaker, feeling sad and tearful, is expressing deep sorrow": "Cry",
+
+  "The speaker, feeling neutral but supportive, is giving a thumbs-up to encourage the other person.": "DDaBong",
+  "The speaker, feeling excited and proud, is enthusiastically expressing satisfaction.": "DDaBong",
+  "The speaker, feeling excited and satisfied, is enthusiastically expressing admiration.": "DDaBong",
+  "The speaker, feeling relieved, is expressing gratitude.": "Relieved",
+  "The speaker, feeling grateful, is expressing thanks.": "DDaBong",
+  "The speaker, feeling proud and accomplished, is giving a thumbs up.": "DDaBong",
+
+  "The speaker, feeling disgusted, is frowning and expressing disapproval of the situation.": "Displeasure",
+  "The speaker, feeling surprised and concerned, is commenting on a sudden event. ": "Displeasure",
+  "The speaker, feeling disgusted, is expressing their dislike for insects. ": "Displeasure",
+  "The speaker, feeling surprised, is mentioning sudden presence of a pest.": "Displeasure",
+
+  "The speaker, feeling uncertain, is shrugging their shoulders to indicate they don’t know.": "DontKnow",
+  "The speaker, feeling of difference, is expressing a difference of opinion from the other person.": "DontKnow",
+  "The speaker, feeling hungry and slightly annoyed, is questioning someone about eating before coming. ": "DontKnow",
+  "The speaker, feeling curious, is asking for an explanation.": "DontKnow",
+  "The speaker, feeling curious, is asking for advice.": "DontKnow",
+  "The speaker, feeling curious, is seeking the other person's opinion": "DontKnow",
+
+  "The speaker, feeling regretful, is informing that the proposed time slot is not suitable.": "Depressed",
+  "The speaker, feeling regretful, is gently declining the other person's suggestion.": "Depressed",
+  "The speaker, feeling depressed and downhearted, is expressing their sadness": "Depressed",
+  "The speaker, feeling demonstrated, is reluctantly acknowledging the need to go to work tomorrow.": "Depressed",
+  "The speaker, feeling demonstrated., is expressing a little dislike for studying.": "Depressed",
+
+  "The speaker, feeling bored, is talking to themselves absentmindedly.": "Gijigae",
+  "The speaker, feeling relaxed and carefree, is suggesting a break.": "Gijigae",
+
+  "The speaker, feeling disappointed, is blaming the other person.": "Hansim",
+  "The speaker, feeling annoyed and frustrated, is making a sarcastic comment": "Hansim",
+  "The speaker, feeling annoyed, is teasing someone about their Behavior.": "Hansim",
+  "The speaker, feeling annoyed and frustrated, is scolding someone": "Hansim",
+  "The speaker, feeling annoyed, is responding with a monosyllable.": "Hansim",
+
+  "The speaker, feeling puzzled, is scratching their head thoughtfully.": "HeadScratch",
+  "The speaker, feeling relieved and understanding, is finally aware of the truth": "HeadScratch",
+  "The speaker, feeling apologetic, is expressing regret.": "HeadScratch",
+
+  "The speaker, feeling neutral but cordial, is smiling and waving hello.": "Hello",
+  "The speaker, feeling friendly, is greeting someone warmly.": "Hello",
+  "The speaker, feeling friendly and welcoming, is saying goodbye to someone.": "Hello",
+  "The speaker, feeling friendly and casual, is introducing himself in a relaxed manner.": "Hello",
+
+  "The speaker, feeling hungry, is rubbing their stomach and looking around for food.": "Hungry",
+  "The speaker, feeling amused and slightly hungry, is ending the conversation.": "Hungry",
+  "The speaker, feeling tired, is expressing their sudden hunger.": "Hungry",
+
+  "The speaker, feeling impatient, is tapping their foot and urging the other person to hurry up.": "HurryUp",
+  "The speaker, feeling urgent and focused, is setting a deadline.": "HurryUp",
+  "The speaker, feeling impatient, is waiting for someone.": "HurryUp",
+  "The speaker, feeling slightly annoyed, is teasing the other person about their late arrival.": "HurryUp",
+
+  "The speaker, feeling overjoyed, is laughing loudly with unrestrained joy.": "Laugh_big",
+  "The speaker, feeling amused, clutches their stomach and laughs heartily.": "Laugh_big",
+  "The speaker, feeling overwhelmed with amusement, chuckles uncontrollably.": "Laugh_big",
+  "The speaker, feeling amused, is laughing at the joke.": "Laugh_big",
+
+  "The speaker, feeling mildly happy, is smiling and laughing softly.": "Laugh_small",
+  "The speaker, feeling amused, giggles softly to themselves.": "Laugh_small",
+  "The speaker, feeling amused and satisfied, is laughing out loud": "Laugh_small",
+  "The speaker, feeling playful, is suggesting an idea.": "Laugh_small",
+  "The speaker, feeling playful and curious, is continuing to tell a joke.": "Laugh_small",
+  "The speaker, feeling playful and carefree, is making a silly sound.": "Laugh_small",
+
+  "The speaker, feeling neutral, is inviting the other person to begin eating together.": "LetsEating",
+  "The speaker, feeling hungry, is suggesting to go eat.": "LetsEating",
+  "The speaker, feeling hungry and slightly annoyed, is suggesting what to eat.": "LetsEating",
+
+  "The speaker, feeling affectionate, is smiling warmly and saying “I love you.”": "LoveYou",
+  "The speaker, feeling emotional and intimate, is expressing deep affection.": "LoveYou",
+
+  "The speaker, feeling firm, is politely rejecting the other person's opinion.": "Nope",
+  "The speaker, feeling frustrated and annoyed, is complaining about the situation.": "Nope",
+  "The speaker, feeling slightly annoyed, is expressing their dislike for it": "Nope",
+  "The speaker, feeling annoyed, is expressing a subtle disagreement.": "Nope",
+
+  "The speaker, feeling neutral, is making an OK sign to indicate agreement.": "OkaySign",
+  "The speaker, feeling determined, is committing to the plan.": "OkaySign",
+  "The speaker, feeling relaxed and open-minded, is agreeing with the other person's suggestion.": "OkaySign",
+  "The speaker, feeling relieved and apologetic, is accepting the other person's forgiveness.": "OkaySign",
+
+  "The speaker, feeling ecstatic, is beaming broadly to show great pleasure.": "Pleasure_big",
+  "The speaker, feeling enthusiastic and celebratory, is cheering loudly. ": "Pleasure_big",
+
+  "The speaker, feeling extremely happy, is expressing their Pleasurement": "Pleasure_small",
+  "The speaker, feeling quietly pleased, is smiling softly to express mild pleasure.": "Pleasure_small",
+  "The speaker, feeling triumphant, pumps their fist and beams with victory.": "Pleasure_small",
+
+  "The speaker, feeling happy, is pointing at the other place.": "Pointing",
+  "The speaker, feeling upset, is pointing at the other person.": "Pointing",
+  "The speaker, feeling joyful, enthusiastically praises the other person’s correct answer.": "Pointing",
+  "The speaker, feeling confident, is affirming the correctness of their previous statement": "Pointing",
+  "The speaker, feeling amused and curious, is noticing someone's outfit": "Pointing",
+  "The speaker, feeling casual, is making a comment about an old man's shoes.": "Pointing",
+
+  "The speaker, feeling relieved, is exhaling deeply and relaxing their shoulders.": "Relieved",
+  "The speaker, feeling relieved and grateful, is expressing a sense of good fortune": "Relieved",
+  "The speaker, feeling relaxed and content, is taking a moment to pause. ": "Relieved",
+  "The speaker, feeling relieved, is expressing a sense of calm.": "Relieved",
+
+  "The speaker, feeling upset, is scolding the other person for their mistake.": "Rebuke",
+  "The speaker, feeling angry, is scolding the other person in a stern voice.": "Rebuke",
+  "The speaker, feeling frustrated, is telling the other person off for their careless action.": "Rebuke",
+  "The speaker, feeling annoyed and sarcastic, is criticizing someone's actions": "Rebuke",
+
+  "The speaker, feeling frightened, is gasping and stepping back in fear.": "Scare",
+
+  "The speaker, feeling hot, is fanning themselves and wiping sweat from their brow.": "SoHot",
+  "The speaker, feeling overheated and frustrated, is complaining about the heat.": "SoHot",
+
+  "The speaker, feeling shocked, is gasping with eyes wide in surprise.": "Surprised_big",
+  "The speaker, feeling surprised, is reacting to the news.": "Surprised_big",
+
+  "The speaker, feeling mildly surprised, is raising an eyebrow in astonishment.": "Surprised_small",
+  "The speaker, feeling surprised and shocked, is expressing their astonishment.": "Surprised_small",
+
+  "The speaker, feeling neutral, is speaking calmly to convey information.": "Talking",
+  "The speaker, feeling casual, is continuing the conversation": "Talking",
+
+  "The speaker, feeling unsure, is thinking about what to do.": "Thinking",
+  "The speaker, feeling thoughtful, is considering their choices.": "Thinking",
+  "The speaker, feeling puzzled, is thinking over the options.": "Thinking",
+
+  "The speaker, feeling satisfied and hungry, is suggesting a nearby restaurant.": "Explaining",
+  "The speaker, feeling curious, is questioning a common fact.": "Explaining",
+  "The speaker, feeling determined, is explaining the answer.": "Explaining",
+  "The speaker, feeling embarrassed and apologetic, is explaining the situation.": "Explaining",
+
+  "The speaker, feeling friendly and considerate, is suggesting a follow-up contact": "CallMe",
+  "The speaker, feeling friendly is inviting the other person to stay in touch.": "CallMe",
+  "The speaker, feeling friendly and polite, is making plans to contact the other person later.": "CallMe",
+  "The speaker, feeling neutral, is suggesting a phone call to someone else. ": "CallMe",
+  "The speaker, feeling happy, is making phone calls.": "CallMe",
+  "The speaker, feeling relieved, is agreeing to communicate later.": "CallMe",
+
+  "The speaker, feeling impatient, is urging the other person to arrive quickly.": "ComeOn",
+  "The speaker, feeling excited, is saying come this way": "ComeOn",
+  "The speaker, feeling inviting, is suggesting a visit": "ComeOn",
+  "The speaker, feeling friendly, is pointing out their location.": "ComeOn",
+  "The speaker, feeling casual and friendly, is suggesting a change in direction.": "ComeOn",
+
+  "The speaker, feeling tired and sleepy, is yawning.": "Sleepy",
+  "The speaker, feeling tired and stressed, is urging himself to take a break.": "Sleepy",
+  "The speaker, feeling tired and sleepy, is acknowledging their exhaustion.": "Sleepy",
+  "The speaker, feeling tired and slightly sad, is expressing their lack of sleep": "Sleepy",
+  "The speaker, feeling extremely tired and frustrated, is expressing their exhaustion.": "Sleepy",
+
+  "The speaker, feeling frustrated, is asking for a saying again.": "Listening",
+  "The speaker, feeling curious, is asking for more information.": "Listening",
+  "The speaker, feeling frustrated, is complaining about the poor reception.": "Listening",
+  "The speaker, feeling curious, is asking the other person for their opinion. ": "Listening",
+  "The speaker, feeling curious, is asking for an opinion.": "Listening",
+
+  "The speaker, feeling confident, is introducing themselves": "Introduce",
+  "The speaker, feeling friendly, is introducing someone.": "Introduce",
+  "The speaker, feeling excited, is enthusiastically introducing a topic.": "Introduce",
+  "The speaker, feeling neutral, is providing information about the picture": "Introduce",
+
+  "The speaker, feeling playful, is reporting a sudden loud noise in the front": "Shouting",
+  "The speaker, feeling frustrated, is repeatedly shouting in the front direction.": "Shouting"
+}

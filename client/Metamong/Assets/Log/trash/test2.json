@@ -1,0 +1,139 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 아",
+        "whileIgnored": [
+          " 아",
+          " 시는 그런 건 아닙니다",
+          " 씨는 그런 건 아닙니다."
+        ],
+        "whisperInferTime": 1909,
+        "llmTime": 2402,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4311
+      },
+      {
+        "segment": " 더 좋아하는 사람을 기도만 들어줘서",
+        "whileIgnored": [
+          " 더 좋아하는 사람을 기도만 들어주시는 분이 아니라고요."
+        ],
+        "whisperInferTime": 997,
+        "llmTime": 2410,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3407
+      },
+      {
+        "segment": " 소주를 혼자서는,",
+        "whileIgnored": [
+          " 소주를 혼자 마시면서",
+          " 소주를 혼자 마시면 써요.",
+          " 그리고 더 많이 받고 있어요."
+        ],
+        "whisperInferTime": 991,
+        "llmTime": 2403,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3394
+      },
+      {
+        "segment": " 그리고 더 많이 먹게 되죠.",
+        "whileIgnored": [],
+        "whisperInferTime": 1418,
+        "llmTime": 2406,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3824
+      },
+      {
+        "segment": " 콜 중독이었습니다.",
+        "whileIgnored": [
+          " 중독이었습니다. 지금 필사적으로",
+          " 참고 있는 거예요."
+        ],
+        "whisperInferTime": 2475,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4879
+      },
+      {
+        "segment": " 눈으로 보이는 게 전부가 아니더라고요.",
+        "whileIgnored": [
+          " 눈으로 보이는 게 전부가 아니더라고요."
+        ],
+        "whisperInferTime": 1969,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4373
+      },
+      {
+        "segment": " 나는 기도로 싸웠고",
+        "whileIgnored": [
+          " 나는 기도로 싸웠고 당신은 당신이"
+        ],
+        "whisperInferTime": 4416,
+        "llmTime": 2401,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 6817
+      },
+      {
+        "segment": " 그쪽이 당신의 담당입니다.",
+        "whileIgnored": [
+          " 그쪽이 방식 담당입니다.",
+          " 방식 방식이 담당입니다. 다른 방식"
+        ],
+        "whisperInferTime": 2445,
+        "llmTime": 2416,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4861
+      },
+      {
+        "segment": " 당신이 방식으로 싸워보시라고요?",
+        "whileIgnored": [
+          " 혼자 있기 좋습니다."
+        ],
+        "whisperInferTime": 1483,
+        "llmTime": 2418,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3901
+      }
+    ]
+  }
+]

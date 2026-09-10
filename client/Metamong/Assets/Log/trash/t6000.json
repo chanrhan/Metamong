@@ -1,0 +1,149 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 감사합니다",
+        "whileIgnored": [],
+        "whisperInferTime": 2044,
+        "llmTime": 3769,
+        "llmResponse": "[Example]\nccc : 나 오늘 슬픈 일 있었어\n마지막 발화 sss : 감사합니다\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened. The listener responds with gratitude.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Sad_L",
+        "faceClipName": "오라는손짓",
+        "totalElapsedTime": 5830
+      },
+      {
+        "segment": " 남자가 그럼",
+        "whileIgnored": [
+          " 남자가 그렇게 쳐다니",
+          " 저것도 안 좋았냐?",
+          " 저것도 안 좋았냐"
+        ],
+        "whisperInferTime": 1949,
+        "llmTime": 2513,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4472
+      },
+      {
+        "segment": " 자식이 남잡으면",
+        "whileIgnored": [
+          " 거기에 있어도 자식이 남자 없으면 못 살겠었냐?",
+          " 진짜 없으면 못살겠었냐?"
+        ],
+        "whisperInferTime": 1042,
+        "llmTime": 2626,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3671
+      },
+      {
+        "segment": " 뭐 꺼슬하게 걱정이면 내가 말했지?",
+        "whileIgnored": [
+          " 뭐 거스락의 걱정임은 내가 말했지",
+          " 학교 관두고 육지 가서 내가"
+        ],
+        "whisperInferTime": 536,
+        "llmTime": 2218,
+        "llmResponse": "The speaker's tone is one of concern and reassurance, responding to worries with a calm and reassuring message.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Surprised",
+        "faceClipName": "우아한인사",
+        "totalElapsedTime": 2765
+      },
+      {
+        "segment": " 학교 관두고 육지 가서 내가 망노동이라고 뭐",
+        "whileIgnored": [
+          " 내가 망노동이라고 먹여 살리겠다고"
+        ],
+        "whisperInferTime": 1600,
+        "llmTime": 2367,
+        "llmResponse": "The speaker becomes agitated and frustrated, their tone reflecting anxiety and exasperation as they express their concern about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3978
+      },
+      {
+        "segment": " 원래 내가 여행을 하고 싶어?",
+        "whileIgnored": [
+          " 내가 말했지?",
+          " 뭐가 그렇게 당겨?",
+          " 근데 뭐가 그렇게 다 안되나 그랬어?",
+          " 근데 뭐가 그렇게 당당했어? 이게 미안해",
+          " 아무게 없냐? 걸려가면",
+          " 아무게 없냐? 걸려가면 그 뿐이다"
+        ],
+        "whisperInferTime": 2024,
+        "llmTime": 6002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 8037
+      },
+      {
+        "segment": " 걸려가면 그 뿐이다 그거야?",
+        "whileIgnored": [
+          " 나한테는 아무도 없었는데",
+          " 나한테는 아무도 없었는데",
+          " 아방도 누이도 다 죽고",
+          " 아방도 누이도 다 죽고",
+          " 나한테는 남은 건 엄호"
+        ],
+        "whisperInferTime": 2973,
+        "llmTime": 6001,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 8985
+      },
+      {
+        "segment": " 나한테는 남은 건 어멍",
+        "whileIgnored": [
+          " 뿐이었는데 엄마라고 부르시고",
+          " 엄마라고 부르지 말라고?",
+          " 나에게 하나뿐인 마지막 어멍"
+        ],
+        "whisperInferTime": 1946,
+        "llmTime": 6005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 7962
+      },
+      {
+        "segment": " 막 어멍까지 뺏어낸 거야",
+        "whileIgnored": [
+          " 막 어멍까지 뺏어낸 거야",
+          " 나한테 미안한 게 없어"
+        ],
+        "whisperInferTime": 460,
+        "llmTime": 6002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 11,
+        "actionClipName": "Worried",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 6473
+      }
+    ]
+  }
+]

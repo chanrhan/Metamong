@@ -1,0 +1,148 @@
+[
+  {
+    "stepSec": 0.0,
+    "keepSec": 0.1,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 제 명의로 대체하는",
+        "whileIgnored": [],
+        "whisperInferTime": 5172,
+        "llmTime": 1305,
+        "llmResponse": "Output: The speaker, feeling annoyed, is expressing frustration.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "DDaBong_02",
+        "faceClipName": "Smile_S",
+        "actionScore": 1.0000000000000002,
+        "faceScore": 0.8600766746970625,
+        "totalElapsedTime": 6491
+      },
+      {
+        "segment": " -지금은?",
+        "whileIgnored": [],
+        "whisperInferTime": 5188,
+        "llmTime": 1372,
+        "llmResponse": "Output: The speaker, feeling impatient, is asking for an immediate response.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "DontKnow",
+        "faceClipName": "Sad_S",
+        "actionScore": 0.91284086344162041,
+        "faceScore": 0.77566841250653884,
+        "totalElapsedTime": 6576
+      },
+      {
+        "segment": " - 한 대.",
+        "whileIgnored": [
+          " 와이프루치차인데요"
+        ],
+        "whisperInferTime": 5215,
+        "llmTime": 732,
+        "llmResponse": "Output: The speaker, feeling annoyed, is making a sarcastic comment.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Listening",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.90522657825491748,
+        "faceScore": 0.80258955435654844,
+        "totalElapsedTime": 5960
+      },
+      {
+        "segment": " 제가 주 태어났다",
+        "whileIgnored": [],
+        "whisperInferTime": 3695,
+        "llmTime": 731,
+        "llmResponse": "Output: The speaker, feeling annoyed, is making a sarcastic comment.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Hansim",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.90953940371322062,
+        "faceScore": 0.80258955435654844,
+        "totalElapsedTime": 4429
+      },
+      {
+        "segment": " 하기가 있어요.",
+        "whileIgnored": [],
+        "whisperInferTime": 18125,
+        "llmTime": 696,
+        "llmResponse": "Output: The speaker, feeling playful and teasing, is jokingly threatening someone.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Laugh_small",
+        "faceClipName": "Smile_S",
+        "actionScore": 0.90104916403720126,
+        "faceScore": 0.83487271468145474,
+        "totalElapsedTime": 18838
+      },
+      {
+        "segment": " 맞습니까?",
+        "whileIgnored": [],
+        "whisperInferTime": 8603,
+        "llmTime": 810,
+        "llmResponse": "Output: The speaker, feeling sarcastic, is ironically agreeing with the other person.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Agreement",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.90363508303095275,
+        "faceScore": 0.74766942397687686,
+        "totalElapsedTime": 9428
+      },
+      {
+        "segment": " -뭐야?",
+        "whileIgnored": [],
+        "whisperInferTime": 4230,
+        "llmTime": 1465,
+        "llmResponse": "Output: The speaker, feeling surprised and slightly annoyed, is reacting to an unexpected situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 21,
+        "actionClipName": "Shouting",
+        "faceClipName": "Ashamed",
+        "actionScore": 0.83240649083745233,
+        "faceScore": 0.72192628728675035,
+        "totalElapsedTime": 5716
+      },
+      {
+        "segment": " 아니 제 명의는",
+        "whileIgnored": [
+          " 맞습니까?"
+        ],
+        "whisperInferTime": 6969,
+        "llmTime": 890,
+        "llmResponse": "Output: The speaker, feeling frustrated and sarcastic, is responding to the other person's question with a hint of annoyance.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "BulAn",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.85094144398320026,
+        "faceScore": 0.80777494044246712,
+        "totalElapsedTime": 7874
+      },
+      {
+        "segment": " 감사합니다.",
+        "whileIgnored": [],
+        "whisperInferTime": 4376,
+        "llmTime": 539,
+        "llmResponse": "Output: The speaker, feeling sarcastic and ironic, is expressing gratitude in a humorous manner.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Clapping",
+        "faceClipName": "Worried",
+        "actionScore": 0.82890282208303656,
+        "faceScore": 0.73202234363164531,
+        "totalElapsedTime": 4928
+      }
+    ]
+  }
+]

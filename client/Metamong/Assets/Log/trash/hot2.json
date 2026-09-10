@@ -1,0 +1,129 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 바패드? 바패드?",
+        "whileIgnored": [],
+        "whisperInferTime": 5763,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 8774
+      },
+      {
+        "segment": " 오오",
+        "whileIgnored": [
+          " 어... 나 이거...",
+          " 나 인구인데 잘 지내지?",
+          " 나 인구인데 잘 지내지?"
+        ],
+        "whisperInferTime": 1918,
+        "llmTime": 3004,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4930
+      },
+      {
+        "segment": " 나 진짜",
+        "whileIgnored": [
+          " 고민 많이 하고 너한테 얘기한 거야.",
+          " 고민 많이 하고 너한테 얘기한 거야"
+        ],
+        "whisperInferTime": 6938,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 9948
+      },
+      {
+        "segment": " 돈이야 모으면 되지",
+        "whileIgnored": [
+          " 돈이야 뭐 하면 되지",
+          " 여러분들이 그러잖아",
+          " 근데 그러잖아 그러면 돈이 모인다"
+        ],
+        "whisperInferTime": 2401,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5411
+      },
+      {
+        "segment": " 돈을 모아서 목도를 마련하며",
+        "whileIgnored": [
+          " 돈을 모아서 목도를 마련한 다음에",
+          " 집을 사면 되는 거 아니야?",
+          " 집을 사면 되는 거 아니야"
+        ],
+        "whisperInferTime": 3980,
+        "llmTime": 3005,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 6993
+      },
+      {
+        "segment": " 뭐 그렇게 궁금해",
+        "whileIgnored": [
+          " 뭐 그렇게 궁금해"
+        ],
+        "whisperInferTime": 1894,
+        "llmTime": 3002,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4904
+      },
+      {
+        "segment": " 하여튼 너무 강한 거 아니야?",
+        "whileIgnored": [],
+        "whisperInferTime": 2912,
+        "llmTime": 3007,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5927
+      }
+    ]
+  },
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 뭐 그런 걸로 해?",
+        "whileIgnored": [],
+        "whisperInferTime": 2940,
+        "llmTime": 3003,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5951
+      }
+    ]
+  }
+]

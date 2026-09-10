@@ -1,0 +1,248 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 이 자식 어둠 말고",
+        "whileIgnored": [
+          " 이 자식 얻은 말 들을까요 안 들을까요?"
+        ],
+        "whisperInferTime": 1975,
+        "llmTime": 2275,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4262
+      },
+      {
+        "segment": " 어 이거 뭐야 어?",
+        "whileIgnored": [
+          " 너 이거 이거 자꾸 나버려?",
+          " 어 자꾸 나오게 할거야 말거야",
+          " 어 cts"
+        ],
+        "whisperInferTime": 2925,
+        "llmTime": 2795,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 2,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5722
+      },
+      {
+        "segment": " 이거 할거야 말거야 어?",
+        "whileIgnored": [
+          " 이거 할거야 말거야 어",
+          " 도 그리고 외부"
+        ],
+        "whisperInferTime": 3457,
+        "llmTime": 2107,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 5571
+      },
+      {
+        "segment": " 또 이거 외에도",
+        "whileIgnored": [
+          " 이거 왜 또 사초 안나오냐",
+          " 사초 나와야 되는거 아니야?"
+        ],
+        "whisperInferTime": 1437,
+        "llmTime": 2564,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4009
+      },
+      {
+        "segment": " 사초 나와야 되는거 아냐",
+        "whileIgnored": [
+          " 이 자식이 지금 장난쳐"
+        ],
+        "whisperInferTime": 2453,
+        "llmTime": 1795,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4255
+      },
+      {
+        "segment": " 고개만 두리번 두리번가지고",
+        "whileIgnored": [
+          " 고개만 두리번 두리번가지고 어"
+        ],
+        "whisperInferTime": 2454,
+        "llmTime": 2031,
+        "llmResponse": "The speaker repeatedly asks questions and makes inquires, their tone reflecting curiosity and concern.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4496
+      },
+      {
+        "segment": " 지금 너 이거",
+        "whileIgnored": [
+          " 지금 너 이거 어",
+          " 지금 너 이거 어"
+        ],
+        "whisperInferTime": 1436,
+        "llmTime": 2448,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3891
+      },
+      {
+        "segment": " 맞아 아니야 빨리 말해",
+        "whileIgnored": [
+          " 맞아 아니야 빨리 말해 잘 나오는데",
+          " 잘 나오는데 잘 나오는데",
+          " 잘 나오는데 잘 나오는데"
+        ],
+        "whisperInferTime": 1924,
+        "llmTime": 2152,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4083
+      },
+      {
+        "segment": " 너의 바보 뭐지? 너의 인연",
+        "whileIgnored": [
+          " 뭐지? 너 이 녀석이 이거 지금",
+          " 이거 지금 이거 어",
+          " 이거 지금 이거 5둔 2만원"
+        ],
+        "whisperInferTime": 980,
+        "llmTime": 2187,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3174
+      },
+      {
+        "segment": " 이거 지금 이거 5년이 만한데 이거",
+        "whileIgnored": [
+          " 이거 그저 말고 이 녀석이"
+        ],
+        "whisperInferTime": 1447,
+        "llmTime": 1820,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3275
+      },
+      {
+        "segment": " 그리고 이 냉면이나 먹어도 될까?",
+        "whileIgnored": [
+          " 그리고 이 냉면이나 먹어도 될까?"
+        ],
+        "whisperInferTime": 440,
+        "llmTime": 2087,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 2534
+      },
+      {
+        "segment": " 그래 너 어때? 너가 잘못",
+        "whileIgnored": [
+          " 너 어때? 너가 잘못했으니까",
+          " 너가 잘못했으니까 냉면을 먹어가는거"
+        ],
+        "whisperInferTime": 1950,
+        "llmTime": 2178,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 4136
+      },
+      {
+        "segment": " 너가 잘못했지 이거",
+        "whileIgnored": [
+          " 뭐 하는거 아니야 지금",
+          " 아니야 지금 잘했으면 화덕 갈매기"
+        ],
+        "whisperInferTime": 454,
+        "llmTime": 2130,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 7,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 2591
+      },
+      {
+        "segment": " 갈매기 갈비싸도",
+        "whileIgnored": [
+          " 갈매기 갈비살을 먹어야겠다",
+          " 어 뭐야 잘 나와? 어?",
+          " 어 뭐야 잘 나와? 어?",
+          " 어 뭐야 잘 나오어? 어? 왜 잘 나오어?"
+        ],
+        "whisperInferTime": 957,
+        "llmTime": 2879,
+        "llmResponse": "The speaker's tone is one of concern and frustration, with a hint of exasperation as they inquire about the situation.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 3853
+      },
+      {
+        "segment": " 지금 이 자식이 지금 이거 오고",
+        "whileIgnored": [
+          " 지금 이 자식이 지금 이거",
+          " 이 사라 미바란다 치즈"
+        ],
+        "whisperInferTime": 986,
+        "llmTime": 2220,
+        "llmResponse": "The speaker tilts their head slightly and inquires with concern, asking what happened.",
+        "llmTimeout": false,
+        "sbertTime": 3,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 3209
+      },
+      {
+        "segment": " 이 사람이 많았는데 쟤 소리나 지르고 있고 이거 진짜",
+        "whileIgnored": [
+          " 사람이 만한데 지금 소리나 지르고 있고 이거 지금 어?"
+        ],
+        "whisperInferTime": 1460,
+        "llmTime": 2961,
+        "llmResponse": "The speaker's tone is one of frustration and annoyance, with a hint of exasperation as they express their disappointment and concern over the situation.",
+        "llmTimeout": false,
+        "sbertTime": 17,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4438
+      }
+    ]
+  }
+]

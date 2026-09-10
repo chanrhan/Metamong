@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e651dbb3fbac04af2b8f5abf007ddc23, type: 3}
+  m_Name: DefaultNetworkPrefabs
+  m_EditorClassIdentifier: 
+  IsDefault: 1
+  List:
+  - Override: 0
+    Prefab: {fileID: 7601493976933386784, guid: 006e53eee76e64d62a01d78a0cb07993, type: 3}
+    SourcePrefabToOverride: {fileID: 7601493976933386784, guid: 006e53eee76e64d62a01d78a0cb07993, type: 3}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 7601493976933386784, guid: 006e53eee76e64d62a01d78a0cb07993, type: 3}
+  - Override: 0
+    Prefab: {fileID: 3232820536256093580, guid: 895829f3e710645478fb273d981a9424, type: 3}
+    SourcePrefabToOverride: {fileID: 7601493976933386784, guid: 006e53eee76e64d62a01d78a0cb07993, type: 3}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 7601493976933386784, guid: 006e53eee76e64d62a01d78a0cb07993, type: 3}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: 6979ddf5e66883e4eb7233e385af42cc, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: 6e5bf06975aa4764489eb6dc6d640cff, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: be53985ad75ca544eb0d07a68d506d3c, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: dee1624e3946345b5bebfbacf6af4a85, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: 683832a1ec656bb4ea475239d1e56363, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: 93583a04d22d78944bb39d8ff9700b78, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 7203546503449801298, guid: d0c35e3e1e0b41b438fb9d8ef903d8fb, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}
+  - Override: 0
+    Prefab: {fileID: 9124639000001752788, guid: 17f422e49845c36499edae3af95a61d0, type: 3}
+    SourcePrefabToOverride: {fileID: 0}
+    SourceHashToOverride: 0
+    OverridingTargetPrefab: {fileID: 0}

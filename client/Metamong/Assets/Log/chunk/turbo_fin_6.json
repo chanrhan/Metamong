@@ -1,0 +1,90 @@
+[
+  {
+    "stepSec": 0.2,
+    "keepSec": 0.4,
+    "lengthSec": 1.0,
+    "logContextItems": [
+      {
+        "segment": " 나 쉬면 안돼요?",
+        "whileIgnored": [],
+        "whisperInferTime": 3658,
+        "llmTime": 1998,
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is expressing reluctance.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Angry_small",
+        "faceClipName": "Surprised",
+        "actionScore": 0.95681191060846194,
+        "faceScore": 0.82031051284397583,
+        "totalElapsedTime": 5670
+      },
+      {
+        "segment": " 끝 됐어요",
+        "whileIgnored": [
+          " 터미널 쉬는 사람이 없었어요"
+        ],
+        "whisperInferTime": 1585,
+        "llmTime": 585,
+        "llmResponse": "Output: The speaker, feeling relieved, is concluding the conversation.",
+        "emotion": "중립",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Clapping",
+        "faceClipName": "IdleFace",
+        "actionScore": 0.88042856521745994,
+        "faceScore": 0.84659092952030135,
+        "totalElapsedTime": 2181
+      },
+      {
+        "segment": " 평일날 이성분호사들",
+        "whileIgnored": [],
+        "whisperInferTime": 2138,
+        "llmTime": 642,
+        "llmResponse": "Output: The speaker, feeling annoyed, is complaining about the situation.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Listening",
+        "faceClipName": "Sad_L",
+        "actionScore": 0.96620943649516455,
+        "faceScore": 0.83436946111958044,
+        "totalElapsedTime": 2791
+      },
+      {
+        "segment": " 스커버스켓다",
+        "whileIgnored": [
+          " 자"
+        ],
+        "whisperInferTime": 2622,
+        "llmTime": 1280,
+        "llmResponse": "Output: The speaker, feeling annoyed, is grudgingly accepting the situation.",
+        "emotion": "분노",
+        "llmTimeout": false,
+        "sbertTime": 12,
+        "actionClipName": "Angry_big_02",
+        "faceClipName": "Hansim",
+        "actionScore": 0.91373407142699792,
+        "faceScore": 0.78420805784640746,
+        "totalElapsedTime": 3914
+      },
+      {
+        "segment": " 뭐요?",
+        "whileIgnored": [
+          " - 지금 좀 더 실을 하고요."
+        ],
+        "whisperInferTime": 2611,
+        "llmTime": 998,
+        "llmResponse": "Output: The speaker, feeling slightly annoyed, is asking what the other person wants.",
+        "emotion": "행복",
+        "llmTimeout": false,
+        "sbertTime": 13,
+        "actionClipName": "Listening",
+        "faceClipName": "Angry_S",
+        "actionScore": 0.914200601136796,
+        "faceScore": 0.78676237560884432,
+        "totalElapsedTime": 3622
+      }
+    ]
+  }
+]

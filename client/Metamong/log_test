@@ -1,0 +1,29 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " 내가 말하자",
+        "ignored": [
+          " 내가 말하고 있다면",
+          " 그거 있잖아",
+          " 거기 있잖아",
+          " 그니까",
+          " 끄덕끕끕",
+          " 웃지 말고",
+          " 웃지 말고"
+        ],
+        "inferTime": 1908,
+        "llmTime": 14648,
+        "llmResponse": "[Few-shot Examples]\nExample 1)\nbbb : 나 오늘 슬픈 일 있었어\nccc : 무슨 일 있었어\nOutput : The speaker tilts their head slightly and inquires with concern, asking what happened.\nExample 2)\nyyy : 나 갑자기 연차가 생겨서 놀러갈거야 당일 여행 추천 부탁해\nttt : 너 혼자 가는 거임? 수원에서 멀지 않은 거리면 예산 어때\nyyy : 어 너 거기 가봤어? 거기 어때?\nttt : 웅 대학교 친구들이랑 같이 갔었는데 다양한 먹거리도 많아서 너무 좋았어\n마지막 발화 yyy : 아 그래 이번에 가봐야겠다\nOutput : The speaker nods in enthusiastic agreement, their tone reflecting excitement and optimistic anticipation for the recommended day trip.\n\n---",
+        "llmTimeout": false,
+        "sbertTime": 30,
+        "actionClipName": "Sad_L",
+        "faceClipName": "우아한인사",
+        "totalTime": 16586
+      }
+    ]
+  }
+]

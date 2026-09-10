@@ -1,0 +1,245 @@
+[
+  {
+    "stepSec": 0.5,
+    "keepSec": 0.4,
+    "lengthSec": 2.0,
+    "logContextItems": [
+      {
+        "segment": " - 야, 황홀.",
+        "whileIgnored": [
+          " - 안녕 - 반가워 무슨 유명한 사람이 있는 거야?"
+        ],
+        "whisperInferTime": 2016,
+        "llmTime": 1380,
+        "llmResponse": "The Speaker is greeting someone.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Smile_S",
+        "faceClipName": "손인사",
+        "totalElapsedTime": 3404
+      },
+      {
+        "segment": " 뭐...",
+        "whileIgnored": [],
+        "whisperInferTime": 2742,
+        "llmTime": 2253,
+        "llmResponse": "The speaker exclaims in a tone of astonishment and excitement.",
+        "llmTimeout": false,
+        "sbertTime": 11,
+        "actionClipName": "Laugh_L",
+        "faceClipName": "펄쩍뛰며기쁨",
+        "totalElapsedTime": 5006
+      },
+      {
+        "segment": " - 아니, 진짜 안이기 때문에...",
+        "whileIgnored": [],
+        "whisperInferTime": 3451,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3451
+      },
+      {
+        "segment": " 아니긴 해 그러니까 사실 맞아 그것도",
+        "whileIgnored": [],
+        "whisperInferTime": 3969,
+        "llmTime": 95,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4064
+      },
+      {
+        "segment": " - 맞아 그것도 말인긴 해",
+        "whileIgnored": [],
+        "whisperInferTime": 2279,
+        "llmTime": 0,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 2279
+      },
+      {
+        "segment": " 좀 즐길 수 있다면?",
+        "whileIgnored": [
+          " 좀 즐길 수 있다면?",
+          " 좀 여론이 십찬이 나더라고요",
+          " 저는 그게 다 없었죠?"
+        ],
+        "whisperInferTime": 4966,
+        "llmTime": 2403,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 7369
+      },
+      {
+        "segment": " 저는 그때 없었지만",
+        "whileIgnored": [],
+        "whisperInferTime": 921,
+        "llmTime": 1498,
+        "llmResponse": "The speaker is expressing astonishment and inquiring about something.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Surprised",
+        "faceClipName": "Shy_with_headskaking",
+        "totalElapsedTime": 2427
+      },
+      {
+        "segment": " 사실 인상 치르는 건 없어요",
+        "whileIgnored": [
+          " 솔직히 인상 치르는 건 없는 거야"
+        ],
+        "whisperInferTime": 12477,
+        "llmTime": 2406,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 14883
+      },
+      {
+        "segment": " 누가 그걸 악이죠?",
+        "whileIgnored": [
+          " 누가 그걸 악의적으로",
+          " 진짜 우리 아까 그렇게",
+          " 진짜 우리 아까 그렇게 썩었을까?"
+        ],
+        "whisperInferTime": 1929,
+        "llmTime": 2405,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4334
+      },
+      {
+        "segment": " 아 그러진 않아 내가 보다",
+        "whileIgnored": [
+          " 아 그렇진 않아 내가 보기에"
+        ],
+        "whisperInferTime": 954,
+        "llmTime": 1345,
+        "llmResponse": "The speaker is expressing disdain and annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 2307
+      },
+      {
+        "segment": " 그건 그냥",
+        "whileIgnored": [
+          " 그건 그냥 그냥",
+          " 그게 모함이야 그건데",
+          " 그냥 모함이야 그건 내가 보기에"
+        ],
+        "whisperInferTime": 6905,
+        "llmTime": 2354,
+        "llmResponse": "The speaker is dismissing the previous conversation with a casual tone.",
+        "llmTimeout": false,
+        "sbertTime": 10,
+        "actionClipName": "Hansim",
+        "faceClipName": "StandingTalk1",
+        "totalElapsedTime": 9269
+      },
+      {
+        "segment": " 그 정도는 모함이고",
+        "whileIgnored": [
+          " 그 정도는 모함이고"
+        ],
+        "whisperInferTime": 1902,
+        "llmTime": 2254,
+        "llmResponse": "The speaker is expressing frustration and annoyance, their tone reflecting irritation.",
+        "llmTimeout": false,
+        "sbertTime": 8,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4164
+      },
+      {
+        "segment": " 나온다 근데 진짜",
+        "whileIgnored": [
+          " 안 나온다 근데 진짜 모셨는데?"
+        ],
+        "whisperInferTime": 1908,
+        "llmTime": 2404,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 4312
+      },
+      {
+        "segment": " 뭐야?",
+        "whileIgnored": [
+          " 뭐야?"
+        ],
+        "whisperInferTime": 5928,
+        "llmTime": 2179,
+        "llmResponse": "The speaker's tone is sarcastic and slightly defensive, responding to a question with a mixture of frustration and annoyance.",
+        "llmTimeout": false,
+        "sbertTime": 16,
+        "actionClipName": "Surprised",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 8123
+      },
+      {
+        "segment": " 왜 이렇게?",
+        "whileIgnored": [
+          " 뭐야 이거 진짜",
+          " 진짜 찍은 거네? 뭐야?",
+          " 진짜 찍은 거네? 뭐야?"
+        ],
+        "whisperInferTime": 4886,
+        "llmTime": 2273,
+        "llmResponse": "The speaker's tone is sarcastic and slightly annoyed, with a hint of frustration.",
+        "llmTimeout": false,
+        "sbertTime": 14,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 7173
+      },
+      {
+        "segment": " AI 그림은 아니네?",
+        "whileIgnored": [
+          " - AI 그런 건 아니네? - 이상한데요?",
+          " 이 사람들 유명하잖아 그거",
+          " - 그 사람들 유명하잖아 그거 - 누구입?"
+        ],
+        "whisperInferTime": 817,
+        "llmTime": 2420,
+        "llmResponse": null,
+        "llmTimeout": true,
+        "sbertTime": 0,
+        "actionClipName": null,
+        "faceClipName": null,
+        "totalElapsedTime": 3237
+      },
+      {
+        "segment": " 그냥 한국어로",
+        "whileIgnored": [],
+        "whisperInferTime": 2891,
+        "llmTime": 1711,
+        "llmResponse": "The speaker expresses frustration and annoyance, their tone reflecting irritation and exasperation.",
+        "llmTimeout": false,
+        "sbertTime": 15,
+        "actionClipName": "Hansim",
+        "faceClipName": "Yell",
+        "totalElapsedTime": 4617
+      }
+    ]
+  }
+]
